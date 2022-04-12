@@ -1,0 +1,9 @@
+F:\048 WebCentral.root\Web Central_v5\Capa_Datos\bin\Release\Capa_Datos.dll
+F:\048 WebCentral.root\Web Central_v5\Capa_Datos\bin\Release\Capa_Datos.pdb
+F:\048 WebCentral.root\Web Central_v5\Capa_Datos\bin\Release\Capa_Datos.xml
+F:\048 WebCentral.root\Web Central_v5\Capa_Datos\obj\Release\Capa_Datos.Resources.resources
+F:\048 WebCentral.root\Web Central_v5\Capa_Datos\obj\Release\Capa_Datos.vbproj.GenerateResource.cache
+F:\048 WebCentral.root\Web Central_v5\Capa_Datos\obj\Release\Capa_Datos.vbproj.CoreCompileInputs.cache
+F:\048 WebCentral.root\Web Central_v5\Capa_Datos\obj\Release\Capa_Datos.dll
+F:\048 WebCentral.root\Web Central_v5\Capa_Datos\obj\Release\Capa_Datos.xml
+F:\048 WebCentral.root\Web Central_v5\Capa_Datos\obj\Release\Capa_Datos.pdb

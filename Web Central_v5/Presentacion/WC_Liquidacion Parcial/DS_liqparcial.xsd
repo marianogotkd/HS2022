@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_liqparcial" targetNamespace="http://tempuri.org/DS_liqparcial.xsd" xmlns:mstns="http://tempuri.org/DS_liqparcial.xsd" xmlns="http://tempuri.org/DS_liqparcial.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_liqparcial" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_liqparcial" msprop:Generator_UserDSName="DS_liqparcial">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Recorridos_seleccionados" msprop:Generator_TableClassName="Recorridos_seleccionadosDataTable" msprop:Generator_TableVarName="tableRecorridos_seleccionados" msprop:Generator_TablePropName="Recorridos_seleccionados" msprop:Generator_RowDeletingName="Recorridos_seleccionadosRowDeleting" msprop:Generator_RowChangingName="Recorridos_seleccionadosRowChanging" msprop:Generator_RowEvHandlerName="Recorridos_seleccionadosRowChangeEventHandler" msprop:Generator_RowDeletedName="Recorridos_seleccionadosRowDeleted" msprop:Generator_UserTableName="Recorridos_seleccionados" msprop:Generator_RowChangedName="Recorridos_seleccionadosRowChanged" msprop:Generator_RowEvArgName="Recorridos_seleccionadosRowChangeEvent" msprop:Generator_RowClassName="Recorridos_seleccionadosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Totales_Parciales" msprop:Generator_TableClassName="Totales_ParcialesDataTable" msprop:Generator_TableVarName="tableTotales_Parciales" msprop:Generator_TablePropName="Totales_Parciales" msprop:Generator_RowDeletingName="Totales_ParcialesRowDeleting" msprop:Generator_RowChangingName="Totales_ParcialesRowChanging" msprop:Generator_RowEvHandlerName="Totales_ParcialesRowChangeEventHandler" msprop:Generator_RowDeletedName="Totales_ParcialesRowDeleted" msprop:Generator_UserTableName="Totales_Parciales" msprop:Generator_RowChangedName="Totales_ParcialesRowChanged" msprop:Generator_RowEvArgName="Totales_ParcialesRowChangeEvent" msprop:Generator_RowClassName="Totales_ParcialesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Terminal" msprop:Generator_ColumnVarNameInTable="columnTerminal" msprop:Generator_ColumnPropNameInRow="Terminal" msprop:Generator_ColumnPropNameInTable="TerminalColumn" msprop:Generator_UserColumnName="Terminal" type="xs:string" minOccurs="0" />
+              <xs:element name="Registros" msprop:Generator_ColumnVarNameInTable="columnRegistros" msprop:Generator_ColumnPropNameInRow="Registros" msprop:Generator_ColumnPropNameInTable="RegistrosColumn" msprop:Generator_UserColumnName="Registros" type="xs:string" minOccurs="0" />
+              <xs:element name="NoVerificados" msprop:Generator_ColumnVarNameInTable="columnNoVerificados" msprop:Generator_ColumnPropNameInRow="NoVerificados" msprop:Generator_ColumnPropNameInTable="NoVerificadosColumn" msprop:Generator_UserColumnName="NoVerificados" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PremiosxClientes" msprop:Generator_TableClassName="PremiosxClientesDataTable" msprop:Generator_TableVarName="tablePremiosxClientes" msprop:Generator_TablePropName="PremiosxClientes" msprop:Generator_RowDeletingName="PremiosxClientesRowDeleting" msprop:Generator_RowChangingName="PremiosxClientesRowChanging" msprop:Generator_RowEvHandlerName="PremiosxClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="PremiosxClientesRowDeleted" msprop:Generator_UserTableName="PremiosxClientes" msprop:Generator_RowChangedName="PremiosxClientesRowChanged" msprop:Generator_RowEvArgName="PremiosxClientesRowChangeEvent" msprop:Generator_RowClassName="PremiosxClientesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="Recorrido" msprop:Generator_ColumnVarNameInTable="columnRecorrido" msprop:Generator_ColumnPropNameInRow="Recorrido" msprop:Generator_ColumnPropNameInTable="RecorridoColumn" msprop:Generator_UserColumnName="Recorrido" type="xs:string" minOccurs="0" />
+              <xs:element name="Importe" msprop:Generator_ColumnVarNameInTable="columnImporte" msprop:Generator_ColumnPropNameInRow="Importe" msprop:Generator_ColumnPropNameInTable="ImporteColumn" msprop:Generator_UserColumnName="Importe" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PID" msprop:Generator_ColumnVarNameInTable="columnPID" msprop:Generator_ColumnPropNameInRow="PID" msprop:Generator_ColumnPropNameInTable="PIDColumn" msprop:Generator_UserColumnName="PID" type="xs:string" minOccurs="0" />
+              <xs:element name="SUC" msprop:Generator_ColumnVarNameInTable="columnSUC" msprop:Generator_ColumnPropNameInRow="SUC" msprop:Generator_ColumnPropNameInTable="SUCColumn" msprop:Generator_UserColumnName="SUC" type="xs:string" minOccurs="0" />
+              <xs:element name="P2" msprop:Generator_ColumnVarNameInTable="columnP2" msprop:Generator_ColumnPropNameInRow="P2" msprop:Generator_ColumnPropNameInTable="P2Column" msprop:Generator_UserColumnName="P2" type="xs:string" minOccurs="0" />
+              <xs:element name="SC" msprop:Generator_ColumnVarNameInTable="columnSC" msprop:Generator_ColumnPropNameInRow="SC" msprop:Generator_ColumnPropNameInTable="SCColumn" msprop:Generator_UserColumnName="SC" type="xs:string" minOccurs="0" />
+              <xs:element name="Premio" msprop:Generator_ColumnVarNameInTable="columnPremio" msprop:Generator_ColumnPropNameInRow="Premio" msprop:Generator_ColumnPropNameInTable="PremioColumn" msprop:Generator_UserColumnName="Premio" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T" msprop:Generator_ColumnVarNameInTable="columnT" msprop:Generator_ColumnPropNameInRow="T" msprop:Generator_ColumnPropNameInTable="TColumn" msprop:Generator_UserColumnName="T" type="xs:string" minOccurs="0" />
+              <xs:element name="OBS" msprop:Generator_ColumnVarNameInTable="columnOBS" msprop:Generator_ColumnPropNameInRow="OBS" msprop:Generator_ColumnPropNameInTable="OBSColumn" msprop:Generator_UserColumnName="OBS" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

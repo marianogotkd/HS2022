@@ -1,0 +1,5 @@
+funcionan los textbox con fechas usando la propiedad textmode="date"
+
+no usar controles de ajax x que dan error y deja de funcionar el textmode.
+
+07-10-2021
