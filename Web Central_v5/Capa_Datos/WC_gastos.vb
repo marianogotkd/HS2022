@@ -3,6 +3,8 @@ Imports System.Data.DataRow
 Public Class WC_gastos
     Inherits Capa_Datos.Conexion
 
+    'CHOCO MODIFICO 20:24
+
 #Region "Gastos Tipo"
     Public Function GastosTipo_validar(ByVal motivo As String) As DataSet
         Try
