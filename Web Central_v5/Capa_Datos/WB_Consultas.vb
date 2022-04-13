@@ -24,7 +24,7 @@ Public Class WB_Consultas
         DA.Fill(ds, "Clientes")
         dbconn.Close()
         Return ds.Tables(0)
-        ''''### son las 19:53
+        ''''### son las 20:16
     End Function
 
 
