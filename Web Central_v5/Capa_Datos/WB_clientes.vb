@@ -2,7 +2,7 @@
 Imports System.Data.DataRow
 Public Class WB_clientes
     Inherits Capa_Datos.Conexion
-
+    'EDITADO 2022-13-04 CHOCO GIT WEB
     Public Function Clientes_alta(ByVal Nombre As String,
                                 ByVal Grupo_id As Integer,
                                 ByVal Comision As Decimal,
