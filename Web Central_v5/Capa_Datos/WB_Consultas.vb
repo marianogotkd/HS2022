@@ -24,6 +24,8 @@ Public Class WB_Consultas
         DA.Fill(ds, "Clientes")
         dbconn.Close()
         Return ds.Tables(0)
+        
+        '''### Agregado desde la pagina!!18:30
 
     End Function
 
