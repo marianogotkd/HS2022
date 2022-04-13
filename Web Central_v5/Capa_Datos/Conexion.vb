@@ -17,5 +17,7 @@ Public Class Conexion
 
 
     'PRUEBA CAMBIOS GIT CHOCO 
+    Dim akajshd As String = ""
+
 
 End Class
