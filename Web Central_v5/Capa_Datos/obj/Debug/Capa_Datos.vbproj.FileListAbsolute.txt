@@ -91,3 +91,13 @@ C:\Repositorio HS2021\LEO\Web Central_v52022-04-03\Web Central_v5\Capa_Datos\obj
 C:\Repositorio HS2021\LEO\Web Central_v52022-04-03\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.dll
 C:\Repositorio HS2021\LEO\Web Central_v52022-04-03\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.xml
 C:\Repositorio HS2021\LEO\Web Central_v52022-04-03\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.pdb
+C:\Repositorio HS2022\HS2022\Web Central_v5\Capa_Datos\bin\Debug\Capa_Datos.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Capa_Datos\bin\Debug\Capa_Datos.pdb
+C:\Repositorio HS2022\HS2022\Web Central_v5\Capa_Datos\bin\Debug\Capa_Datos.xml
+C:\Repositorio HS2022\HS2022\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.vbproj.AssemblyReference.cache
+C:\Repositorio HS2022\HS2022\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.Resources.resources
+C:\Repositorio HS2022\HS2022\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.vbproj.GenerateResource.cache
+C:\Repositorio HS2022\HS2022\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.vbproj.CoreCompileInputs.cache
+C:\Repositorio HS2022\HS2022\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.xml
+C:\Repositorio HS2022\HS2022\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.pdb

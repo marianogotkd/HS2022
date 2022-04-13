@@ -15,4 +15,7 @@ Public Class Conexion
     ''SERVIDOR con WinNT
     ' Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=WebCentral;Data Source=SRVSQL-CENTRAL")
 
+
+    'PRUEBA CAMBIOS GIT CHOCO 
+
 End Class

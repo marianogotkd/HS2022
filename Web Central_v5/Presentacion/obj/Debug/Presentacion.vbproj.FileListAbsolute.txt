@@ -197,3 +197,39 @@ C:\Repositorio HS2021\LEO\Web Central_v52022-04-03\Web Central_v5\Presentacion\o
 C:\Repositorio HS2021\LEO\Web Central_v52022-04-03\Web Central_v5\Presentacion\obj\Debug\Presentacion.dll
 C:\Repositorio HS2021\LEO\Web Central_v52022-04-03\Web Central_v5\Presentacion\obj\Debug\Presentacion.xml
 C:\Repositorio HS2021\LEO\Web Central_v52022-04-03\Web Central_v5\Presentacion\obj\Debug\Presentacion.pdb
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\WC_Liquidacion Parcial\Reportes\CR01.rpt
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\WC_Liquidacion Parcial\Reportes\CR01.vb
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\Presentacion.dll.config
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\Presentacion.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\Presentacion.pdb
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\Presentacion.xml
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\Capa_Datos.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportSource.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.Shared.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.Web.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\log4net.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\stdole.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\Capa_Datos.pdb
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\Capa_Datos.xml
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\bin\log4net.xml
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\obj\Debug\Presentacion.vbproj.AssemblyReference.cache
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\obj\Debug\Presentacion.Resources.resources
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\obj\Debug\Presentacion.vbproj.GenerateResource.cache
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\obj\Debug\Presentacion.vbproj.CoreCompileInputs.cache
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\obj\Debug\Presentacion.vbproj.CopyComplete
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\obj\Debug\Presentacion.dll
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\obj\Debug\Presentacion.xml
+C:\Repositorio HS2022\HS2022\Web Central_v5\Presentacion\obj\Debug\Presentacion.pdb
