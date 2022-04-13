@@ -22,5 +22,8 @@ Capa_Datos
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="M:Capa_Datos.WB_Consultas.CargasClientesDesdeHasta(System.String,System.String,System.String,System.String)">
+####hola a todos 19:00
+</member>
 </members>
 </doc>
