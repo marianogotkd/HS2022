@@ -2,7 +2,7 @@
 Imports System.Data.DataRow
 Public Class WB_usuarios
     Inherits Capa_Datos.Conexion
-
+    ''''################aquiiiiiiiiiiiiiii 18:34
     Public Function Usuarios_ObtenerUsuario(ByVal Usuario As String, ByVal Contraseña As String) As DataSet
         Try
             dbconn.Open()
