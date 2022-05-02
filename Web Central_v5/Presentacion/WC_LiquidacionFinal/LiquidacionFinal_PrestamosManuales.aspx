@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="LiquidacionParcial_PremiosxClientes.aspx.vb" Inherits="Presentacion.LiquidacionParcial_PremiosxClientes" %>
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="LiquidacionFinal_PrestamosManuales.aspx.vb" Inherits="Presentacion.LiquidacionFinal_PrestamosManuales" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -7,7 +7,7 @@
     <ContentTemplate>
       <div class="card card-primary">
           <div class="card-header">
-                <h3 class="card-title">LIQUIDACION PARCIAL - PREMIOS POR CLIENTES</h3>
+                <h3 class="card-title">LIQUIDACION FINAL - TOTALES MANUALES</h3>
           </div>
           <form role="form">
 <div class="card-body">
@@ -21,7 +21,7 @@
                                 <div class="col-lg"> <%--antes col-4--%>
                                         <div class="form-group">
                                                 <asp:HiddenField ID="HF_parametro_id" runat="server" />
-                                            <asp:Label ID="LABEL_FECHA" runat="server" Text="PREMIOS POR CLIENTES PARA LA FECHA:"></asp:Label>
+                                            <asp:Label ID="LABEL_FECHA" runat="server" Text="COBRO DE PRESTAMOS MANUALES EN LA FECHA:"></asp:Label>
                                           <asp:Label ID="LABEL_fecha_parametro" runat="server" Text=""></asp:Label>
                                             
                                           <asp:HiddenField ID="HF_fecha" runat="server" />
@@ -46,33 +46,30 @@
           <div class="form-group">
               <div class="row justify-content-center">
               
-                <div class="col-lg"> <%--antes col-8--%>
-                  <asp:GridView ID="GridView2" runat="server">
-                    </asp:GridView>
+                <div class="col-lg"> <%--estaba col-8--%>
+                  
                 <div class="card">
                     
                     <div class="card-body table-responsive p-0" style="height: 400px" onkeydown="tecla_op_botones(event);"> <%--div class="form-group"--%>
-                            <asp:GridView ID="GridView1" runat="server" class="table table-head-fixed text-nowrap" AllowSorting="True" AutoGenerateColumns="False" 
+                            <asp:GridView ID="GridView1" runat="server" class="table table-head-fixed text-nowrap" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" 
                                    BorderColor="Black" GridLines="None" 
-                                  EnableSortingAndPagingCallbacks="True"> 
+                                  EnableSortingAndPagingCallbacks="True"  ShowHeader="True"> 
                                     <Columns>
                                         <asp:BoundField DataField="Cliente" HeaderText="CLIENTE" >                                                               
+                                        <HeaderStyle ForeColor="#0099FF" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="Recorrido" HeaderText="RECORRIDO" >                                                               
+                                        <asp:BoundField DataField="Fecha_Ori" HeaderText="FECHA ORI" >                                                               
+                                        <HeaderStyle ForeColor="#0099FF" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="Importe" HeaderText="IMPORTE" >                                                               
+                                        <asp:BoundField DataField="Importe_Cob" HeaderText="IMPORTE COB" >                                                               
+                                        <HeaderStyle ForeColor="#0099FF" />
                                         </asp:BoundField>
-                                        
-                                        
-                                        <asp:BoundField DataField="PID" HeaderText="PID" />
-                                        <asp:BoundField DataField="SUC" HeaderText="SUC" />
-                                        <asp:BoundField DataField="P2" HeaderText="P2" />
-                                        <asp:BoundField DataField="S2" HeaderText="S2" />
-                                        <asp:BoundField DataField="SC" HeaderText="SC" />
-                                        <asp:BoundField DataField="Premio" HeaderText="PREMIO" />
-                                        <asp:BoundField DataField="T" HeaderText="T" />
-                                        <asp:BoundField DataField="OBS" HeaderText="OBS" />
-                                        
+                                        <asp:BoundField DataField="Saldo" HeaderText="SALDO" >                                                               
+                                        <HeaderStyle ForeColor="#0099FF" />
+                                        </asp:BoundField>
+                                      <asp:BoundField DataField="Prestamo" HeaderText="PRESTAMO" >                                                               
+                                        <HeaderStyle ForeColor="#0099FF" />
+                                        </asp:BoundField>
                                         
                                     </Columns>
                                 </asp:GridView>
@@ -96,7 +93,7 @@
         <div class="row justify-content-center" >
         <div class="row align-items-center">
             <div class="form-group">
-            <button type="submit" UseSubmitBehavior="false" class="btn btn-primary" runat="server" id="btn_retroceder" onkeydown="tecla_op_botones(event);">
+            <button type="submit" UseSubmitBehavior="false" class="btn btn-primary" runat="server" id="btn_continuar" onkeydown="tecla_op_botones(event);">
                 CONTINUAR</button>
             &nbsp;
             </div>
@@ -146,7 +143,30 @@
       </div>
       <!-- /.modal -->
 
+
+
+
+      <!-- Modal GRABAR MODIFICACION CENTRADO EN PANTALLA -->
+<div class="modal fade" id="Mdl_CobroPrestamosxComision" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="H2"></h5>
+        <button type="button" id="btn_CobroPresCom_close" class="close" tabindex="-1" runat="server" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Desea descontar "Prestamos por Comision"?...
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn_CobroPresCom_no" class="btn btn-secondary" runat="server" data-dismiss="modal">No</button>
+        <button type="button" id="btn_CobroPresCom_si" class="btn btn-primary" runat="server" data-dismiss="modal">Si</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     </ContentTemplate>
   </asp:UpdatePanel>
-
 </asp:Content>

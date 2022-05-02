@@ -1,0 +1,9 @@
+create procedure CtaCte_obtener
+@Codigo int,
+@Fecha date
+
+as
+
+select * from CtaCte where Codigo = @Codigo and Fecha = @Fecha
+
+go

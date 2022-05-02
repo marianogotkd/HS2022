@@ -1,0 +1,3 @@
+A TODOS LOS CAMPOS DECIMALES PONER 38,2
+
+estaban decimal 14,2

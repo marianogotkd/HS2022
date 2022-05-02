@@ -903,6 +903,8 @@ Partial Public Class DS_liqparcial
         
         Private columnOBS As Global.System.Data.DataColumn
         
+        Private columnS2 As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -1019,6 +1021,14 @@ Partial Public Class DS_liqparcial
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property S2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnS2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1055,9 +1065,9 @@ Partial Public Class DS_liqparcial
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddPremiosxClientesRow(ByVal Cliente As String, ByVal Recorrido As String, ByVal Importe As Decimal, ByVal PID As String, ByVal SUC As String, ByVal P2 As String, ByVal SC As String, ByVal Premio As Decimal, ByVal T As String, ByVal OBS As String) As PremiosxClientesRow
+        Public Overloads Function AddPremiosxClientesRow(ByVal Cliente As String, ByVal Recorrido As String, ByVal Importe As Decimal, ByVal PID As String, ByVal SUC As String, ByVal P2 As String, ByVal SC As String, ByVal Premio As Decimal, ByVal T As String, ByVal OBS As String, ByVal S2 As String) As PremiosxClientesRow
             Dim rowPremiosxClientesRow As PremiosxClientesRow = CType(Me.NewRow,PremiosxClientesRow)
-            Dim columnValuesArray() As Object = New Object() {Cliente, Recorrido, Importe, PID, SUC, P2, SC, Premio, T, OBS}
+            Dim columnValuesArray() As Object = New Object() {Cliente, Recorrido, Importe, PID, SUC, P2, SC, Premio, T, OBS, S2}
             rowPremiosxClientesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPremiosxClientesRow)
             Return rowPremiosxClientesRow
@@ -1090,6 +1100,7 @@ Partial Public Class DS_liqparcial
             Me.columnPremio = MyBase.Columns("Premio")
             Me.columnT = MyBase.Columns("T")
             Me.columnOBS = MyBase.Columns("OBS")
+            Me.columnS2 = MyBase.Columns("S2")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1115,6 +1126,8 @@ Partial Public Class DS_liqparcial
             MyBase.Columns.Add(Me.columnT)
             Me.columnOBS = New Global.System.Data.DataColumn("OBS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOBS)
+            Me.columnS2 = New Global.System.Data.DataColumn("S2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnS2)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1553,6 +1566,21 @@ Partial Public Class DS_liqparcial
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property S2() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePremiosxClientes.S2Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'S2' de la tabla 'PremiosxClientes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePremiosxClientes.S2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsClienteNull() As Boolean
             Return Me.IsNull(Me.tablePremiosxClientes.ClienteColumn)
         End Function
@@ -1669,6 +1697,18 @@ Partial Public Class DS_liqparcial
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetOBSNull()
             Me(Me.tablePremiosxClientes.OBSColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsS2Null() As Boolean
+            Return Me.IsNull(Me.tablePremiosxClientes.S2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetS2Null()
+            Me(Me.tablePremiosxClientes.S2Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     

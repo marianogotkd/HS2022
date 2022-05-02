@@ -1,4 +1,4 @@
-﻿Public Class Cliente_alta_b
+Public Class Cliente_alta_b
     Inherits System.Web.UI.Page
     Dim daGrupos As New Capa_Datos.WC_grupos
     Dim daClientes As New Capa_Datos.WB_clientes
@@ -500,58 +500,61 @@
         Txt_comision.Attributes.Add("onfocus", "seleccionarTexto(this);")
     End Sub
 
-    Private Sub Txt_comision1_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_comision1.Init
-        Txt_comision1.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    End Sub
+  Private Sub Txt_comision1_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_comision1.Init
+    Txt_comision1.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  End Sub
 
-    Private Sub Txt_regalo_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_regalo.Init
-        Txt_regalo.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    End Sub
+  Private Sub Txt_regalo_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_regalo.Init
+    Txt_regalo.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  End Sub
 
-    Private Sub Txt_regalo1_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_regalo1.Init
-        Txt_regalo1.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    End Sub
 
-    'Private Sub Txt_proceso_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_proceso.Init
-    '    Txt_proceso.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    'End Sub
+  'Private Sub Txt_proceso_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_proceso.Init
+  '    Txt_proceso.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  'End Sub
 
-    'Private Sub Txt_calculo_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_calculo.Init
-    '    Txt_calculo.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    'End Sub
+  'Private Sub Txt_calculo_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_calculo.Init
+  '    Txt_calculo.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  'End Sub
 
-    'Private Sub Txt_factor_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_factor.Init
-    '    Txt_factor.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    'End Sub
+  'Private Sub Txt_factor_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_factor.Init
+  '    Txt_factor.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  'End Sub
 
-    'Private Sub Txt_imprimecalculo_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_imprimecalculo.Init
-    '    Txt_imprimecalculo.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    'End Sub
+  'Private Sub Txt_imprimecalculo_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_imprimecalculo.Init
+  '    Txt_imprimecalculo.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  'End Sub
 
-    Private Sub Txt_recorrido_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_recorrido.Init
-        Txt_recorrido.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    End Sub
+  Private Sub Txt_recorrido_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_recorrido.Init
+    Txt_recorrido.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  End Sub
 
-    Private Sub Txt_orden_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_orden.Init
-        Txt_orden.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    End Sub
+  Private Sub Txt_orden_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_orden.Init
+    Txt_orden.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  End Sub
 
-    'Private Sub Txt_variable_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_variable.Init
-    '    Txt_variable.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    'End Sub
+  'Private Sub Txt_variable_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_variable.Init
+  '    Txt_variable.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  'End Sub
 
-    'Private Sub Txt_variable1_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_variable1.Init
-    '    Txt_variable1.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    'End Sub
+  'Private Sub Txt_variable1_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_variable1.Init
+  '    Txt_variable1.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  'End Sub
 
-    Private Sub Txt_leyenda_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_leyenda.Init
-        Txt_leyenda.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    End Sub
+  Private Sub Txt_leyenda_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_leyenda.Init
+    Txt_leyenda.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  End Sub
 
-    Private Sub Txt_leyenda1_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_leyenda1.Init
-        Txt_leyenda1.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    End Sub
+  Private Sub Txt_leyenda1_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_leyenda1.Init
+    Txt_leyenda1.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  End Sub
+
+  Private Sub Txt_regalo1_Init(sender As Object, e As EventArgs) Handles Txt_regalo1.Init
+    Txt_regalo1.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  End Sub
+
+
 #End Region
 
-    
+
 End Class

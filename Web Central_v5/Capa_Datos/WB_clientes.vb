@@ -194,6 +194,7 @@ Public Class WB_clientes
     End Function
 
     Public Function Clientes_modificar_saldos(ByVal Cliente As Integer, ByVal Saldo As Decimal, ByVal SaldoRegalo As Decimal) As DataSet
+        'nota: MODIFICA SALDO Y SALDO REGALO
         Try
             dbconn.Open()
         Catch ex As Exception
@@ -207,6 +208,89 @@ Public Class WB_clientes
         Dim ds As New DataSet()
         Dim DA As New OleDbDataAdapter(comando)
         ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Grupos".
+        DA.Fill(ds, "Clientes")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
+    Public Function Clientes_ActualizarSaldo(ByVal Cliente_Codigo As String, ByVal Saldoanterior As Decimal, ByVal Saldo As Decimal) As DataSet
+        'nota: modifica saldoanterior y saldo, es parte del proceso de liquidacion final.
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Clientes_ActualizarSaldo", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Codigo", Cliente_Codigo))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Saldoanterior", Saldoanterior))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Saldo", Saldo))
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Clientes".
+        DA.Fill(ds, "Clientes")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
+    Public Function Clientes_ActualizarSaldoRegalo(ByVal Cliente_Codigo As String, ByVal SaldoRegalo As Decimal) As DataSet
+        'nota: modifica saldoregalo, es parte del proceso de liquidacion final.
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Clientes_ActualizarSaldoRegalo", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Codigo", Cliente_Codigo))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@SaldoRegalo", SaldoRegalo))
+
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Clientes".
+        DA.Fill(ds, "Clientes")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
+    Public Function Clientes_ActualizarFechaLiq(ByVal UltFechaLiq As Date) As DataSet
+
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Clientes_ActualizarFechaLiq", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@UltFechaLiq", UltFechaLiq))
+
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Clientes".
+        DA.Fill(ds, "Clientes")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
+    Public Function Cliente_ActualizarSaldo_ctacte(ByVal Cliente As Integer, ByVal IdCtaCte As Integer) As DataSet
+
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Cliente_ActualizarSaldo_ctacte", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Cliente", Cliente))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@IdCtaCte", IdCtaCte))
+
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Clientes".
         DA.Fill(ds, "Clientes")
         ''Cierro la conexión
         dbconn.Close()

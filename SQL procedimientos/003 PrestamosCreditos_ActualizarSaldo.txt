@@ -1,0 +1,9 @@
+ALTER PROCEDURE PrestamosCreditos_ActualizarSaldo
+@Idprestamocredito int,
+@Saldo decimal(38,2),
+@Estado_id int
+
+as
+update PrestamosCreditos set Saldo=@Saldo, Estado_id = @Estado_id where Idprestamocredito = @Idprestamocredito
+
+go

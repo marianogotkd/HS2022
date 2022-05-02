@@ -85,10 +85,12 @@
     <Compile Include="WB_Consultas.vb" />
     <Compile Include="WB_usuarios.vb" />
     <Compile Include="WC_anticipados.vb" />
+    <Compile Include="WC_CtaCte.vb" />
     <Compile Include="WC_gastos.vb" />
     <Compile Include="WC_grupos.vb" />
     <Compile Include="WC_Liquidacion.vb" />
     <Compile Include="WC_parametro.vb" />
+    <Compile Include="WC_premios.vb" />
     <Compile Include="WC_prestamoscreditos.vb" />
     <Compile Include="WC_puntos.vb" />
     <Compile Include="WC_recorridos_zonas.vb" />

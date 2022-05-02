@@ -1,0 +1,8 @@
+CREATE PROCEDURE CtaCte_actualizarCobPrestamo
+
+@IdCtaCte int,
+@CobPrestamo decimal(38,2)
+as
+update CtaCte set CobPrestamo = @CobPrestamo where CtaCte.IdCtacte = @IdCtaCte 
+
+go

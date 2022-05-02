@@ -1,34 +1,285 @@
-Public Class LiquidacionParcial_PremiosxClientes
+Public Class LiquidacionFinal
   Inherits System.Web.UI.Page
-#Region "Declaraciones"
+
+#Region "DECLARACIONES"
+  Dim DAparametro As New Capa_Datos.WC_parametro
+  Dim DArecorrido As New Capa_Datos.WC_recorridos_zonas
+  Dim DApuntos As New Capa_Datos.WC_puntos
   Dim DALiquidacion As New Capa_Datos.WC_Liquidacion
   Dim DACliente As New Capa_Datos.WB_clientes
+  Dim DAPremios As New Capa_Datos.WC_premios
+  Dim DAAnticipados As New Capa_Datos.WC_anticipados
+  Dim DACtaCte As New Capa_Datos.WC_CtaCte
 #End Region
 
-#Region "Eventos"
+#Region "EVENTOS"
   Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
     If Not IsPostBack Then
-      HF_fecha.Value = Session("fecha_parametro")
-      Dim FECHA As Date = CDate(HF_fecha.Value)
-      'LABEL_fecha_parametro.Text = FECHA.ToString("yyyy-MM-dd")
-      LABEL_fecha_parametro.Text = FECHA.ToString("dd-MM-yyyy")
+      'AQUI VALIDO, SI NO HAY NINGUNA FECHA EN LA TABLA PARAMETRO, PONGO UN MENSAJE MODAL QUE DIGA:
+      'ERROR, PRIMERO DEBE INICIAR DIA.
+      Dim ds_info As DataSet = DAparametro.Parametro_obtener_dia
+      If ds_info.Tables(0).Rows.Count <> 0 Then
+        'cargo la fecha y el dia en los textbox
+        HF_parametro_id.Value = ds_info.Tables(0).Rows(0).Item("Parametro_id")
+        Dim FECHA As Date = CDate(ds_info.Tables(0).Rows(0).Item("Fecha"))
+        HF_fecha.Value = ds_info.Tables(0).Rows(0).Item("Fecha")
+        'Label_fecha.Text = FECHA.ToString("yyyy-MM-dd")
+        Label_fecha.Text = FECHA.ToString("dd-MM-yyyy")
+        Dim dia As Integer = CInt(ds_info.Tables(0).Rows(0).Item("Dia"))
+        HF_dia_id.Value = dia
+        Select Case dia
+          Case 1
+            Label_dia.Text = "DOMINGO."
+          Case 2
+            Label_dia.Text = "LUNES."
+          Case 3
+            Label_dia.Text = "MARTES."
+          Case 4
+            Label_dia.Text = "MIERCOLES."
+          Case 5
+            Label_dia.Text = "JUEVES."
+          Case 6
+            Label_dia.Text = "VIERNES."
+          Case 7
+            Label_dia.Text = "SABADO."
+        End Select
+        'mostrar_zonas_habilitadas(dia)
 
-      '---------------------------------------------------------
-      Dim DS_liqparcial As New DS_liqparcial
-      DS_liqparcial.Tables("Recorridos_seleccionados").Merge(Session("tabla_recorridos_seleccionados"))
-      'GridView2.DataSource = DS_liqparcial.Tables("Recorridos_seleccionados")
-      'GridView2.DataBind()
-      GridView2.Visible = False
+      Else
+        'AQUI MENSAJE Y QUE CON EL BOTON "OK" U "CLOSE" VUELVA AL MENU PRINCIPAL.
+        ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_error", "$(document).ready(function () {$('#modal-ok_error').modal();});", True)
+      End If
 
-      'obtener_totales_parciales(DS_liqparcial)
-      obtener_premios_x_clientes(DS_liqparcial)
+      Txt_OP.Focus()
     End If
   End Sub
+  Private Sub Txt_OP_Init(sender As Object, e As EventArgs) Handles Txt_OP.Init
+    Txt_OP.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  End Sub
+
+  Private Sub btn_retroceder_ServerClick(sender As Object, e As EventArgs) Handles btn_retroceder.ServerClick
+    Response.Redirect("~/Inicio.aspx")
+  End Sub
+
+  Private Sub btn_error_close_ServerClick(sender As Object, e As EventArgs) Handles btn_error_close.ServerClick
+    Response.Redirect("~/Inicio.aspx")
+  End Sub
+
+  Private Sub btn_ok_error_ServerClick(sender As Object, e As EventArgs) Handles btn_ok_error.ServerClick
+    Response.Redirect("~/Inicio.aspx")
+  End Sub
+
+  Private Sub btn_modificar_ServerClick(sender As Object, e As EventArgs) Handles btn_modificar.ServerClick
+    If Txt_OP.Text.ToUpper = "OK" Then
+      metodo1()
+    Else
+      'error
+      Txt_OP.Focus()
+    End If
+  End Sub
+
+  Private Sub Btn_ErrorValidacionOk_ServerClick(sender As Object, e As EventArgs) Handles Btn_ErrorValidacionOk.ServerClick
+    Response.Redirect("~/Inicio.aspx")
+  End Sub
+
+  Private Sub Btn_ErrorValidacionClose_ServerClick(sender As Object, e As EventArgs) Handles Btn_ErrorValidacionClose.ServerClick
+    Response.Redirect("~/Inicio.aspx")
+  End Sub
+
+
 #End Region
 
-#Region "Metodos"
+#Region "METODOS"
+  Public Function conv_bit(ByRef estado As Integer)
+    If estado = -1 Then
+      estado = 1
+    Else
+      If estado = 0 Then
 
-  Private Sub obtener_premios_x_clientes(ByVal DS_liqparcial As DataSet)
+      End If
+    End If
+    Return estado
+  End Function
+
+  Private Sub Validar_recorridos_a(ByRef valido As String, ByVal Codigo As String, ByRef codigo_error As String, ByRef check As String)
+    check = "si"
+
+    'valido que exista al menos 1 punto cargado para el item seleccionado.
+    Dim dataset_recorridos As DataSet = DALiquidacion.Liquidacion_validar_recorridos(HF_fecha.Value, Codigo)
+    Dim validacion As String = "no"
+    If dataset_recorridos.Tables(0).Rows.Count <> 0 Then
+      Dim punto_encontrado As String = ""
+      Dim i As Integer = 7 'desde p1 a p20...va 7 porque es la posicion de la columna en el dataset
+      While i < 27
+        If dataset_recorridos.Tables(0).Rows(0).Item(i) <> "" Then
+          validacion = "si"
+          Exit While
+        End If
+        i = i + 1
+      End While
+      If validacion = "si" Then
+        valido = "si"
+        codigo_error = ""
+      Else
+        valido = "no"
+        codigo_error = "No se encontraron puntos cargados."
+      End If
+    Else
+      valido = "no"
+      codigo_error = "No se encontraron puntos cargados."
+    End If
+
+  End Sub
+
+  Private Sub metodo1()
+    Dim DS_liqparcial As New DS_liqparcial
+
+    '1ra VALIDACION.------------------------------------
+    Dim check As String = "no"
+    Dim valido As String = "si"
+    Dim codigo_error As String = "" 'aqui se va a almacenar el codigo donde la validación falló, para poder mostrarlo posteriormente en un mensaje al usuario.
+    Dim valido_xcargas As String = "si"
+
+    'validamos todos los elementos de Recorrido1
+    Validacion(DS_liqparcial, valido, valido_xcargas, codigo_error, check)
+
+    If valido = "si" Then
+      'en la rutina VALIDACION se cargaron los codigos de las zonas habilitadas aqui: DS_liqparcial.Tables("Recorridos_seleccionados")
+      Liquidacion(DS_liqparcial)
+
+      'envio los parametros y tablas para generar el informe con los Totales Finales.
+      Session("fecha_parametro") = HF_fecha.Value
+      Session("tabla_recorridos_seleccionados") = DS_liqparcial.Tables("Recorridos_seleccionados")
+      Response.Redirect("~/WC_LiquidacionFinal/LiquidacionFinal_TotalesFinales.aspx")
+
+    Else
+      ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ErrorValidacion", "$(document).ready(function () {$('#modal-ErrorValidacion').modal();});", True)
+    End If
+
+
+  End Sub
+
+  Private Sub Validacion(ByRef DS_liqparcial As DataSet, ByRef valido As String, ByRef valido_xcargas As String, ByRef codigo_error As String, ByRef check As String)
+    'recupero los codigos de las zonas habilitadas para el dia vigente.
+    Dim DS_Recorridos As DataSet = DArecorrido.recorridos_zonas_obtener_habilitados_x_dia(HF_dia_id.Value)
+    'voy a recorrer todas las zonas habilitadas para el dia
+    Dim ContZonaHab As Integer = 0 'contar zonas habilitadas
+    Dim i As Integer = 0
+    While i < DS_Recorridos.Tables(1).Rows.Count
+      Dim Habilitada As Integer = conv_bit(CInt(DS_Recorridos.Tables(1).Rows(i).Item("Habilitada")))
+      Dim codigo As String = DS_Recorridos.Tables(1).Rows(i).Item("Codigo")
+      If Habilitada = 1 Then
+        '1 VALIDACACION, contar zonas habilitadas 
+        ContZonaHab = ContZonaHab + 1
+        If valido = "si" And valido_xcargas = "si" Then
+          '2 VALIDACION: que al menos tenga 1 punto para la zona habilitada
+          Validar_recorridos_a(valido, codigo, codigo_error, check)
+
+        End If
+      End If
+
+      i = i + 1
+    End While
+    If ContZonaHab <> 0 Then
+      If valido = "no" Then
+        'mensaje error: alguna de las zonas no tiene puntos asignados.
+        Label_ErrorValidacion.Text = "Alguna de las zonas no tiene puntos cargados."
+      End If
+    Else
+      'mensaje...no hay zonas habilitadas
+      Label_ErrorValidacion.Text = "No hay zonas habilitadas."
+      valido = "no"
+    End If
+
+    If valido = "si" Then
+      Dim ds_xcargas As DataSet = DALiquidacion.Liquidacion_todoXcargas
+      '3 VALIDACION: QUE EXISTA AL MENOS 1 REGISTRO EN XCARGAS
+      If ds_xcargas.Tables(0).Rows.Count <> 0 Then
+        '4 VALIDACION: CONTROLAR QUE NO EXISTA UN REGISTRO CON FECHA DIFERENTE A LA DEL PARAMETRO
+        Dim error_tipo As String = ""
+        Dim j As Integer = 0
+        While j < ds_xcargas.Tables(0).Rows.Count
+          Dim fecha As Date = CDate(ds_xcargas.Tables(0).Rows(j).Item("Fecha"))
+
+          If fecha = HF_fecha.Value Then
+            '5 VALIDACION: Controlar que no exista ninguna Zona dentro de las tablas XCargas.. que no este habilitada en la tabla Parametro.
+            '----------------------------------------------------------------------------------------------------------
+            Dim Recorrido_codigo As String = ds_xcargas.Tables(0).Rows(j).Item("Recorrido_codigo")
+            i = 0
+            While i < DS_Recorridos.Tables(1).Rows.Count
+              Dim Habilitada As Integer = conv_bit(CInt(DS_Recorridos.Tables(1).Rows(i).Item("Habilitada")))
+              Dim codigo As String = DS_Recorridos.Tables(1).Rows(i).Item("Codigo")
+              If Recorrido_codigo = codigo And Habilitada = 0 Then
+                valido = "no"
+                error_tipo = "Zona"
+                Exit While
+              End If
+
+              i = i + 1
+            End While
+            If valido = "no" Then
+              Exit While
+            End If
+            '----------------------------------------------------------------------------------------------------------
+          Else
+            valido = "no"
+            error_tipo = "fecha"
+            Exit While
+          End If
+          j = j + 1
+        End While
+        If valido = "si" Then
+          'continuo con las validaciones
+          Dim ds_banderas As DataSet = DALiquidacion.Liquidacion_obtenerBanderas
+          '6 VALIDACION Y ULTIMA: Controlar que el campo "Web" de la tabla Banderas este en False.(Si se encuentra en True, mostrar mensaje y salir del proceso de liquidacion)
+          Dim WEB = ds_banderas.Tables(0).Rows(0).Item("Web")
+          If WEB = False Then
+            'validacion CORRECTA
+            valido = "si"
+            Cargar_recorrido_habilitados(DS_Recorridos, DS_liqparcial)
+          Else
+            valido = "no"
+            'mensaje error: bandera.web = true
+            Label_ErrorValidacion.Text = "No se puede realizar la liquidacion. Consulte bandera.web."
+          End If
+        Else
+          Select Case error_tipo
+            Case "fecha"
+              'mensaje error: uno de los registros en xcargas tiene fecha diferente.
+              Label_ErrorValidacion.Text = "Registro en Xcargas con fecha diferente."
+            Case "Zona"
+              'mensaje error: se encontro un registro en xcargas con info de una zona no habilitada.
+              Label_ErrorValidacion.Text = "Registro con zona no habilitada en Xcargas."
+          End Select
+        End If
+
+      Else
+        'no hay registros en xcargas
+        Label_ErrorValidacion.Text = "No hay registros en Xcargas."
+        valido = "no"
+      End If
+
+
+    End If
+
+  End Sub
+
+  Private Sub Cargar_recorrido_habilitados(ByRef DS_Recorridos As DataSet, ByRef DS_liqparcial As DataSet)
+    Dim i As Integer = 0
+    While i < DS_Recorridos.Tables(1).Rows.Count
+      Dim Habilitada As Integer = conv_bit(CInt(DS_Recorridos.Tables(1).Rows(i).Item("Habilitada")))
+      Dim codigo As String = DS_Recorridos.Tables(1).Rows(i).Item("Codigo")
+      If Habilitada = 1 Then
+        Dim fila As DataRow = DS_liqparcial.Tables("Recorridos_seleccionados").NewRow
+        fila("Codigo") = codigo
+        DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Add(fila)
+      End If
+      i = i + 1
+    End While
+  End Sub
+
+  Private Sub Liquidacion(ByRef DS_liqparcial As DataSet)
+    'obtener_premios_x_clientes(DS_liqparcial)
     '1) recupero todos los registros de Xcargas y los ordenos en un datatable-----------------------------------------
     Dim DS_XCARGAS1 As DataSet = DALiquidacion.Liquidacion_parcial_recuperarXcargas(DS_liqparcial.Tables("Recorridos_seleccionados").Rows(0).Item("Codigo"), HF_fecha.Value)
     Dim i As Integer = 1
@@ -40,7 +291,7 @@ Public Class LiquidacionParcial_PremiosxClientes
       End If
       i = i + 1
     End While
-    'ahora ordeno
+    'ahora ordeno por Cliente ASC
     Dim rows() As DataRow = DS_XCARGAS1.Tables(0).Select("IDcarga > 0", "Cliente, Recorrido_codigo ASC")
     Dim dtTemp As DataTable = DS_XCARGAS1.Tables(0).Clone() 'copio la estructura de la tabla.
     For Each row As DataRow In rows
@@ -51,15 +302,15 @@ Public Class LiquidacionParcial_PremiosxClientes
     'dtTemp tiene todos los registros de XCargas ya ordenas para poder continuar.
     '-------------fin paso 1------------------------------------------------------------------------------------------
 
-    carga_liquidacion_parcial(dtTemp)
+    proceso_liquidacion(dtTemp)
 
-    GridView2.DataSource = dtTemp
-    GridView2.DataBind()
 
+    'GridView2.DataSource = dtTemp
+    'GridView2.DataBind()
   End Sub
 
-  Private Sub carga_liquidacion_parcial(ByVal dtTemp As DataTable)
-
+  Private Sub proceso_liquidacion(ByVal dtTemp As DataTable)
+    '---------------PRIMERA ETAPA: PREMIOS--------------------------------
     Dim DS_liqparcial1 As New DS_liqparcial
     DS_liqparcial1.Tables("PremiosxClientes").Rows.Clear()
 
@@ -99,7 +350,7 @@ Public Class LiquidacionParcial_PremiosxClientes
             If XCargas_Pid = Puntos_P1 Then
 
               Dim respuesta = "son iguales"
-              grabar_premios_P1(DS_liqparcial1, dtTemp.Rows(i), referencia_recorrido)
+              grabar_premios_op1(DS_liqparcial1, dtTemp.Rows(i), referencia_recorrido)
             Else
               Dim respuesta = "no hay coincidencia"
 
@@ -120,7 +371,7 @@ Public Class LiquidacionParcial_PremiosxClientes
             If XCargas_Pid = Puntos_P1 Then
 
               Dim respuesta = "son iguales"
-              grabar_premios_P1(DS_liqparcial1, dtTemp.Rows(i), referencia_recorrido)
+              grabar_premios_op1(DS_liqparcial1, dtTemp.Rows(i), referencia_recorrido)
             Else
               Dim respuesta = "no hay coincidencia"
 
@@ -140,7 +391,7 @@ Public Class LiquidacionParcial_PremiosxClientes
             If XCargas_Pid = Puntos_P1 Then
 
               Dim respuesta = "son iguales"
-              grabar_premios_P1(DS_liqparcial1, dtTemp.Rows(i), referencia_recorrido)
+              grabar_premios_op1(DS_liqparcial1, dtTemp.Rows(i), referencia_recorrido)
             Else
               Dim respuesta = "no hay coincidencia"
 
@@ -150,7 +401,7 @@ Public Class LiquidacionParcial_PremiosxClientes
             If XCargas_Pid = Puntos_P1 Then
 
               Dim respuesta = "son iguales"
-              grabar_premios_P1(DS_liqparcial1, dtTemp.Rows(i), referencia_recorrido)
+              grabar_premios_op1(DS_liqparcial1, dtTemp.Rows(i), referencia_recorrido)
             Else
               Dim respuesta = "no hay coincidencia"
 
@@ -475,16 +726,178 @@ Public Class LiquidacionParcial_PremiosxClientes
     End If
 
     'MUESTRO EN EL GRIDVIEW---------------------------------------------------------------------------------
-    GridView1.DataSource = dtTemp_con_cortes_control
-    GridView1.DataBind()
-
-    'GridView1.DataSource = DS_liqparcial1.Tables("PremiosxClientes")
+    'GridView1.DataSource = dtTemp_con_cortes_control
     'GridView1.DataBind()
+
+
     '-------------------------------------------------------------------------------------------------------
+
+    '------------SEGUNDA ETAPA: CALCULO Y GRABACION EN LA TABLA CTACTE------------------------------------------------
+    'NOTA: ds_xcargas recupera todos los registros de la fecha del parametro, ordenados por cliente ASC
+    Dim ds_xcargas As DataSet = DALiquidacion.Liquidacion_final_recuperarXcargas(HF_fecha.Value)
+    If ds_xcargas.Tables(0).Rows.Count <> 0 Then
+      Dim Fecha As Date = HF_fecha.Value
+      i = 0
+      Dim cliente_agregado = ""
+      While i < ds_xcargas.Tables(0).Rows.Count
+        Dim Grupo_id As Integer = ds_xcargas.Tables(0).Rows(i).Item("Grupo_id")
+        Dim Codigo_cliente As String = ds_xcargas.Tables(0).Rows(i).Item("Cliente")
+        Dim SaldoAnterior As Decimal = ds_xcargas.Tables(0).Rows(i).Item("Cliente_Saldo")
+
+        Dim recaudacion As Decimal = 0
+        Dim recaudacionSC As Decimal = 0
+        If cliente_agregado <> Codigo_cliente Then
+          Dim j As Integer = 0
+          While j < ds_xcargas.Tables(0).Rows.Count
+            'operacion: Recaudacion = a la suma de todos los importes de la tabla dbo.XCargasL.TotalImporte donde dbo.XCargasL.Sincomputo = False 
+            If (Codigo_cliente = ds_xcargas.Tables(0).Rows(j).Item("Cliente")) And (ds_xcargas.Tables(0).Rows(j).Item("SinComputo") = False) Then
+              recaudacion = recaudacion + ds_xcargas.Tables(0).Rows(j).Item("TotalImporte")
+            End If
+            'operacion: RecaudacionSC = a la suma de todos los importes de la tabla dbo.XCargasL.TotalImporte donde dbo.XCargasL.Sincomputo = True 
+            If (Codigo_cliente = ds_xcargas.Tables(0).Rows(j).Item("Cliente")) And (ds_xcargas.Tables(0).Rows(j).Item("SinComputo") = True) Then
+              recaudacionSC = recaudacionSC + ds_xcargas.Tables(0).Rows(j).Item("TotalImporte")
+            End If
+
+            j = j + 1
+          End While
+          recaudacion = (Math.Round(recaudacion, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+          recaudacionSC = (Math.Round(recaudacionSC, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+
+
+          'calculo comision y comisionSC---------------------------------------------------------------------------------------------------------------------------------------
+          'operacion: Comision = al calculo del porcentaje del total de Recaudacion (el porcentaje se obtiene de la tabla dbo.Clientes.Comision) del cliente.
+          Dim cliente_comision As Decimal = ds_xcargas.Tables(0).Rows(i).Item("Cliente_Comision")
+          Dim comision As Decimal = (recaudacion * cliente_comision) / 100
+          comision = (Math.Round(comision, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+          'operacion: ComisionSC = al calculo del porcentaje del total de Recaudacion (el porcentaje se obtiene de la tabla dbo.Clientes.Comision) del cliente.
+          Dim comisionSC As Decimal = comision
+          '--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+          'calculo premios-----------------------------------------------------------------------------------------------------------------------------------------------------
+          'operacion: Premios = a la suma de todos los importes de la tabla dbo.Premios.Premio del cliente, donde dbo.Premios.Sincomputo = False
+          'operacion 2: PremiosSC = a la suma de todos los importes de la tabla dbo.Premios.Premio del cliente, donde dbo.Premios.Sincomputo = True
+          Dim ds_premios As DataSet = DAPremios.Premios_ClienteobtenerXfecha(HF_fecha.Value, Codigo_cliente)
+          Dim Premios As Decimal = 0
+          Dim PremiosSC As Decimal = 0
+          Dim jj As Integer = 0
+          While jj < ds_premios.Tables(0).Rows.Count
+            If ds_premios.Tables(0).Rows(jj).Item("Sincomputo") = False Then
+              Premios = Premios + ds_premios.Tables(0).Rows(jj).Item("Premio")
+            End If
+            If ds_premios.Tables(0).Rows(jj).Item("Sincomputo") = True Then
+              PremiosSC = PremiosSC + ds_premios.Tables(0).Rows(jj).Item("Premio")
+            End If
+            jj = jj + 1
+          End While
+          Premios = (Math.Round(Premios, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+          '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+          'calculo Reclamos y ReclamosSC-----------------------------------------------------------------------------------------------------------------------------------------------------
+          'operacion: Reclamos = a la suma de todos los importes de la tabla dbo.Anticipados.Importe del cliente,
+          'donde dbo.Anticipados.Sincalculo = False y dbo.Anticipados.Origen = False y dbo.Anticipados.Tipo = 1.
+          'operacion2: ReclamosSC = a la suma de todos los importes de la tabla dbo.Anticipados.Importe del cliente, donde dbo.Anticipados.Sincalculo = True y dbo.Anticipados.Origen = False y dbo.Anticipados.Tipo = 1
+          'operacion3: dbo.CtaCte.ReclamosB = a la suma de todos los importes de la tabla dbo.Anticipados.Importe del cliente, donde dbo.Anticipados.Origen = True y dbo.Anticipados.Tipo = 1 
+          Dim Reclamos As Decimal = 0
+          Dim ReclamosSC As Decimal = 0
+          Dim ReclamosB As Decimal = 0
+          Dim ds_anticipados As DataSet = DAAnticipados.Anticipados_ClienteobtenerXfecha(HF_fecha.Value, Codigo_cliente)
+          'operacon4: Cobros = a la suma de todos los importes de la tabla dbo.Anticpados.Importe del cliente, donde dbo.Anticipados.Tipo = 2
+          'operacion5: Pagos = a la suma de todos los importes de la tabla dbo.Anticpados.Importe del cliente, donde dbo.Anticipados.Tipo = 3
+          Dim Cobros As Decimal = 0
+          Dim Pagos As Decimal = 0
+          Dim ii As Integer = 0
+          While ii < ds_anticipados.Tables(0).Rows.Count
+            If ds_anticipados.Tables(0).Rows(ii).Item("AnticipadosTipo_id") = 1 Then
+              If (ds_anticipados.Tables(0).Rows(ii).Item("Sincalculo") = False) And (ds_anticipados.Tables(0).Rows(ii).Item("Origen") = False) Then
+                Reclamos = Reclamos + ds_anticipados.Tables(0).Rows(ii).Item("Importe")
+              End If
+              If (ds_anticipados.Tables(0).Rows(ii).Item("Sincalculo") = True) And (ds_anticipados.Tables(0).Rows(ii).Item("Origen") = False) Then
+                ReclamosSC = ReclamosSC + ds_anticipados.Tables(0).Rows(ii).Item("Importe")
+              End If
+              If ds_anticipados.Tables(0).Rows(ii).Item("Origen") = True Then
+                ReclamosB = ReclamosB + ds_anticipados.Tables(0).Rows(ii).Item("Importe")
+              End If
+            End If
+            If ds_anticipados.Tables(0).Rows(ii).Item("AnticipadosTipo_id") = 2 Then
+              Cobros = Cobros + ds_anticipados.Tables(0).Rows(ii).Item("Importe")
+            End If
+            If ds_anticipados.Tables(0).Rows(ii).Item("AnticipadosTipo_id") = 3 Then
+              Pagos = Pagos + ds_anticipados.Tables(0).Rows(ii).Item("Importe")
+            End If
+            ii = ii + 1
+          End While
+          Reclamos = (Math.Round(Reclamos, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+          ReclamosSC = (Math.Round(ReclamosSC, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+          ReclamosB = (Math.Round(ReclamosB, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+          Cobros = (Math.Round(Cobros, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+          Pagos = (Math.Round(Pagos, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+          '--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+          'calculo DejoGano y DejoGanoSC----------------------------------------------------------------------------------------------------------------------------------------------------
+          'operacion: DejoGano = dbo.CtaCte.Recaudacion - dbo.CtaCte.Comision - dbo.CtaCte.Premios - dbo.CtaCte.Reclamos
+          Dim DejoGano As Decimal = recaudacion - comision - Premios - Reclamos
+          DejoGano = (Math.Round(DejoGano, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+          'operacion2: DejoGanoSC = dbo.CtaCte.RecaudacionSC - dbo.CtaCte.ComisionSC - dbo.CtaCte.PremiosSC - dbo.CtaCte.ReclamosSC
+          Dim DejoGanoSC As Decimal = recaudacionSC - comisionSC - PremiosSC - ReclamosSC
+          DejoGanoSC = (Math.Round(DejoGanoSC, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+          'operacion3: DejoGanoB = dbo.CtaCte.RecaudacionB - dbo.CtaCte.ComisionB - dbo.CtaCte.PremiosB - dbo.CtaCte.ReclamosB
+          Dim RecaudacionB = 0
+          Dim ComisionB = 0
+          Dim PremiosB = 0
+          Dim DejoGanoB As Decimal = RecaudacionB - ComisionB - PremiosB - ReclamosB
+          '--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+          '-------aqui guardo en bd-----
+          DACtaCte.CtaCte_alta(Grupo_id, CInt(Codigo_cliente), HF_fecha.Value, SaldoAnterior, recaudacion, comision, Premios, Reclamos, DejoGano,
+                      recaudacionSC, comisionSC, PremiosSC, ReclamosSC, DejoGanoSC,
+                      RecaudacionB, ComisionB, PremiosB, ReclamosB, DejoGanoB, Cobros, Pagos)
+          '---------fin--------------
+
+
+          '-------------TERCERA ETAPA: Actualizacion de Saldo y SaldoRegaldo por cada cliente que tuvo movimento en la fecha del parametro a liquidar.------------------------------------------------------------
+
+
+          'ACTUALIZACION DE SALDO------------
+          'dbo.Clientes.SaldoAnterior = dbo.Clientes.Saldo
+          Dim Clie_Saldo As Decimal = ds_xcargas.Tables(0).Rows(i).Item("Cliente_Saldo")
+          Dim Clie_SaldoAnterior As Decimal = Clie_Saldo
+          'dbo.Clientes.Saldo = dbo.Clientes.Saldo + dbo.CtaCteRecaudacion + dbo.CtaCteRecaudacionSC + dbo.CtaCteRecaudacionB - dbo.CtaCte.Comision - dbo.CtaCte.ComisionSC - dbo.CtaCte.ComisionB - dbo.CtaCte.Premios - dbo.CtaCte.PremiosSC - dbo.CtaCte.PremiosB - dbo.CtaCte.Reclamos - dbo.CtaCte.ReclamosSC - dbo.CtaCte.ReclamosB - dbo.CtaCte.Cobros + dbo.CtaCte.Pagos + dbo.CtaCte.CobPrestamo + dbo.CtaCte.CobCredito
+          Clie_Saldo = Clie_Saldo + recaudacion + recaudacionSC + RecaudacionB - comision - comisionSC - ComisionB - Premios - PremiosSC - PremiosB - Reclamos - ReclamosSC - ReclamosB - Cobros + Pagos + 0 + 0
+
+          '---aqui guardo en bd -----
+          DACliente.Clientes_ActualizarSaldo(Codigo_cliente, Clie_SaldoAnterior, Clie_Saldo)
+          '--------------------------
+
+          'ACTUALIZACION DE SALDO REGALO--------------
+          'Operacion: dbo.Clientes.SaldoRegalo = dbo.Clientes.SaldoRegalo + ((dbo.CtaCte.Recaudacion - dbo.CtaCte.Comision - dbo.CtaCte.Premios - dbo.CtaCte.Reclamos) * dbo.Clientes.Regalo)
+          Dim Clie_Regalo As Decimal = ds_xcargas.Tables(0).Rows(i).Item("Cliente_Regalo")
+          Dim SaldoRegalo As Decimal = ds_xcargas.Tables(0).Rows(i).Item("Cliente_SaldoRegalo")
+          SaldoRegalo = SaldoRegalo + ((recaudacion - comision - Premios - Reclamos) * Clie_Regalo)
+
+          '---aqui guardo en bd----
+          DACliente.Clientes_ActualizarSaldoRegalo(Codigo_cliente, SaldoRegalo)
+          '------------------------
+
+
+
+
+        End If
+        cliente_agregado = Codigo_cliente 'esto lo hago para no contar 2 veces la recaudacion, y pasar continuar hasta el nuevo codigo de cliente
+
+        i = i + 1
+      End While
+
+      'ACTUALIZACON DE ULTIMA FECHA DE LIQUIDACION---------------
+      'Operacion: dbo.Clientes.UltFechaLiq = a la fecha del parametro del dia de liquidacion, se actuliza la fecha de liquidacion aunque el cliente no haya tenido ningun movimiento.
+      DACliente.Clientes_ActualizarFechaLiq(HF_fecha.Value)
+
+
+    End If
+    '-----------------------------------------------------------------------------------------------------------------
 
   End Sub
 
-  Private Sub grabar_premios_P1(ByRef DS_liqparcial1 As DataSet, ByVal registro As DataRow, ByVal referencia_recorrido As String)
+  Private Sub grabar_premios_op1(ByRef DS_liqparcial1 As DataSet, ByVal registro As DataRow, ByVal referencia_recorrido As String)
 
     Dim fila As DataRow = DS_liqparcial1.Tables("PremiosxClientes").NewRow
     fila("Cliente") = registro.Item("Cliente")
@@ -520,11 +933,24 @@ Public Class LiquidacionParcial_PremiosxClientes
       If ds_cliente.Tables(0).Rows(0).Item("Variable1") = True Then
         fila("OBS") = "CUB."
         fila("Premio") = fila("Premio") * (-1)
+        premio = premio * (-1)
       End If
     End If
 
 
     DS_liqparcial1.Tables("PremiosxClientes").Rows.Add(fila)
+
+    '-----------------------AQUI GUARDO EN LA BASE DATOS ----NUEVO REGISTRO EN TABLA PREMIOS----------------------
+    Dim NroTicket As String = ""
+    If registro.Item("Terminal").ToString.ToUpper = "W" Then
+      NroTicket = registro.Item("Item").ToString
+    End If
+    DAPremios.Premios_altaOP1y2(HF_fecha.Value, registro.Item("Recorrido_codigo"),
+                           CStr(registro.Item("Pid")), CDec(registro.Item("Importe")),
+                           CInt(registro.Item("Suc")), CInt(0), CInt(registro.Item("SinComputo")),
+premio, NroTicket, CStr(registro.Item("Terminal")), CStr(registro.Item("Cliente")))
+
+
 
   End Sub
 
@@ -563,9 +989,21 @@ Public Class LiquidacionParcial_PremiosxClientes
       If ds_cliente.Tables(0).Rows(0).Item("Variable1") = True Then
         fila("OBS") = "CUB."
         fila("Premio") = fila("Premio") * (-1)
+        premio = premio * (-1)
       End If
     End If
     DS_liqparcial1.Tables("PremiosxClientes").Rows.Add(fila)
+
+    '-----------------------AQUI GUARDO EN LA BASE DATOS ----NUEVO REGISTRO EN TABLA PREMIOS----------------------
+    Dim NroTicket As String = ""
+    If registro.Item("Terminal").ToString.ToUpper = "W" Then
+      NroTicket = registro.Item("Item").ToString
+    End If
+    DAPremios.Premios_altaOP1y2(HF_fecha.Value, registro.Item("Recorrido_codigo"),
+                           CStr(registro.Item("Pid")), CDec(registro.Item("Importe")),
+                           CInt(registro.Item("Suc")), 0, CInt(registro.Item("SinComputo")),
+premio, NroTicket, CStr(registro.Item("Terminal")), CStr(registro.Item("Cliente")))
+
   End Sub
 
   Private Sub grabar_premios_op3(ByRef DS_liqparcial1 As DataSet, ByVal registro As DataRow, ByVal referencia_recorrido As String, ByVal ContCoincidencia As Integer)
@@ -577,6 +1015,8 @@ Public Class LiquidacionParcial_PremiosxClientes
     fila("SUC") = registro.Item("Suc")
     fila("S2") = registro.Item("Suc2")
     fila("P2") = registro.Item("Pid2")
+    Dim premio As Decimal = 0
+
     If registro.Item("SinComputo") = True Then
       fila("SC") = "X"
     Else
@@ -591,7 +1031,7 @@ Public Class LiquidacionParcial_PremiosxClientes
       If CInt(registro.Item("Suc2")) < 20 Then
         Dim Suc2 As Integer = CInt(registro.Item("Suc2"))
         Dim Importe As Decimal = CDec(registro.Item("Importe"))
-        Dim premio As Decimal = Importe * 80 * ((80 / Suc2) * ContCoincidencia)
+        premio = Importe * 80 * ((80 / Suc2) * ContCoincidencia)
         fila("Premio") = (Math.Round(premio, 2).ToString("N2"))
       Else
         '-------------------------------------------------------------------------------------------------------------------------------------------
@@ -601,7 +1041,7 @@ Public Class LiquidacionParcial_PremiosxClientes
         '-------------------------------------------------------------------------------------------------------------------------------------------
         If CInt(registro.Item("Suc2")) = 20 Then
           Dim Importe As Decimal = CDec(registro.Item("Importe"))
-          Dim premio As Decimal = Importe * 80 * ((80 / 19) * ContCoincidencia)
+          premio = Importe * 80 * ((80 / 19) * ContCoincidencia)
           fila("Premio") = (Math.Round(premio, 2).ToString("N2"))
         End If
       End If
@@ -615,9 +1055,21 @@ Public Class LiquidacionParcial_PremiosxClientes
       If ds_cliente.Tables(0).Rows(0).Item("Variable1") = True Then
         fila("OBS") = "CUB."
         fila("Premio") = fila("Premio") * (-1)
+        premio = premio * (-1)
       End If
     End If
     DS_liqparcial1.Tables("PremiosxClientes").Rows.Add(fila)
+
+    '-----------------------AQUI GUARDO EN LA BASE DATOS ----NUEVO REGISTRO EN TABLA PREMIOS----------------------
+    Dim NroTicket As String = ""
+    If registro.Item("Terminal").ToString.ToUpper = "W" Then
+      NroTicket = registro.Item("Item").ToString
+    End If
+    DAPremios.Premios_altaOP3y4(HF_fecha.Value, registro.Item("Recorrido_codigo"),
+                           CStr(registro.Item("Pid")), CDec(registro.Item("Importe")),
+                           CInt(registro.Item("Suc")), CStr(registro.Item("Pid2")), CInt(registro.Item("Suc2")), 1, CInt(registro.Item("SinComputo")),
+                           premio, NroTicket, CStr(registro.Item("Terminal")), CStr(registro.Item("Cliente")))
+
 
   End Sub
 
@@ -630,6 +1082,7 @@ Public Class LiquidacionParcial_PremiosxClientes
     fila("SUC") = registro.Item("Suc")
     fila("S2") = registro.Item("Suc2")
     fila("P2") = registro.Item("Pid2")
+    Dim premio As Decimal = 0
     If registro.Item("SinComputo") = True Then
       fila("SC") = "X"
     Else
@@ -640,7 +1093,7 @@ Public Class LiquidacionParcial_PremiosxClientes
       Dim importe As Decimal = CDec(registro.Item("Importe"))
       Dim suc As Integer = CInt(registro.Item("Suc"))
       Dim suc2 As Integer = CInt(registro.Item("Suc2"))
-      Dim premio As Decimal = importe * ((80 / suc) * ContCoincidencia1) * ((80 / suc2) * ContCoincidencia2)
+      premio = importe * ((80 / suc) * ContCoincidencia1) * ((80 / suc2) * ContCoincidencia2)
       fila("Premio") = (Math.Round(premio, 2).ToString("N2"))
     Catch ex As Exception
 
@@ -652,11 +1105,27 @@ Public Class LiquidacionParcial_PremiosxClientes
       If ds_cliente.Tables(0).Rows(0).Item("Variable1") = True Then
         fila("OBS") = "CUB."
         fila("Premio") = fila("Premio") * (-1)
+        premio = premio * (-1)
       End If
     End If
     DS_liqparcial1.Tables("PremiosxClientes").Rows.Add(fila)
 
+    '-----------------------AQUI GUARDO EN LA BASE DATOS ----NUEVO REGISTRO EN TABLA PREMIOS----------------------
+    Dim NroTicket As String = ""
+    If registro.Item("Terminal").ToString.ToUpper = "W" Then
+      NroTicket = registro.Item("Item").ToString
+    End If
+    DAPremios.Premios_altaOP3y4(HF_fecha.Value, registro.Item("Recorrido_codigo"),
+                           CStr(registro.Item("Pid")), CDec(registro.Item("Importe")),
+                           CInt(registro.Item("Suc")), CStr(registro.Item("Pid2")), CInt(registro.Item("Suc2")), 1, CInt(registro.Item("SinComputo")),
+premio, NroTicket, CStr(registro.Item("Terminal")), CStr(registro.Item("Cliente")))
+
+
+
   End Sub
+
+
+
 
 #End Region
 

@@ -1,0 +1,14 @@
+create procedure Cliente_ActualizarSaldo_ctacte
+@Cliente int,
+@IdCtaCte int
+
+as
+declare @CobroPrestamo decimal(38,2)
+select @CobroPrestamo = CobPrestamo from CtaCte where CtaCte.IdCtacte = @IdCtaCte 
+
+declare @Saldo decimal(38,2)
+select @Saldo = Saldo from Clientes where cliente = @Cliente
+
+update Clientes set Saldo = @Saldo+@CobroPrestamo where Clientes.Cliente = @Cliente 
+
+go

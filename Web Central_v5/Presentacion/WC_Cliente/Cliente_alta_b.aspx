@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="Cliente_alta_b.aspx.vb" Inherits="Presentacion.Cliente_alta_b" %>
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="Cliente_alta_b.aspx.vb" Inherits="Presentacion.Cliente_alta_b" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
 

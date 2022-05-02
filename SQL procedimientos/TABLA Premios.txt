@@ -1,0 +1,42 @@
+---controlar todos los campos
+USE [WebCentral]
+GO
+
+/****** Object:  Table [dbo].[Premios]    Script Date: 04/21/2022 16:06:31 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Premios](
+	[Premios_id] [int] IDENTITY(1,1) NOT NULL,
+	[Fecha] [date] NOT NULL,
+	[Cliente] [int] NOT NULL,
+	[Recorrido_codigo] [char](2) NOT NULL,
+	[Pid] [varchar](4) NOT NULL,
+	[Importe] [decimal](38, 2) NOT NULL,
+	[Suc] [tinyint] NOT NULL,
+	[Pid2] [varchar](3) NULL,
+	[Suc2] [tinyint] NULL,
+	[R] [bit] NULL,
+	[Sincomputo] [bit] NULL,
+	[Premio] [decimal](38, 2) NOT NULL,
+	[Numeroticket] [char](4) NULL,
+	[Terminal] [char](2) NULL,
+	[Cliente_Codigo] [varchar](max) NULL,
+ CONSTRAINT [PK_Premios] PRIMARY KEY CLUSTERED 
+(
+	[Premios_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

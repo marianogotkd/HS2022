@@ -2070,6 +2070,9 @@
     <Content Include="WC_Liquidacion Parcial\Liquidacion_reporte1.aspx" />
     <Content Include="WC_Liquidacion Parcial\Reportes\WebFormMyRepo.aspx" />
     <Content Include="WC_Liquidacion Parcial\Reportes\WebFormReporte01.aspx" />
+    <Content Include="WC_LiquidacionFinal\LiquidacionFinal.aspx" />
+    <Content Include="WC_LiquidacionFinal\LiquidacionFinal_PrestamosManuales.aspx" />
+    <Content Include="WC_LiquidacionFinal\LiquidacionFinal_TotalesFinales.aspx" />
     <Content Include="WC_Modificar Saldos\Modificar_saldos.aspx" />
     <Content Include="WC_Modificar Saldos\Modificar_saldos_detalle.aspx" />
     <Content Include="WC_Pagos Cobros Reclamos\Cobro.aspx" />
@@ -2386,6 +2389,32 @@
     </Compile>
     <Compile Include="WC_Liquidacion Parcial\Reportes\WebFormReporte01.aspx.vb">
       <DependentUpon>WebFormReporte01.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_LiquidacionFinal\DS_liqfinal.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_liqfinal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionFinal\LiquidacionFinal.aspx.designer.vb">
+      <DependentUpon>LiquidacionFinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionFinal\LiquidacionFinal.aspx.vb">
+      <DependentUpon>LiquidacionFinal.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_LiquidacionFinal\LiquidacionFinal_PrestamosManuales.aspx.designer.vb">
+      <DependentUpon>LiquidacionFinal_PrestamosManuales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionFinal\LiquidacionFinal_PrestamosManuales.aspx.vb">
+      <DependentUpon>LiquidacionFinal_PrestamosManuales.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_LiquidacionFinal\LiquidacionFinal_TotalesFinales.aspx.designer.vb">
+      <DependentUpon>LiquidacionFinal_TotalesFinales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionFinal\LiquidacionFinal_TotalesFinales.aspx.vb">
+      <DependentUpon>LiquidacionFinal_TotalesFinales.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="WC_Modificar Saldos\Modificar_saldos.aspx.designer.vb">
@@ -2784,6 +2813,17 @@
     </None>
     <Content Include="WC_Liquidacion Parcial\DS_liqparcial.xss">
       <DependentUpon>DS_liqparcial.xsd</DependentUpon>
+    </Content>
+    <Content Include="WC_LiquidacionFinal\DS_liqfinal.xsc">
+      <DependentUpon>DS_liqfinal.xsd</DependentUpon>
+    </Content>
+    <None Include="WC_LiquidacionFinal\DS_liqfinal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_liqfinal.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="WC_LiquidacionFinal\DS_liqfinal.xss">
+      <DependentUpon>DS_liqfinal.xsd</DependentUpon>
     </Content>
     <None Include="WC_Pagos Cobros Reclamos\DS_pagoscobrosreclamos.xsc">
       <DependentUpon>DS_pagoscobrosreclamos.xsd</DependentUpon>

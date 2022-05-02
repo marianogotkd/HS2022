@@ -26,6 +26,8 @@ Public Class Inicio
         Response.Redirect("~/Consultas/MenuConsultas.aspx")
       Case "6"
         Response.Redirect("~/WC_Cobro Prestamos Manuales/Cobro_prestamos_manuales.aspx")
+      Case "7"
+        Response.Redirect("~/WC_LiquidacionFinal/LiquidacionFinal.aspx")
       Case "A"
         Response.Redirect("~/WC_Grupos/Grupos_abm.aspx")
       Case "B"

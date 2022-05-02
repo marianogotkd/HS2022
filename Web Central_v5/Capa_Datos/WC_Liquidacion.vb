@@ -59,4 +59,58 @@ Public Class WC_Liquidacion
         Return ds
     End Function
 
+    Public Function Liquidacion_todoXcargas() As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Liquidacion_todoXcargas", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        'comando.Parameters.Add(New OleDb.OleDbParameter("@Codigo", Codigo))
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "XCargas".
+        DA.Fill(ds, "XCargas")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
+    Public Function Liquidacion_obtenerBanderas() As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Liquidacion_obtenerBanderas", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        'comando.Parameters.Add(New OleDb.OleDbParameter("@Codigo", Codigo))
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Banderas".
+        DA.Fill(ds, "Banderas")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
+    Public Function Liquidacion_final_recuperarXcargas(ByVal Fecha As Date) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Liquidacion_final_recuperarXcargas", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Fecha", Fecha))
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Banderas".
+        DA.Fill(ds, "Xcargas")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
 End Class

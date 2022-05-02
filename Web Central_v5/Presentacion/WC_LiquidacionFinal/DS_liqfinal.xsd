@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_liqfinal" targetNamespace="http://tempuri.org/DS_liqfinal.xsd" xmlns:mstns="http://tempuri.org/DS_liqfinal.xsd" xmlns="http://tempuri.org/DS_liqfinal.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_liqfinal" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_liqfinal" msprop:Generator_UserDSName="DS_liqfinal">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PrestamosManuales" msprop:Generator_TableClassName="PrestamosManualesDataTable" msprop:Generator_TableVarName="tablePrestamosManuales" msprop:Generator_TablePropName="PrestamosManuales" msprop:Generator_RowDeletingName="PrestamosManualesRowDeleting" msprop:Generator_RowChangingName="PrestamosManualesRowChanging" msprop:Generator_RowEvHandlerName="PrestamosManualesRowChangeEventHandler" msprop:Generator_RowDeletedName="PrestamosManualesRowDeleted" msprop:Generator_UserTableName="PrestamosManuales" msprop:Generator_RowChangedName="PrestamosManualesRowChanged" msprop:Generator_RowEvArgName="PrestamosManualesRowChangeEvent" msprop:Generator_RowClassName="PrestamosManualesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:int" minOccurs="0" />
+              <xs:element name="Fecha_Ori" msprop:Generator_ColumnVarNameInTable="columnFecha_Ori" msprop:Generator_ColumnPropNameInRow="Fecha_Ori" msprop:Generator_ColumnPropNameInTable="Fecha_OriColumn" msprop:Generator_UserColumnName="Fecha_Ori" type="xs:string" minOccurs="0" />
+              <xs:element name="Importe_Cob" msprop:Generator_ColumnVarNameInTable="columnImporte_Cob" msprop:Generator_ColumnPropNameInRow="Importe_Cob" msprop:Generator_ColumnPropNameInTable="Importe_CobColumn" msprop:Generator_UserColumnName="Importe_Cob" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Saldo" msprop:Generator_ColumnVarNameInTable="columnSaldo" msprop:Generator_ColumnPropNameInRow="Saldo" msprop:Generator_ColumnPropNameInTable="SaldoColumn" msprop:Generator_UserColumnName="Saldo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Prestamo" msprop:Generator_ColumnVarNameInTable="columnPrestamo" msprop:Generator_ColumnPropNameInRow="Prestamo" msprop:Generator_ColumnPropNameInTable="PrestamoColumn" msprop:Generator_UserColumnName="Prestamo" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

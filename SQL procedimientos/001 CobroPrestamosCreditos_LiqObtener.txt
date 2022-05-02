@@ -1,0 +1,18 @@
+CREATE PROCEDURE CobroPrestamosCreditos_LiqObtener
+@Fecha date
+
+as
+select
+		ID, 
+		CobroPrestamosCreditos.IdPrestamoCredito, 
+		CobroPrestamosCreditos.Fecha as 'Fecha_Cobro', 
+		CobroPrestamosCreditos.Importe, 
+		Cuota, 
+		PrestamosCreditos.Cliente as 'Cliente_ID',
+		Clientes.Codigo as 'Cliente_Codigo' 
+		
+
+from CobroPrestamosCreditos inner join PrestamosCreditos on CobroPrestamosCreditos.IdPrestamoCredito = PrestamosCreditos.Idprestamocredito inner join Clientes on PrestamosCreditos.Cliente = Clientes.Cliente   
+		where CobroPrestamosCreditos.Fecha = @Fecha  and PrestamosCreditos.Tipo = 'P' and PrestamosCreditos.Tipocobro = 3 and Estado_id = 1  
+
+go

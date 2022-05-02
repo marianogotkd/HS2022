@@ -1,0 +1,19 @@
+create procedure PrestamosCreditos_obtenerXid
+
+@Idprestamocredito int
+as
+
+select Idprestamocredito,
+		Cliente,
+		Fecha,
+		Importe,
+		Tipo,
+		Tipocobro,
+		Porcentaje,
+		Dias,
+		Saldo,
+		Estado_id,
+		Cuota_valor,
+		Fecha_baja
+from PrestamosCreditos where Idprestamocredito = @Idprestamocredito 
+go

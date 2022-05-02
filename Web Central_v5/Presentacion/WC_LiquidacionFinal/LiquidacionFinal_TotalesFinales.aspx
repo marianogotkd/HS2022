@@ -1,13 +1,13 @@
-<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="LiquidacionParcial_PremiosxClientes.aspx.vb" Inherits="Presentacion.LiquidacionParcial_PremiosxClientes" %>
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="LiquidacionFinal_TotalesFinales.aspx.vb" Inherits="Presentacion.LiquidacionFinal_TotalesFinales" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="True"></asp:ScriptManager>
-  <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
     <ContentTemplate>
       <div class="card card-primary">
           <div class="card-header">
-                <h3 class="card-title">LIQUIDACION PARCIAL - PREMIOS POR CLIENTES</h3>
+                <h3 class="card-title">LIQUIDACION FINAL - TOTALES FINALES</h3>
           </div>
           <form role="form">
 <div class="card-body">
@@ -18,10 +18,10 @@
         <div class="card-body">
                 <div class="form-group">
                         <div class="row justify-content-center">
-                                <div class="col-lg"> <%--antes col-4--%>
+                                <div class="col-4">
                                         <div class="form-group">
                                                 <asp:HiddenField ID="HF_parametro_id" runat="server" />
-                                            <asp:Label ID="LABEL_FECHA" runat="server" Text="PREMIOS POR CLIENTES PARA LA FECHA:"></asp:Label>
+                                            <asp:Label ID="LABEL_FECHA" runat="server" Text="TOTALES FINALES PARA LA FECHA:"></asp:Label>
                                           <asp:Label ID="LABEL_fecha_parametro" runat="server" Text=""></asp:Label>
                                             
                                           <asp:HiddenField ID="HF_fecha" runat="server" />
@@ -29,14 +29,14 @@
                                         
                                     
                                 </div>
-                                <%--<div class="col-4">
+                                <div class="col-4">
                                   
                                                                         
                                 </div>
                                 <div class="col-4">
                                     
                                                                         
-                                </div>--%>
+                                </div>
 
                         </div>
                 </div>
@@ -46,32 +46,30 @@
           <div class="form-group">
               <div class="row justify-content-center">
               
-                <div class="col-lg"> <%--antes col-8--%>
-                  <asp:GridView ID="GridView2" runat="server">
+                <div class="col-8">
+                  <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False">
+                      <Columns>
+                          <asp:BoundField DataField="Terminal" />
+                          <asp:BoundField DataField="Registros" />
+                          <asp:BoundField DataField="NoVerificados" />
+                      </Columns>
                     </asp:GridView>
                 <div class="card">
                     
                     <div class="card-body table-responsive p-0" style="height: 400px" onkeydown="tecla_op_botones(event);"> <%--div class="form-group"--%>
-                            <asp:GridView ID="GridView1" runat="server" class="table table-head-fixed text-nowrap" AllowSorting="True" AutoGenerateColumns="False" 
+                            <asp:GridView ID="GridView1" runat="server" class="table table-head-fixed text-nowrap" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" 
                                    BorderColor="Black" GridLines="None" 
-                                  EnableSortingAndPagingCallbacks="True"> 
+                                  EnableSortingAndPagingCallbacks="True"  ShowHeader="False"> 
                                     <Columns>
-                                        <asp:BoundField DataField="Cliente" HeaderText="CLIENTE" >                                                               
+                                        <asp:BoundField DataField="Terminal" HeaderText="Terminal" >                                                               
+                                        <HeaderStyle ForeColor="#0099FF" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="Recorrido" HeaderText="RECORRIDO" >                                                               
+                                        <asp:BoundField DataField="Registros" HeaderText="Registros" >                                                               
+                                        <HeaderStyle ForeColor="#0099FF" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="Importe" HeaderText="IMPORTE" >                                                               
+                                        <asp:BoundField DataField="NoVerificados" HeaderText="No Verificados" >                                                               
+                                        <HeaderStyle ForeColor="#0099FF" />
                                         </asp:BoundField>
-                                        
-                                        
-                                        <asp:BoundField DataField="PID" HeaderText="PID" />
-                                        <asp:BoundField DataField="SUC" HeaderText="SUC" />
-                                        <asp:BoundField DataField="P2" HeaderText="P2" />
-                                        <asp:BoundField DataField="S2" HeaderText="S2" />
-                                        <asp:BoundField DataField="SC" HeaderText="SC" />
-                                        <asp:BoundField DataField="Premio" HeaderText="PREMIO" />
-                                        <asp:BoundField DataField="T" HeaderText="T" />
-                                        <asp:BoundField DataField="OBS" HeaderText="OBS" />
                                         
                                         
                                     </Columns>
@@ -96,7 +94,7 @@
         <div class="row justify-content-center" >
         <div class="row align-items-center">
             <div class="form-group">
-            <button type="submit" UseSubmitBehavior="false" class="btn btn-primary" runat="server" id="btn_retroceder" onkeydown="tecla_op_botones(event);">
+            <button type="submit" UseSubmitBehavior="false" class="btn btn-primary" runat="server" id="btn_continuar" onkeydown="tecla_op_botones(event);">
                 CONTINUAR</button>
             &nbsp;
             </div>
@@ -148,5 +146,7 @@
 
     </ContentTemplate>
   </asp:UpdatePanel>
+
+
 
 </asp:Content>
