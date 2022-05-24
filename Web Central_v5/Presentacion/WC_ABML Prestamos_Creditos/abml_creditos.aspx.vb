@@ -234,6 +234,7 @@ Public Class abml_creditos
     Dim MontoInteres As Decimal = importe * Interes
 
     Dim Saldo As Decimal = CDec(importe) + MontoInteres
+    '/////Se actualiza??
 
     Dim Cuota_valor As Decimal = (importe + MontoInteres) / CInt(Txt_diasacobrar.Text)
 
