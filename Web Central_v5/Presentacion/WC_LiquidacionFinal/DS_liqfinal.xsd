@@ -12,7 +12,7 @@
   <xs:element name="DS_liqfinal" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_liqfinal" msprop:Generator_UserDSName="DS_liqfinal">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="PrestamosManuales" msprop:Generator_TableClassName="PrestamosManualesDataTable" msprop:Generator_TableVarName="tablePrestamosManuales" msprop:Generator_TablePropName="PrestamosManuales" msprop:Generator_RowDeletingName="PrestamosManualesRowDeleting" msprop:Generator_RowChangingName="PrestamosManualesRowChanging" msprop:Generator_RowEvHandlerName="PrestamosManualesRowChangeEventHandler" msprop:Generator_RowDeletedName="PrestamosManualesRowDeleted" msprop:Generator_UserTableName="PrestamosManuales" msprop:Generator_RowChangedName="PrestamosManualesRowChanged" msprop:Generator_RowEvArgName="PrestamosManualesRowChangeEvent" msprop:Generator_RowClassName="PrestamosManualesRow">
+        <xs:element name="PrestamosManuales" msprop:Generator_TableClassName="PrestamosManualesDataTable" msprop:Generator_TableVarName="tablePrestamosManuales" msprop:Generator_RowChangedName="PrestamosManualesRowChanged" msprop:Generator_TablePropName="PrestamosManuales" msprop:Generator_RowDeletingName="PrestamosManualesRowDeleting" msprop:Generator_RowChangingName="PrestamosManualesRowChanging" msprop:Generator_RowEvHandlerName="PrestamosManualesRowChangeEventHandler" msprop:Generator_RowDeletedName="PrestamosManualesRowDeleted" msprop:Generator_RowClassName="PrestamosManualesRow" msprop:Generator_UserTableName="PrestamosManuales" msprop:Generator_RowEvArgName="PrestamosManualesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:int" minOccurs="0" />
@@ -20,6 +20,29 @@
               <xs:element name="Importe_Cob" msprop:Generator_ColumnVarNameInTable="columnImporte_Cob" msprop:Generator_ColumnPropNameInRow="Importe_Cob" msprop:Generator_ColumnPropNameInTable="Importe_CobColumn" msprop:Generator_UserColumnName="Importe_Cob" type="xs:decimal" minOccurs="0" />
               <xs:element name="Saldo" msprop:Generator_ColumnVarNameInTable="columnSaldo" msprop:Generator_ColumnPropNameInRow="Saldo" msprop:Generator_ColumnPropNameInTable="SaldoColumn" msprop:Generator_UserColumnName="Saldo" type="xs:decimal" minOccurs="0" />
               <xs:element name="Prestamo" msprop:Generator_ColumnVarNameInTable="columnPrestamo" msprop:Generator_ColumnPropNameInRow="Prestamo" msprop:Generator_ColumnPropNameInTable="PrestamoColumn" msprop:Generator_UserColumnName="Prestamo" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PrestamosComision" msprop:Generator_TableClassName="PrestamosComisionDataTable" msprop:Generator_TableVarName="tablePrestamosComision" msprop:Generator_TablePropName="PrestamosComision" msprop:Generator_RowDeletingName="PrestamosComisionRowDeleting" msprop:Generator_RowChangingName="PrestamosComisionRowChanging" msprop:Generator_RowEvHandlerName="PrestamosComisionRowChangeEventHandler" msprop:Generator_RowDeletedName="PrestamosComisionRowDeleted" msprop:Generator_UserTableName="PrestamosComision" msprop:Generator_RowChangedName="PrestamosComisionRowChanged" msprop:Generator_RowEvArgName="PrestamosComisionRowChangeEvent" msprop:Generator_RowClassName="PrestamosComisionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:int" minOccurs="0" />
+              <xs:element name="Fecha_Ori" msprop:Generator_ColumnVarNameInTable="columnFecha_Ori" msprop:Generator_ColumnPropNameInRow="Fecha_Ori" msprop:Generator_ColumnPropNameInTable="Fecha_OriColumn" msprop:Generator_UserColumnName="Fecha_Ori" type="xs:string" minOccurs="0" />
+              <xs:element name="Importe_Cob" msprop:Generator_ColumnVarNameInTable="columnImporte_Cob" msprop:Generator_ColumnPropNameInRow="Importe_Cob" msprop:Generator_ColumnPropNameInTable="Importe_CobColumn" msprop:Generator_UserColumnName="Importe_Cob" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Saldo" msprop:Generator_ColumnVarNameInTable="columnSaldo" msprop:Generator_ColumnPropNameInRow="Saldo" msprop:Generator_ColumnPropNameInTable="SaldoColumn" msprop:Generator_UserColumnName="Saldo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Prestamo" msprop:Generator_ColumnVarNameInTable="columnPrestamo" msprop:Generator_ColumnPropNameInRow="Prestamo" msprop:Generator_ColumnPropNameInTable="PrestamoColumn" msprop:Generator_UserColumnName="Prestamo" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Creditos" msprop:Generator_TableClassName="CreditosDataTable" msprop:Generator_TableVarName="tableCreditos" msprop:Generator_TablePropName="Creditos" msprop:Generator_RowDeletingName="CreditosRowDeleting" msprop:Generator_RowChangingName="CreditosRowChanging" msprop:Generator_RowEvHandlerName="CreditosRowChangeEventHandler" msprop:Generator_RowDeletedName="CreditosRowDeleted" msprop:Generator_UserTableName="Creditos" msprop:Generator_RowChangedName="CreditosRowChanged" msprop:Generator_RowEvArgName="CreditosRowChangeEvent" msprop:Generator_RowClassName="CreditosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:int" minOccurs="0" />
+              <xs:element name="Fecha_Ori" msprop:Generator_ColumnVarNameInTable="columnFecha_Ori" msprop:Generator_ColumnPropNameInRow="Fecha_Ori" msprop:Generator_ColumnPropNameInTable="Fecha_OriColumn" msprop:Generator_UserColumnName="Fecha_Ori" type="xs:string" minOccurs="0" />
+              <xs:element name="Importe_Cob" msprop:Generator_ColumnVarNameInTable="columnImporte_Cob" msprop:Generator_ColumnPropNameInRow="Importe_Cob" msprop:Generator_ColumnPropNameInTable="Importe_CobColumn" msprop:Generator_UserColumnName="Importe_Cob" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Cuota" msprop:Generator_ColumnVarNameInTable="columnCuota" msprop:Generator_ColumnPropNameInRow="Cuota" msprop:Generator_ColumnPropNameInTable="CuotaColumn" msprop:Generator_UserColumnName="Cuota" type="xs:string" minOccurs="0" />
+              <xs:element name="Saldo" msprop:Generator_ColumnVarNameInTable="columnSaldo" msprop:Generator_ColumnPropNameInRow="Saldo" msprop:Generator_ColumnPropNameInTable="SaldoColumn" msprop:Generator_UserColumnName="Saldo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Credito" msprop:Generator_ColumnVarNameInTable="columnCredito" msprop:Generator_ColumnPropNameInRow="Credito" msprop:Generator_ColumnPropNameInTable="CreditoColumn" msprop:Generator_UserColumnName="Credito" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

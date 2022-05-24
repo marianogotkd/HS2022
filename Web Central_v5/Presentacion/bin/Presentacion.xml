@@ -12301,12 +12301,42 @@ Represents a strongly typed in-memory cache of data.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:Presentacion.DS_liqfinal.PrestamosComisionDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Presentacion.DS_liqfinal.CreditosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:Presentacion.DS_liqfinal.PrestamosManualesRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
+<member name="T:Presentacion.DS_liqfinal.PrestamosComisionRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Presentacion.DS_liqfinal.CreditosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
 <member name="T:Presentacion.DS_liqfinal.PrestamosManualesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Presentacion.DS_liqfinal.PrestamosComisionRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Presentacion.DS_liqfinal.CreditosRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
@@ -12482,6 +12512,276 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._ScriptManager1">
+<summary>
+Control ScriptManager1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._UpdatePanel1">
+<summary>
+Control UpdatePanel1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._HF_parametro_id">
+<summary>
+Control HF_parametro_id.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._LABEL_FECHA">
+<summary>
+Control LABEL_FECHA.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._LABEL_fecha_parametro">
+<summary>
+Control LABEL_fecha_parametro.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._HF_fecha">
+<summary>
+Control HF_fecha.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._GridView1">
+<summary>
+Control GridView1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._Label_noprestamos">
+<summary>
+Control Label_noprestamos.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._btn_continuar">
+<summary>
+Control btn_continuar.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._BOTON_GRABAR">
+<summary>
+Control BOTON_GRABAR.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._btn_error_close">
+<summary>
+Control btn_error_close.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._btn_ok_error">
+<summary>
+Control btn_ok_error.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._btn_CobroPresCom_close">
+<summary>
+Control btn_CobroPresCom_close.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._btn_CobroPresCom_no">
+<summary>
+Control btn_CobroPresCom_no.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_Creditos._btn_CobroPresCom_si">
+<summary>
+Control btn_CobroPresCom_si.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._ScriptManager1">
+<summary>
+Control ScriptManager1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._UpdatePanel1">
+<summary>
+Control UpdatePanel1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._HF_parametro_id">
+<summary>
+Control HF_parametro_id.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._LABEL_FECHA">
+<summary>
+Control LABEL_FECHA.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._LABEL_fecha_parametro">
+<summary>
+Control LABEL_fecha_parametro.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._HF_fecha">
+<summary>
+Control HF_fecha.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._GridView1">
+<summary>
+Control GridView1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._Label_noprestamos">
+<summary>
+Control Label_noprestamos.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._btn_continuar">
+<summary>
+Control btn_continuar.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._BOTON_GRABAR">
+<summary>
+Control BOTON_GRABAR.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._btn_error_close">
+<summary>
+Control btn_error_close.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._btn_ok_error">
+<summary>
+Control btn_ok_error.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._btn_CobroPresCom_close">
+<summary>
+Control btn_CobroPresCom_close.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._btn_CobroPresCom_no">
+<summary>
+Control btn_CobroPresCom_no.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosComision._btn_CobroPresCom_si">
+<summary>
+Control btn_CobroPresCom_si.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
 <member name="F:Presentacion.LiquidacionFinal_PrestamosManuales._ScriptManager1">
 <summary>
 Control ScriptManager1.
@@ -12539,6 +12839,15 @@ Para modificarlo, mueva la declaración del campo del archivo del diseñador al 
 <member name="F:Presentacion.LiquidacionFinal_PrestamosManuales._GridView1">
 <summary>
 Control GridView1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:Presentacion.LiquidacionFinal_PrestamosManuales._Label_noprestamos">
+<summary>
+Control Label_noprestamos.
 </summary>
 <remarks>
 Campo generado automáticamente.

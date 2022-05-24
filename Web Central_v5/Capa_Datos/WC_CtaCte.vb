@@ -39,6 +39,12 @@ Public Class WC_CtaCte
         comando.Parameters.Add(New OleDb.OleDbParameter("@Cobros", Cobros))
         comando.Parameters.Add(New OleDb.OleDbParameter("@Pagos", Pagos))
 
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Prestamo", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CobPrestamo", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Credito", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CobCredito", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Regalos", CDec(0)))
+
         Dim ds As New DataSet()
         Dim DA As New OleDbDataAdapter(comando)
         ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Grupos".
@@ -47,6 +53,57 @@ Public Class WC_CtaCte
         dbconn.Close()
         Return ds
     End Function
+
+    Public Function CtaCte_alta_2(ByVal Grupo_Id As Integer, ByVal Cliente_Codigo As Integer, ByVal Fecha As Date, ByVal CobPrestamo As Decimal) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("CtaCte_alta", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Grupo_Id", Grupo_Id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Codigo", Cliente_Codigo))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Fecha", Fecha))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@SaldoAnterior", CDec(0)))
+
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Recaudacion", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Comision", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Premios", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Reclamos", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@DejoGano", CDec(0)))
+
+        comando.Parameters.Add(New OleDb.OleDbParameter("@RecaudacionSC", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ComisionSC", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@PremiosSC", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ReclamosSC", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@DejoGanoSC", CDec(0)))
+
+        comando.Parameters.Add(New OleDb.OleDbParameter("@RecaudacionB", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ComisionB", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@PremiosB", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ReclamosB", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@DejoGanoB", CDec(0)))
+
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Cobros", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Pagos", CDec(0)))
+
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Prestamo", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CobPrestamo", CobPrestamo))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Credito", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CobCredito", CDec(0)))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Regalos", CDec(0)))
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Grupos".
+        DA.Fill(ds, "CtaCte")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
+
+
 
     Public Function CtaCte_obtener(ByVal Codigo As Integer, ByVal Fecha As Date) As DataSet
         Try
@@ -90,6 +147,28 @@ Public Class WC_CtaCte
         dbconn.Close()
         Return ds
     End Function
+
+    Public Function CtaCte_actualizarCobCredito(ByVal IdCtaCte As Integer, ByVal CobCredito As Decimal) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+
+        Dim comando As New OleDbCommand("CtaCte_actualizarCobCredito", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@IdCtaCte", IdCtaCte))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CobCredito", CobCredito))
+
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "PrestamosCreditos".
+        DA.Fill(ds, "CtaCte")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
 
 
 End Class

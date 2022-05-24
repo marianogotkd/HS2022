@@ -33,6 +33,7 @@ Public Class LiquidacionFinal_PrestamosManuales
         Dim ds_prestamo As DataSet = DaPrestamosCreditos.PrestamosCreditos_obtenerXid(IdPrestamoCredito)
         Dim Cliente_ID As Integer = ds_cobroprestamos.Tables(0).Rows(i).Item("Cliente_ID")
         Dim Cliente_Codigo As String = ds_cobroprestamos.Tables(0).Rows(i).Item("Cliente_Codigo")
+        Dim Grupo_id As Integer = ds_cobroprestamos.Tables(0).Rows(i).Item("Grupo_id")
         Dim PrestamosCreditos_Saldo As Decimal = CDec(ds_prestamo.Tables(0).Rows(0).Item("Saldo")) - CobroPrestamoCredito_Importe
         PrestamosCreditos_Saldo = (Math.Round(PrestamosCreditos_Saldo, 2).ToString("N2"))
         Dim FechaPrestamo_Ori As Date = ds_prestamo.Tables(0).Rows(0).Item("Fecha")
@@ -51,9 +52,10 @@ Public Class LiquidacionFinal_PrestamosManuales
         'Actualizar el campo dbo.CtaCte.CobPrestamo = dbo.CtaCte.CobPrestamo + dbo.CobroPrestamosCreditos.Importe
         'nota: como puede no existir el registro con la fecha del dia para el cliente en ctacte, tengo q validar. en caso de no existir hago un alta.
         Dim ds_ctacte As DataSet = DACtaCte.CtaCte_obtener(CInt(Cliente_Codigo), HF_fecha.Value)
-        Dim IdCtaCte As Integer = ds_ctacte.Tables(0).Rows(0).Item("IdCtaCte")
+        Dim IdCtaCte As Integer = 0
         If ds_ctacte.Tables(0).Rows.Count <> 0 Then
           'existe, se actualiza.
+          IdCtaCte = ds_ctacte.Tables(0).Rows(0).Item("IdCtaCte")
           Dim CobPrestamo As Decimal = 0
           Try 'el try lo uso x que el campo recuperado de ctacte es null
             CobPrestamo = ds_ctacte.Tables(0).Rows(0).Item("CobPrestamo") + CobroPrestamoCredito_Importe
@@ -65,6 +67,8 @@ Public Class LiquidacionFinal_PrestamosManuales
         Else
           'no existe, se crea un registro.
 
+          Dim ds_ctacte_info As DataSet = DACtaCte.CtaCte_alta_2(Grupo_id, CInt(Cliente_Codigo), HF_fecha.Value, CobroPrestamoCredito_Importe)
+          IdCtaCte = ds_ctacte.Tables(0).Rows(0).Item(0)
         End If
         '---------------------------------------------------------------------------------------
         '---------------------------------------------------------------------------------------
@@ -94,9 +98,12 @@ Public Class LiquidacionFinal_PrestamosManuales
 
       'ahora muestro DS_liqfinal.tables("PrestamosManuales") en un gridview.
 
-
       GridView1.DataSource = DS_liqfinal.Tables("PrestamosManuales")
       GridView1.DataBind()
+
+      If GridView1.Rows.Count = 0 Then
+        Label_noprestamos.Visible = True
+      End If
 
 
 
@@ -111,6 +118,21 @@ Public Class LiquidacionFinal_PrestamosManuales
   Private Sub btn_continuar_ServerClick(sender As Object, e As EventArgs) Handles btn_continuar.ServerClick
     'Mdl_CobroPrestamosxComision
     ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "Mdl_CobroPrestamosxComision", "$(document).ready(function () {$('#Mdl_CobroPrestamosxComision').modal();});", True)
+  End Sub
+
+  Private Sub btn_CobroPresCom_si_ServerClick(sender As Object, e As EventArgs) Handles btn_CobroPresCom_si.ServerClick
+
+    'continuamos al form donde se consultara si hay prestamos x comision
+    Session("fecha_parametro") = HF_fecha.Value
+    Response.Redirect("~/WC_LiquidacionFinal/LiquidacionFinal_PrestamosComision.aspx")
+
+
+  End Sub
+
+  Private Sub btn_CobroPresCom_no_ServerClick(sender As Object, e As EventArgs) Handles btn_CobroPresCom_no.ServerClick
+    'continuamos al form donde se consultara si hay prestamos x comision
+    Session("fecha_parametro") = HF_fecha.Value
+    Response.Redirect("~/WC_LiquidacionFinal/LiquidacionFinal_Creditos.aspx")
   End Sub
 
 #End Region

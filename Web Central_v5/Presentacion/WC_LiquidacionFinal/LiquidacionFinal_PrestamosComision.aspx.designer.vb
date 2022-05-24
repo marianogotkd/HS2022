@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class LiquidacionFinal_PrestamosManuales
+Partial Public Class LiquidacionFinal_PrestamosComision
 
     '''<summary>
     '''Control ScriptManager1.

@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="LiquidacionFinal_PrestamosManuales.aspx.vb" Inherits="Presentacion.LiquidacionFinal_PrestamosManuales" %>
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="LiquidacionFinal_Creditos.aspx.vb" Inherits="Presentacion.LiquidacionFinal_Creditos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -7,7 +7,7 @@
     <ContentTemplate>
       <div class="card card-primary">
           <div class="card-header">
-                <h3 class="card-title">LIQUIDACION FINAL - COBRO DE PRESTAMOS MANUALES</h3>
+                <h3 class="card-title">LIQUIDACION FINAL - COBRO DE CREDITOS</h3>
           </div>
           <form role="form">
 <div class="card-body">
@@ -21,7 +21,7 @@
                                 <div class="col-lg"> <%--antes col-4--%>
                                         <div class="form-group">
                                                 <asp:HiddenField ID="HF_parametro_id" runat="server" />
-                                            <asp:Label ID="LABEL_FECHA" runat="server" Text="COBRO DE PRESTAMOS MANUALES EN LA FECHA:"></asp:Label>
+                                            <asp:Label ID="LABEL_FECHA" runat="server" Text="COBRO DE CREDITOS EN LA FECHA:"></asp:Label>
                                           <asp:Label ID="LABEL_fecha_parametro" runat="server" Text=""></asp:Label>
                                             
                                           <asp:HiddenField ID="HF_fecha" runat="server" />
@@ -64,19 +64,21 @@
                                         <asp:BoundField DataField="Importe_Cob" HeaderText="IMPORTE COB" >                                                               
                                         <HeaderStyle ForeColor="#0099FF" />
                                         </asp:BoundField>
+                                      <asp:BoundField DataField="Cuota" HeaderText="CUOTA" >                                                               
+                                        <HeaderStyle ForeColor="#0099FF" />
+                                        </asp:BoundField>
                                         <asp:BoundField DataField="Saldo" HeaderText="SALDO" >                                                               
                                         <HeaderStyle ForeColor="#0099FF" />
                                         </asp:BoundField>
-                                      <asp:BoundField DataField="Prestamo" HeaderText="PRESTAMO" >                                                               
+                                      <asp:BoundField DataField="Credito" HeaderText="CREDITO" >                                                               
                                         <HeaderStyle ForeColor="#0099FF" />
                                         </asp:BoundField>
                                         
                                     </Columns>
                                 </asp:GridView>
                         </div>
-
                   <div>
-                          <asp:Label ID="Label_noprestamos" runat="server" Text="No se registraron cobros de prestamos manuales!" Visible="false" ForeColor="#6699FF"></asp:Label>
+                          <asp:Label ID="Label_noprestamos" runat="server" Text="No se registraron cobros de creditos!" Visible="false" ForeColor="#6699FF"></asp:Label>
 
                   </div>
 

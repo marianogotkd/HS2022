@@ -276,7 +276,31 @@ Public Class WB_clientes
         Return ds
     End Function
 
+    'nota: cliente.saldo = cliente.saldo+ctacte.cobprestamo
     Public Function Cliente_ActualizarSaldo_ctacte(ByVal Cliente As Integer, ByVal IdCtaCte As Integer) As DataSet
+
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Cliente_ActualizarSaldo_ctacte", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Cliente", Cliente))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@IdCtaCte", IdCtaCte))
+
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Clientes".
+        DA.Fill(ds, "Clientes")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
+
+    'nota: cliente.saldo = cliente.saldo+ctacte.cobcredito
+    Public Function Cliente_ActualizarSaldo_ctacte2(ByVal Cliente As Integer, ByVal IdCtaCte As Integer) As DataSet
 
         Try
             dbconn.Open()
