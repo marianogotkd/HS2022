@@ -138,7 +138,7 @@ Public Class WC_prestamoscreditos
         comando.Parameters.Add(New OleDb.OleDbParameter("@Dias", Dias))
         comando.Parameters.Add(New OleDb.OleDbParameter("@Porcentaje", Porcentaje))
         comando.Parameters.Add(New OleDb.OleDbParameter("@Tipo", tipo))
-        comando.Parameters.Add(New OleDb.OleDbParameter("@Saldo", Importe))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Saldo", Saldo))
         comando.Parameters.Add(New OleDb.OleDbParameter("@Estado_id", Estado))
         comando.Parameters.Add(New OleDb.OleDbParameter("@Cuota_valor", Cuota_valor)) 'surge de la operacion = (importe x porcentaje) / dias.
 
