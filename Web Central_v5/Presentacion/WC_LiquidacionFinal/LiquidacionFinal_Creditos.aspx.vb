@@ -40,8 +40,17 @@ Public Class LiquidacionFinal_Creditos
               Dim PrestamosCreditos_Saldo As Decimal = DS_Creditos.Tables(0).Rows(i).Item("Saldo")
               Dim PrestamosCreditos_IdPrestamoCredito As Integer = DS_Creditos.Tables(0).Rows(i).Item("Idprestamocredito")
               Dim PrestamosCreditos_cuota As Decimal = DS_Creditos.Tables(0).Rows(i).Item("Cuota_valor") 'ojo el valor de la cuota es 0 en la tabla
+              'RECUPERO NRO ULTIMA CUOTA
+              Dim DS_cuota As DataSet = DaPrestamosCreditos.CobroPrestamosCreditos_obtener_cuota(PrestamosCreditos_IdPrestamoCredito)
               Dim nro_cta_cobrada As Integer = 0 '---de donde lo saco...hago un select de todos los cobrosprestamoscreditos para ese id?
+              If DS_cuota.Tables(0).Rows.Count <> 0 Then
+                nro_cta_cobrada = CDec(DS_cuota.Tables(0).Rows(0).Item("Cuota")) + 1
+              Else
+                nro_cta_cobrada = CDec(1)
+              End If
+
               Dim importe As Decimal = PrestamosCreditos_cuota
+              'AQUI GUARDO EN BD
               DaPrestamosCreditos.CobroPrestamosCreditos_altaCredito(PrestamosCreditos_IdPrestamoCredito, HF_fecha.Value, importe, nro_cta_cobrada)
 
               '----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -54,6 +63,8 @@ Public Class LiquidacionFinal_Creditos
                 'esta cancelado el prestamo
                 Estado_id = 2
               End If
+
+              'AQUI ACTUALIZO EN BD
               DaPrestamosCreditos.PrestamosCreditos_ActualizarSaldo(PrestamosCreditos_IdPrestamoCredito, PrestamosCreditos_Saldo, Estado_id)
               '----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -65,6 +76,8 @@ Public Class LiquidacionFinal_Creditos
               Catch ex As Exception
                 CobCredito = importe
               End Try
+
+
               DACtaCte.CtaCte_actualizarCobCredito(IdCtaCte, CobCredito)
               '----------------------------------------------------------------------------------------------------------------------------------------------------
 

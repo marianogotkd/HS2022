@@ -416,6 +416,27 @@ Public Class WC_prestamoscreditos
         Return ds
     End Function
 
+    Public Function CobroPrestamosCreditos_obtener_cuota(ByVal IdPrestamoCredito As Integer) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+
+        Dim comando As New OleDbCommand("CobroPrestamosCreditos_obtener_cuota", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@IdPrestamoCredito", IdPrestamoCredito))
+
+
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Grupos".
+        DA.Fill(ds, "CobroPrestamosCreditos")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
 #End Region
 
 End Class

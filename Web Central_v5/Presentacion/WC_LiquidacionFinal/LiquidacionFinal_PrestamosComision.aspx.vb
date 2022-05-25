@@ -59,7 +59,10 @@ Public Class LiquidacionFinal_PrestamosComision
                   importe = PrestamosCreditos_Saldo
                 End If
 
+                '/////////////////////////////////////////////////////////
+                'AQUI GUARDO EN BD
                 DaPrestamosCreditos.CobroPrestamosCreditos_alta(PrestamosCreditos_IdPrestamoCredito, HF_fecha.Value, importe)
+                '/////////////////////////////////////////////////////////
 
                 'Actualizar el saldo del prestamo dbo.PrestamosCreditos.Saldo = dbo.PrestamosCreditos.Saldo - dbo.CobroPrestamoCredito.Importe
                 '(si el cobro del prestamo cancela el saldo es decir el total del prestamo se deberia marcar este prestamo como "Cancelado" dbo.PrestamosCreditos.Estado = C)
@@ -79,6 +82,8 @@ Public Class LiquidacionFinal_PrestamosComision
                 Catch ex As Exception
                   CobPrestamo = importe
                 End Try
+
+                'AQUI GUARDO EN BD
                 DACtaCte.CtaCte_actualizarCobPrestamo(IdCtaCte, CobPrestamo)
                 '--------------------------------------------------------------------------------------------------------------------------
 
