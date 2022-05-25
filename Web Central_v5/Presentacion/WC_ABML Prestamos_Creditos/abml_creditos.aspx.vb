@@ -289,8 +289,18 @@ Public Class abml_creditos
     Catch ex As Exception
       porcentaje = CDec(0)
     End Try
-    Dim Saldo As Decimal = CDec(importe) * CDec(porcentaje)
-    Dim Cuota_valor As Decimal = (importe * porcentaje) / CInt(Txt_diasacobrar.Text)
+
+    Dim Interes As Decimal = porcentaje / 100
+
+    Dim MontoInteres As Decimal = importe * Interes
+
+    Dim Saldo As Decimal = CDec(importe) + MontoInteres
+    '/////Se actualiza??
+
+    Dim Cuota_valor As Decimal = (importe + MontoInteres) / CInt(Txt_diasacobrar.Text)
+
+    'Dim Saldo As Decimal = CDec(importe) * CDec(porcentaje)
+    'Dim Cuota_valor As Decimal = (importe * porcentaje) / CInt(Txt_diasacobrar.Text)
     DAprestamoscreditos.Creditos_modificar(CInt(Session("Cliente")), txt_fecha.Text, importe, porcentaje, Txt_diasacobrar.Text, Saldo, 1, Cuota_valor)
     ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-sm_OKGRABADO", "$(document).ready(function () {$('#modal-sm_OKGRABADO').modal();});", True)
   End Sub
