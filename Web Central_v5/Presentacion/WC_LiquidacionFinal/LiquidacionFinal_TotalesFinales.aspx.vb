@@ -42,16 +42,17 @@ Public Class LiquidacionFinal_TotalesFinales
     'Luego de continuar se deberia revisar si hubo alguna carga de algun cobro de prestamo manual,
     'revisar si hay algun registro en dbo.CobroPrestamosCreditos.Fecha = fecha del parametro.
     'De haber algun registro perteneciente al dia se deberia ejecutar el proceso de actualizacion de cobro prestamo manual.
-    Dim ds_cobroprestamos As DataSet = DaPrestamosCreditos.CobroPrestamosCreditos_LiqObtener(HF_fecha.Value)
-    If ds_cobroprestamos.Tables(0).Rows.Count <> 0 Then
+    'Dim ds_cobroprestamos As DataSet = DaPrestamosCreditos.CobroPrestamosCreditos_LiqObtener(HF_fecha.Value)
+    'If ds_cobroprestamos.Tables(0).Rows.Count <> 0 Then
+    '  Session("fecha_parametro") = HF_fecha.Value
+    '  Response.Redirect("~/WC_LiquidacionFinal/LiquidacionFinal_PrestamosManuales.aspx")
+    'Else
+    '  'aqui va un mensaje para ver si deseo liq los prestamos x comision
+    'End If
 
-      Session("fecha_parametro") = HF_fecha.Value
-      Response.Redirect("~/WC_LiquidacionFinal/LiquidacionFinal_PrestamosManuales.aspx")
 
-    Else
-      'aqui va un mensaje para ver si deseo liq los prestamos x comision
-    End If
-
+    Session("fecha_parametro") = HF_fecha.Value
+    Response.Redirect("~/WC_LiquidacionFinal/LiquidacionFinal_PrestamosManuales.aspx")
 
 
   End Sub

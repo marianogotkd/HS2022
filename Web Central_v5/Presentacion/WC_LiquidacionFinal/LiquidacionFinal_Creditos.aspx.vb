@@ -94,7 +94,14 @@ Public Class LiquidacionFinal_Creditos
               fila("Importe_Cob") = importe
               fila("Cuota") = nro_cta_cobrada
               fila("Saldo") = PrestamosCreditos_Saldo
-              Dim Credito As Decimal = DS_Creditos.Tables(0).Rows(i).Item("Importe")
+
+              Dim porcentaje As Decimal = DS_Creditos.Tables(0).Rows(i).Item("Porcentaje")
+              Dim Interes As Decimal = porcentaje / 100
+              Dim MontoInteres As Decimal = CDec(DS_Creditos.Tables(0).Rows(i).Item("Importe")) * Interes
+              Dim Credito As Decimal = CDec(DS_Creditos.Tables(0).Rows(i).Item("Importe")) + MontoInteres
+              '              Dim Credito As Decimal = DS_Creditos.Tables(0).Rows(i).Item("Importe")
+
+
               fila("Credito") = Credito
               DS_liqfinal.Tables("Creditos").Rows.Add(fila)
 
