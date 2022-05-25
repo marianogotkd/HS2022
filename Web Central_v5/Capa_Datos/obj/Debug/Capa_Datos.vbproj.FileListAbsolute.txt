@@ -110,3 +110,4 @@ F:\051 WebCentral\HS2022\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.vbproj.C
 F:\051 WebCentral\HS2022\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.dll
 F:\051 WebCentral\HS2022\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.xml
 F:\051 WebCentral\HS2022\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.pdb
+F:\051 WebCentral\HS2022\Web Central_v5\Capa_Datos\obj\Debug\Capa_Datos.vbproj.AssemblyReference.cache
