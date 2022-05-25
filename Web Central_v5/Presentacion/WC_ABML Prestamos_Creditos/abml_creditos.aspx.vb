@@ -1,4 +1,7 @@
 Public Class abml_creditos
+
+
+  '######## Choco Puto 25-05-2022 18:59 ###########
   Inherits System.Web.UI.Page
   Dim Daparametro As New Capa_Datos.WC_parametro
   Dim DAprestamoscreditos As New Capa_Datos.WC_prestamoscreditos
