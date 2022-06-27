@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_cobro_prestamos_regalos" targetNamespace="http://tempuri.org/DS_cobro_prestamos_regalos.xsd" xmlns:mstns="http://tempuri.org/DS_cobro_prestamos_regalos.xsd" xmlns="http://tempuri.org/DS_cobro_prestamos_regalos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_cobro_prestamos_regalos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_cobro_prestamos_regalos" msprop:Generator_UserDSName="DS_cobro_prestamos_regalos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CobPrestRegalo" msprop:Generator_TableClassName="CobPrestRegaloDataTable" msprop:Generator_TableVarName="tableCobPrestRegalo" msprop:Generator_TablePropName="CobPrestRegalo" msprop:Generator_RowDeletingName="CobPrestRegaloRowDeleting" msprop:Generator_RowChangingName="CobPrestRegaloRowChanging" msprop:Generator_RowEvHandlerName="CobPrestRegaloRowChangeEventHandler" msprop:Generator_RowDeletedName="CobPrestRegaloRowDeleted" msprop:Generator_UserTableName="CobPrestRegalo" msprop:Generator_RowChangedName="CobPrestRegaloRowChanged" msprop:Generator_RowEvArgName="CobPrestRegaloRowChangeEvent" msprop:Generator_RowClassName="CobPrestRegaloRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha_Ori" msprop:Generator_ColumnVarNameInTable="columnFecha_Ori" msprop:Generator_ColumnPropNameInRow="Fecha_Ori" msprop:Generator_ColumnPropNameInTable="Fecha_OriColumn" msprop:Generator_UserColumnName="Fecha_Ori" type="xs:string" minOccurs="0" />
+              <xs:element name="Importe" msprop:Generator_ColumnVarNameInTable="columnImporte" msprop:Generator_ColumnPropNameInRow="Importe" msprop:Generator_ColumnPropNameInTable="ImporteColumn" msprop:Generator_UserColumnName="Importe" type="xs:string" minOccurs="0" />
+              <xs:element name="Saldo" msprop:Generator_ColumnVarNameInTable="columnSaldo" msprop:Generator_ColumnPropNameInRow="Saldo" msprop:Generator_ColumnPropNameInTable="SaldoColumn" msprop:Generator_UserColumnName="Saldo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
