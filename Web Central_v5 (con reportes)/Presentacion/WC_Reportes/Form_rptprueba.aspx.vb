@@ -25,18 +25,20 @@ Public Class Form_rptprueba
     'Llaves_ds.Tables("LLAVE_RESULTADOS").Merge(Session("datatable_LLAVE_RESULTADOS"))
     'Llaves_ds.Tables("LLAVE_2").Merge(Session("datatable_LLAVE_2"))
 
+
     '------------------------------------------------------------------
     'CrReport.Database.Tables("LLAVE_2").SetDataSource(dato3)
     'CrReport.Database.Tables("LLAVE_DATOS").SetDataSource(dato1)
     'CrReport.Database.Tables("LLAVE_RESULTADOS").SetDataSource(dato2)
     'CrReport.Database.Tables("Competidores").SetDataSource(Llaves_ds.Tables("Competidores"))
 
+
     'CrReport.Database.Tables("Llave2").SetDataSource(dasf)
 
 
     'CrystalReportViewer1.ReportSource = CrReport
     Dim PathPDF As String = "C:\bkp choco\"
-    CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, PathPDF + "Prueba" + ".pdf")
+
   End Sub
 
   Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

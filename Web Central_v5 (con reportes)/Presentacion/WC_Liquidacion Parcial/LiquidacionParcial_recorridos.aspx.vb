@@ -610,11 +610,12 @@ Public Class LiquidacionParcial_recorridos
 
   End Sub
 
-  Private Sub Cargar_recorrido_valido(ByVal valido As String, ByVal valido_xcargas As String, ByVal codigo As String, ByRef DS_liqparcial As DataSet)
+  Private Sub Cargar_recorrido_valido(ByVal valido As String, ByRef valido_xcargas As String, ByVal codigo As String, ByRef DS_liqparcial As DataSet)
     If valido = "si" And valido_xcargas = "si" Then
       Dim fila As DataRow = DS_liqparcial.Tables("Recorridos_seleccionados").NewRow
       fila("Codigo") = codigo
       DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Add(fila)
+      valido_xcargas = "si" 'VUELVO A PONER EN SI PARA PODER 
     End If
 
   End Sub
@@ -1329,24 +1330,33 @@ Public Class LiquidacionParcial_recorridos
     Recorrido_3(DS_liqparcial, valido, valido_xcargas, codigo_error, check)
     Recorrido_4(DS_liqparcial, valido, valido_xcargas, codigo_error, check)
 
-    If codigo_error <> "" Then
+    If (codigo_error <> "") And (DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Count = 0) Then
       DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Clear()
       'falló alguna validacion
       Label_error_liq02.Text = codigo_error
       ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal_msjerror_liq02", "$(document).ready(function () {$('#modal_msjerror_liq02').modal();});", True)
 
     Else
-      If check = "no" Then
+      If (check = "no") And (DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Count = 0) Then
         'error no se selecciono ninguna opcion
 
         ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal_msjerror_liq01", "$(document).ready(function () {$('#modal_msjerror_liq01').modal();});", True)
 
 
       Else
-        'aqui comienzo la carga del primer reporte.
-        Session("fecha_parametro") = HF_fecha.Value
-        Session("tabla_recorridos_seleccionados") = DS_liqparcial.Tables("Recorridos_seleccionados")
-        Response.Redirect("~/WC_Liquidacion Parcial/LiquidacionParcial_TotalesParciales.aspx")
+        If DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Count = 0 Then
+          codigo_error = "No existen registros."
+          Label_error_liq02.Text = codigo_error
+          ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal_msjerror_liq02", "$(document).ready(function () {$('#modal_msjerror_liq02').modal();});", True)
+
+        Else
+          'aqui comienzo la carga del primer reporte.
+          Session("fecha_parametro") = HF_fecha.Value
+          Session("tabla_recorridos_seleccionados") = DS_liqparcial.Tables("Recorridos_seleccionados")
+          Response.Redirect("~/WC_Liquidacion Parcial/LiquidacionParcial_TotalesParciales.aspx")
+
+        End If
+
       End If
     End If
 
