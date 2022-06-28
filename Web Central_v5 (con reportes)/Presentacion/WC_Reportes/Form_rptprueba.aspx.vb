@@ -2,13 +2,15 @@ Public Class Form_rptprueba
   Inherits System.Web.UI.Page
 
   Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-  End Sub
-
-  Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
     Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
     CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
     CrReport.Load(Server.MapPath("~/WC_Reportes/Rpt/rptprueba.rpt"))
+
+    CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/asd.pdf"))
+  End Sub
+
+  Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
 
     '-----------------------------------------------------------------
     'Dim Llaves_ds As New Llaves_ds
@@ -35,8 +37,8 @@ Public Class Form_rptprueba
 
 
     'CrystalReportViewer1.ReportSource = CrReport
-    Dim PathPDF As String = "C:\bkp choco\"
-    CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, PathPDF + "Prueba" + ".pdf")
+
+
   End Sub
 
   Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
