@@ -806,6 +806,195 @@ Partial Public Class ab_recorridos_zonas_activacion
     Protected WithEvents Drop_4j As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''Control Label1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Lb_5a.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Lb_5a As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Drop_5a.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Drop_5a As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control Lb_5b.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Lb_5b As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Drop_5b.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Drop_5b As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control Lb_5c.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Lb_5c As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Drop_5c.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Drop_5c As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control Lb_5d.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Lb_5d As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Drop_5d.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Drop_5d As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control Lb_5e.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Lb_5e As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Drop_5e.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Drop_5e As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control Lb_5f.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Lb_5f As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Drop_5f.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Drop_5f As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control Lb_5g.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Lb_5g As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Drop_5g.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Drop_5g As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control Lb_5h.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Lb_5h As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Drop_5h.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Drop_5h As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control Lb_5i.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Lb_5i As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Drop_5i.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Drop_5i As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control Lb_5j.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Lb_5j As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Drop_5j.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Drop_5j As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''Control btn_retroceder.
     '''</summary>
     '''<remarks>

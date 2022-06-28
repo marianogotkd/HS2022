@@ -14,7 +14,7 @@
         <div>
           <CR:CrystalReportSource ID="CrystalReportSource1" runat="server"></CR:CrystalReportSource>
           <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
-          <asp:Button ID="Button1" runat="server" Text="Button" />
+          <asp:Button ID="Button1" runat="server" Text="Button" OnClientClick="window.open('asd.pdf','_blank')" />
           <asp:Button ID="Button2" runat="server" Text="HttpResponse" />
         </div>
     </form>

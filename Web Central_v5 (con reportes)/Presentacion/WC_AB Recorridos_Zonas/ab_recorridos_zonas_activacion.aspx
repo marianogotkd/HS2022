@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="ab_recorridos_zonas_activacion.aspx.vb" Inherits="Presentacion.ab_recorridos_zonas_activacion" %>
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="ab_recorridos_zonas_activacion.aspx.vb" Inherits="Presentacion.ab_recorridos_zonas_activacion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script>
     //funcion que reconoce teclas para ir a los botones retroceso, baja y graba
@@ -421,6 +421,96 @@
                                     <br />
                                     <br />
                                 </div>
+
+                             <div class="col">
+                                <asp:Label ID="Label1" runat="server" Text="RECORRIDO 5" Font-Bold="False" 
+                                        ForeColor="#6666FF"></asp:Label>
+                                    <br />
+                                    <asp:Label ID="Lb_5a" runat="server" Text="" Width="100px"></asp:Label>
+                                    &nbsp;<asp:DropDownList ID="Drop_5a" runat="server" onkeydown="tecla_op(event);">
+                            <asp:ListItem Selected="True" Value="0">0-Deshabilita</asp:ListItem>
+                            <asp:ListItem Value="1">1-Habilita</asp:ListItem>
+                            </asp:DropDownList>
+                                    
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="Lb_5b" runat="server" Text="" Width="100px"></asp:Label>
+                                    &nbsp;<asp:DropDownList ID="Drop_5b" runat="server" onkeydown="tecla_op(event);">
+                            <asp:ListItem Selected="True" Value="0">0-Deshabilita</asp:ListItem>
+                            <asp:ListItem Value="1">1-Habilita</asp:ListItem>
+                            </asp:DropDownList>
+                                    
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="Lb_5c" runat="server" Text="" Width="100px"></asp:Label>
+                                    &nbsp;<asp:DropDownList ID="Drop_5c" runat="server" onkeydown="tecla_op(event);">
+                            <asp:ListItem Selected="True" Value="0">0-Deshabilita</asp:ListItem>
+                            <asp:ListItem Value="1">1-Habilita</asp:ListItem>
+                            </asp:DropDownList>
+                                    
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="Lb_5d" runat="server" Text="" Width="100px"></asp:Label>
+                                    &nbsp;<asp:DropDownList ID="Drop_5d" runat="server" onkeydown="tecla_op(event);">
+                            <asp:ListItem Selected="True" Value="0">0-Deshabilita</asp:ListItem>
+                            <asp:ListItem Value="1">1-Habilita</asp:ListItem>
+                            </asp:DropDownList>
+                                    
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="Lb_5e" runat="server" Text="" Width="100px"></asp:Label>
+                                    &nbsp;<asp:DropDownList ID="Drop_5e" runat="server" onkeydown="tecla_op(event);">
+                            <asp:ListItem Selected="True" Value="0">0-Deshabilita</asp:ListItem>
+                            <asp:ListItem Value="1">1-Habilita</asp:ListItem>
+                            </asp:DropDownList>
+                                    
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="Lb_5f" runat="server" Text="" Width="100px"></asp:Label>
+                                    &nbsp;<asp:DropDownList ID="Drop_5f" runat="server" onkeydown="tecla_op(event);">
+                            <asp:ListItem Selected="True" Value="0">0-Deshabilita</asp:ListItem>
+                            <asp:ListItem Value="1">1-Habilita</asp:ListItem>
+                            </asp:DropDownList>
+                                    
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="Lb_5g" runat="server" Text="" Width="100px"></asp:Label>
+                                    &nbsp;<asp:DropDownList ID="Drop_5g" runat="server" onkeydown="tecla_op(event);">
+                            <asp:ListItem Selected="True" Value="0">0-Deshabilita</asp:ListItem>
+                            <asp:ListItem Value="1">1-Habilita</asp:ListItem>
+                            </asp:DropDownList>
+                                    
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="Lb_5h" runat="server" Text="" Width="100px"></asp:Label>
+                                    &nbsp;<asp:DropDownList ID="Drop_5h" runat="server" onkeydown="tecla_op(event);">
+                            <asp:ListItem Selected="True" Value="0">0-Deshabilita</asp:ListItem>
+                            <asp:ListItem Value="1">1-Habilita</asp:ListItem>
+                            </asp:DropDownList>
+                                    
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="Lb_5i" runat="server" Text="" Width="100px"></asp:Label>
+                                    &nbsp;<asp:DropDownList ID="Drop_5i" runat="server" onkeydown="tecla_op(event);">
+                            <asp:ListItem Selected="True" Value="0">0-Deshabilita</asp:ListItem>
+                            <asp:ListItem Value="1">1-Habilita</asp:ListItem>
+                            </asp:DropDownList>
+                                    
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="Lb_5j" runat="server" Text="" Width="100px"></asp:Label>
+                                    &nbsp;<asp:DropDownList ID="Drop_5j" runat="server" onkeydown="tecla_op(event);">
+                            <asp:ListItem Selected="True" Value="0">0-Deshabilita</asp:ListItem>
+                            <asp:ListItem Value="1">1-Habilita</asp:ListItem>
+                            </asp:DropDownList>
+                                    
+                                    <br />
+                                    <br />
+                                </div>
+
+
+
+
                         </div>
                 </div>
                 

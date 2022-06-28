@@ -2,13 +2,15 @@ Public Class Form_rptprueba
   Inherits System.Web.UI.Page
 
   Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-  End Sub
-
-  Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
     Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
     CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
     CrReport.Load(Server.MapPath("~/WC_Reportes/Rpt/rptprueba.rpt"))
+
+    CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/asd.pdf"))
+  End Sub
+
+  Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
 
     '-----------------------------------------------------------------
     'Dim Llaves_ds As New Llaves_ds
@@ -25,19 +27,17 @@ Public Class Form_rptprueba
     'Llaves_ds.Tables("LLAVE_RESULTADOS").Merge(Session("datatable_LLAVE_RESULTADOS"))
     'Llaves_ds.Tables("LLAVE_2").Merge(Session("datatable_LLAVE_2"))
 
-
     '------------------------------------------------------------------
     'CrReport.Database.Tables("LLAVE_2").SetDataSource(dato3)
     'CrReport.Database.Tables("LLAVE_DATOS").SetDataSource(dato1)
     'CrReport.Database.Tables("LLAVE_RESULTADOS").SetDataSource(dato2)
     'CrReport.Database.Tables("Competidores").SetDataSource(Llaves_ds.Tables("Competidores"))
 
-
     'CrReport.Database.Tables("Llave2").SetDataSource(dasf)
 
 
     'CrystalReportViewer1.ReportSource = CrReport
-    Dim PathPDF As String = "C:\bkp choco\"
+
 
   End Sub
 
