@@ -68,7 +68,7 @@ Public Class LiquidacionFinal_PrestamosManuales
           'no existe, se crea un registro.
 
           Dim ds_ctacte_info As DataSet = DACtaCte.CtaCte_alta_2(Grupo_id, CInt(Cliente_Codigo), HF_fecha.Value, CobroPrestamoCredito_Importe)
-          IdCtaCte = ds_ctacte.Tables(0).Rows(0).Item(0)
+          IdCtaCte = ds_ctacte_info.Tables(0).Rows(0).Item(0)
         End If
         '---------------------------------------------------------------------------------------
         '---------------------------------------------------------------------------------------
