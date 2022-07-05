@@ -104,9 +104,9 @@
             
 
             <div class="form-group">
-            <button type="button" id="BOTON_GRABAR" runat="server" class="btn btn-primary" onkeydown="tecla_op_botones(event);"> <%--data-targe="#modal-primary"--%>
-                  IMPRIMIR
-                </button>
+                       
+              <asp:Button ID="BTN_IMPRIMIR" runat="server" Text="IMPRIMIR" class="btn btn-primary" onkeydown="tecla_op_botones(event);" OnClientClick="window.open('/WC_Reportes/Rpt/LiqParcial_premiosxclientes.pdf','_blank')" />
+            
             </div>
         
         </div>

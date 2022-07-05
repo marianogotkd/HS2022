@@ -19,6 +19,8 @@ Public Class LiquidacionParcial_TotalesParciales
       'obtener_total_parciales2(DS_liqparcial)
       obtener_totales_parciales3(DS_liqparcial)
 
+      btn_continuar.Focus()
+
     End If
 
   End Sub
@@ -183,6 +185,30 @@ Public Class LiquidacionParcial_TotalesParciales
 
     GridView1.DataSource = DS_liqparcial.Tables("Totales_Parciales")
     GridView1.DataBind()
+
+
+
+    Try
+      'aqui viene la generacion del reporte 
+      Dim fila_1 As DataRow = DS_liqparcial.Tables("Totales_Parciales_info").NewRow
+      fila_1("Fecha") = CDate(HF_fecha.Value)
+      DS_liqparcial.Tables("Totales_Parciales_info").Rows.Add(fila_1)
+
+      Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
+      CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
+      CrReport.Load(Server.MapPath("~/WC_Reportes/Rpt/LiquidacionParcial_informe01_totalesparciales.rpt"))
+      CrReport.Database.Tables("Totales_Parciales").SetDataSource(DS_liqparcial.Tables("Totales_Parciales"))
+      CrReport.Database.Tables("Totales_Parciales_info").SetDataSource(DS_liqparcial.Tables("Totales_Parciales_info"))
+      CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/LiqParcial_TotalesParciales.pdf"))
+
+    Catch ex As Exception
+
+    End Try
+
+
+
+
+
   End Sub
 
   Private Sub obtener_totales_parciales(ByVal DS_liqparcial As DataSet)

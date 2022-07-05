@@ -369,6 +369,78 @@
                                     <br />
                                     </div>
                                 </div>
+
+
+                          
+                              <div class="col">
+                                    <asp:Label ID="Label4" runat="server" Text="RECORRIDO 5" Font-Bold="False" 
+                                            ForeColor="#6666FF"></asp:Label>
+                                        <br />
+                                        <div id = "Div_5A" runat="server" visible="false" >
+                                        <asp:HiddenField ID="HF_5A_codigo" runat="server" />
+                                        <asp:LinkButton ID="LK_5A" runat="server"></asp:LinkButton>
+                                        <br />
+                                        <br />
+                                        </div>
+                                        <div id = "Div_5B" runat="server" visible="false" >
+                                        <asp:HiddenField ID="HF_5B_codigo" runat="server" />
+                                        <asp:LinkButton ID="LK_5B" runat="server"></asp:LinkButton>
+                                        <br />
+                                        <br />
+                                        </div>
+                                        <div id = "Div_5C" runat="server" visible="false" >
+                                        <asp:HiddenField ID="HF_5C_codigo" runat="server" />
+                                        <asp:LinkButton ID="LK_5C" runat="server"></asp:LinkButton>
+                                        <br />
+                                        <br />
+                                        </div>
+                                        <div id = "Div_5D" runat="server" visible="false" >
+                                        <asp:HiddenField ID="HF_5D_codigo" runat="server" />
+                                        <asp:LinkButton ID="LK_5D" runat="server"></asp:LinkButton>
+                                        <br />
+                                        <br />
+                                        </div>
+                                        <div id = "Div_5E" runat="server" visible="false" >
+                                        <asp:HiddenField ID="HF_5E_codigo" runat="server" />
+                                        <asp:LinkButton ID="LK_5E" runat="server"></asp:LinkButton>
+                                        <br />
+                                        <br />
+                                        </div>
+                                        <div id = "Div_5F" runat="server" visible="false" >
+                                        <asp:HiddenField ID="HF_5F_codigo" runat="server" />
+                                        <asp:LinkButton ID="LK_5F" runat="server"></asp:LinkButton>
+                                        <br />
+                                        <br />
+                                        </div>
+                                        <div id = "Div_5G" runat="server" visible="false" >
+                                        <asp:HiddenField ID="HF_5G_codigo" runat="server" />
+                                        <asp:LinkButton ID="LK_5G" runat="server"></asp:LinkButton>
+                                        <br />
+                                        <br />
+                                        </div>
+                                        <div id = "Div_5H" runat="server" visible="false" >
+                                        <asp:HiddenField ID="HF_5H_codigo" runat="server" />
+                                        <asp:LinkButton ID="LK_5H" runat="server"></asp:LinkButton>
+                                        <br />
+                                        <br />
+                                        </div>
+                                        <div id = "Div_5I" runat="server" visible="false" >
+                                        <asp:HiddenField ID="HF_5I_codigo" runat="server" />
+                                        <asp:LinkButton ID="LK_5I" runat="server"></asp:LinkButton>
+                                        <br />
+                                        <br />
+                                        </div>
+                                        <div id = "Div_5J" runat="server" visible="false" >
+                                        <asp:HiddenField ID="HF_5J_codigo" runat="server" />
+                                        <asp:LinkButton ID="LK_5J" runat="server"></asp:LinkButton>
+                                        <br />
+                                        <br />
+                                        </div>
+                                    </div>
+
+
+
+
                         </div>
                 </div>
                 <div class="form-group">

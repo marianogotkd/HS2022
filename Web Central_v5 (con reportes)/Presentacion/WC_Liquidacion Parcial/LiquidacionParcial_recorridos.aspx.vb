@@ -51,10 +51,12 @@ Public Class LiquidacionParcial_recorridos
     HF_2TODAS.Value = "2*"
     HF_3TODAS.Value = "3*"
     HF_4TODAS.Value = "4*"
+    HF_5TODAS.Value = "5*"
     LK_1TODOS.Text = "1* - TODAS"
     LK_2TODAS.Text = "2* - TODAS"
     LK_3TODAS.Text = "3* - TODAS"
     LK_4TODAS.Text = "4* - TODAS"
+    LK_5TODAS.Text = "5* - TODAS"
 
     Dim DS_Recorridos As DataSet = DArecorrido.recorridos_zonas_obtener_habilitados_x_dia(dia)
     'inicialmente tengo los label de zonas en "visible=false"
@@ -506,6 +508,116 @@ Public Class LiquidacionParcial_recorridos
               LK_4J.ForeColor = Drawing.Color.ForestGreen
             End If
             Div_4TODAS.Visible = True
+          End If
+        Case 40
+          If Habilitada = 1 Then
+            HF_5A_codigo.Value = codigo
+            Div_5A.Visible = True
+            LK_5A.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5A.ForeColor = Drawing.Color.ForestGreen
+            End If
+            Div_5TODAS.Visible = True
+          End If
+        Case 41
+          If Habilitada = 1 Then
+            HF_5B_codigo.Value = codigo
+            Div_5B.Visible = True
+            LK_5B.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5B.ForeColor = Drawing.Color.ForestGreen
+            End If
+            Div_5TODAS.Visible = True
+          End If
+        Case 42
+          If Habilitada = 1 Then
+            HF_5C_codigo.Value = codigo
+            Div_5C.Visible = True
+            LK_5C.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5C.ForeColor = Drawing.Color.ForestGreen
+            End If
+            Div_5TODAS.Visible = True
+          End If
+        Case 43
+          If Habilitada = 1 Then
+            HF_5D_codigo.Value = codigo
+            Div_5D.Visible = True
+            LK_5D.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5D.ForeColor = Drawing.Color.ForestGreen
+            End If
+            Div_5TODAS.Visible = True
+          End If
+        Case 44
+          If Habilitada = 1 Then
+            HF_5E_codigo.Value = codigo
+            Div_5E.Visible = True
+            LK_5E.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5E.ForeColor = Drawing.Color.ForestGreen
+            End If
+            Div_5TODAS.Visible = True
+          End If
+        Case 45
+          If Habilitada = 1 Then
+            HF_5F_codigo.Value = codigo
+            Div_5F.Visible = True
+            LK_5F.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5F.ForeColor = Drawing.Color.ForestGreen
+            End If
+            Div_5TODAS.Visible = True
+          End If
+        Case 46
+          If Habilitada = 1 Then
+            HF_5G_codigo.Value = codigo
+            Div_5G.Visible = True
+            LK_5G.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5G.ForeColor = Drawing.Color.ForestGreen
+            End If
+            Div_5TODAS.Visible = True
+          End If
+        Case 47
+          If Habilitada = 1 Then
+            HF_5H_codigo.Value = codigo
+            Div_5H.Visible = True
+            LK_5H.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5H.ForeColor = Drawing.Color.ForestGreen
+            End If
+            Div_5TODAS.Visible = True
+          End If
+        Case 48
+          If Habilitada = 1 Then
+            HF_5I_codigo.Value = codigo
+            Div_5I.Visible = True
+            LK_5I.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5I.ForeColor = Drawing.Color.ForestGreen
+            End If
+            Div_5TODAS.Visible = True
+          End If
+        Case 49
+          If Habilitada = 1 Then
+            HF_5J_codigo.Value = codigo
+            Div_5J.Visible = True
+            LK_5J.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5J.ForeColor = Drawing.Color.ForestGreen
+            End If
+            Div_5TODAS.Visible = True
           End If
       End Select
       'verificar_puntos_guardados(dia, codigo)
@@ -1315,6 +1427,182 @@ Public Class LiquidacionParcial_recorridos
 
   End Sub
 
+  Private Sub Recorrido_5(ByRef DS_liqparcial As DataSet, ByRef valido As String, ByRef valido_xcargas As String, ByRef codigo_error As String, ByRef check As String)
+    If ChkBox_5TODAS.Checked = True And valido = "si" And valido_xcargas = "si" Then
+      'se seleccionaron todas las zonas de Recorrido 5.
+      check = "si"
+      If valido = "si" And valido_xcargas = "si" Then
+        'valido zona 5A
+        Validar_recorridos_a(valido, "5A", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5A", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5A", DS_liqparcial)
+      End If
+      If valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5B", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5B", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5B", DS_liqparcial)
+      End If
+      If valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5C", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5C", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5C", DS_liqparcial)
+      End If
+      If valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5D", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5D", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5D", DS_liqparcial)
+      End If
+      If valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5E", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5E", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5E", DS_liqparcial)
+      End If
+      If valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5F", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5F", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5F", DS_liqparcial)
+      End If
+      If valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5G", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5G", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5G", DS_liqparcial)
+      End If
+      If valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5H", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5H", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5H", DS_liqparcial)
+      End If
+      If valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5I", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5I", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5I", DS_liqparcial)
+      End If
+      If valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5J", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5J", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5J", DS_liqparcial)
+      End If
+
+    Else
+      If ChkBox_5A.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        'valido zona 5A
+        Validar_recorridos_a(valido, "5A", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5A", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5A", DS_liqparcial)
+
+      End If
+      If ChkBox_5B.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5B", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5B", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5B", DS_liqparcial)
+      End If
+      If ChkBox_5C.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5C", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5C", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5C", DS_liqparcial)
+      End If
+      If ChkBox_5D.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5D", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5D", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5D", DS_liqparcial)
+      End If
+      If ChkBox_5E.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5E", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5E", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5E", DS_liqparcial)
+      End If
+      If ChkBox_5F.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5F", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5F", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5F", DS_liqparcial)
+      End If
+      If ChkBox_5G.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5G", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5G", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5G", DS_liqparcial)
+      End If
+      If ChkBox_5H.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5H", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5H", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5H", DS_liqparcial)
+      End If
+      If ChkBox_5I.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5I", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5I", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5I", DS_liqparcial)
+      End If
+      If ChkBox_5J.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        Validar_recorridos_a(valido, "5J", codigo_error, check)
+        If valido = "si" Then
+          '2DA VALIDACION------------------------
+          Validar_XCargas_parcial(valido_xcargas, "5J", codigo_error)
+        End If
+        Cargar_recorrido_valido(valido, valido_xcargas, "5J", DS_liqparcial)
+      End If
+
+    End If
+
+  End Sub
+
+
+
   Private Sub BOTON_GRABAR_ServerClick(sender As Object, e As EventArgs) Handles BOTON_GRABAR.ServerClick
     Dim DS_liqparcial As New DS_liqparcial
 
@@ -1329,6 +1617,7 @@ Public Class LiquidacionParcial_recorridos
     Recorrido_2(DS_liqparcial, valido, valido_xcargas, codigo_error, check)
     Recorrido_3(DS_liqparcial, valido, valido_xcargas, codigo_error, check)
     Recorrido_4(DS_liqparcial, valido, valido_xcargas, codigo_error, check)
+    Recorrido_5(DS_liqparcial, valido, valido_xcargas, codigo_error, check)
 
     If (codigo_error <> "") And (DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Count = 0) Then
       DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Clear()

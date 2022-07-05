@@ -357,10 +357,13 @@ Public Class Cliente_alta_b
                                                          CInt(DropDownList_variable.SelectedValue), Leyenda, CInt(DropDownList_variable1.SelectedValue), Txt_leyenda.Text, Txt_leyenda1.Text, "2", CDec(0), CDec(0), Txt_cliente_codigo.Text, CDec(0))
 
                                 limpiar_campos()
-                                ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-sm_OKGRABADO", "$(document).ready(function () {$('#modal-sm_OKGRABADO').modal();});", True)
+                ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-sm_OKGRABADO", "$(document).ready(function () {$('#modal-sm_OKGRABADO').modal();});", True)
+                btn_ok.Focus()
 
-                                'Response.Redirect("Cliente_abm.aspx")
-                            Else
+
+
+                'Response.Redirect("Cliente_abm.aspx")
+              Else
                                 'aqui muestro mensaje notificando que existe.
                                 Lb_error_validacion.Text = "Error! El Cliente ya existe, modifique los datos ingresados."
                                 Lb_error_validacion.Visible = True
@@ -399,11 +402,11 @@ Public Class Cliente_alta_b
                                                          CInt(DropDownList_factor.SelectedValue), CInt(DropDownList_imprimecalculo.SelectedValue), Txt_recorrido.Text, Txt_orden.Text,
                                                          CInt(DropDownList_variable.SelectedValue), Leyenda, CInt(DropDownList_variable1.SelectedValue), Txt_leyenda.Text, Txt_leyenda1.Text, Txt_cliente_codigo.Text)
                                 limpiar_campos()
-                                ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-sm_OKGRABADO", "$(document).ready(function () {$('#modal-sm_OKGRABADO').modal();});", True)
+                ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-sm_OKGRABADO", "$(document).ready(function () {$('#modal-sm_OKGRABADO').modal();});", True)
 
-                                'regresar al form que lista clientes.
-                                'Response.Redirect("Cliente_abm.aspx")
-                            Else
+                'regresar al form que lista clientes.
+                'Response.Redirect("Cliente_abm.aspx")
+              Else
                                 'aqui muestro mensaje notificando que existe.
                                 Lb_error_validacion.Text = "Error! El Cliente ya existe, modifique los datos ingresados."
                                 Lb_error_validacion.Visible = True
@@ -492,9 +495,9 @@ Public Class Cliente_alta_b
         Txt_cliente_codigo.Attributes.Add("onfocus", "seleccionarTexto(this);")
     End Sub
 
-    Private Sub Txt_cliente_nomb_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_cliente_nomb.Init
-        Txt_cliente_nomb.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    End Sub
+  Private Sub Txt_cliente_nomb_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_cliente_nomb.Init
+    Txt_cliente_nomb.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  End Sub
 
   Private Sub Txt_comision_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_comision.Init
     Txt_comision.Attributes.Add("onfocus", "seleccionarTexto(this);")
@@ -552,6 +555,8 @@ Public Class Cliente_alta_b
   Private Sub Txt_regalo1_Init(sender As Object, e As EventArgs) Handles Txt_regalo1.Init
     Txt_regalo1.Attributes.Add("onfocus", "seleccionarTexto(this);")
   End Sub
+
+
 
 
 #End Region

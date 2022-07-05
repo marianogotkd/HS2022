@@ -88,16 +88,16 @@ Public Class ab_recorridos_zonas_activacion
       Lb_4j.Text = ds_recorridos.Tables(0).Rows(39).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(39).Item("Referencia").ToString.ToUpper + ":"
 
 
-      Lb_5a.Text = ds_recorridos.Tables(0).Rows(30).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(30).Item("Referencia").ToString.ToUpper + ":"
-      Lb_5b.Text = ds_recorridos.Tables(0).Rows(31).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(31).Item("Referencia").ToString.ToUpper + ":"
-      Lb_5c.Text = ds_recorridos.Tables(0).Rows(32).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(32).Item("Referencia").ToString.ToUpper + ":"
-      Lb_5d.Text = ds_recorridos.Tables(0).Rows(33).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(33).Item("Referencia").ToString.ToUpper + ":"
-      Lb_5e.Text = ds_recorridos.Tables(0).Rows(34).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(34).Item("Referencia").ToString.ToUpper + ":"
-      Lb_5f.Text = ds_recorridos.Tables(0).Rows(35).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(35).Item("Referencia").ToString.ToUpper + ":"
-      Lb_5g.Text = ds_recorridos.Tables(0).Rows(36).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(36).Item("Referencia").ToString.ToUpper + ":"
-      Lb_5h.Text = ds_recorridos.Tables(0).Rows(37).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(37).Item("Referencia").ToString.ToUpper + ":"
-      Lb_5i.Text = ds_recorridos.Tables(0).Rows(38).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(38).Item("Referencia").ToString.ToUpper + ":"
-      Lb_5j.Text = ds_recorridos.Tables(0).Rows(39).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(39).Item("Referencia").ToString.ToUpper + ":"
+      Lb_5a.Text = ds_recorridos.Tables(0).Rows(40).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(40).Item("Referencia").ToString.ToUpper + ":"
+      Lb_5b.Text = ds_recorridos.Tables(0).Rows(41).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(41).Item("Referencia").ToString.ToUpper + ":"
+      Lb_5c.Text = ds_recorridos.Tables(0).Rows(42).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(42).Item("Referencia").ToString.ToUpper + ":"
+      Lb_5d.Text = ds_recorridos.Tables(0).Rows(43).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(43).Item("Referencia").ToString.ToUpper + ":"
+      Lb_5e.Text = ds_recorridos.Tables(0).Rows(44).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(44).Item("Referencia").ToString.ToUpper + ":"
+      Lb_5f.Text = ds_recorridos.Tables(0).Rows(45).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(45).Item("Referencia").ToString.ToUpper + ":"
+      Lb_5g.Text = ds_recorridos.Tables(0).Rows(46).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(46).Item("Referencia").ToString.ToUpper + ":"
+      Lb_5h.Text = ds_recorridos.Tables(0).Rows(47).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(47).Item("Referencia").ToString.ToUpper + ":"
+      Lb_5i.Text = ds_recorridos.Tables(0).Rows(48).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(48).Item("Referencia").ToString.ToUpper + ":"
+      Lb_5j.Text = ds_recorridos.Tables(0).Rows(49).Item("Codigo").ToString.ToUpper + "-" + ds_recorridos.Tables(0).Rows(49).Item("Referencia").ToString.ToUpper + ":"
 
       Drop_1a.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(0).Item("Habilitada")))
       Drop_1b.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(1).Item("Habilitada")))
@@ -145,16 +145,16 @@ Public Class ab_recorridos_zonas_activacion
 
 
 
-      Drop_5a.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(30).Item("Habilitada")))
-      Drop_5b.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(31).Item("Habilitada")))
-      Drop_5c.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(32).Item("Habilitada")))
-      Drop_5d.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(33).Item("Habilitada")))
-      Drop_5e.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(34).Item("Habilitada")))
-      Drop_5f.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(35).Item("Habilitada")))
-      Drop_5g.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(36).Item("Habilitada")))
-      Drop_5h.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(37).Item("Habilitada")))
-      Drop_5i.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(38).Item("Habilitada")))
-      Drop_5j.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(39).Item("Habilitada")))
+      Drop_5a.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(40).Item("Habilitada")))
+      Drop_5b.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(41).Item("Habilitada")))
+      Drop_5c.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(42).Item("Habilitada")))
+      Drop_5d.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(43).Item("Habilitada")))
+      Drop_5e.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(44).Item("Habilitada")))
+      Drop_5f.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(45).Item("Habilitada")))
+      Drop_5g.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(46).Item("Habilitada")))
+      Drop_5h.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(47).Item("Habilitada")))
+      Drop_5i.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(48).Item("Habilitada")))
+      Drop_5j.SelectedValue = conv_bit(CInt(ds_recorridos.Tables(0).Rows(49).Item("Habilitada")))
 
 
       'Dim i As Integer = 0
@@ -309,16 +309,16 @@ Public Class ab_recorridos_zonas_activacion
 
 
 
-        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(30).Item("Codigo"), CInt(Drop_5a.SelectedValue))
-        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(31).Item("Codigo"), CInt(Drop_5b.SelectedValue))
-        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(32).Item("Codigo"), CInt(Drop_5c.SelectedValue))
-        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(33).Item("Codigo"), CInt(Drop_5d.SelectedValue))
-        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(34).Item("Codigo"), CInt(Drop_5e.SelectedValue))
-        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(35).Item("Codigo"), CInt(Drop_5f.SelectedValue))
-        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(36).Item("Codigo"), CInt(Drop_5g.SelectedValue))
-        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(37).Item("Codigo"), CInt(Drop_5h.SelectedValue))
-        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(38).Item("Codigo"), CInt(Drop_5i.SelectedValue))
-        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(39).Item("Codigo"), CInt(Drop_5j.SelectedValue))
+        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(40).Item("Codigo"), CInt(Drop_5a.SelectedValue))
+        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(41).Item("Codigo"), CInt(Drop_5b.SelectedValue))
+        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(42).Item("Codigo"), CInt(Drop_5c.SelectedValue))
+        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(43).Item("Codigo"), CInt(Drop_5d.SelectedValue))
+        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(44).Item("Codigo"), CInt(Drop_5e.SelectedValue))
+        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(45).Item("Codigo"), CInt(Drop_5f.SelectedValue))
+        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(46).Item("Codigo"), CInt(Drop_5g.SelectedValue))
+        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(47).Item("Codigo"), CInt(Drop_5h.SelectedValue))
+        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(48).Item("Codigo"), CInt(Drop_5i.SelectedValue))
+        DA_recorridos.recorridos_zonas_activacion(CInt(HF_dia_nro.Value), ds_recorridos.Tables(0).Rows(49).Item("Codigo"), CInt(Drop_5j.SelectedValue))
 
       End If
 
@@ -371,9 +371,6 @@ Public Class ab_recorridos_zonas_activacion
       ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-sm_error", "$(document).ready(function () {$('#modal-sm_error').modal();});", True)
 
     End Try
-
-
-
 
 
   End Sub

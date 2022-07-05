@@ -22,6 +22,9 @@ Public Class LiquidacionParcial_PremiosxClientes
 
       'obtener_totales_parciales(DS_liqparcial)
       obtener_premios_x_clientes(DS_liqparcial)
+
+      btn_retroceder.Focus()
+
     End If
   End Sub
 #End Region
@@ -55,6 +58,13 @@ Public Class LiquidacionParcial_PremiosxClientes
 
     GridView2.DataSource = dtTemp
     GridView2.DataBind()
+
+
+
+    'AQUI VIENE LA GENERACION DEL REPORTE.
+
+
+
 
   End Sub
 
@@ -403,6 +413,26 @@ Public Class LiquidacionParcial_PremiosxClientes
       End If
       i = i + 1
     End While
+
+
+
+    '-----AQUI CARGO LA INFO EN UN REPORTE---------------------------------------------------------------------------
+
+    Dim fila_1 As DataRow = DS_liqparcial1.Tables("PremiosxClientes_info").NewRow
+    fila_1("Fecha") = CDate(HF_fecha.Value)
+    DS_liqparcial1.Tables("PremiosxClientes_info").Rows.Add(fila_1)
+
+    Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
+    CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
+    CrReport.Load(Server.MapPath("~/WC_Reportes/Rpt/LiquidacionParcial_informe02_premiosxclientes.rpt"))
+    CrReport.Database.Tables("PremiosxClientes").SetDataSource(DS_liqparcial1.Tables("PremiosxClientes"))
+    CrReport.Database.Tables("PremiosxClientes_info").SetDataSource(DS_liqparcial1.Tables("PremiosxClientes_info"))
+    CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/LiqParcial_premiosxclientes.pdf"))
+
+    '---------------------------------------------------------------------------------------------------------------
+
+
+
 
     'AQUI AGREGO LOS CORTES DE CONTROL ---------------------------------------------------------------------
     '----------COPIO LA ESTRUCTURA EN OTRO DATATABLE

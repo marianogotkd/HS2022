@@ -3728,6 +3728,78 @@
       <DependentUpon>Form_rptprueba.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="WC_Reportes\Rpt\LiquidacionFinal_informe01.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LiquidacionFinal_informe01.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\LiquidacionFinal_informe01a.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LiquidacionFinal_informe01a.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\LiquidacionFinal_informe01b.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LiquidacionFinal_informe01b.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\LiquidacionFinal_informe02.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LiquidacionFinal_informe02.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\LiquidacionFinal_informe03.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LiquidacionFinal_informe03.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\LiquidacionFinal_informe04.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LiquidacionFinal_informe04.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\LiquidacionGrupos_informe01.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LiquidacionGrupos_informe01.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\LiquidacionParcial_informe01_totalesparciales.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LiquidacionParcial_informe01_totalesparciales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\LiquidacionParcial_informe02_premiosxclientes.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LiquidacionParcial_informe02_premiosxclientes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\LiquidacionRegalos_informe01.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LiquidacionRegalos_informe01.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\LiquidacionRegalos_informe02.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LiquidacionRegalos_informe02.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\LiquidacionRegalos_informe03.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LiquidacionRegalos_informe03.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WC_Reportes\Rpt\rptprueba.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3746,6 +3818,54 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CR01.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\LiquidacionFinal_informe01.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LiquidacionFinal_informe01.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\LiquidacionFinal_informe01a.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LiquidacionFinal_informe01a.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\LiquidacionFinal_informe01b.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LiquidacionFinal_informe01b.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\LiquidacionFinal_informe02.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LiquidacionFinal_informe02.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\LiquidacionFinal_informe03.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LiquidacionFinal_informe03.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\LiquidacionFinal_informe04.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LiquidacionFinal_informe04.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\LiquidacionGrupos_informe01.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LiquidacionGrupos_informe01.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\LiquidacionParcial_informe01_totalesparciales.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LiquidacionParcial_informe01_totalesparciales.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\LiquidacionParcial_informe02_premiosxclientes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LiquidacionParcial_informe02_premiosxclientes.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\LiquidacionRegalos_informe01.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LiquidacionRegalos_informe01.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\LiquidacionRegalos_informe02.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LiquidacionRegalos_informe02.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\LiquidacionRegalos_informe03.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LiquidacionRegalos_informe03.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="WC_Reportes\Rpt\rptprueba.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

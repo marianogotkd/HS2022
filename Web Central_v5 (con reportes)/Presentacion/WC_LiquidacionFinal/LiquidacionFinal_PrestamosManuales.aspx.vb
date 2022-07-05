@@ -100,11 +100,26 @@ Public Class LiquidacionFinal_PrestamosManuales
       GridView1.DataSource = DS_liqfinal.Tables("PrestamosManuales")
       GridView1.DataBind()
 
+
+      '------------------AQUIREPORTE ------------------------------------------------
+      Dim fila_1 As DataRow = DS_liqfinal.Tables("PrestamosManuales_info").NewRow
+      fila_1("Fecha") = CDate(HF_fecha.Value)
+      DS_liqfinal.Tables("PrestamosManuales_info").Rows.Add(fila_1)
+      Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
+      CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
+      CrReport.Load(Server.MapPath("~/WC_Reportes/Rpt/LiquidacionFinal_informe02.rpt"))
+      CrReport.Database.Tables("PrestamosManuales").SetDataSource(DS_liqfinal.Tables("PrestamosManuales"))
+      CrReport.Database.Tables("PrestamosManuales_info").SetDataSource(DS_liqfinal.Tables("PrestamosManuales_info"))
+      CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/LiqFinal_CobPrestamosManuales.pdf"))
+
+      '------------------------------------------------------------------------------
+
+
       If GridView1.Rows.Count = 0 Then
         Label_noprestamos.Visible = True
       End If
 
-
+      btn_continuar.Focus()
 
     End If
 

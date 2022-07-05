@@ -116,15 +116,37 @@ Public Class LiquidacionFinal_PrestamosComision
         'no hay prestamosxcomision
       End If
 
+      '------------------AQUIREPORTE ------------------------------------------------
+      Dim fila_1 As DataRow = DS_liqfinal.Tables("PrestamosComision_info").NewRow
+      fila_1("Fecha") = CDate(HF_fecha.Value)
+      DS_liqfinal.Tables("PrestamosComision_info").Rows.Add(fila_1)
+      Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
+      CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
+      CrReport.Load(Server.MapPath("~/WC_Reportes/Rpt/LiquidacionFinal_informe03.rpt"))
+      CrReport.Database.Tables("PrestamosComision").SetDataSource(DS_liqfinal.Tables("PrestamosComision"))
+      CrReport.Database.Tables("PrestamosComision_info").SetDataSource(DS_liqfinal.Tables("PrestamosComision_info"))
+      CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/LiqFinal_CobPrestamosComision.pdf"))
+
+      '------------------------------------------------------------------------------
+
+
+
+
+
+
+
       'ahora muestro DS_liqfinal.tables("PrestamosComision") en un gridview.
 
       GridView1.DataSource = DS_liqfinal.Tables("PrestamosComision")
       GridView1.DataBind()
 
+
+
       If GridView1.Rows.Count = 0 Then
         Label_noprestamos.Visible = True
       End If
 
+      btn_continuar.Focus()
     End If
   End Sub
 

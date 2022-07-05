@@ -55,6 +55,34 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="PagosCobrosReclamos_info" msprop:Generator_TableClassName="PagosCobrosReclamos_infoDataTable" msprop:Generator_TableVarName="tablePagosCobrosReclamos_info" msprop:Generator_RowChangedName="PagosCobrosReclamos_infoRowChanged" msprop:Generator_TablePropName="PagosCobrosReclamos_info" msprop:Generator_RowDeletingName="PagosCobrosReclamos_infoRowDeleting" msprop:Generator_RowChangingName="PagosCobrosReclamos_infoRowChanging" msprop:Generator_RowEvHandlerName="PagosCobrosReclamos_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="PagosCobrosReclamos_infoRowDeleted" msprop:Generator_RowClassName="PagosCobrosReclamos_infoRow" msprop:Generator_UserTableName="PagosCobrosReclamos_info" msprop:Generator_RowEvArgName="PagosCobrosReclamos_infoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PrestamosManuales_info" msprop:Generator_TableClassName="PrestamosManuales_infoDataTable" msprop:Generator_TableVarName="tablePrestamosManuales_info" msprop:Generator_TablePropName="PrestamosManuales_info" msprop:Generator_RowDeletingName="PrestamosManuales_infoRowDeleting" msprop:Generator_RowChangingName="PrestamosManuales_infoRowChanging" msprop:Generator_RowEvHandlerName="PrestamosManuales_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="PrestamosManuales_infoRowDeleted" msprop:Generator_UserTableName="PrestamosManuales_info" msprop:Generator_RowChangedName="PrestamosManuales_infoRowChanged" msprop:Generator_RowEvArgName="PrestamosManuales_infoRowChangeEvent" msprop:Generator_RowClassName="PrestamosManuales_infoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PrestamosComision_info" msprop:Generator_TableClassName="PrestamosComision_infoDataTable" msprop:Generator_TableVarName="tablePrestamosComision_info" msprop:Generator_TablePropName="PrestamosComision_info" msprop:Generator_RowDeletingName="PrestamosComision_infoRowDeleting" msprop:Generator_RowChangingName="PrestamosComision_infoRowChanging" msprop:Generator_RowEvHandlerName="PrestamosComision_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="PrestamosComision_infoRowDeleted" msprop:Generator_UserTableName="PrestamosComision_info" msprop:Generator_RowChangedName="PrestamosComision_infoRowChanged" msprop:Generator_RowEvArgName="PrestamosComision_infoRowChangeEvent" msprop:Generator_RowClassName="PrestamosComision_infoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Creditos_info" msprop:Generator_TableClassName="Creditos_infoDataTable" msprop:Generator_TableVarName="tableCreditos_info" msprop:Generator_TablePropName="Creditos_info" msprop:Generator_RowDeletingName="Creditos_infoRowDeleting" msprop:Generator_RowChangingName="Creditos_infoRowChanging" msprop:Generator_RowEvHandlerName="Creditos_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="Creditos_infoRowDeleted" msprop:Generator_UserTableName="Creditos_info" msprop:Generator_RowChangedName="Creditos_infoRowChanged" msprop:Generator_RowEvArgName="Creditos_infoRowChangeEvent" msprop:Generator_RowClassName="Creditos_infoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

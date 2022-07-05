@@ -18,6 +18,8 @@ Public Class LiquidacionRegalosMensual_det
         LABEL_fecha_parametro.Text = FECHA.ToString("dd-MM-yyyy")
         Metodo1()
 
+        btn_continuar.Focus()
+
       End If
     End If
   End Sub
@@ -31,6 +33,10 @@ Public Class LiquidacionRegalosMensual_det
   Private Sub Metodo1()
     'Buscar todos los clientes que tengan en el campo dbo.clientes.Proceso = "M".
     Dim ds_clientes As DataSet = DAliquidacion.LiquidacionRegalos_obtener_ClieMensual
+
+    Dim DS_liqregalos As New DS_liqregalos
+    DS_liqregalos.Tables("Mensual").Rows.Clear()
+
     If ds_clientes.Tables(0).Rows.Count <> 0 Then
 
       Dim i As Integer = 0
@@ -73,15 +79,13 @@ Public Class LiquidacionRegalosMensual_det
       Dim ds_clie As DataSet = DAliquidacion.LiquidacionRegalos_obtener_ClieMensual
       If ds_clie.Tables(0).Rows.Count <> 0 Then
 
-        Dim DS_liqregalos As New DS_liqregalos
-        DS_liqregalos.Tables("Mensual").Rows.Clear()
 
         Dim filaa As DataRow = DS_liqregalos.Tables("Mensual").NewRow
         filaa("Cliente") = "Cliente"
-        filaa("Monto_Favor") = ""
+        'filaa("Monto_Favor") = ""
         filaa("Favor") = ""
         filaa("Contra") = ""
-        filaa("Monto_Contra") = ""
+        'filaa("Monto_Contra") = ""
         DS_liqregalos.Tables("Mensual").Rows.Add(filaa)
 
         Dim ii As Integer = 0
@@ -91,29 +95,33 @@ Public Class LiquidacionRegalosMensual_det
           If CLiente_SaldoRegalo <> CDec(0) Then '- NO HACE FALTA MOSTRAR TODOS LOS CLIENTES QUE TENGAN LA CONDICION QUE SE LIQUIDO SI EL dbo.clientes.SaldoRegalo = 0
             Dim ds_ctacte As DataSet = DAliquidacion.LiquidacionRegalos_obtenerctacte(Cliente_Codigo, HF_fecha.Value)
             Dim IdCtaCte As Integer = 0
-            Dim Monto_contra As String = ""
-            Dim Monto_favor As String = ""
+            Dim Monto_contra As Decimal = 0
+            Dim Monto_favor As Decimal = 0
             Dim Contra As String = ""
             Dim Favor As String = ""
             If ds_ctacte.Tables(0).Rows.Count <> 0 Then
               If ds_ctacte.Tables(0).Rows(0).Item("Regalos") <> CDec(0) Then
-                Monto_favor = CStr(ds_ctacte.Tables(0).Rows(0).Item("Regalos"))
+                Monto_favor = ds_ctacte.Tables(0).Rows(0).Item("Regalos")
                 Favor = "A FAVOR"
               Else
-                Monto_contra = CStr(CLiente_SaldoRegalo)
+                Monto_contra = CLiente_SaldoRegalo
                 Contra = "EN CONTRA"
               End If
 
             Else
-              Monto_contra = CStr(CLiente_SaldoRegalo)
+              Monto_contra = CLiente_SaldoRegalo
               Contra = "EN CONTRA"
             End If
             Dim fila As DataRow = DS_liqregalos.Tables("Mensual").NewRow
             fila("Cliente") = CStr(Cliente_Codigo)
-            fila("Monto_Favor") = Monto_favor
+            If Monto_favor <> 0 Then
+              fila("Monto_Favor") = Monto_favor
+            End If
             fila("Favor") = Favor
             fila("Contra") = Contra
-            fila("Monto_Contra") = Monto_contra
+            If Monto_contra <> 0 Then
+              fila("Monto_Contra") = Monto_contra
+            End If
             DS_liqregalos.Tables("Mensual").Rows.Add(fila)
           End If
 
@@ -135,13 +143,18 @@ Public Class LiquidacionRegalosMensual_det
             Total = Total + Monto_Favor
             j = j + 1
           End While
+
           Dim fila1 As DataRow = DS_liqregalos.Tables("Mensual").NewRow
           fila1("Cliente") = "TOTAL:"
-          fila1("Monto_Favor") = CStr(Total)
+          fila1("Monto_Favor") = Total
           fila1("Favor") = ""
           fila1("Contra") = ""
-          fila1("Monto_Contra") = ""
+          'fila1("Monto_Contra") = ""
           DS_liqregalos.Tables("Mensual").Rows.Add(fila1)
+
+        Else
+          DS_liqregalos.Tables("Mensual").Rows.Clear()
+          Label_noregalos.Visible = True
         End If
 
         GridView1.DataSource = DS_liqregalos.Tables("Mensual")
@@ -154,6 +167,30 @@ Public Class LiquidacionRegalosMensual_det
       'aqui msj?
       Label_noregalos.Visible = True
     End If
+
+    '----AQUI GENERO REPORTE-------
+
+    'NOTA: PARA EL REPORTE VOY A QUITAR DE DS_liqregalos.Tables("Diario") el ultimo registro que vendria a ser el "TOTAL", ya que en el reporte se lo va agregar como un campo de "corte de control".
+    If DS_liqregalos.Tables("Mensual").Rows.Count > 1 Then
+      Dim ultimo_registro As Integer = DS_liqregalos.Tables("Mensual").Rows.Count - 1
+      DS_liqregalos.Tables("Mensual").Rows.RemoveAt(ultimo_registro)
+
+    End If
+
+    Dim fila_1 As DataRow = DS_liqregalos.Tables("Mensual_info").NewRow
+    fila_1("Fecha") = CDate(HF_fecha.Value)
+    DS_liqregalos.Tables("Mensual_info").Rows.Add(fila_1)
+    Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
+    CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
+    CrReport.Load(Server.MapPath("~/WC_Reportes/Rpt/LiquidacionRegalos_informe03.rpt"))
+    CrReport.Database.Tables("Mensual").SetDataSource(DS_liqregalos.Tables("Mensual"))
+    CrReport.Database.Tables("Mensual_info").SetDataSource(DS_liqregalos.Tables("Mensual_info"))
+    CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/LiqRegalos_Mensual.pdf"))
+
+    '------------------------------
+
+
+
   End Sub
 
 #End Region

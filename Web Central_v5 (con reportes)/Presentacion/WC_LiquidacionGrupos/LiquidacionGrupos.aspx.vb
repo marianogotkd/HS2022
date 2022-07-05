@@ -155,6 +155,11 @@ Public Class LiquidacionGrupos
                   'No se registran gastos para el rango de fecha
 
                 End If
+
+                Gastos_importe = Gastos_importe * -1
+
+
+
                 Dim fila5 As DataRow = DS_liqgrupos.Tables("LiqGrupos").NewRow
                 fila5("Columna1") = ""
                 fila5("Columna2") = "GASTOS"
@@ -222,6 +227,29 @@ Public Class LiquidacionGrupos
 
               ii = ii + 1
             End While
+
+            '-----AQUI ARMO EL DATATABLE Q ENVIARE AL FORM "LiquidacionGrupos_det" para armar el reporte.-----------------------------
+            If DS_liqgrupos.Tables("LiqGrupos").Rows.Count <> 0 Then
+              Dim i As Integer = 0
+              Dim ID As Integer = 1
+              While i < DS_liqgrupos.Tables("LiqGrupos").Rows.Count
+                If DS_liqgrupos.Tables("LiqGrupos").Rows(i).Item("Columna2").ToString <> "" Then
+                  Dim fila_a As DataRow = DS_liqgrupos.Tables("LiqGrupos_rpt").NewRow
+                  fila_a("ID") = ID
+                  fila_a("Columna1") = DS_liqgrupos.Tables("LiqGrupos").Rows(i).Item("Columna1")
+                  fila_a("Columna2") = DS_liqgrupos.Tables("LiqGrupos").Rows(i).Item("Columna2")
+                  fila_a("Columna3") = DS_liqgrupos.Tables("LiqGrupos").Rows(i).Item("Columna3")
+                  fila_a("Columna4") = DS_liqgrupos.Tables("LiqGrupos").Rows(i).Item("Columna4")
+                  DS_liqgrupos.Tables("LiqGrupos_rpt").Rows.Add(fila_a)
+                Else
+                  ID = ID + 1
+                End If
+                i = i + 1
+              End While
+            End If
+            '------------------------------------------------------------------------------------------------------------------------
+
+            Session("Tabla_LiqGrupos_rpt") = DS_liqgrupos.Tables("LiqGrupos_rpt")
             Session("Tabla_LiqGrupos") = DS_liqgrupos.Tables("LiqGrupos")
 
             Response.Redirect("~/WC_LiquidacionGrupos/LiquidacionGrupos_det.aspx")
@@ -335,6 +363,9 @@ Public Class LiquidacionGrupos
                 'No se registran gastos para el rango de fecha
 
               End If
+
+              Gastos_importe = Gastos_importe * -1
+
               Dim fila5 As DataRow = DS_liqgrupos.Tables("LiqGrupos").NewRow
               fila5("Columna1") = ""
               fila5("Columna2") = "GASTOS"
@@ -388,6 +419,32 @@ Public Class LiquidacionGrupos
               End If
               '//////////////////////////////////////////////////////////
 
+
+              '-----AQUI ARMO EL DATATABLE Q ENVIARE AL FORM "LiquidacionGrupos_det" para armar el reporte.-----------------------------
+              If DS_liqgrupos.Tables("LiqGrupos").Rows.Count <> 0 Then
+                Dim i As Integer = 0
+                Dim ID As Integer = 1
+                While i < DS_liqgrupos.Tables("LiqGrupos").Rows.Count
+                  If DS_liqgrupos.Tables("LiqGrupos").Rows(i).Item("Columna2").ToString <> "" Then
+                    Dim fila_a As DataRow = DS_liqgrupos.Tables("LiqGrupos_rpt").NewRow
+                    fila_a("ID") = ID
+                    fila_a("Columna1") = DS_liqgrupos.Tables("LiqGrupos").Rows(i).Item("Columna1")
+                    fila_a("Columna2") = DS_liqgrupos.Tables("LiqGrupos").Rows(i).Item("Columna2")
+                    fila_a("Columna3") = DS_liqgrupos.Tables("LiqGrupos").Rows(i).Item("Columna3")
+                    fila_a("Columna4") = DS_liqgrupos.Tables("LiqGrupos").Rows(i).Item("Columna4")
+                    DS_liqgrupos.Tables("LiqGrupos_rpt").Rows.Add(fila_a)
+                  Else
+                    ID = ID + 1
+                  End If
+                  i = i + 1
+                End While
+              End If
+              '------------------------------------------------------------------------------------------------------------------------
+
+              Session("Tabla_LiqGrupos_rpt") = DS_liqgrupos.Tables("LiqGrupos_rpt")
+
+
+
               Session("Tabla_LiqGrupos") = DS_liqgrupos.Tables("LiqGrupos")
 
                 Response.Redirect("~/WC_LiquidacionGrupos/LiquidacionGrupos_det.aspx")
@@ -413,6 +470,10 @@ Public Class LiquidacionGrupos
       'error, ingrese la informacion solicitada
       ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-sm_error1", "$(document).ready(function () {$('#modal-sm_error1').modal();});", True)
     End If
+
+
+
+
 
 
   End Sub

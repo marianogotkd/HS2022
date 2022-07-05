@@ -95,11 +95,11 @@ Partial Public Class LiquidacionRegalosMensual_det
     Protected WithEvents btn_continuar As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
-    '''Control BOTON_GRABAR.
+    '''Control BTN_IMPRIMIR.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents BOTON_GRABAR As Global.System.Web.UI.HtmlControls.HtmlButton
+    Protected WithEvents BTN_IMPRIMIR As Global.System.Web.UI.WebControls.Button
 End Class

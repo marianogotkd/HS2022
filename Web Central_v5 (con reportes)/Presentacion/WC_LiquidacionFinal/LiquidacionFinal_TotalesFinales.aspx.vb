@@ -25,7 +25,45 @@ Public Class LiquidacionFinal_TotalesFinales
 
       resumen_PagosCobrosReclamos()
 
+
+      '-----AQUI ARMO EL REPORTE--------
+      Dim fila_1 As DataRow = DS_liqparcial.Tables("Totales_Parciales_info").NewRow
+      fila_1("Fecha") = CDate(HF_fecha.Value)
+      DS_liqparcial.Tables("Totales_Parciales_info").Rows.Add(fila_1)
+      Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
+
+      Dim DS_liqfinal As New DS_liqfinal
+      DS_liqfinal.Tables("PagosCobrosReclamos").Merge(Session("tabla_PagosCobrosReclamos"))
+
+      CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
+      CrReport.Load(Server.MapPath("~/WC_Reportes/Rpt/LiquidacionFinal_informe01.rpt"))
+
+
+      CrReport.Database.Tables("Totales_Parciales").SetDataSource(DS_liqparcial.Tables("Totales_Parciales"))
+      CrReport.Database.Tables("Totales_Parciales_info").SetDataSource(DS_liqparcial.Tables("Totales_Parciales_info"))
+
+      If DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Count <> 0 Then
+        Dim fila_2 As DataRow = DS_liqfinal.Tables("PagosCobrosReclamos_info").NewRow
+        fila_2("Fecha") = CDate(HF_fecha.Value)
+
+        DS_liqfinal.Tables("PagosCobrosReclamos_info").Rows.Add(fila_2)
+
+        CrReport.Database.Tables("PagosCobrosReclamos").SetDataSource(DS_liqfinal.Tables("PagosCobrosReclamos"))
+        CrReport.Database.Tables("PagosCobrosReclamos_info").SetDataSource(DS_liqfinal.Tables("PagosCobrosReclamos_info"))
+
+      End If
+
+      CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/LiqFinal_TotalesFinales.pdf"))
+
+
+
+
+
+
       Session("OP") = "si" 'esto habilita el click del boton continuar
+
+
+      btn_continuar.Focus()
     End If
   End Sub
 
@@ -61,7 +99,7 @@ Public Class LiquidacionFinal_TotalesFinales
 
   End Sub
 
-  Private Sub obtener_totales_parciales2(ByVal DS_liqparcial As DataSet)
+  Private Sub obtener_totales_parciales2(ByRef DS_liqparcial As DataSet)
     Dim ds_Xcargas As DataSet = DALiquidacion.Liquidacion_recuperarXcargas_totales()
     Dim j As Integer = 0
     While j < ds_Xcargas.Tables(0).Rows.Count

@@ -1,4 +1,4 @@
-﻿Public Class carga_recorridos_zonas_a
+Public Class carga_recorridos_zonas_a
     Inherits System.Web.UI.Page
     Dim DAparametro As New Capa_Datos.WC_parametro
     Dim DArecorrido As New Capa_Datos.WC_recorridos_zonas
@@ -482,248 +482,385 @@
                         End If
                     End If
                 Case 39
-                    If Habilitada = 1 Then
-                        HF_4J_codigo.Value = codigo
-                        Div_4J.Visible = True
-                        LK_4J.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
-                        Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
-                        If cargado = "si" Then
-                            LK_4J.ForeColor = Drawing.Color.ForestGreen
-                        End If
-                    End If
-            End Select
-            'verificar_puntos_guardados(dia, codigo)
-            i = i + 1
-        End While
+          If Habilitada = 1 Then
+            HF_4J_codigo.Value = codigo
+            Div_4J.Visible = True
+            LK_4J.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_4J.ForeColor = Drawing.Color.ForestGreen
+            End If
+          End If
+        Case 40
+          If Habilitada = 1 Then
+            HF_5A_codigo.Value = codigo
+            Div_5A.Visible = True
+            LK_5A.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5A.ForeColor = Drawing.Color.ForestGreen
+            End If
+          End If
+        Case 41
+          If Habilitada = 1 Then
+            HF_5B_codigo.Value = codigo
+            Div_5B.Visible = True
+            LK_5B.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5B.ForeColor = Drawing.Color.ForestGreen
+            End If
+          End If
+        Case 42
+          If Habilitada = 1 Then
+            HF_5C_codigo.Value = codigo
+            Div_5C.Visible = True
+            LK_5C.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5C.ForeColor = Drawing.Color.ForestGreen
+            End If
+          End If
+        Case 43
+          If Habilitada = 1 Then
+            HF_5D_codigo.Value = codigo
+            Div_5D.Visible = True
+            LK_5D.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5D.ForeColor = Drawing.Color.ForestGreen
+            End If
+          End If
+        Case 44
+          If Habilitada = 1 Then
+            HF_5E_codigo.Value = codigo
+            Div_5E.Visible = True
+            LK_5E.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5E.ForeColor = Drawing.Color.ForestGreen
+            End If
+          End If
+        Case 45
+          If Habilitada = 1 Then
+            HF_5F_codigo.Value = codigo
+            Div_5F.Visible = True
+            LK_5F.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5F.ForeColor = Drawing.Color.ForestGreen
+            End If
+          End If
+        Case 46
+          If Habilitada = 1 Then
+            HF_5G_codigo.Value = codigo
+            Div_5G.Visible = True
+            LK_5G.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5G.ForeColor = Drawing.Color.ForestGreen
+            End If
+          End If
+        Case 47
+          If Habilitada = 1 Then
+            HF_5H_codigo.Value = codigo
+            Div_5H.Visible = True
+            LK_5H.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5H.ForeColor = Drawing.Color.ForestGreen
+            End If
+          End If
+        Case 48
+          If Habilitada = 1 Then
+            HF_5I_codigo.Value = codigo
+            Div_5I.Visible = True
+            LK_5I.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5I.ForeColor = Drawing.Color.ForestGreen
+            End If
+          End If
+        Case 49
+          If Habilitada = 1 Then
+            HF_5J_codigo.Value = codigo
+            Div_5J.Visible = True
+            LK_5J.Text = DS_Recorridos.Tables(1).Rows(i).Item("Codigo").ToString.ToUpper + " - " + DS_Recorridos.Tables(1).Rows(i).Item("Referencia").ToString.ToUpper
+            Dim cargado As String = verificar_puntos_guardados2(dia, codigo, "si")
+            If cargado = "si" Then
+              LK_5J.ForeColor = Drawing.Color.ForestGreen
+            End If
+          End If
+      End Select
+      'verificar_puntos_guardados(dia, codigo)
+      i = i + 1
+    End While
+
+  End Sub
+
+  Private Sub btn_retroceder_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_retroceder.ServerClick
+    Response.Redirect("~/Inicio.aspx")
+  End Sub
+
+  Private Sub BOTON_GRABAR_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles BOTON_GRABAR.ServerClick
+
+    Dim ds_validar As DataSet = DArecorrido.recorridos_zonas_buscar_codigo(txt_zona.Text.ToUpper, HF_dia_id.Value)
+    If ds_validar.Tables(0).Rows.Count <> 0 Then
+      Session("fecha") = Txt_fecha.Text
+      Session("id_recorrido") = ds_validar.Tables(0).Rows(0).Item("Idrecorrido")
+      Response.Redirect("~/WC_Carga de Recorridos_Zonas/carga_recorridos_zonas_b.aspx")
+    Else
+      ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal_ok_error_op", "$(document).ready(function () {$('#modal_ok_error_op').modal();});", True)
+    End If
 
 
 
 
-    End Sub
+  End Sub
 
-    Private Sub btn_retroceder_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_retroceder.ServerClick
-        Response.Redirect("~/Inicio.aspx")
-    End Sub
+  Private Sub btn_error_close_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_error_close.ServerClick
+    Response.Redirect("~/Inicio.aspx")
+  End Sub
 
-    Private Sub BOTON_GRABAR_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles BOTON_GRABAR.ServerClick
+  Private Sub btn_ok_error_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_ok_error.ServerClick
+    Response.Redirect("~/Inicio.aspx")
+  End Sub
 
-        Dim ds_validar As DataSet = DArecorrido.recorridos_zonas_buscar_codigo(txt_zona.Text.ToUpper, HF_dia_id.Value)
-        If ds_validar.Tables(0).Rows.Count <> 0 Then
-            Session("fecha") = Txt_fecha.Text
-            Session("id_recorrido") = ds_validar.Tables(0).Rows(0).Item("Idrecorrido")
-            Response.Redirect("~/WC_Carga de Recorridos_Zonas/carga_recorridos_zonas_b.aspx")
-        Else
-            ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal_ok_error_op", "$(document).ready(function () {$('#modal_ok_error_op').modal();});", True)
-        End If
+  Private Sub btn_error_op_close_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_error_op_close.ServerClick
+    txt_zona.Focus()
+  End Sub
 
-
-
-
-    End Sub
-
-    Private Sub btn_error_close_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_error_close.ServerClick
-        Response.Redirect("~/Inicio.aspx")
-    End Sub
-
-    Private Sub btn_ok_error_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_ok_error.ServerClick
-        Response.Redirect("~/Inicio.aspx")
-    End Sub
-
-    Private Sub btn_error_op_close_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_error_op_close.ServerClick
-        txt_zona.Focus()
-    End Sub
-
-    Private Sub btn_ok_error_op_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_ok_error_op.ServerClick
-        txt_zona.Focus()
-    End Sub
+  Private Sub btn_ok_error_op_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_ok_error_op.ServerClick
+    txt_zona.Focus()
+  End Sub
 
 
 #Region "INIT"
-    'AQUI agrego el atributo onfocus y asocio a la rutina js seleccionartexto para que cuando se ponga el foco en un textbox se seleccione todo el contenido
-    Private Sub Txt_fecha_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_fecha.Init
-        Txt_fecha.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    End Sub
+  'AQUI agrego el atributo onfocus y asocio a la rutina js seleccionartexto para que cuando se ponga el foco en un textbox se seleccione todo el contenido
+  Private Sub Txt_fecha_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_fecha.Init
+    Txt_fecha.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  End Sub
 
-    Private Sub txt_zona_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_zona.Init
-        txt_zona.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    End Sub
+  Private Sub txt_zona_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_zona.Init
+    txt_zona.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  End Sub
 #End Region
 
 #Region "Select_zonas"
 
-    Private Sub ir_zona(ByVal codigo As String)
-        Dim ds_validar As DataSet = DArecorrido.recorridos_zonas_buscar_codigo(codigo, HF_dia_id.Value)
-        If ds_validar.Tables(0).Rows.Count <> 0 Then
-            Session("fecha") = Txt_fecha.Text
-            Session("id_recorrido") = ds_validar.Tables(0).Rows(0).Item("Idrecorrido")
-            Response.Redirect("~/WC_Carga de Recorridos_Zonas/carga_recorridos_zonas_b.aspx")
-        Else
-            ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal_ok_error_op", "$(document).ready(function () {$('#modal_ok_error_op').modal();});", True)
-        End If
-    End Sub
+  Private Sub ir_zona(ByVal codigo As String)
+    Dim ds_validar As DataSet = DArecorrido.recorridos_zonas_buscar_codigo(codigo, HF_dia_id.Value)
+    If ds_validar.Tables(0).Rows.Count <> 0 Then
+      Session("fecha") = Txt_fecha.Text
+      Session("id_recorrido") = ds_validar.Tables(0).Rows(0).Item("Idrecorrido")
+      Response.Redirect("~/WC_Carga de Recorridos_Zonas/carga_recorridos_zonas_b.aspx")
+    Else
+      ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal_ok_error_op", "$(document).ready(function () {$('#modal_ok_error_op').modal();});", True)
+    End If
+  End Sub
 
 
 #End Region
 
 
 
-    Private Sub LK_1A_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1A.Click
-        ir_zona(HF_1A_codigo.Value)
-    End Sub
+  Private Sub LK_1A_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1A.Click
+    ir_zona(HF_1A_codigo.Value)
+  End Sub
 
-    Private Sub LK_1B_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1B.Click
-        ir_zona(HF_1B_codigo.Value)
-    End Sub
+  Private Sub LK_1B_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1B.Click
+    ir_zona(HF_1B_codigo.Value)
+  End Sub
 
-    Private Sub LK_1C_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1C.Click
-        ir_zona(HF_1C_codigo.Value)
-    End Sub
+  Private Sub LK_1C_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1C.Click
+    ir_zona(HF_1C_codigo.Value)
+  End Sub
 
-    Private Sub LK_1D_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1D.Click
-        ir_zona(HF_1D_codigo.Value)
-    End Sub
+  Private Sub LK_1D_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1D.Click
+    ir_zona(HF_1D_codigo.Value)
+  End Sub
 
-    Private Sub LK_1E_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1E.Click
-        ir_zona(HF_1E_codigo.Value)
-    End Sub
+  Private Sub LK_1E_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1E.Click
+    ir_zona(HF_1E_codigo.Value)
+  End Sub
 
-    Private Sub LK_1F_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1F.Click
-        ir_zona(HF_1F_codigo.Value)
-    End Sub
+  Private Sub LK_1F_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1F.Click
+    ir_zona(HF_1F_codigo.Value)
+  End Sub
 
-    Private Sub LK_1G_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1G.Click
-        ir_zona(HF_1G_codigo.Value)
-    End Sub
+  Private Sub LK_1G_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1G.Click
+    ir_zona(HF_1G_codigo.Value)
+  End Sub
 
-    Private Sub LK_1H_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1H.Click
-        ir_zona(HF_1H_codigo.Value)
-    End Sub
+  Private Sub LK_1H_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1H.Click
+    ir_zona(HF_1H_codigo.Value)
+  End Sub
 
-    Private Sub LK_1I_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1I.Click
-        ir_zona(HF_1I_codigo.Value)
-    End Sub
+  Private Sub LK_1I_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1I.Click
+    ir_zona(HF_1I_codigo.Value)
+  End Sub
 
-    Private Sub LK_1J_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1J.Click
-        ir_zona(HF_1J_codigo.Value)
-    End Sub
+  Private Sub LK_1J_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_1J.Click
+    ir_zona(HF_1J_codigo.Value)
+  End Sub
 
-    Private Sub LK_2A_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2A.Click
-        ir_zona(HF_2A_codigo.Value)
-    End Sub
+  Private Sub LK_2A_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2A.Click
+    ir_zona(HF_2A_codigo.Value)
+  End Sub
 
-    Private Sub LK_2B_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2B.Click
-        ir_zona(HF_2B_codigo.Value)
-    End Sub
+  Private Sub LK_2B_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2B.Click
+    ir_zona(HF_2B_codigo.Value)
+  End Sub
 
-    Private Sub LK_2C_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2C.Click
-        ir_zona(HF_2C_codigo.Value)
-    End Sub
+  Private Sub LK_2C_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2C.Click
+    ir_zona(HF_2C_codigo.Value)
+  End Sub
 
-    Private Sub LK_2D_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2D.Click
-        ir_zona(HF_2D_codigo.Value)
-    End Sub
+  Private Sub LK_2D_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2D.Click
+    ir_zona(HF_2D_codigo.Value)
+  End Sub
 
-    Private Sub LK_2E_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2E.Click
-        ir_zona(HF_2E_codigo.Value)
-    End Sub
+  Private Sub LK_2E_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2E.Click
+    ir_zona(HF_2E_codigo.Value)
+  End Sub
 
-    Private Sub LK_2F_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2F.Click
-        ir_zona(HF_2F_codigo.Value)
-    End Sub
+  Private Sub LK_2F_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2F.Click
+    ir_zona(HF_2F_codigo.Value)
+  End Sub
 
-    Private Sub LK_2G_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2G.Click
-        ir_zona(HF_2G_codigo.Value)
-    End Sub
+  Private Sub LK_2G_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2G.Click
+    ir_zona(HF_2G_codigo.Value)
+  End Sub
 
-    Private Sub LK_2H_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2H.Click
-        ir_zona(HF_2H_codigo.Value)
-    End Sub
+  Private Sub LK_2H_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2H.Click
+    ir_zona(HF_2H_codigo.Value)
+  End Sub
 
-    Private Sub LK_2I_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2I.Click
-        ir_zona(HF_2I_codigo.Value)
-    End Sub
+  Private Sub LK_2I_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2I.Click
+    ir_zona(HF_2I_codigo.Value)
+  End Sub
 
-    Private Sub LK_2J_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2J.Click
-        ir_zona(HF_2J_codigo.Value)
-    End Sub
+  Private Sub LK_2J_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_2J.Click
+    ir_zona(HF_2J_codigo.Value)
+  End Sub
 
-    Private Sub LK_3A_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3A.Click
-        ir_zona(HF_3A_codigo.Value)
-    End Sub
+  Private Sub LK_3A_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3A.Click
+    ir_zona(HF_3A_codigo.Value)
+  End Sub
 
-    Private Sub LK_3B_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3B.Click
-        ir_zona(HF_3B_codigo.Value)
-    End Sub
+  Private Sub LK_3B_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3B.Click
+    ir_zona(HF_3B_codigo.Value)
+  End Sub
 
-    Private Sub LK_3C_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3C.Click
-        ir_zona(HF_3C_codigo.Value)
-    End Sub
+  Private Sub LK_3C_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3C.Click
+    ir_zona(HF_3C_codigo.Value)
+  End Sub
 
-    Private Sub LK_3D_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3D.Click
-        ir_zona(HF_3D_codigo.Value)
-    End Sub
+  Private Sub LK_3D_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3D.Click
+    ir_zona(HF_3D_codigo.Value)
+  End Sub
 
-    Private Sub LK_3E_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3E.Click
-        ir_zona(HF_3E_codigo.Value)
-    End Sub
+  Private Sub LK_3E_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3E.Click
+    ir_zona(HF_3E_codigo.Value)
+  End Sub
 
-    Private Sub LK_3F_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3F.Click
-        ir_zona(HF_3F_codigo.Value)
-    End Sub
+  Private Sub LK_3F_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3F.Click
+    ir_zona(HF_3F_codigo.Value)
+  End Sub
 
-    Private Sub LK_3G_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3G.Click
-        ir_zona(HF_3G_codigo.Value)
-    End Sub
+  Private Sub LK_3G_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3G.Click
+    ir_zona(HF_3G_codigo.Value)
+  End Sub
 
-    Private Sub LK_3H_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3H.Click
-        ir_zona(HF_3H_codigo.Value)
-    End Sub
+  Private Sub LK_3H_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3H.Click
+    ir_zona(HF_3H_codigo.Value)
+  End Sub
 
-    Private Sub LK_3I_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3I.Click
-        ir_zona(HF_3I_codigo.Value)
-    End Sub
+  Private Sub LK_3I_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3I.Click
+    ir_zona(HF_3I_codigo.Value)
+  End Sub
 
-    Private Sub LK_3J_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3J.Click
-        ir_zona(HF_3J_codigo.Value)
-    End Sub
+  Private Sub LK_3J_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_3J.Click
+    ir_zona(HF_3J_codigo.Value)
+  End Sub
 
-    Private Sub LK_4A_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4A.Click
-        ir_zona(HF_4A_codigo.Value)
-    End Sub
+  Private Sub LK_4A_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4A.Click
+    ir_zona(HF_4A_codigo.Value)
+  End Sub
 
-    Private Sub LK_4B_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4B.Click
-        ir_zona(HF_4B_codigo.Value)
-    End Sub
+  Private Sub LK_4B_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4B.Click
+    ir_zona(HF_4B_codigo.Value)
+  End Sub
 
-    Private Sub LK_4C_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4C.Click
-        ir_zona(HF_4C_codigo.Value)
-    End Sub
+  Private Sub LK_4C_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4C.Click
+    ir_zona(HF_4C_codigo.Value)
+  End Sub
 
-    Private Sub LK_4D_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4D.Click
-        ir_zona(HF_4D_codigo.Value)
-    End Sub
+  Private Sub LK_4D_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4D.Click
+    ir_zona(HF_4D_codigo.Value)
+  End Sub
 
-    Private Sub LK_4E_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4E.Click
-        ir_zona(HF_4E_codigo.Value)
-    End Sub
+  Private Sub LK_4E_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4E.Click
+    ir_zona(HF_4E_codigo.Value)
+  End Sub
 
-    Private Sub LK_4F_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4F.Click
-        ir_zona(HF_4F_codigo.Value)
-    End Sub
+  Private Sub LK_4F_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4F.Click
+    ir_zona(HF_4F_codigo.Value)
+  End Sub
 
-    Private Sub LK_4G_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4G.Click
-        ir_zona(HF_4G_codigo.Value)
-    End Sub
+  Private Sub LK_4G_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4G.Click
+    ir_zona(HF_4G_codigo.Value)
+  End Sub
 
-    Private Sub LK_4H_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4H.Click
-        ir_zona(HF_4H_codigo.Value)
-    End Sub
+  Private Sub LK_4H_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4H.Click
+    ir_zona(HF_4H_codigo.Value)
+  End Sub
 
-    Private Sub LK_4I_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4I.Click
-        ir_zona(HF_4I_codigo.Value)
-    End Sub
+  Private Sub LK_4I_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4I.Click
+    ir_zona(HF_4I_codigo.Value)
+  End Sub
 
-    Private Sub LK_4J_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4J.Click
-        ir_zona(HF_4J_codigo.Value)
-    End Sub
+  Private Sub LK_4J_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LK_4J.Click
+    ir_zona(HF_4J_codigo.Value)
+  End Sub
+
+  Private Sub LK_5A_Click(sender As Object, e As EventArgs) Handles LK_5A.Click
+    ir_zona(HF_5A_codigo.Value)
+  End Sub
+
+  Private Sub LK_5B_Click(sender As Object, e As EventArgs) Handles LK_5B.Click
+    ir_zona(HF_5B_codigo.Value)
+  End Sub
+
+  Private Sub LK_5C_Click(sender As Object, e As EventArgs) Handles LK_5C.Click
+    ir_zona(HF_5C_codigo.Value)
+  End Sub
+
+  Private Sub LK_5D_Click(sender As Object, e As EventArgs) Handles LK_5D.Click
+    ir_zona(HF_5D_codigo.Value)
+  End Sub
+
+  Private Sub LK_5E_Click(sender As Object, e As EventArgs) Handles LK_5E.Click
+    ir_zona(HF_5E_codigo.Value)
+  End Sub
+
+  Private Sub LK_5F_Click(sender As Object, e As EventArgs) Handles LK_5F.Click
+    ir_zona(HF_5F_codigo.Value)
+  End Sub
+
+  Private Sub LK_5G_Click(sender As Object, e As EventArgs) Handles LK_5G.Click
+    ir_zona(HF_5G_codigo.Value)
+  End Sub
+
+  Private Sub LK_5H_Click(sender As Object, e As EventArgs) Handles LK_5H.Click
+    ir_zona(HF_5H_codigo.Value)
+  End Sub
+
+  Private Sub LK_5I_Click(sender As Object, e As EventArgs) Handles LK_5I.Click
+    ir_zona(HF_5I_codigo.Value)
+  End Sub
+
+  Private Sub LK_5J_Click(sender As Object, e As EventArgs) Handles LK_5J.Click
+    ir_zona(HF_5J_codigo.Value)
+  End Sub
 End Class

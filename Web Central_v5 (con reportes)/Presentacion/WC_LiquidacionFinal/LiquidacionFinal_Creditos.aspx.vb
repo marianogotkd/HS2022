@@ -121,11 +121,32 @@ Public Class LiquidacionFinal_Creditos
       GridView1.DataSource = DS_liqfinal.Tables("Creditos")
       GridView1.DataBind()
 
+      '------------------AQUIREPORTE ------------------------------------------------
+      Dim fila_1 As DataRow = DS_liqfinal.Tables("Creditos_info").NewRow
+      fila_1("Fecha") = CDate(HF_fecha.Value)
+      DS_liqfinal.Tables("Creditos_info").Rows.Add(fila_1)
+      Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
+      CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
+      CrReport.Load(Server.MapPath("~/WC_Reportes/Rpt/LiquidacionFinal_informe04.rpt"))
+      CrReport.Database.Tables("Creditos").SetDataSource(DS_liqfinal.Tables("Creditos"))
+      CrReport.Database.Tables("Creditos_info").SetDataSource(DS_liqfinal.Tables("Creditos_info"))
+      CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/LiqFinal_CobCreditos.pdf"))
+
+      '------------------------------------------------------------------------------
+
+
+
+
+
+
       If GridView1.Rows.Count = 0 Then
         Label_noprestamos.Visible = True
       End If
 
       DAParametro.Parametro_finalizar_dia(HF_fecha.Value)
+
+
+      btn_continuar.Focus()
 
     End If
   End Sub

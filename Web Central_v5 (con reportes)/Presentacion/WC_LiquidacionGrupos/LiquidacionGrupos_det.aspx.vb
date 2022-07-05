@@ -9,6 +9,21 @@ Public Class LiquidacionGrupos_det
       GridView1.DataSource = DS_liqgrupos.Tables("LiqGrupos")
       GridView1.DataBind()
 
+
+
+      '----AQUI GENERO REPORTE-------
+
+
+      DS_liqgrupos.Tables("LiqGrupos_rpt").Merge(Session("Tabla_LiqGrupos_rpt"))
+      Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
+      CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
+      CrReport.Load(Server.MapPath("~/WC_Reportes/Rpt/LiquidacionGrupos_informe01.rpt"))
+      CrReport.Database.Tables("LiqGrupos_rpt").SetDataSource(DS_liqgrupos.Tables("LiqGrupos_rpt"))
+      CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/LiqGrupos.pdf"))
+
+      '------------------------------
+
+      btn_continuar.Focus()
     End If
   End Sub
 
