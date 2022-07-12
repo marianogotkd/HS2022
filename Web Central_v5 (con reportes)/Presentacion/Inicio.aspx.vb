@@ -46,8 +46,10 @@ Public Class Inicio
         Response.Redirect("~/WC_AB Recorridos_Zonas/ab_recorridos_zonas.aspx")
       Case "F"
         Response.Redirect("~/WC_Modificar Saldos/Modificar_saldos.aspx")
+      Case "G"
+        Response.Redirect("~/WC_TicketsClientes/TicketsClientes.aspx")
       Case "J"
-        Response.Redirect("~/WC_Liquidacion Parcial/Reportes/WebFormMyRepo.aspx")
+        'Response.Redirect("~/WC_Liquidacion Parcial/Reportes/WebFormMyRepo.aspx")
 
       Case Else
         ''aqui va mensaje de error.

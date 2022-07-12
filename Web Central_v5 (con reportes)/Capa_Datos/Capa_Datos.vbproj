@@ -94,6 +94,7 @@
     <Compile Include="WC_prestamoscreditos.vb" />
     <Compile Include="WC_puntos.vb" />
     <Compile Include="WC_recorridos_zonas.vb" />
+    <Compile Include="WC_tickets.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

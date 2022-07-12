@@ -3224,6 +3224,9 @@
     <Content Include="WC_Pagos Cobros Reclamos\PagosCobrosReclamos_resumen.aspx" />
     <Content Include="WC_Pagos Cobros Reclamos\Reclamo.aspx" />
     <Content Include="WC_Reportes\Form_rptprueba.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsClientes.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsClientesPorOrden.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsClientes_op1.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -3806,6 +3809,44 @@
       <DependentUpon>rptprueba.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WC_Reportes\Rpt\TicketsClientesPorOrden_informe01.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TicketsClientesPorOrden_informe01.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\TicketsClientesPorOrden_informe01a.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TicketsClientesPorOrden_informe01a.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\DS_ticketsclientes.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_ticketsclientes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClientes.aspx.designer.vb">
+      <DependentUpon>TicketsClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClientes.aspx.vb">
+      <DependentUpon>TicketsClientes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClientesPorOrden.aspx.designer.vb">
+      <DependentUpon>TicketsClientesPorOrden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClientesPorOrden.aspx.vb">
+      <DependentUpon>TicketsClientesPorOrden.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClientes_op1.aspx.designer.vb">
+      <DependentUpon>TicketsClientes_op1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClientes_op1.aspx.vb">
+      <DependentUpon>TicketsClientes_op1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -3870,6 +3911,14 @@
     <EmbeddedResource Include="WC_Reportes\Rpt\rptprueba.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptprueba.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\TicketsClientesPorOrden_informe01.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TicketsClientesPorOrden_informe01.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\TicketsClientesPorOrden_informe01a.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TicketsClientesPorOrden_informe01a.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -4256,6 +4305,17 @@
     <None Include="WC_Pagos Cobros Reclamos\DS_pagoscobrosreclamos.xss">
       <DependentUpon>DS_pagoscobrosreclamos.xsd</DependentUpon>
     </None>
+    <Content Include="WC_TicketsClientes\DS_ticketsclientes.xsc">
+      <DependentUpon>DS_ticketsclientes.xsd</DependentUpon>
+    </Content>
+    <None Include="WC_TicketsClientes\DS_ticketsclientes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_ticketsclientes.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="WC_TicketsClientes\DS_ticketsclientes.xss">
+      <DependentUpon>DS_ticketsclientes.xsd</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa_Datos\Capa_Datos.vbproj">
