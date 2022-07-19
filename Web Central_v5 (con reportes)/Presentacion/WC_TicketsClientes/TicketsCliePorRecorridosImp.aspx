@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="TicketsClientesPorOrden.aspx.vb" Inherits="Presentacion.TicketsClientesPorOrden" %>
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="TicketsCliePorRecorridosImp.aspx.vb" Inherits="Presentacion.TicketsCliePorRecorridosImp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script>
     //funcion que reconoce teclas para ir a los botones retroceso, baja y graba
@@ -61,17 +61,14 @@
 
     
 </script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
 <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="True"></asp:ScriptManager>
-
   <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 <ContentTemplate>
     <div class="card card-primary">
         <div class="card-header">
-                <h3 class="card-title">TICKETS CLIENTES POR ORDEN.</h3>
+                <h3 class="card-title">TICKETS CLIENTES POR RECORRIDOS.</h3>
         </div>
     <form role="form">
     <div class="card-body">
@@ -110,30 +107,30 @@
       <div class="form-group">
           <div class="row justify-content-center">
                 <div class="col-md-4">
-                  <asp:Label ID="Label4" runat="server" Text="DESDE GRUPO:"></asp:Label>
-                  <asp:TextBox ID="Txt_DesdeGrupoCodigo" runat="server" 
+                  <asp:Label ID="Label4" runat="server" Text="DESDE RECORRIDO:"></asp:Label>
+                  <asp:TextBox ID="Txt_DesdeRecorrido" runat="server" 
                                 placeholder="Ingrese codigo..." class="form-control" 
-                                onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);" 
-                                MaxLength="3"></asp:TextBox>
+                                onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);"  
+                                MaxLength="2"></asp:TextBox>
                 
-                  <asp:Label ID="Label5" runat="server" Text="DESDE CLIENTE:"></asp:Label>
-                  <asp:TextBox ID="Txt_DesdeClienteCod" runat="server" 
+                  <asp:Label ID="Label5" runat="server" Text="DESDE ORDEN:"></asp:Label>
+                  <asp:TextBox ID="Txt_DesdeOrden" runat="server" 
                                 placeholder="Ingrese codigo..." class="form-control" 
-                                onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);" 
-                                MaxLength="4"></asp:TextBox>
+                                onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);"  
+                                MaxLength="3"></asp:TextBox>
                 </div>
                 <div class="col-md-4">
-                  <asp:Label ID="Label6" runat="server" Text="HASTA GRUPO:"></asp:Label>
-                  <asp:TextBox ID="Txt_HastaGrupoCodigo" runat="server" 
+                  <asp:Label ID="Label6" runat="server" Text="HASTA RECORRIDO:"></asp:Label>
+                  <asp:TextBox ID="Txt_HastaRecorridoCodigo" runat="server" 
                                 placeholder="Ingrese codigo..." class="form-control" 
-                                onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);" 
-                                MaxLength="3"></asp:TextBox>
+                                onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);"
+                                MaxLength="2"></asp:TextBox>
                 
-                  <asp:Label ID="Label7" runat="server" Text="HASTA CLIENTE:"></asp:Label>
-                  <asp:TextBox ID="Txt_HastaClienteCod" runat="server" 
+                  <asp:Label ID="Label7" runat="server" Text="HASTA ORDEN:"></asp:Label>
+                  <asp:TextBox ID="Txt_HastaOrden" runat="server" 
                                 placeholder="Ingrese codigo..." class="form-control" 
-                                onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);" 
-                                MaxLength="4"></asp:TextBox>
+                                onkeydown="tecla_op(event);"  onkeypress="return justNumbers(event);"
+                                MaxLength="3"></asp:TextBox>
                 </div>
           </div>
       </div>
@@ -229,13 +226,13 @@
       <!-- /.modal -->
 
 
-  <%--Modal MENSAJE ERROR VALIDACION1--%>
-<div class="modal fade" id="modal-ok_ErrorValidacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+<%--Modal MENSAJE ERROR OK 2--%>
+<div class="modal fade" id="modal-ok_error2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-sm modal-dialog-centered " role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">Error</h4>
-              <button type="button" id="Btn_ErrorValidacion_close" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
+              <button type="button" id="btn_error_close2" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -245,7 +242,7 @@
             <div class="modal-footer justify-content-center ">
             <%--<div class="modal-footer justify-content-between">--%>
               <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
-              <button type="button" id="Btn_ErrorValidacion_ok" runat="server" class="btn btn-primary" data-dismiss="modal">OK</button>
+              <button type="button" id="btn_ok_error2" runat="server" class="btn btn-primary" data-dismiss="modal">OK</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -255,13 +252,13 @@
       <!-- /.modal -->
 
 
-  <%--Modal MENSAJE ERROR CONSULTA--%>
-<div class="modal fade" id="modal-ok_ErrorConsulta" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <%--Modal MENSAJE ERROR OK 3--%>
+<div class="modal fade" id="modal-ok_error3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-sm modal-dialog-centered " role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">Error</h4>
-              <button type="button" id="Btn_ErrorConsulta_close" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
+              <button type="button" id="btn_error_close3" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -271,7 +268,7 @@
             <div class="modal-footer justify-content-center ">
             <%--<div class="modal-footer justify-content-between">--%>
               <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
-              <button type="button" id="Btn_ErrorConsulta_ok" runat="server" class="btn btn-primary" data-dismiss="modal">OK</button>
+              <button type="button" id="btn_ok_error3" runat="server" class="btn btn-primary" data-dismiss="modal">OK</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -279,6 +276,35 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
+
+
+  <%--Modal MENSAJE ERROR OK --%>
+<div class="modal fade" id="modal-ok" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-sm modal-dialog-centered " role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Notificacion</h4>
+              <button type="button" id="btn_ok_close" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>OK para Imprimir&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-center ">
+            <%--<div class="modal-footer justify-content-between">--%>
+              <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
+              
+              <asp:Button ID="BTN_IMPRIMIR" runat="server" Text="OK" class="btn btn-primary" onkeydown="tecla_op_botones(event);" OnClientClick="window.open('/WC_Reportes/Rpt/TicketsClientesPorRecorrido/TicketsClientesPorRecorridos.pdf','_blank')" data-dismiss="modal" />
+
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
 
 
 

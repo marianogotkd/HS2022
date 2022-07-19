@@ -1,11 +1,11 @@
-Public Class TicketsClientesPorOrden
+Public Class TicketsCliePorRecorridosImp
   Inherits System.Web.UI.Page
+
 #Region "DECLARACIONES"
   Dim DAparametro As New Capa_Datos.WC_parametro
   Dim DAtickets As New Capa_Datos.WC_tickets
 #End Region
 
-#Region "EVENTOS"
   Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
     If Not IsPostBack Then
       'VALIDACION: Verificar en BD cual es el dia de la ultima liquidacion en tabla PARAMETRO, donde el campo Estado= "Inactivo"
@@ -40,7 +40,9 @@ Public Class TicketsClientesPorOrden
             Label_dia.Text = "SABADO"
         End Select
 
-        Txt_DesdeGrupoCodigo.Focus()
+        Txt_DesdeRecorrido.Focus()
+
+
       Else
         'error, no hay liquidacion completada
         ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_error", "$(document).ready(function () {$('#modal-ok_error').modal();});", True)
@@ -49,7 +51,7 @@ Public Class TicketsClientesPorOrden
   End Sub
 
   Private Sub btn_retroceder_ServerClick(sender As Object, e As EventArgs) Handles btn_retroceder.ServerClick
-    Response.Redirect("~/WC_TicketsClientes/TicketsClientes_op1.aspx")
+    Response.Redirect("~/WC_TicketsClientes/TicketsClientes_op2.aspx")
   End Sub
 
   Private Sub btn_error_close_ServerClick(sender As Object, e As EventArgs) Handles btn_error_close.ServerClick
@@ -60,55 +62,49 @@ Public Class TicketsClientesPorOrden
     Response.Redirect("~/Inicio.aspx")
   End Sub
 
-  Private Sub Txt_DesdeGrupoCodigo_Init(sender As Object, e As EventArgs) Handles Txt_DesdeGrupoCodigo.Init
-    Txt_DesdeGrupoCodigo.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  Private Sub Txt_DesdeRecorrido_Init(sender As Object, e As EventArgs) Handles Txt_DesdeRecorrido.Init
+    Txt_DesdeRecorrido.Attributes.Add("onfocus", "seleccionarTexto(this);")
   End Sub
 
-  Private Sub Txt_DesdeClienteCod_Init(sender As Object, e As EventArgs) Handles Txt_DesdeClienteCod.Init
-    Txt_DesdeClienteCod.Attributes.Add("onfocus", "seleccionarTexto(this);")
+
+  Private Sub Txt_DesdeOrden_Init(sender As Object, e As EventArgs) Handles Txt_DesdeOrden.Init
+    Txt_DesdeOrden.Attributes.Add("onfocus", "seleccionarTexto(this);")
   End Sub
 
-  Private Sub Txt_HastaGrupoCodigo_Init(sender As Object, e As EventArgs) Handles Txt_HastaGrupoCodigo.Init
-    Txt_HastaGrupoCodigo.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  Private Sub Txt_HastaRecorridoCodigo_Init(sender As Object, e As EventArgs) Handles Txt_HastaRecorridoCodigo.Init
+    Txt_HastaRecorridoCodigo.Attributes.Add("onfocus", "seleccionarTexto(this);")
   End Sub
 
-  Private Sub Txt_HastaClienteCod_Init(sender As Object, e As EventArgs) Handles Txt_HastaClienteCod.Init
-    Txt_HastaClienteCod.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  Private Sub Txt_HastaOrden_Init(sender As Object, e As EventArgs) Handles Txt_HastaOrden.Init
+    Txt_HastaOrden.Attributes.Add("onfocus", "seleccionarTexto(this);")
   End Sub
 
   Private Sub Txt_msjgeneral_Init(sender As Object, e As EventArgs) Handles Txt_msjgeneral.Init
     Txt_msjgeneral.Attributes.Add("onfocus", "seleccionarTexto(this);")
   End Sub
 
-  Private Sub BOTON_GRABA_ServerClick(sender As Object, e As EventArgs) Handles BOTON_GRABA.ServerClick
 
+  Private Sub BOTON_GRABA_ServerClick(sender As Object, e As EventArgs) Handles BOTON_GRABA.ServerClick
     'valido que todos los campos tengas algo ingresado.
 
     Dim valido As String = "si"
 
-    Try
-      Txt_DesdeGrupoCodigo.Text = CInt(Txt_DesdeGrupoCodigo.Text)
-    Catch ex As Exception
-      valido = "no"
-    End Try
 
-    Try
-      Txt_DesdeClienteCod.Text = CInt(Txt_DesdeClienteCod.Text)
-    Catch ex As Exception
+    If Txt_DesdeRecorrido.Text = "" Then
       valido = "no"
-    End Try
+    End If
 
-    Try
-      Txt_HastaGrupoCodigo.Text = CInt(Txt_HastaGrupoCodigo.Text)
-    Catch ex As Exception
+    If Txt_DesdeOrden.Text = "" Then
       valido = "no"
-    End Try
+    End If
 
-    Try
-      Txt_HastaClienteCod.Text = CInt(Txt_HastaClienteCod.Text)
-    Catch ex As Exception
+    If Txt_HastaRecorridoCodigo.Text = "" Then
       valido = "no"
-    End Try
+    End If
+
+    If Txt_HastaOrden.Text = "" Then
+      valido = "no"
+    End If
 
     If valido = "si" Then
       'recupero todos los puntos y recorridos para la fecha indicada.
@@ -342,7 +338,7 @@ Public Class TicketsClientesPorOrden
 
 
 
-      Dim ds_ctacte As DataSet = DAtickets.CtaCte_MovimientosBuscar(CDate(HF_fecha.Value), CInt(Txt_DesdeGrupoCodigo.Text), CInt(Txt_DesdeClienteCod.Text), CInt(Txt_HastaGrupoCodigo.Text), CInt(Txt_HastaClienteCod.Text))
+      Dim ds_ctacte As DataSet = DAtickets.CtaCte_MovimientosBuscar2(CDate(HF_fecha.Value), CInt(Txt_DesdeRecorrido.Text), CInt(Txt_DesdeOrden.Text), CInt(Txt_HastaRecorridoCodigo.Text), CInt(Txt_HastaOrden.Text))
 
       If ds_ctacte.Tables(0).Rows.Count <> 0 Then
 
@@ -495,89 +491,93 @@ Public Class TicketsClientesPorOrden
         CrReport.Database.Tables("Cliente_PremiosInfo").SetDataSource(DS_ticketsclientes.Tables("Cliente_PremiosInfo"))
 
         'creo una cadena que voy a necesitar para el nombre del archivo a generar
-        Dim grupo_longitud As Integer = 3
-        Dim cliente_longitud As Integer = 4
-        Dim grupo_dig As String = Txt_DesdeGrupoCodigo.Text
-        While grupo_dig.Length < grupo_longitud
-          grupo_dig = "0" + grupo_dig
+        Dim recorrido_longitud As Integer = 2
+        Dim orden_longitud As Integer = 3
+        Dim recorrido_dig As String = Txt_DesdeRecorrido.Text
+        While recorrido_dig.Length < recorrido_longitud
+          recorrido_dig = "0" + recorrido_dig
         End While
-        Dim cliente_dig As String = Txt_DesdeClienteCod.Text
-        While cliente_dig.Length < cliente_longitud
-          cliente_dig = "0" + cliente_dig
+        Dim orden_dig As String = Txt_DesdeOrden.Text
+        While orden_dig.Length < orden_longitud
+          orden_dig = "0" + orden_dig
         End While
 
-        Dim nombre_archivo As String = CDate(HF_fecha.Value).ToString("ddMMyy") + grupo_dig + cliente_dig
+        Dim nombre_archivo As String = CDate(HF_fecha.Value).ToString("ddMMyy") + recorrido_dig + orden_dig
         'Dim nombre_archivo As String = CDate(HF_fecha.Value).ToString("ddMMyy") + Txt_DesdeGrupoCodigo.Text + Txt_DesdeClienteCod.Text
-        Dim ruta As String = "/WC_Reportes/Rpt/" + nombre_archivo + ".pdf"
-
-
+        Dim ruta As String = "/WC_Reportes/Rpt/TicketsClientesPorRecorrido/" + nombre_archivo + ".pdf"
 
         'CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), ruta))
-        'CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/TicketClieOrden.pdf"))
+        CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/TicketsClientesPorRecorrido/TicketsClientesPorRecorridos.pdf"))
 
         'CrReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, False, "Reporte")
 
-        ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_RptGenerado", "$(document).ready(Function() {$('#modal-ok_RptGenerado').modal();});", True)
+        ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok", "$(document).ready(function () {$('#modal-ok').modal();});", True)
 
         '------------------------------------------------------------------------------
       Else
         'error, la busqueda no arrojo resultados. No hay movimientos para la fecha y los parametros ingresados.
-        ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_ErrorConsulta", "$(document).ready(Function() {$('#modal-ok_ErrorConsulta').modal();});", True)
+
+        ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_error3", "$(document).ready(function () {$('#modal-ok_error3').modal();});", True)
+
+
       End If
-
-
-
-
-
-
-
     Else
       'msj complete información solicitada.
-      ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_ErrorValidacion", "$(document).ready(Function() {$('#modal-ok_ErrorValidacion').modal();});", True)
+
+      ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_error2", "$(document).ready(function () {$('#modal-ok_error2').modal();});", True)
 
     End If
 
-
   End Sub
 
-  Private Sub Btn_ErrorValidacion_close_ServerClick(sender As Object, e As EventArgs) Handles Btn_ErrorValidacion_close.ServerClick
+
+  Private Sub btn_error_close2_ServerClick(sender As Object, e As EventArgs) Handles btn_error_close2.ServerClick
     focus_error()
   End Sub
 
-  Private Sub Btn_ErrorValidacion_ok_ServerClick(sender As Object, e As EventArgs) Handles Btn_ErrorValidacion_ok.ServerClick
+  Private Sub btn_ok_error2_ServerClick(sender As Object, e As EventArgs) Handles btn_ok_error2.ServerClick
     focus_error()
   End Sub
 
-  Private Sub Btn_ErrorConsulta_close_ServerClick(sender As Object, e As EventArgs) Handles Btn_ErrorConsulta_close.ServerClick
-    Txt_DesdeGrupoCodigo.Focus()
+  Private Sub btn_error_close3_ServerClick(sender As Object, e As EventArgs) Handles btn_error_close3.ServerClick
+    Txt_DesdeRecorrido.Focus()
   End Sub
 
-  Private Sub Btn_ErrorConsulta_ok_ServerClick(sender As Object, e As EventArgs) Handles Btn_ErrorConsulta_ok.ServerClick
-    Txt_DesdeGrupoCodigo.Focus()
+  Private Sub btn_ok_error3_ServerClick(sender As Object, e As EventArgs) Handles btn_ok_error3.ServerClick
+    Txt_DesdeRecorrido.Focus()
   End Sub
-#End Region
+
+  Private Sub btn_ok_close_ServerClick(sender As Object, e As EventArgs) Handles btn_ok_close.ServerClick
+    Txt_DesdeRecorrido.Focus()
+  End Sub
+
+  Private Sub BTN_IMPRIMIR_Click(sender As Object, e As EventArgs) Handles BTN_IMPRIMIR.Click
+    Txt_DesdeRecorrido.Focus()
+  End Sub
+
+
 
 #Region "METODOS"
   Private Sub focus_error()
     Try
-      Txt_DesdeGrupoCodigo.Text = CInt(Txt_DesdeGrupoCodigo.Text)
+      Txt_DesdeRecorrido.Text = CInt(Txt_DesdeRecorrido.Text)
       Try
-        Txt_DesdeClienteCod.Text = CInt(Txt_DesdeClienteCod.Text)
+        Txt_DesdeOrden.Text = CInt(Txt_DesdeOrden.Text)
         Try
-          Txt_HastaGrupoCodigo.Text = CInt(Txt_HastaGrupoCodigo.Text)
+          Txt_HastaRecorridoCodigo.Text = CInt(Txt_HastaRecorridoCodigo.Text)
           Try
-            Txt_HastaClienteCod.Text = CInt(Txt_HastaClienteCod.Text)
+            Txt_HastaOrden.Text = CInt(Txt_HastaOrden.Text)
           Catch ex As Exception
-            Txt_HastaClienteCod.Focus()
+            Txt_HastaOrden.Focus()
           End Try
         Catch ex As Exception
-          Txt_HastaGrupoCodigo.Focus()
+          Txt_HastaRecorridoCodigo.Focus()
         End Try
       Catch ex As Exception
-        Txt_DesdeClienteCod.Focus()
+        Txt_DesdeOrden.Focus()
       End Try
     Catch ex As Exception
-      Txt_DesdeGrupoCodigo.Focus()
+      Txt_DesdeRecorrido.Focus()
     End Try
   End Sub
 
@@ -688,9 +688,7 @@ Public Class TicketsClientesPorOrden
   End Sub
 
 
-
 #End Region
-
 
 
 End Class

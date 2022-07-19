@@ -380,7 +380,7 @@
                                 </div>
 
 
-                          AQUI CHOCO
+                          
 
                           <div class="col">
                                 <asp:Label ID="Label2" runat="server" Text="RECORRIDO 5" Font-Bold="False" 

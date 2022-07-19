@@ -14,11 +14,11 @@ Public Class TicketsClientes_op1
   Private Sub BOTON_GRABAR_ServerClick(sender As Object, e As EventArgs) Handles BOTON_GRABAR.ServerClick
     Select Case txt_opcion.Text.ToUpper
       Case "1"
-        Response.Redirect("~/WC_TicketsClientes/TicketsClientesPorOrden.aspx")
+        Response.Redirect("~/WC_TicketsClientes/TicketsCliePorOrden.aspx")
       Case "2"
-        'Response.Redirect("~/WC_Pagos Cobros Reclamos/Cobro.aspx")
+        Response.Redirect("~/WC_TicketsClientes/TicketsCliePorRecorridos.aspx")
       Case "3"
-        'Response.Redirect("~/WC_Pagos Cobros Reclamos/Cobro.aspx")
+        Response.Redirect("~/WC_TicketsClientes/TicketsClieRegenerar.aspx")
       Case Else
         ''aqui va mensaje de error.
         'no existe
@@ -40,14 +40,14 @@ Public Class TicketsClientes_op1
   End Sub
 
   Private Sub LinkButton_PorOrden_Click(sender As Object, e As EventArgs) Handles LinkButton_PorOrden.Click
-    Response.Redirect("~/WC_TicketsClientes/TicketsClientesPorOrden.aspx")
+    Response.Redirect("~/WC_TicketsClientes/TicketsCliePorOrden.aspx")
   End Sub
 
   Private Sub LinkButton_PorRecorrido_Click(sender As Object, e As EventArgs) Handles LinkButton_PorRecorrido.Click
-    'Response.Redirect("~/WC_Pagos Cobros Reclamos/Reclamo.aspx")
+    Response.Redirect("~/WC_TicketsClientes/TicketsCliePorRecorridos.aspx")
   End Sub
 
   Private Sub LinkButton_Regenerar_Click(sender As Object, e As EventArgs) Handles LinkButton_Regenerar.Click
-    'Response.Redirect("~/WC_Pagos Cobros Reclamos/Reclamo.aspx")
+    Response.Redirect("~/WC_TicketsClientes/TicketsClieRegenerar.aspx")
   End Sub
 End Class

@@ -48,6 +48,10 @@ Public Class Inicio
         Response.Redirect("~/WC_Modificar Saldos/Modificar_saldos.aspx")
       Case "G"
         Response.Redirect("~/WC_TicketsClientes/TicketsClientes.aspx")
+      Case "H"
+        Response.Redirect("~/WC_TicketsClientes/TicketsGeneral.aspx")
+      Case "I"
+        Response.Redirect("~/WC_Listados/Listados_op.aspx")
       Case "J"
         'Response.Redirect("~/WC_Liquidacion Parcial/Reportes/WebFormMyRepo.aspx")
 

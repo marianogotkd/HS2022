@@ -1,4 +1,4 @@
-Public Class TicketsClientes
+Public Class Listados_op
   Inherits System.Web.UI.Page
 
   Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -6,7 +6,6 @@ Public Class TicketsClientes
       txt_opcion.Focus()
     End If
   End Sub
-
   Private Sub btn_retroceder_ServerClick(sender As Object, e As EventArgs) Handles btn_retroceder.ServerClick
     Response.Redirect("~/Inicio.aspx")
   End Sub
@@ -14,9 +13,9 @@ Public Class TicketsClientes
   Private Sub BOTON_GRABAR_ServerClick(sender As Object, e As EventArgs) Handles BOTON_GRABAR.ServerClick
     Select Case txt_opcion.Text.ToUpper
       Case "1"
-        Response.Redirect("~/WC_TicketsClientes/TicketsClientes_op1.aspx")
+        Response.Redirect("~/WC_Listados/Listados_SaldoRegalo.aspx")
       Case "2"
-        Response.Redirect("~/WC_TicketsClientes/TicketsClientes_op2.aspx")
+        Response.Redirect("~/WC_Listados/Listados_DeLosQueGanan.aspx")
 
       Case Else
         ''aqui va mensaje de error.
@@ -37,11 +36,12 @@ Public Class TicketsClientes
     txt_opcion.Attributes.Add("onfocus", "seleccionarTexto(this);")
   End Sub
 
-  Private Sub LinkButton_GenerarArchivos_Click(sender As Object, e As EventArgs) Handles LinkButton_GenerarArchivos.Click
-    Response.Redirect("~/WC_TicketsClientes/TicketsClientes_op1.aspx")
+  Private Sub LinkButton_1_Click(sender As Object, e As EventArgs) Handles LinkButton_1.Click
+    Response.Redirect("~/WC_Listados/Listados_SaldoRegalo.aspx")
   End Sub
 
-  Private Sub LinkButton_Imprimir_Click(sender As Object, e As EventArgs) Handles LinkButton_Imprimir.Click
-    Response.Redirect("~/WC_TicketsClientes/TicketsClientes_op2.aspx")
+  Private Sub LinkButton_2_Click(sender As Object, e As EventArgs) Handles LinkButton_2.Click
+    Response.Redirect("~/WC_Listados/Listados_DeLosQueGanan.aspx")
   End Sub
+
 End Class

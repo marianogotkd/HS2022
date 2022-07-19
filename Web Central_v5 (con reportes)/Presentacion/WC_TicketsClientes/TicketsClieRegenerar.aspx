@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="TicketsClientesPorOrden.aspx.vb" Inherits="Presentacion.TicketsClientesPorOrden" %>
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="TicketsClieRegenerar.aspx.vb" Inherits="Presentacion.TicketsClieRegenerar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script>
     //funcion que reconoce teclas para ir a los botones retroceso, baja y graba
@@ -64,14 +64,12 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
 <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="True"></asp:ScriptManager>
-
   <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 <ContentTemplate>
     <div class="card card-primary">
         <div class="card-header">
-                <h3 class="card-title">TICKETS CLIENTES POR ORDEN.</h3>
+                <h3 class="card-title">TICKETS CLIENTES REGENERAR.</h3>
         </div>
     <form role="form">
     <div class="card-body">
@@ -84,70 +82,19 @@
         <div class="form-group">
           <div class="row justify-content-center">
             <div class="col-md-4">
-                      <asp:HiddenField ID="HF_parametro_id" runat="server" />
-                      <asp:Label ID="Label2" runat="server" Text="FECHA:"></asp:Label>
-                      <asp:Label ID="Label_fecha" runat="server" Text=""></asp:Label>
-                      <asp:HiddenField ID="HF_fecha" runat="server" />
+              <asp:HiddenField ID="HF_fecha" runat="server" />
+              <label for="Label_fecha">FECHA A REGENERAR (dd/mm/yyyy):</label>        
+              <asp:TextBox ID="Txt_fecha" onkeydown="tecla_op(event);" class="form-control" runat="server" TextMode="Date"></asp:TextBox>
+                          
+              
+                      
             </div>
-            <div class="col-md-4">
-                      <asp:Label ID="Label3" runat="server" Text="DIA:"></asp:Label>
-                      <asp:Label ID="Label_dia" runat="server" Text=""></asp:Label>
-                    <asp:HiddenField ID="HF_dia_id" runat="server" />
-            </div>
+            
           
           </div>
 
         </div>
 
-      <div class="form-group">
-          <div class="row justify-content-center">
-            <div class="col-md-8">
-              <asp:Label ID="Label1" runat="server" Text="SELECCIONE CLIENTES A LISTAR LOS TICKETS"></asp:Label>
-            </div>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <div class="row justify-content-center">
-                <div class="col-md-4">
-                  <asp:Label ID="Label4" runat="server" Text="DESDE GRUPO:"></asp:Label>
-                  <asp:TextBox ID="Txt_DesdeGrupoCodigo" runat="server" 
-                                placeholder="Ingrese codigo..." class="form-control" 
-                                onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);" 
-                                MaxLength="3"></asp:TextBox>
-                
-                  <asp:Label ID="Label5" runat="server" Text="DESDE CLIENTE:"></asp:Label>
-                  <asp:TextBox ID="Txt_DesdeClienteCod" runat="server" 
-                                placeholder="Ingrese codigo..." class="form-control" 
-                                onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);" 
-                                MaxLength="4"></asp:TextBox>
-                </div>
-                <div class="col-md-4">
-                  <asp:Label ID="Label6" runat="server" Text="HASTA GRUPO:"></asp:Label>
-                  <asp:TextBox ID="Txt_HastaGrupoCodigo" runat="server" 
-                                placeholder="Ingrese codigo..." class="form-control" 
-                                onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);" 
-                                MaxLength="3"></asp:TextBox>
-                
-                  <asp:Label ID="Label7" runat="server" Text="HASTA CLIENTE:"></asp:Label>
-                  <asp:TextBox ID="Txt_HastaClienteCod" runat="server" 
-                                placeholder="Ingrese codigo..." class="form-control" 
-                                onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);" 
-                                MaxLength="4"></asp:TextBox>
-                </div>
-          </div>
-      </div>
-            
-      <div class="form-group">
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <asp:Label ID="Label8" runat="server" Text="MENSAJE GENERAL EN PIE DE PAGINA TICKET:"></asp:Label>
-          <asp:TextBox ID="Txt_msjgeneral" runat="server" 
-                                placeholder="" class="form-control" 
-                                onkeydown="tecla_op(event);" ></asp:TextBox>
-          </div>
-        </div>
-      </div>
              
 
         <div class="form-group">
@@ -190,9 +137,6 @@
                                 <button type="button" Class="btn btn-primary" id = "BOTON_GRABA" runat="server" onkeydown="tecla_op_botones(event);">F8 = GRABA</button>
         
                             </div>
-            
-            
-            
                   
             
          </div>
@@ -214,7 +158,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <p>Error, no hay liquidacion completada!&hellip;</p>
+              <p>Error, no hay liquidacion para la fecha ingresada!&hellip;</p>
             </div>
             <div class="modal-footer justify-content-center ">
             <%--<div class="modal-footer justify-content-between">--%>
@@ -229,23 +173,23 @@
       <!-- /.modal -->
 
 
-  <%--Modal MENSAJE ERROR VALIDACION1--%>
-<div class="modal fade" id="modal-ok_ErrorValidacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+<%--Modal MENSAJE ERROR OK 2--%>
+<div class="modal fade" id="modal-ok_error2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-sm modal-dialog-centered " role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">Error</h4>
-              <button type="button" id="Btn_ErrorValidacion_close" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
+              <button type="button" id="btn_error_close2" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <p>Error, complete la informacion solicitada!&hellip;</p>
+              <p>Error, ingrese fecha valida!&hellip;</p>
             </div>
             <div class="modal-footer justify-content-center ">
             <%--<div class="modal-footer justify-content-between">--%>
               <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
-              <button type="button" id="Btn_ErrorValidacion_ok" runat="server" class="btn btn-primary" data-dismiss="modal">OK</button>
+              <button type="button" id="btn_ok_error2" runat="server" class="btn btn-primary" data-dismiss="modal">OK</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -254,31 +198,6 @@
       </div>
       <!-- /.modal -->
 
-
-  <%--Modal MENSAJE ERROR CONSULTA--%>
-<div class="modal fade" id="modal-ok_ErrorConsulta" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog modal-sm modal-dialog-centered " role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Error</h4>
-              <button type="button" id="Btn_ErrorConsulta_close" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Error, la busqueda no arrojo resultados!&hellip;</p>
-            </div>
-            <div class="modal-footer justify-content-center ">
-            <%--<div class="modal-footer justify-content-between">--%>
-              <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
-              <button type="button" id="Btn_ErrorConsulta_ok" runat="server" class="btn btn-primary" data-dismiss="modal">OK</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
 
 
 

@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="TicketsClientesPorOrden.aspx.vb" Inherits="Presentacion.TicketsClientesPorOrden" %>
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="TicketsCliePorOrden.aspx.vb" Inherits="Presentacion.TicketsCliePorOrden" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script>
     //funcion que reconoce teclas para ir a los botones retroceso, baja y graba
@@ -61,12 +61,9 @@
 
     
 </script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-<asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="True"></asp:ScriptManager>
-
+  <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="True"></asp:ScriptManager>
   <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 <ContentTemplate>
     <div class="card card-primary">
@@ -229,13 +226,13 @@
       <!-- /.modal -->
 
 
-  <%--Modal MENSAJE ERROR VALIDACION1--%>
-<div class="modal fade" id="modal-ok_ErrorValidacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+<%--Modal MENSAJE ERROR OK 2--%>
+<div class="modal fade" id="modal-ok_error2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-sm modal-dialog-centered " role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">Error</h4>
-              <button type="button" id="Btn_ErrorValidacion_close" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
+              <button type="button" id="btn_error_close2" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -245,7 +242,7 @@
             <div class="modal-footer justify-content-center ">
             <%--<div class="modal-footer justify-content-between">--%>
               <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
-              <button type="button" id="Btn_ErrorValidacion_ok" runat="server" class="btn btn-primary" data-dismiss="modal">OK</button>
+              <button type="button" id="btn_ok_error2" runat="server" class="btn btn-primary" data-dismiss="modal">OK</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -255,13 +252,13 @@
       <!-- /.modal -->
 
 
-  <%--Modal MENSAJE ERROR CONSULTA--%>
-<div class="modal fade" id="modal-ok_ErrorConsulta" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <%--Modal MENSAJE ERROR OK 3--%>
+<div class="modal fade" id="modal-ok_error3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-sm modal-dialog-centered " role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">Error</h4>
-              <button type="button" id="Btn_ErrorConsulta_close" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
+              <button type="button" id="btn_error_close3" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -271,7 +268,7 @@
             <div class="modal-footer justify-content-center ">
             <%--<div class="modal-footer justify-content-between">--%>
               <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
-              <button type="button" id="Btn_ErrorConsulta_ok" runat="server" class="btn btn-primary" data-dismiss="modal">OK</button>
+              <button type="button" id="btn_ok_error3" runat="server" class="btn btn-primary" data-dismiss="modal">OK</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -279,6 +276,33 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
+
+
+  <%--Modal MENSAJE ERROR OK 3--%>
+<div class="modal fade" id="modal-ok" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-sm modal-dialog-centered " role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Notificacion</h4>
+              <button type="button" id="btn_ok_close" runat="server" class="close" tabindex="-1" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>El archivo se genero correctamente!&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-center ">
+            <%--<div class="modal-footer justify-content-between">--%>
+              <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
+              <button type="button" id="btn_ok" runat="server" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
 
 
 

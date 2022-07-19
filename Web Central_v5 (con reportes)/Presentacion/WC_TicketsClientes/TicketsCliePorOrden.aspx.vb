@@ -1,11 +1,16 @@
-Public Class TicketsClientesPorOrden
+Public Class TicketsCliePorOrden
   Inherits System.Web.UI.Page
+
 #Region "DECLARACIONES"
   Dim DAparametro As New Capa_Datos.WC_parametro
   Dim DAtickets As New Capa_Datos.WC_tickets
 #End Region
 
 #Region "EVENTOS"
+
+#End Region
+
+
   Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
     If Not IsPostBack Then
       'VALIDACION: Verificar en BD cual es el dia de la ultima liquidacion en tabla PARAMETRO, donde el campo Estado= "Inactivo"
@@ -41,6 +46,8 @@ Public Class TicketsClientesPorOrden
         End Select
 
         Txt_DesdeGrupoCodigo.Focus()
+
+
       Else
         'error, no hay liquidacion completada
         ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_error", "$(document).ready(function () {$('#modal-ok_error').modal();});", True)
@@ -81,7 +88,6 @@ Public Class TicketsClientesPorOrden
   End Sub
 
   Private Sub BOTON_GRABA_ServerClick(sender As Object, e As EventArgs) Handles BOTON_GRABA.ServerClick
-
     'valido que todos los campos tengas algo ingresado.
 
     Dim valido As String = "si"
@@ -508,54 +514,60 @@ Public Class TicketsClientesPorOrden
 
         Dim nombre_archivo As String = CDate(HF_fecha.Value).ToString("ddMMyy") + grupo_dig + cliente_dig
         'Dim nombre_archivo As String = CDate(HF_fecha.Value).ToString("ddMMyy") + Txt_DesdeGrupoCodigo.Text + Txt_DesdeClienteCod.Text
-        Dim ruta As String = "/WC_Reportes/Rpt/" + nombre_archivo + ".pdf"
+        Dim ruta As String = "/WC_Reportes/Rpt/TicketsClientesPorOrden/" + nombre_archivo + ".pdf"
 
-
-
-        'CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), ruta))
-        'CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/TicketClieOrden.pdf"))
+        CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), ruta))
+        'CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/TicketsClientesPorOrden/TicketsClientesPorOrden.pdf"))
 
         'CrReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, False, "Reporte")
 
-        ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_RptGenerado", "$(document).ready(Function() {$('#modal-ok_RptGenerado').modal();});", True)
+
+
+        ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok", "$(document).ready(function () {$('#modal-ok').modal();});", True)
 
         '------------------------------------------------------------------------------
       Else
         'error, la busqueda no arrojo resultados. No hay movimientos para la fecha y los parametros ingresados.
-        ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_ErrorConsulta", "$(document).ready(Function() {$('#modal-ok_ErrorConsulta').modal();});", True)
+
+        ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_error3", "$(document).ready(function () {$('#modal-ok_error3').modal();});", True)
+
+
       End If
-
-
-
-
-
-
-
     Else
       'msj complete información solicitada.
-      ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_ErrorValidacion", "$(document).ready(Function() {$('#modal-ok_ErrorValidacion').modal();});", True)
+
+      ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_error2", "$(document).ready(function () {$('#modal-ok_error2').modal();});", True)
 
     End If
 
-
   End Sub
 
-  Private Sub Btn_ErrorValidacion_close_ServerClick(sender As Object, e As EventArgs) Handles Btn_ErrorValidacion_close.ServerClick
+
+  Private Sub btn_error_close2_ServerClick(sender As Object, e As EventArgs) Handles btn_error_close2.ServerClick
     focus_error()
   End Sub
 
-  Private Sub Btn_ErrorValidacion_ok_ServerClick(sender As Object, e As EventArgs) Handles Btn_ErrorValidacion_ok.ServerClick
+  Private Sub btn_ok_error2_ServerClick(sender As Object, e As EventArgs) Handles btn_ok_error2.ServerClick
     focus_error()
   End Sub
 
-  Private Sub Btn_ErrorConsulta_close_ServerClick(sender As Object, e As EventArgs) Handles Btn_ErrorConsulta_close.ServerClick
+  Private Sub btn_ok_ServerClick(sender As Object, e As EventArgs) Handles btn_ok.ServerClick
+    Response.Redirect("~/WC_TicketsClientes/TicketsClientes_op1.aspx")
+  End Sub
+
+  Private Sub btn_ok_close_ServerClick(sender As Object, e As EventArgs) Handles btn_ok_close.ServerClick
+    Response.Redirect("~/WC_TicketsClientes/TicketsClientes_op1.aspx")
+  End Sub
+
+
+  Private Sub btn_error_close3_ServerClick(sender As Object, e As EventArgs) Handles btn_error_close3.ServerClick
     Txt_DesdeGrupoCodigo.Focus()
   End Sub
 
-  Private Sub Btn_ErrorConsulta_ok_ServerClick(sender As Object, e As EventArgs) Handles Btn_ErrorConsulta_ok.ServerClick
+  Private Sub btn_ok_error3_ServerClick(sender As Object, e As EventArgs) Handles btn_ok_error3.ServerClick
     Txt_DesdeGrupoCodigo.Focus()
   End Sub
-#End Region
+
 
 #Region "METODOS"
   Private Sub focus_error()
@@ -689,8 +701,10 @@ Public Class TicketsClientesPorOrden
 
 
 
-#End Region
 
+
+
+#End Region
 
 
 End Class

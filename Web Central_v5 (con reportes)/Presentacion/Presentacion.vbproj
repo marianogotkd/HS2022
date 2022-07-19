@@ -3216,6 +3216,9 @@
     <Content Include="WC_LiquidacionRegalos\LiquidacionRegalosSemanal.aspx" />
     <Content Include="WC_LiquidacionRegalos\LiquidacionRegalosSemanal_det.aspx" />
     <Content Include="WC_LiquidacionRegalos\LiquidacionRegalos_op.aspx" />
+    <Content Include="WC_Listados\Listados_DeLosQueGanan.aspx" />
+    <Content Include="WC_Listados\Listados_op.aspx" />
+    <Content Include="WC_Listados\Listados_SaldoRegalo.aspx" />
     <Content Include="WC_Modificar Saldos\Modificar_saldos.aspx" />
     <Content Include="WC_Modificar Saldos\Modificar_saldos_detalle.aspx" />
     <Content Include="WC_Pagos Cobros Reclamos\Cobro.aspx" />
@@ -3227,6 +3230,20 @@
     <Content Include="WC_TicketsClientes\TicketsClientes.aspx" />
     <Content Include="WC_TicketsClientes\TicketsClientesPorOrden.aspx" />
     <Content Include="WC_TicketsClientes\TicketsClientes_op1.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsClientes_op2.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsCliePorOrden.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsCliePorOrdenImp.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsCliePorRecorridos.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsCliePorRecorridosImp.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsClieRegenerar.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsClieRegenerar_op.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsClieRegenerar_orden.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsClieRegenerar_recorridos.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsClieReimprimir.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsClieReimprimir_op.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsClieReimprimir_orden.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsClieReimprimir_recorridos.aspx" />
+    <Content Include="WC_TicketsClientes\TicketsGeneral.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -3670,6 +3687,32 @@
       <DependentUpon>LiquidacionRegalos_op.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="WC_Listados\DS_Listados.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Listados.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WC_Listados\Listados_DeLosQueGanan.aspx.designer.vb">
+      <DependentUpon>Listados_DeLosQueGanan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_Listados\Listados_DeLosQueGanan.aspx.vb">
+      <DependentUpon>Listados_DeLosQueGanan.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_Listados\Listados_op.aspx.designer.vb">
+      <DependentUpon>Listados_op.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_Listados\Listados_op.aspx.vb">
+      <DependentUpon>Listados_op.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_Listados\Listados_SaldoRegalo.aspx.designer.vb">
+      <DependentUpon>Listados_SaldoRegalo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_Listados\Listados_SaldoRegalo.aspx.vb">
+      <DependentUpon>Listados_SaldoRegalo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="WC_Modificar Saldos\Modificar_saldos.aspx.designer.vb">
       <DependentUpon>Modificar_saldos.aspx</DependentUpon>
     </Compile>
@@ -3803,10 +3846,46 @@
       <DependentUpon>LiquidacionRegalos_informe03.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WC_Reportes\Rpt\ListadoDeLosQueGanan_informe01.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListadoDeLosQueGanan_informe01.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\ListadoSaldoRegalo_informe01.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListadoSaldoRegalo_informe01.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WC_Reportes\Rpt\rptprueba.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptprueba.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\TicketGeneral_informe01a.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TicketGeneral_informe01a.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\TicketGeneral_informe02.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TicketGeneral_informe02.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\TicketGeneral_informe03.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TicketGeneral_informe03.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WC_Reportes\Rpt\TicketGeneral_informe04.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TicketGeneral_informe04.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WC_Reportes\Rpt\TicketsClientesPorOrden_informe01.vb">
@@ -3845,6 +3924,104 @@
     </Compile>
     <Compile Include="WC_TicketsClientes\TicketsClientes_op1.aspx.vb">
       <DependentUpon>TicketsClientes_op1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClientes_op2.aspx.designer.vb">
+      <DependentUpon>TicketsClientes_op2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClientes_op2.aspx.vb">
+      <DependentUpon>TicketsClientes_op2.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsCliePorOrden.aspx.designer.vb">
+      <DependentUpon>TicketsCliePorOrden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsCliePorOrden.aspx.vb">
+      <DependentUpon>TicketsCliePorOrden.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsCliePorOrdenImp.aspx.designer.vb">
+      <DependentUpon>TicketsCliePorOrdenImp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsCliePorOrdenImp.aspx.vb">
+      <DependentUpon>TicketsCliePorOrdenImp.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsCliePorRecorridos.aspx.designer.vb">
+      <DependentUpon>TicketsCliePorRecorridos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsCliePorRecorridos.aspx.vb">
+      <DependentUpon>TicketsCliePorRecorridos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsCliePorRecorridosImp.aspx.designer.vb">
+      <DependentUpon>TicketsCliePorRecorridosImp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsCliePorRecorridosImp.aspx.vb">
+      <DependentUpon>TicketsCliePorRecorridosImp.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieRegenerar.aspx.designer.vb">
+      <DependentUpon>TicketsClieRegenerar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieRegenerar.aspx.vb">
+      <DependentUpon>TicketsClieRegenerar.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieRegenerar_op.aspx.designer.vb">
+      <DependentUpon>TicketsClieRegenerar_op.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieRegenerar_op.aspx.vb">
+      <DependentUpon>TicketsClieRegenerar_op.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieRegenerar_orden.aspx.designer.vb">
+      <DependentUpon>TicketsClieRegenerar_orden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieRegenerar_orden.aspx.vb">
+      <DependentUpon>TicketsClieRegenerar_orden.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieRegenerar_recorridos.aspx.designer.vb">
+      <DependentUpon>TicketsClieRegenerar_recorridos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieRegenerar_recorridos.aspx.vb">
+      <DependentUpon>TicketsClieRegenerar_recorridos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieReimprimir.aspx.designer.vb">
+      <DependentUpon>TicketsClieReimprimir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieReimprimir.aspx.vb">
+      <DependentUpon>TicketsClieReimprimir.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieReimprimir_op.aspx.designer.vb">
+      <DependentUpon>TicketsClieReimprimir_op.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieReimprimir_op.aspx.vb">
+      <DependentUpon>TicketsClieReimprimir_op.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieReimprimir_orden.aspx.designer.vb">
+      <DependentUpon>TicketsClieReimprimir_orden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieReimprimir_orden.aspx.vb">
+      <DependentUpon>TicketsClieReimprimir_orden.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieReimprimir_recorridos.aspx.designer.vb">
+      <DependentUpon>TicketsClieReimprimir_recorridos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsClieReimprimir_recorridos.aspx.vb">
+      <DependentUpon>TicketsClieReimprimir_recorridos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsGeneral.aspx.designer.vb">
+      <DependentUpon>TicketsGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_TicketsClientes\TicketsGeneral.aspx.vb">
+      <DependentUpon>TicketsGeneral.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
@@ -3908,9 +4085,33 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LiquidacionRegalos_informe03.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\ListadoDeLosQueGanan_informe01.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListadoDeLosQueGanan_informe01.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\ListadoSaldoRegalo_informe01.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListadoSaldoRegalo_informe01.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="WC_Reportes\Rpt\rptprueba.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptprueba.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\TicketGeneral_informe01a.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TicketGeneral_informe01a.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\TicketGeneral_informe02.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TicketGeneral_informe02.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\TicketGeneral_informe03.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TicketGeneral_informe03.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\TicketGeneral_informe04.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TicketGeneral_informe04.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="WC_Reportes\Rpt\TicketsClientesPorOrden_informe01.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -4294,6 +4495,17 @@
     <Content Include="WC_LiquidacionRegalos\DS_liqregalos.xss">
       <DependentUpon>DS_liqregalos.xsd</DependentUpon>
     </Content>
+    <Content Include="WC_Listados\DS_Listados.xsc">
+      <DependentUpon>DS_Listados.xsd</DependentUpon>
+    </Content>
+    <None Include="WC_Listados\DS_Listados.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Listados.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="WC_Listados\DS_Listados.xss">
+      <DependentUpon>DS_Listados.xsd</DependentUpon>
+    </Content>
     <None Include="WC_Pagos Cobros Reclamos\DS_pagoscobrosreclamos.xsc">
       <DependentUpon>DS_pagoscobrosreclamos.xsd</DependentUpon>
     </None>
@@ -4326,7 +4538,10 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="WC_Reportes\Rpt\TicketsClientesPorOrden\" />
+    <Folder Include="WC_Reportes\Rpt\TicketsClientesPorRecorrido\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
