@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class CodigoMasPremiado
+Partial Public Class CodigoMasPremiado_b
 
     '''<summary>
     '''Control ScriptManager1.
@@ -41,40 +41,22 @@ Partial Public Class CodigoMasPremiado
     Protected WithEvents HF_fecha As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''Control txtClienteDesde.
+    '''Control txtZona.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtClienteDesde As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtZona As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control lb_error_codigo.
+    '''Control TxtCodigo.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lb_error_codigo As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Control txtClienteHasta.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtClienteHasta As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control Label1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents TxtCodigo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Control txtImporte1.
@@ -210,6 +192,15 @@ Partial Public Class CodigoMasPremiado
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents grvCifra4 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''Control Label_TotalRecaudado.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Label_TotalRecaudado As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Control btn_close_error_limite.

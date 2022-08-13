@@ -15,12 +15,10 @@ Public Class Conexion
     'bd WEB-CENTRAL CHOCO-RYZEN -.local
     Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Password=123choco;Persist Security Info=True;User ID=choco;Initial Catalog=WebCentral;Data Source=DESKTOP-IPJ62B9\SQLEXPRESS_CHOK")
 
+
     ''SERVIDOR con WinNT
-    ' Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=WebCentral;Data Source=SRVSQL-CENTRAL")
+    'Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=WebCentral;Data Source=SRVSQL-CENTRAL")
 
-
-    'PRUEBA CAMBIOS GIT CHOCO 
-    Dim akajshd As String = ""
 
 
 End Class

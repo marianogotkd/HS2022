@@ -1604,6 +1604,12 @@ Public Class LiquidacionParcial_recorridos
 
 
   Private Sub BOTON_GRABAR_ServerClick(sender As Object, e As EventArgs) Handles BOTON_GRABAR.ServerClick
+
+    'IMPORTANTE SE CARGA DESDE CERO LA TABLA XCARGAS Y XCARGAS RECORRIDOS. FECHA: 22-08-04
+    DALiquidacion.XCargas_load()
+
+
+
     Dim DS_liqparcial As New DS_liqparcial
 
     '1ra VALIDACION.------------------------------------

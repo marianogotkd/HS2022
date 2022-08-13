@@ -572,6 +572,16 @@ Partial Public Class DS_ticketsclientes
         
         Private columnFecha As Global.System.Data.DataColumn
         
+        Private columnZO21 As Global.System.Data.DataColumn
+        
+        Private columnZO22 As Global.System.Data.DataColumn
+        
+        Private columnZO23 As Global.System.Data.DataColumn
+        
+        Private columnZO24 As Global.System.Data.DataColumn
+        
+        Private columnZO25 As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -784,6 +794,46 @@ Partial Public Class DS_ticketsclientes
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ZO21Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnZO21
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ZO22Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnZO22
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ZO23Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnZO23
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ZO24Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnZO24
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ZO25Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnZO25
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -842,9 +892,14 @@ Partial Public Class DS_ticketsclientes
                     ByVal ZO19 As String,  _
                     ByVal ZO20 As String,  _
                     ByVal ITEM As String,  _
-                    ByVal Fecha As Date) As Puntos_ARow
+                    ByVal Fecha As Date,  _
+                    ByVal ZO21 As String,  _
+                    ByVal ZO22 As String,  _
+                    ByVal ZO23 As String,  _
+                    ByVal ZO24 As String,  _
+                    ByVal ZO25 As String) As Puntos_ARow
             Dim rowPuntos_ARow As Puntos_ARow = CType(Me.NewRow,Puntos_ARow)
-            Dim columnValuesArray() As Object = New Object() {ZON1, ZON2, ZON3, ZON4, ZON5, ZON6, ZON7, ZON8, ZON9, ZO10, ZO11, ZO12, ZO13, ZO14, ZO15, ZO16, ZO17, ZO18, ZO19, ZO20, ITEM, Fecha}
+            Dim columnValuesArray() As Object = New Object() {ZON1, ZON2, ZON3, ZON4, ZON5, ZON6, ZON7, ZON8, ZON9, ZO10, ZO11, ZO12, ZO13, ZO14, ZO15, ZO16, ZO17, ZO18, ZO19, ZO20, ITEM, Fecha, ZO21, ZO22, ZO23, ZO24, ZO25}
             rowPuntos_ARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPuntos_ARow)
             Return rowPuntos_ARow
@@ -889,6 +944,11 @@ Partial Public Class DS_ticketsclientes
             Me.columnZO20 = MyBase.Columns("ZO20")
             Me.columnITEM = MyBase.Columns("ITEM")
             Me.columnFecha = MyBase.Columns("Fecha")
+            Me.columnZO21 = MyBase.Columns("ZO21")
+            Me.columnZO22 = MyBase.Columns("ZO22")
+            Me.columnZO23 = MyBase.Columns("ZO23")
+            Me.columnZO24 = MyBase.Columns("ZO24")
+            Me.columnZO25 = MyBase.Columns("ZO25")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -938,6 +998,16 @@ Partial Public Class DS_ticketsclientes
             MyBase.Columns.Add(Me.columnITEM)
             Me.columnFecha = New Global.System.Data.DataColumn("Fecha", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFecha)
+            Me.columnZO21 = New Global.System.Data.DataColumn("ZO21", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnZO21)
+            Me.columnZO22 = New Global.System.Data.DataColumn("ZO22", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnZO22)
+            Me.columnZO23 = New Global.System.Data.DataColumn("ZO23", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnZO23)
+            Me.columnZO24 = New Global.System.Data.DataColumn("ZO24", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnZO24)
+            Me.columnZO25 = New Global.System.Data.DataColumn("ZO25", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnZO25)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4816,6 +4886,81 @@ Partial Public Class DS_ticketsclientes
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ZO21() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePuntos_A.ZO21Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ZO21' de la tabla 'Puntos_A' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePuntos_A.ZO21Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ZO22() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePuntos_A.ZO22Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ZO22' de la tabla 'Puntos_A' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePuntos_A.ZO22Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ZO23() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePuntos_A.ZO23Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ZO23' de la tabla 'Puntos_A' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePuntos_A.ZO23Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ZO24() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePuntos_A.ZO24Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ZO24' de la tabla 'Puntos_A' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePuntos_A.ZO24Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ZO25() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePuntos_A.ZO25Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ZO25' de la tabla 'Puntos_A' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePuntos_A.ZO25Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsZON1Null() As Boolean
             Return Me.IsNull(Me.tablePuntos_A.ZON1Column)
         End Function
@@ -5076,6 +5221,66 @@ Partial Public Class DS_ticketsclientes
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetFechaNull()
             Me(Me.tablePuntos_A.FechaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsZO21Null() As Boolean
+            Return Me.IsNull(Me.tablePuntos_A.ZO21Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetZO21Null()
+            Me(Me.tablePuntos_A.ZO21Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsZO22Null() As Boolean
+            Return Me.IsNull(Me.tablePuntos_A.ZO22Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetZO22Null()
+            Me(Me.tablePuntos_A.ZO22Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsZO23Null() As Boolean
+            Return Me.IsNull(Me.tablePuntos_A.ZO23Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetZO23Null()
+            Me(Me.tablePuntos_A.ZO23Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsZO24Null() As Boolean
+            Return Me.IsNull(Me.tablePuntos_A.ZO24Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetZO24Null()
+            Me(Me.tablePuntos_A.ZO24Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsZO25Null() As Boolean
+            Return Me.IsNull(Me.tablePuntos_A.ZO25Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetZO25Null()
+            Me(Me.tablePuntos_A.ZO25Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     

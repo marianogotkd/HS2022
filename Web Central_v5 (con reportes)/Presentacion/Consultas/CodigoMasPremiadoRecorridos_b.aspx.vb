@@ -1,4 +1,4 @@
-Public Class CodigoMasPremiadoRecorridos
+Public Class CodigoMasPremiadoRecorridos_b
   Inherits System.Web.UI.Page
 
 #Region "DECLARACIONES"
@@ -8,6 +8,9 @@ Public Class CodigoMasPremiadoRecorridos
 #End Region
 
 #Region "EVENTOS"
+
+
+
   Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
     If Not IsPostBack Then
       'AQUI VALIDO, SI NO HAY NINGUNA FECHA EN LA TABLA PARAMETRO, PONGO UN MENSAJE MODAL QUE DIGA:
@@ -45,37 +48,48 @@ Public Class CodigoMasPremiadoRecorridos
         ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-ok_error", "$(document).ready(function () {$('#modal-ok_error').modal();});", True)
       End If
       Txt_fecha.Enabled = False
-      'txt_zona.Focus()
-      btn_retroceder.Focus()
+      txt_zona.Focus()
+
     End If
+
   End Sub
+
   Private Sub btn_ok_error_ServerClick(sender As Object, e As EventArgs) Handles btn_ok_error.ServerClick
     Response.Redirect("~/Inicio.aspx")
   End Sub
   Private Sub btn_error_close_ServerClick(sender As Object, e As EventArgs) Handles btn_error_close.ServerClick
     Response.Redirect("~/Inicio.aspx")
   End Sub
+
   Private Sub BOTON_GRABAR_ServerClick(sender As Object, e As EventArgs) Handles BOTON_GRABAR.ServerClick
-    Dim DS_liqparcial As New DS_liqparcial
 
-    Recorrido_1(DS_liqparcial)
-    Recorrido_2(DS_liqparcial)
-    Recorrido_3(DS_liqparcial)
-    Recorrido_4(DS_liqparcial)
-    Recorrido_5(DS_liqparcial)
+    If txt_zona.Text <> "" Then
+      Dim DS_liqparcial As New DS_liqparcial
 
-    If DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Count <> 0 Then
-      Session("fecha_parametro") = HF_fecha.Value
-      Session("tabla_recorridos_seleccionados") = DS_liqparcial.Tables("Recorridos_seleccionados")
-      Response.Redirect("~/Consultas/CodigoMasPremiado.aspx")
-    Else
-      'error, no se seleccionó ningunan item
-      ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal_msjerror_liq01", "$(document).ready(function () {$('#modal_msjerror_liq01').modal();});", True)
+      Dim valido As String = "no"
+      ValidarZona(valido)
+      If valido = "si" Then
+        Cargar_recorrido_valido(txt_zona.Text.ToUpper, DS_liqparcial)
+
+        If DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Count <> 0 Then
+          Session("fecha_parametro") = HF_fecha.Value
+          Session("tabla_recorridos_seleccionados") = DS_liqparcial.Tables("Recorridos_seleccionados")
+          Response.Redirect("~/Consultas/CodigoMasPremiado_b.aspx")
+        Else
+          'error, no se seleccionó ningunan item
+          ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal_msjerror_liq01", "$(document).ready(function () {$('#modal_msjerror_liq01').modal();});", True)
+        End If
+      Else
+        'error, no se seleccionó ningunan item
+        ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal_msjerror_liq01", "$(document).ready(function () {$('#modal_msjerror_liq01').modal();});", True)
+      End If
+
+
     End If
 
 
-
   End Sub
+
   Private Sub btn_retroceder_ServerClick(sender As Object, e As EventArgs) Handles btn_retroceder.ServerClick
     Response.Redirect("~/Consultas/MenuConsultas.aspx")
   End Sub
@@ -110,7 +124,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_1A.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_1TODAS.Visible = True
+            'Div_1TODAS.Visible = True
           End If
 
         Case 1
@@ -122,7 +136,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_1B.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_1TODAS.Visible = True
+            'Div_1TODAS.Visible = True
           End If
 
         Case 2
@@ -134,7 +148,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_1C.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_1TODAS.Visible = True
+            'Div_1TODAS.Visible = True
           End If
         Case 3
           If Habilitada = 1 Then
@@ -145,7 +159,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_1D.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_1TODAS.Visible = True
+            'Div_1TODAS.Visible = True
           End If
         Case 4
           If Habilitada = 1 Then
@@ -156,7 +170,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_1E.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_1TODAS.Visible = True
+            'Div_1TODAS.Visible = True
           End If
         Case 5
           If Habilitada = 1 Then
@@ -167,7 +181,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_1F.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_1TODAS.Visible = True
+            'Div_1TODAS.Visible = True
           End If
         Case 6
           If Habilitada = 1 Then
@@ -178,7 +192,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_1G.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_1TODAS.Visible = True
+            'Div_1TODAS.Visible = True
           End If
         Case 7
           If Habilitada = 1 Then
@@ -189,7 +203,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_1H.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_1TODAS.Visible = True
+            'Div_1TODAS.Visible = True
           End If
         Case 8
           If Habilitada = 1 Then
@@ -200,7 +214,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_1I.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_1TODAS.Visible = True
+            'Div_1TODAS.Visible = True
           End If
         Case 9
           If Habilitada = 1 Then
@@ -211,7 +225,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_1J.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_1TODAS.Visible = True
+            'Div_1TODAS.Visible = True
           End If
 
 
@@ -224,7 +238,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_2A.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_2TODAS.Visible = True
+            'Div_2TODAS.Visible = True
           End If
         Case 11
           If Habilitada = 1 Then
@@ -235,7 +249,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_2B.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_2TODAS.Visible = True
+            'Div_2TODAS.Visible = True
           End If
         Case 12
           If Habilitada = 1 Then
@@ -246,7 +260,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_2C.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_2TODAS.Visible = True
+            'Div_2TODAS.Visible = True
           End If
         Case 13
           If Habilitada = 1 Then
@@ -257,7 +271,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_2D.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_2TODAS.Visible = True
+            'Div_2TODAS.Visible = True
           End If
         Case 14
           If Habilitada = 1 Then
@@ -268,7 +282,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_2E.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_2TODAS.Visible = True
+            'Div_2TODAS.Visible = True
           End If
         Case 15
           If Habilitada = 1 Then
@@ -279,7 +293,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_2F.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_2TODAS.Visible = True
+            'Div_2TODAS.Visible = True
           End If
         Case 16
           If Habilitada = 1 Then
@@ -290,7 +304,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_2G.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_2TODAS.Visible = True
+            'Div_2TODAS.Visible = True
           End If
         Case 17
           If Habilitada = 1 Then
@@ -301,7 +315,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_2H.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_2TODAS.Visible = True
+            'Div_2TODAS.Visible = True
           End If
         Case 18
           If Habilitada = 1 Then
@@ -312,7 +326,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_2I.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_2TODAS.Visible = True
+            'Div_2TODAS.Visible = True
           End If
         Case 19
           If Habilitada = 1 Then
@@ -323,7 +337,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_2J.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_2TODAS.Visible = True
+            'Div_2TODAS.Visible = True
           End If
         Case 20
           If Habilitada = 1 Then
@@ -334,7 +348,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_3A.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_3TODAS.Visible = True
+            'Div_3TODAS.Visible = True
           End If
         Case 21
           If Habilitada = 1 Then
@@ -345,7 +359,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_3B.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_3TODAS.Visible = True
+            'Div_3TODAS.Visible = True
           End If
         Case 22
           If Habilitada = 1 Then
@@ -356,7 +370,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_3C.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_3TODAS.Visible = True
+            'Div_3TODAS.Visible = True
           End If
         Case 23
           If Habilitada = 1 Then
@@ -367,7 +381,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_3D.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_3TODAS.Visible = True
+            'Div_3TODAS.Visible = True
           End If
         Case 24
           If Habilitada = 1 Then
@@ -378,7 +392,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_3E.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_3TODAS.Visible = True
+            'Div_3TODAS.Visible = True
           End If
         Case 25
           If Habilitada = 1 Then
@@ -389,7 +403,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_3F.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_3TODAS.Visible = True
+            'Div_3TODAS.Visible = True
           End If
         Case 26
           If Habilitada = 1 Then
@@ -400,7 +414,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_3G.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_3TODAS.Visible = True
+            'Div_3TODAS.Visible = True
           End If
         Case 27
           If Habilitada = 1 Then
@@ -411,7 +425,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_3H.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_3TODAS.Visible = True
+            'Div_3TODAS.Visible = True
           End If
         Case 28
           If Habilitada = 1 Then
@@ -422,7 +436,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_3I.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_3TODAS.Visible = True
+            'Div_3TODAS.Visible = True
           End If
         Case 29
           If Habilitada = 1 Then
@@ -433,7 +447,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_3J.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_3TODAS.Visible = True
+            'Div_3TODAS.Visible = True
           End If
         Case 30
           If Habilitada = 1 Then
@@ -444,7 +458,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_4A.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_4TODAS.Visible = True
+            'Div_4TODAS.Visible = True
           End If
         Case 31
           If Habilitada = 1 Then
@@ -455,7 +469,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_4B.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_4TODAS.Visible = True
+            'Div_4TODAS.Visible = True
           End If
         Case 32
           If Habilitada = 1 Then
@@ -466,7 +480,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_4C.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_4TODAS.Visible = True
+            'Div_4TODAS.Visible = True
           End If
         Case 33
           If Habilitada = 1 Then
@@ -477,7 +491,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_4D.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_4TODAS.Visible = True
+            'Div_4TODAS.Visible = True
           End If
         Case 34
           If Habilitada = 1 Then
@@ -488,7 +502,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_4E.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_4TODAS.Visible = True
+            'Div_4TODAS.Visible = True
           End If
         Case 35
           If Habilitada = 1 Then
@@ -499,7 +513,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_4F.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_4TODAS.Visible = True
+            'Div_4TODAS.Visible = True
           End If
         Case 36
           If Habilitada = 1 Then
@@ -510,7 +524,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_4G.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_4TODAS.Visible = True
+            'Div_4TODAS.Visible = True
           End If
         Case 37
           If Habilitada = 1 Then
@@ -521,7 +535,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_4H.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_4TODAS.Visible = True
+            'Div_4TODAS.Visible = True
           End If
         Case 38
           If Habilitada = 1 Then
@@ -532,7 +546,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_4I.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_4TODAS.Visible = True
+            'Div_4TODAS.Visible = True
           End If
         Case 39
           If Habilitada = 1 Then
@@ -543,7 +557,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_4J.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_4TODAS.Visible = True
+            'Div_4TODAS.Visible = True
           End If
         Case 40
           If Habilitada = 1 Then
@@ -554,7 +568,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_5A.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_5TODAS.Visible = True
+            'Div_5TODAS.Visible = True
           End If
         Case 41
           If Habilitada = 1 Then
@@ -565,7 +579,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_5B.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_5TODAS.Visible = True
+            'Div_5TODAS.Visible = True
           End If
         Case 42
           If Habilitada = 1 Then
@@ -576,7 +590,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_5C.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_5TODAS.Visible = True
+            'Div_5TODAS.Visible = True
           End If
         Case 43
           If Habilitada = 1 Then
@@ -587,7 +601,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_5D.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_5TODAS.Visible = True
+            'Div_5TODAS.Visible = True
           End If
         Case 44
           If Habilitada = 1 Then
@@ -598,7 +612,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_5E.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_5TODAS.Visible = True
+            'Div_5TODAS.Visible = True
           End If
         Case 45
           If Habilitada = 1 Then
@@ -609,7 +623,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_5F.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_5TODAS.Visible = True
+            'Div_5TODAS.Visible = True
           End If
         Case 46
           If Habilitada = 1 Then
@@ -620,7 +634,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_5G.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_5TODAS.Visible = True
+            'Div_5TODAS.Visible = True
           End If
         Case 47
           If Habilitada = 1 Then
@@ -631,7 +645,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_5H.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_5TODAS.Visible = True
+            'Div_5TODAS.Visible = True
           End If
         Case 48
           If Habilitada = 1 Then
@@ -642,7 +656,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_5I.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_5TODAS.Visible = True
+            'Div_5TODAS.Visible = True
           End If
         Case 49
           If Habilitada = 1 Then
@@ -653,7 +667,7 @@ Public Class CodigoMasPremiadoRecorridos
             If cargado = "si" Then
               LK_5J.ForeColor = Drawing.Color.ForestGreen
             End If
-            Div_5TODAS.Visible = True
+            'Div_5TODAS.Visible = True
           End If
       End Select
       'verificar_puntos_guardados(dia, codigo)
@@ -691,242 +705,353 @@ Public Class CodigoMasPremiadoRecorridos
     fila("Codigo") = codigo
     DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Add(fila)
   End Sub
-  Private Sub Recorrido_1(ByRef DS_liqparcial As DataSet)
-    If ChkBox_1TODAS.Checked = True Then
-      Cargar_recorrido_valido("1A", DS_liqparcial)
-      Cargar_recorrido_valido("1B", DS_liqparcial)
-      Cargar_recorrido_valido("1C", DS_liqparcial)
-      Cargar_recorrido_valido("1D", DS_liqparcial)
-      Cargar_recorrido_valido("1E", DS_liqparcial)
-      Cargar_recorrido_valido("1F", DS_liqparcial)
-      Cargar_recorrido_valido("1G", DS_liqparcial)
-      Cargar_recorrido_valido("1H", DS_liqparcial)
-      Cargar_recorrido_valido("1I", DS_liqparcial)
-      Cargar_recorrido_valido("1J", DS_liqparcial)
 
-    Else
-      If ChkBox_1A.Checked = True Then
-        Cargar_recorrido_valido("1A", DS_liqparcial)
-      End If
-      If ChkBox_1B.Checked = True Then
-        Cargar_recorrido_valido("1B", DS_liqparcial)
-      End If
-      If ChkBox_1C.Checked = True Then
-        Cargar_recorrido_valido("1C", DS_liqparcial)
-      End If
-      If ChkBox_1D.Checked = True Then
-        Cargar_recorrido_valido("1D", DS_liqparcial)
-      End If
-      If ChkBox_1E.Checked = True Then
-        Cargar_recorrido_valido("1E", DS_liqparcial)
-      End If
-      If ChkBox_1F.Checked = True Then
-        Cargar_recorrido_valido("1F", DS_liqparcial)
-      End If
-      If ChkBox_1G.Checked = True Then
-        Cargar_recorrido_valido("1G", DS_liqparcial)
-      End If
-      If ChkBox_1H.Checked = True Then
-        Cargar_recorrido_valido("1H", DS_liqparcial)
-      End If
-      If ChkBox_1I.Checked = True Then
-        Cargar_recorrido_valido("1I", DS_liqparcial)
-      End If
-      If ChkBox_1J.Checked = True Then
-        Cargar_recorrido_valido("1J", DS_liqparcial)
-      End If
+  'Private Sub Recorrido_1(ByRef DS_liqparcial As DataSet)
+  '  If ChkBox_1TODAS.Checked = True Then
+  '    Cargar_recorrido_valido("1A", DS_liqparcial)
+  '    Cargar_recorrido_valido("1B", DS_liqparcial)
+  '    Cargar_recorrido_valido("1C", DS_liqparcial)
+  '    Cargar_recorrido_valido("1D", DS_liqparcial)
+  '    Cargar_recorrido_valido("1E", DS_liqparcial)
+  '    Cargar_recorrido_valido("1F", DS_liqparcial)
+  '    Cargar_recorrido_valido("1G", DS_liqparcial)
+  '    Cargar_recorrido_valido("1H", DS_liqparcial)
+  '    Cargar_recorrido_valido("1I", DS_liqparcial)
+  '    Cargar_recorrido_valido("1J", DS_liqparcial)
 
-    End If
-  End Sub
-  Private Sub Recorrido_2(ByRef DS_liqparcial As DataSet)
-    If ChkBox_2TODAS.Checked = True Then
-      Cargar_recorrido_valido("2A", DS_liqparcial)
-      Cargar_recorrido_valido("2B", DS_liqparcial)
-      Cargar_recorrido_valido("2C", DS_liqparcial)
-      Cargar_recorrido_valido("2D", DS_liqparcial)
-      Cargar_recorrido_valido("2E", DS_liqparcial)
-      Cargar_recorrido_valido("2F", DS_liqparcial)
-      Cargar_recorrido_valido("2G", DS_liqparcial)
-      Cargar_recorrido_valido("2H", DS_liqparcial)
-      Cargar_recorrido_valido("2I", DS_liqparcial)
-      Cargar_recorrido_valido("2J", DS_liqparcial)
+  '  Else
+  '    If ChkBox_1A.Checked = True Then
+  '      Cargar_recorrido_valido("1A", DS_liqparcial)
+  '    End If
+  '    If ChkBox_1B.Checked = True Then
+  '      Cargar_recorrido_valido("1B", DS_liqparcial)
+  '    End If
+  '    If ChkBox_1C.Checked = True Then
+  '      Cargar_recorrido_valido("1C", DS_liqparcial)
+  '    End If
+  '    If ChkBox_1D.Checked = True Then
+  '      Cargar_recorrido_valido("1D", DS_liqparcial)
+  '    End If
+  '    If ChkBox_1E.Checked = True Then
+  '      Cargar_recorrido_valido("1E", DS_liqparcial)
+  '    End If
+  '    If ChkBox_1F.Checked = True Then
+  '      Cargar_recorrido_valido("1F", DS_liqparcial)
+  '    End If
+  '    If ChkBox_1G.Checked = True Then
+  '      Cargar_recorrido_valido("1G", DS_liqparcial)
+  '    End If
+  '    If ChkBox_1H.Checked = True Then
+  '      Cargar_recorrido_valido("1H", DS_liqparcial)
+  '    End If
+  '    If ChkBox_1I.Checked = True Then
+  '      Cargar_recorrido_valido("1I", DS_liqparcial)
+  '    End If
+  '    If ChkBox_1J.Checked = True Then
+  '      Cargar_recorrido_valido("1J", DS_liqparcial)
+  '    End If
 
-    Else
-      If ChkBox_2A.Checked = True Then
-        Cargar_recorrido_valido("2A", DS_liqparcial)
-      End If
-      If ChkBox_2B.Checked = True Then
-        Cargar_recorrido_valido("2B", DS_liqparcial)
-      End If
-      If ChkBox_2C.Checked = True Then
-        Cargar_recorrido_valido("2C", DS_liqparcial)
-      End If
-      If ChkBox_2D.Checked = True Then
-        Cargar_recorrido_valido("2D", DS_liqparcial)
-      End If
-      If ChkBox_2E.Checked = True Then
-        Cargar_recorrido_valido("2E", DS_liqparcial)
-      End If
-      If ChkBox_2F.Checked = True Then
-        Cargar_recorrido_valido("2F", DS_liqparcial)
-      End If
-      If ChkBox_2G.Checked = True Then
-        Cargar_recorrido_valido("2G", DS_liqparcial)
-      End If
-      If ChkBox_2H.Checked = True Then
-        Cargar_recorrido_valido("2H", DS_liqparcial)
-      End If
-      If ChkBox_2I.Checked = True Then
-        Cargar_recorrido_valido("2I", DS_liqparcial)
-      End If
-      If ChkBox_2J.Checked = True Then
-        Cargar_recorrido_valido("2J", DS_liqparcial)
-      End If
+  '  End If
+  'End Sub
+  'Private Sub Recorrido_2(ByRef DS_liqparcial As DataSet)
+  '  If ChkBox_2TODAS.Checked = True Then
+  '    Cargar_recorrido_valido("2A", DS_liqparcial)
+  '    Cargar_recorrido_valido("2B", DS_liqparcial)
+  '    Cargar_recorrido_valido("2C", DS_liqparcial)
+  '    Cargar_recorrido_valido("2D", DS_liqparcial)
+  '    Cargar_recorrido_valido("2E", DS_liqparcial)
+  '    Cargar_recorrido_valido("2F", DS_liqparcial)
+  '    Cargar_recorrido_valido("2G", DS_liqparcial)
+  '    Cargar_recorrido_valido("2H", DS_liqparcial)
+  '    Cargar_recorrido_valido("2I", DS_liqparcial)
+  '    Cargar_recorrido_valido("2J", DS_liqparcial)
 
-    End If
-  End Sub
-  Private Sub Recorrido_3(ByRef DS_liqparcial As DataSet)
-    If ChkBox_3TODAS.Checked = True Then
-      Cargar_recorrido_valido("3A", DS_liqparcial)
-      Cargar_recorrido_valido("3B", DS_liqparcial)
-      Cargar_recorrido_valido("3C", DS_liqparcial)
-      Cargar_recorrido_valido("3D", DS_liqparcial)
-      Cargar_recorrido_valido("3E", DS_liqparcial)
-      Cargar_recorrido_valido("3F", DS_liqparcial)
-      Cargar_recorrido_valido("3G", DS_liqparcial)
-      Cargar_recorrido_valido("3H", DS_liqparcial)
-      Cargar_recorrido_valido("3I", DS_liqparcial)
-      Cargar_recorrido_valido("3J", DS_liqparcial)
+  '  Else
+  '    If ChkBox_2A.Checked = True Then
+  '      Cargar_recorrido_valido("2A", DS_liqparcial)
+  '    End If
+  '    If ChkBox_2B.Checked = True Then
+  '      Cargar_recorrido_valido("2B", DS_liqparcial)
+  '    End If
+  '    If ChkBox_2C.Checked = True Then
+  '      Cargar_recorrido_valido("2C", DS_liqparcial)
+  '    End If
+  '    If ChkBox_2D.Checked = True Then
+  '      Cargar_recorrido_valido("2D", DS_liqparcial)
+  '    End If
+  '    If ChkBox_2E.Checked = True Then
+  '      Cargar_recorrido_valido("2E", DS_liqparcial)
+  '    End If
+  '    If ChkBox_2F.Checked = True Then
+  '      Cargar_recorrido_valido("2F", DS_liqparcial)
+  '    End If
+  '    If ChkBox_2G.Checked = True Then
+  '      Cargar_recorrido_valido("2G", DS_liqparcial)
+  '    End If
+  '    If ChkBox_2H.Checked = True Then
+  '      Cargar_recorrido_valido("2H", DS_liqparcial)
+  '    End If
+  '    If ChkBox_2I.Checked = True Then
+  '      Cargar_recorrido_valido("2I", DS_liqparcial)
+  '    End If
+  '    If ChkBox_2J.Checked = True Then
+  '      Cargar_recorrido_valido("2J", DS_liqparcial)
+  '    End If
 
-    Else
-      If ChkBox_3A.Checked = True Then
-        Cargar_recorrido_valido("3A", DS_liqparcial)
-      End If
-      If ChkBox_3B.Checked = True Then
-        Cargar_recorrido_valido("3B", DS_liqparcial)
-      End If
-      If ChkBox_3C.Checked = True Then
-        Cargar_recorrido_valido("3C", DS_liqparcial)
-      End If
-      If ChkBox_3D.Checked = True Then
-        Cargar_recorrido_valido("3D", DS_liqparcial)
-      End If
-      If ChkBox_3E.Checked = True Then
-        Cargar_recorrido_valido("3E", DS_liqparcial)
-      End If
-      If ChkBox_3F.Checked = True Then
-        Cargar_recorrido_valido("3F", DS_liqparcial)
-      End If
-      If ChkBox_3G.Checked = True Then
-        Cargar_recorrido_valido("3G", DS_liqparcial)
-      End If
-      If ChkBox_3H.Checked = True Then
-        Cargar_recorrido_valido("3H", DS_liqparcial)
-      End If
-      If ChkBox_3I.Checked = True Then
-        Cargar_recorrido_valido("3I", DS_liqparcial)
-      End If
-      If ChkBox_3J.Checked = True Then
-        Cargar_recorrido_valido("3J", DS_liqparcial)
-      End If
+  '  End If
+  'End Sub
+  'Private Sub Recorrido_3(ByRef DS_liqparcial As DataSet)
+  '  If ChkBox_3TODAS.Checked = True Then
+  '    Cargar_recorrido_valido("3A", DS_liqparcial)
+  '    Cargar_recorrido_valido("3B", DS_liqparcial)
+  '    Cargar_recorrido_valido("3C", DS_liqparcial)
+  '    Cargar_recorrido_valido("3D", DS_liqparcial)
+  '    Cargar_recorrido_valido("3E", DS_liqparcial)
+  '    Cargar_recorrido_valido("3F", DS_liqparcial)
+  '    Cargar_recorrido_valido("3G", DS_liqparcial)
+  '    Cargar_recorrido_valido("3H", DS_liqparcial)
+  '    Cargar_recorrido_valido("3I", DS_liqparcial)
+  '    Cargar_recorrido_valido("3J", DS_liqparcial)
 
-    End If
-  End Sub
-  Private Sub Recorrido_4(ByRef DS_liqparcial As DataSet)
-    If ChkBox_4TODAS.Checked = True Then
-      Cargar_recorrido_valido("4A", DS_liqparcial)
-      Cargar_recorrido_valido("4B", DS_liqparcial)
-      Cargar_recorrido_valido("4C", DS_liqparcial)
-      Cargar_recorrido_valido("4D", DS_liqparcial)
-      Cargar_recorrido_valido("4E", DS_liqparcial)
-      Cargar_recorrido_valido("4F", DS_liqparcial)
-      Cargar_recorrido_valido("4G", DS_liqparcial)
-      Cargar_recorrido_valido("4H", DS_liqparcial)
-      Cargar_recorrido_valido("4I", DS_liqparcial)
-      Cargar_recorrido_valido("4J", DS_liqparcial)
+  '  Else
+  '    If ChkBox_3A.Checked = True Then
+  '      Cargar_recorrido_valido("3A", DS_liqparcial)
+  '    End If
+  '    If ChkBox_3B.Checked = True Then
+  '      Cargar_recorrido_valido("3B", DS_liqparcial)
+  '    End If
+  '    If ChkBox_3C.Checked = True Then
+  '      Cargar_recorrido_valido("3C", DS_liqparcial)
+  '    End If
+  '    If ChkBox_3D.Checked = True Then
+  '      Cargar_recorrido_valido("3D", DS_liqparcial)
+  '    End If
+  '    If ChkBox_3E.Checked = True Then
+  '      Cargar_recorrido_valido("3E", DS_liqparcial)
+  '    End If
+  '    If ChkBox_3F.Checked = True Then
+  '      Cargar_recorrido_valido("3F", DS_liqparcial)
+  '    End If
+  '    If ChkBox_3G.Checked = True Then
+  '      Cargar_recorrido_valido("3G", DS_liqparcial)
+  '    End If
+  '    If ChkBox_3H.Checked = True Then
+  '      Cargar_recorrido_valido("3H", DS_liqparcial)
+  '    End If
+  '    If ChkBox_3I.Checked = True Then
+  '      Cargar_recorrido_valido("3I", DS_liqparcial)
+  '    End If
+  '    If ChkBox_3J.Checked = True Then
+  '      Cargar_recorrido_valido("3J", DS_liqparcial)
+  '    End If
 
-    Else
-      If ChkBox_4A.Checked = True Then
-        Cargar_recorrido_valido("4A", DS_liqparcial)
-      End If
-      If ChkBox_4B.Checked = True Then
-        Cargar_recorrido_valido("4B", DS_liqparcial)
-      End If
-      If ChkBox_4C.Checked = True Then
-        Cargar_recorrido_valido("4C", DS_liqparcial)
-      End If
-      If ChkBox_4D.Checked = True Then
-        Cargar_recorrido_valido("4D", DS_liqparcial)
-      End If
-      If ChkBox_4E.Checked = True Then
-        Cargar_recorrido_valido("4E", DS_liqparcial)
-      End If
-      If ChkBox_4F.Checked = True Then
-        Cargar_recorrido_valido("4F", DS_liqparcial)
-      End If
-      If ChkBox_4G.Checked = True Then
-        Cargar_recorrido_valido("4G", DS_liqparcial)
-      End If
-      If ChkBox_4H.Checked = True Then
-        Cargar_recorrido_valido("4H", DS_liqparcial)
-      End If
-      If ChkBox_4I.Checked = True Then
-        Cargar_recorrido_valido("4I", DS_liqparcial)
-      End If
-      If ChkBox_4J.Checked = True Then
-        Cargar_recorrido_valido("4J", DS_liqparcial)
-      End If
+  '  End If
+  'End Sub
+  'Private Sub Recorrido_4(ByRef DS_liqparcial As DataSet)
+  '  If ChkBox_4TODAS.Checked = True Then
+  '    Cargar_recorrido_valido("4A", DS_liqparcial)
+  '    Cargar_recorrido_valido("4B", DS_liqparcial)
+  '    Cargar_recorrido_valido("4C", DS_liqparcial)
+  '    Cargar_recorrido_valido("4D", DS_liqparcial)
+  '    Cargar_recorrido_valido("4E", DS_liqparcial)
+  '    Cargar_recorrido_valido("4F", DS_liqparcial)
+  '    Cargar_recorrido_valido("4G", DS_liqparcial)
+  '    Cargar_recorrido_valido("4H", DS_liqparcial)
+  '    Cargar_recorrido_valido("4I", DS_liqparcial)
+  '    Cargar_recorrido_valido("4J", DS_liqparcial)
 
-    End If
-  End Sub
-  Private Sub Recorrido_5(ByRef DS_liqparcial As DataSet)
-    If ChkBox_5TODAS.Checked = True Then
-      Cargar_recorrido_valido("5A", DS_liqparcial)
-      Cargar_recorrido_valido("5B", DS_liqparcial)
-      Cargar_recorrido_valido("5C", DS_liqparcial)
-      Cargar_recorrido_valido("5D", DS_liqparcial)
-      Cargar_recorrido_valido("5E", DS_liqparcial)
-      Cargar_recorrido_valido("5F", DS_liqparcial)
-      Cargar_recorrido_valido("5G", DS_liqparcial)
-      Cargar_recorrido_valido("5H", DS_liqparcial)
-      Cargar_recorrido_valido("5I", DS_liqparcial)
-      Cargar_recorrido_valido("5J", DS_liqparcial)
+  '  Else
+  '    If ChkBox_4A.Checked = True Then
+  '      Cargar_recorrido_valido("4A", DS_liqparcial)
+  '    End If
+  '    If ChkBox_4B.Checked = True Then
+  '      Cargar_recorrido_valido("4B", DS_liqparcial)
+  '    End If
+  '    If ChkBox_4C.Checked = True Then
+  '      Cargar_recorrido_valido("4C", DS_liqparcial)
+  '    End If
+  '    If ChkBox_4D.Checked = True Then
+  '      Cargar_recorrido_valido("4D", DS_liqparcial)
+  '    End If
+  '    If ChkBox_4E.Checked = True Then
+  '      Cargar_recorrido_valido("4E", DS_liqparcial)
+  '    End If
+  '    If ChkBox_4F.Checked = True Then
+  '      Cargar_recorrido_valido("4F", DS_liqparcial)
+  '    End If
+  '    If ChkBox_4G.Checked = True Then
+  '      Cargar_recorrido_valido("4G", DS_liqparcial)
+  '    End If
+  '    If ChkBox_4H.Checked = True Then
+  '      Cargar_recorrido_valido("4H", DS_liqparcial)
+  '    End If
+  '    If ChkBox_4I.Checked = True Then
+  '      Cargar_recorrido_valido("4I", DS_liqparcial)
+  '    End If
+  '    If ChkBox_4J.Checked = True Then
+  '      Cargar_recorrido_valido("4J", DS_liqparcial)
+  '    End If
 
-    Else
-      If ChkBox_5A.Checked = True Then
-        Cargar_recorrido_valido("5A", DS_liqparcial)
-      End If
-      If ChkBox_5B.Checked = True Then
-        Cargar_recorrido_valido("5B", DS_liqparcial)
-      End If
-      If ChkBox_5C.Checked = True Then
-        Cargar_recorrido_valido("5C", DS_liqparcial)
-      End If
-      If ChkBox_5D.Checked = True Then
-        Cargar_recorrido_valido("5D", DS_liqparcial)
-      End If
-      If ChkBox_5E.Checked = True Then
-        Cargar_recorrido_valido("5E", DS_liqparcial)
-      End If
-      If ChkBox_5F.Checked = True Then
-        Cargar_recorrido_valido("5F", DS_liqparcial)
-      End If
-      If ChkBox_5G.Checked = True Then
-        Cargar_recorrido_valido("5G", DS_liqparcial)
-      End If
-      If ChkBox_5H.Checked = True Then
-        Cargar_recorrido_valido("5H", DS_liqparcial)
-      End If
-      If ChkBox_5I.Checked = True Then
-        Cargar_recorrido_valido("5I", DS_liqparcial)
-      End If
-      If ChkBox_5J.Checked = True Then
-        Cargar_recorrido_valido("5J", DS_liqparcial)
-      End If
+  '  End If
+  'End Sub
+  'Private Sub Recorrido_5(ByRef DS_liqparcial As DataSet)
+  '  If ChkBox_5TODAS.Checked = True Then
+  '    Cargar_recorrido_valido("5A", DS_liqparcial)
+  '    Cargar_recorrido_valido("5B", DS_liqparcial)
+  '    Cargar_recorrido_valido("5C", DS_liqparcial)
+  '    Cargar_recorrido_valido("5D", DS_liqparcial)
+  '    Cargar_recorrido_valido("5E", DS_liqparcial)
+  '    Cargar_recorrido_valido("5F", DS_liqparcial)
+  '    Cargar_recorrido_valido("5G", DS_liqparcial)
+  '    Cargar_recorrido_valido("5H", DS_liqparcial)
+  '    Cargar_recorrido_valido("5I", DS_liqparcial)
+  '    Cargar_recorrido_valido("5J", DS_liqparcial)
 
-    End If
+  '  Else
+  '    If ChkBox_5A.Checked = True Then
+  '      Cargar_recorrido_valido("5A", DS_liqparcial)
+  '    End If
+  '    If ChkBox_5B.Checked = True Then
+  '      Cargar_recorrido_valido("5B", DS_liqparcial)
+  '    End If
+  '    If ChkBox_5C.Checked = True Then
+  '      Cargar_recorrido_valido("5C", DS_liqparcial)
+  '    End If
+  '    If ChkBox_5D.Checked = True Then
+  '      Cargar_recorrido_valido("5D", DS_liqparcial)
+  '    End If
+  '    If ChkBox_5E.Checked = True Then
+  '      Cargar_recorrido_valido("5E", DS_liqparcial)
+  '    End If
+  '    If ChkBox_5F.Checked = True Then
+  '      Cargar_recorrido_valido("5F", DS_liqparcial)
+  '    End If
+  '    If ChkBox_5G.Checked = True Then
+  '      Cargar_recorrido_valido("5G", DS_liqparcial)
+  '    End If
+  '    If ChkBox_5H.Checked = True Then
+  '      Cargar_recorrido_valido("5H", DS_liqparcial)
+  '    End If
+  '    If ChkBox_5I.Checked = True Then
+  '      Cargar_recorrido_valido("5I", DS_liqparcial)
+  '    End If
+  '    If ChkBox_5J.Checked = True Then
+  '      Cargar_recorrido_valido("5J", DS_liqparcial)
+  '    End If
+
+  '  End If
+  'End Sub
+
+
+  Private Sub ValidarZona(ByRef valido As String)
+
+    Select Case txt_zona.Text.ToUpper
+      Case HF_1A_codigo.Value
+        valido = "si"
+      Case HF_1B_codigo.Value
+        valido = "si"
+      Case HF_1C_codigo.Value
+        valido = "si"
+      Case HF_1D_codigo.Value
+        valido = "si"
+      Case HF_1E_codigo.Value
+        valido = "si"
+      Case HF_1F_codigo.Value
+        valido = "si"
+      Case HF_1G_codigo.Value
+        valido = "si"
+      Case HF_1H_codigo.Value
+        valido = "si"
+      Case HF_1I_codigo.Value
+        valido = "si"
+      Case HF_1J_codigo.Value
+        valido = "si"
+      Case HF_2A_codigo.Value
+        valido = "si"
+      Case HF_2B_codigo.Value
+        valido = "si"
+      Case HF_2C_codigo.Value
+        valido = "si"
+      Case HF_2D_codigo.Value
+        valido = "si"
+      Case HF_2E_codigo.Value
+        valido = "si"
+      Case HF_2F_codigo.Value
+        valido = "si"
+      Case HF_2G_codigo.Value
+        valido = "si"
+      Case HF_2H_codigo.Value
+        valido = "si"
+      Case HF_2I_codigo.Value
+        valido = "si"
+      Case HF_2J_codigo.Value
+        valido = "si"
+      Case HF_3A_codigo.Value
+        valido = "si"
+      Case HF_3B_codigo.Value
+        valido = "si"
+      Case HF_3C_codigo.Value
+        valido = "si"
+      Case HF_3D_codigo.Value
+        valido = "si"
+      Case HF_3E_codigo.Value
+        valido = "si"
+      Case HF_3F_codigo.Value
+        valido = "si"
+      Case HF_3G_codigo.Value
+        valido = "si"
+      Case HF_3H_codigo.Value
+        valido = "si"
+      Case HF_3I_codigo.Value
+        valido = "si"
+      Case HF_3J_codigo.Value
+        valido = "si"
+      Case HF_4A_codigo.Value
+        valido = "si"
+      Case HF_4B_codigo.Value
+        valido = "si"
+      Case HF_4C_codigo.Value
+        valido = "si"
+      Case HF_4D_codigo.Value
+        valido = "si"
+      Case HF_4E_codigo.Value
+        valido = "si"
+      Case HF_4F_codigo.Value
+        valido = "si"
+      Case HF_4G_codigo.Value
+        valido = "si"
+      Case HF_4H_codigo.Value
+        valido = "si"
+      Case HF_4I_codigo.Value
+        valido = "si"
+      Case HF_4J_codigo.Value
+        valido = "si"
+      Case HF_5A_codigo.Value
+        valido = "si"
+      Case HF_5B_codigo.Value
+        valido = "si"
+      Case HF_5C_codigo.Value
+        valido = "si"
+      Case HF_5D_codigo.Value
+        valido = "si"
+      Case HF_5E_codigo.Value
+        valido = "si"
+      Case HF_5F_codigo.Value
+        valido = "si"
+      Case HF_5G_codigo.Value
+        valido = "si"
+      Case HF_5H_codigo.Value
+        valido = "si"
+      Case HF_5I_codigo.Value
+        valido = "si"
+      Case HF_5J_codigo.Value
+        valido = "si"
+    End Select
+
   End Sub
 
 #End Region
+
+
 
 End Class

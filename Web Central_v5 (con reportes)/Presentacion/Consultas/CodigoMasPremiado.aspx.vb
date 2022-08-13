@@ -4,7 +4,7 @@ Public Class CodigoMasPremiado
 #Region "Declaraciones"
   Dim Daparametro As New Capa_Datos.WC_parametro
   Dim DALConsultas As New Capa_Datos.WB_Consultas
-
+  Dim DALiquidacion As New Capa_Datos.WC_Liquidacion
   Dim Lista1Cifras As New List(Of Capa_Datos.CodigoMasCargadoDTO)
   Dim Lista2Cifras As New List(Of Capa_Datos.CodigoMasCargadoDTO)
   Dim Lista3Cifras As New List(Of Capa_Datos.CodigoMasCargadoDTO)
@@ -70,7 +70,211 @@ Public Class CodigoMasPremiado
 
   End Sub
 
+
+  Private Sub CargaTabla1Cifra(ByRef DS_Consultas As DataSet, ByRef CadenaCodigos As String)
+    DS_Consultas.Tables("UNA_CIFRA").Rows.Clear()
+
+    Dim dt_consulta As DataTable = DALConsultas.CargasClientesDesdeHasta(txtClienteDesde.Text, txtClienteHasta.Text, CadenaCodigos, HF_fecha.Value)
+
+
+
+    Dim i As Integer = 0
+    While i < dt_consulta.Rows.Count
+      If dt_consulta.Rows(i).Item(0).ToString.Length = 1 Then
+        Dim PID As String = dt_consulta.Rows(i).Item(0).ToString
+        Dim Codigo_Zona As String = dt_consulta.Rows(i).Item(2).ToString
+        Dim Importe As Decimal = dt_consulta.Rows(i).Item(1)
+        Dim existe As String = "no"
+        Dim j As Integer = 0
+        While j < DS_Consultas.Tables("UNA_CIFRA").Rows.Count
+
+          If (PID = DS_Consultas.Tables("UNA_CIFRA").Rows(j).Item("PID")) And (Codigo_Zona = DS_Consultas.Tables("UNA_CIFRA").Rows(j).Item("ZONA")) Then
+            DS_Consultas.Tables("UNA_CIFRA").Rows(j).Item("IMPORTE") = DS_Consultas.Tables("UNA_CIFRA").Rows(j).Item("IMPORTE") + Importe
+            existe = "si"
+            Exit While
+          End If
+
+          j = j + 1
+        End While
+
+        If existe = "no" Then
+          Dim fila As DataRow = DS_Consultas.Tables("UNA_CIFRA").NewRow
+          fila("PID") = PID
+          fila("ZONA") = Codigo_Zona
+          fila("IMPORTE") = Importe
+          DS_Consultas.Tables("UNA_CIFRA").Rows.Add(fila)
+        End If
+
+      End If
+      i = i + 1
+    End While
+
+    'ELIMINO LOS REGISTROS QUE NO SEAN MAYOR O IGUAL AL IMPORTE MINIMO PARA 1 DIGITO.
+    i = 0
+    Dim Importe_minimo As Decimal = CDec(txtImporte1.Text)
+    While i < DS_Consultas.Tables("UNA_CIFRA").Rows.Count
+      If DS_Consultas.Tables("UNA_CIFRA").Rows(i).Item("IMPORTE") < Importe_minimo Then
+        'elimino
+        DS_Consultas.Tables("UNA_CIFRA").Rows.RemoveAt(i)
+        i = 0
+      Else
+        i = i + 1
+      End If
+
+    End While
+    grvCifra1.DataSource = DS_Consultas.Tables("UNA_CIFRA")
+    grvCifra1.DataBind()
+  End Sub
+
+  Private Sub CargaTabla2Cifra(ByRef DS_Consultas As DataSet, ByRef CadenaCodigos As String)
+    DS_Consultas.Tables("DOS_CIFRAS").Rows.Clear()
+    Dim dt_consulta As DataTable = DALConsultas.CargasClientesDesdeHasta(txtClienteDesde.Text, txtClienteHasta.Text, CadenaCodigos, HF_fecha.Value)
+    Dim i As Integer = 0
+    While i < dt_consulta.Rows.Count
+      If dt_consulta.Rows(i).Item(0).ToString.Length = 2 Then
+        Dim PID As String = dt_consulta.Rows(i).Item(0).ToString
+        Dim Codigo_Zona As String = dt_consulta.Rows(i).Item(2).ToString
+        Dim Importe As Decimal = dt_consulta.Rows(i).Item(1)
+        Dim existe As String = "no"
+        Dim j As Integer = 0
+        While j < DS_Consultas.Tables("DOS_CIFRAS").Rows.Count
+          If (PID = DS_Consultas.Tables("DOS_CIFRAS").Rows(j).Item("PID")) And (Codigo_Zona = DS_Consultas.Tables("DOS_CIFRAS").Rows(j).Item("ZONA")) Then
+            DS_Consultas.Tables("DOS_CIFRAS").Rows(j).Item("IMPORTE") = DS_Consultas.Tables("DOS_CIFRAS").Rows(j).Item("IMPORTE") + Importe
+            existe = "si"
+            Exit While
+          End If
+          j = j + 1
+        End While
+        If existe = "no" Then
+          Dim fila As DataRow = DS_Consultas.Tables("DOS_CIFRAS").NewRow
+          fila("PID") = PID
+          fila("ZONA") = Codigo_Zona
+          fila("IMPORTE") = Importe
+          DS_Consultas.Tables("DOS_CIFRAS").Rows.Add(fila)
+        End If
+      End If
+      i = i + 1
+    End While
+    'ELIMINO LOS REGISTROS QUE NO SEAN MAYOR O IGUAL AL IMPORTE MINIMO PARA 2 DIGITO.
+    i = 0
+    Dim Importe_minimo As Decimal = CDec(txtImporte2.Text)
+    While i < DS_Consultas.Tables("DOS_CIFRAS").Rows.Count
+      If DS_Consultas.Tables("DOS_CIFRAS").Rows(i).Item("IMPORTE") < Importe_minimo Then
+        'elimino
+        DS_Consultas.Tables("DOS_CIFRAS").Rows.RemoveAt(i)
+        i = 0
+      Else
+        i = i + 1
+      End If
+    End While
+    grvCifra2.DataSource = DS_Consultas.Tables("DOS_CIFRAS")
+    grvCifra2.DataBind()
+  End Sub
+
+  Private Sub CargaTabla3Cifra(ByRef DS_Consultas As DataSet, ByRef CadenaCodigos As String)
+    DS_Consultas.Tables("TRES_CIFRAS").Rows.Clear()
+    Dim dt_consulta As DataTable = DALConsultas.CargasClientesDesdeHasta(txtClienteDesde.Text, txtClienteHasta.Text, CadenaCodigos, HF_fecha.Value)
+    Dim i As Integer = 0
+    While i < dt_consulta.Rows.Count
+      If dt_consulta.Rows(i).Item(0).ToString.Length = 3 Then
+        Dim PID As String = dt_consulta.Rows(i).Item(0).ToString
+        Dim Codigo_Zona As String = dt_consulta.Rows(i).Item(2).ToString
+        Dim Importe As Decimal = dt_consulta.Rows(i).Item(1)
+        Dim existe As String = "no"
+        Dim j As Integer = 0
+        While j < DS_Consultas.Tables("TRES_CIFRAS").Rows.Count
+
+          If (PID = DS_Consultas.Tables("TRES_CIFRAS").Rows(j).Item("PID")) And (Codigo_Zona = DS_Consultas.Tables("TRES_CIFRAS").Rows(j).Item("ZONA")) Then
+            DS_Consultas.Tables("TRES_CIFRAS").Rows(j).Item("IMPORTE") = DS_Consultas.Tables("TRES_CIFRAS").Rows(j).Item("IMPORTE") + Importe
+            existe = "si"
+            Exit While
+          End If
+
+          j = j + 1
+        End While
+        If existe = "no" Then
+          Dim fila As DataRow = DS_Consultas.Tables("TRES_CIFRAS").NewRow
+          fila("PID") = PID
+          fila("ZONA") = Codigo_Zona
+          fila("IMPORTE") = Importe
+          DS_Consultas.Tables("TRES_CIFRAS").Rows.Add(fila)
+        End If
+      End If
+      i = i + 1
+    End While
+    'ELIMINO LOS REGISTROS QUE NO SEAN MAYOR O IGUAL AL IMPORTE MINIMO PARA 3 DIGITO.
+    i = 0
+    Dim Importe_minimo As Decimal = CDec(txtImporte3.Text)
+    While i < DS_Consultas.Tables("TRES_CIFRAS").Rows.Count
+      If DS_Consultas.Tables("TRES_CIFRAS").Rows(i).Item("IMPORTE") < Importe_minimo Then
+        'elimino
+        DS_Consultas.Tables("TRES_CIFRAS").Rows.RemoveAt(i)
+        i = 0
+      Else
+        i = i + 1
+      End If
+    End While
+    grvCifra3.DataSource = DS_Consultas.Tables("TRES_CIFRAS")
+    grvCifra3.DataBind()
+  End Sub
+
+  Private Sub CargaTabla4Cifra(ByRef DS_Consultas As DataSet, ByRef CadenaCodigos As String)
+    DS_Consultas.Tables("CUATRO_CIFRAS").Rows.Clear()
+    Dim dt_consulta As DataTable = DALConsultas.CargasClientesDesdeHasta(txtClienteDesde.Text, txtClienteHasta.Text, CadenaCodigos, HF_fecha.Value)
+    Dim i As Integer = 0
+    While i < dt_consulta.Rows.Count
+      If dt_consulta.Rows(i).Item(0).ToString.Length = 4 Then
+        Dim PID As String = dt_consulta.Rows(i).Item(0).ToString
+        Dim Codigo_Zona As String = dt_consulta.Rows(i).Item(2).ToString
+        Dim Importe As Decimal = dt_consulta.Rows(i).Item(1)
+        Dim existe As String = "no"
+        Dim j As Integer = 0
+        While j < DS_Consultas.Tables("CUATRO_CIFRAS").Rows.Count
+
+          If (PID = DS_Consultas.Tables("CUATRO_CIFRAS").Rows(j).Item("PID")) And (Codigo_Zona = DS_Consultas.Tables("CUATRO_CIFRAS").Rows(j).Item("ZONA")) Then
+            DS_Consultas.Tables("CUATRO_CIFRAS").Rows(j).Item("IMPORTE") = DS_Consultas.Tables("CUATRO_CIFRAS").Rows(j).Item("IMPORTE") + Importe
+            existe = "si"
+            Exit While
+          End If
+
+          j = j + 1
+        End While
+
+        If existe = "no" Then
+          Dim fila As DataRow = DS_Consultas.Tables("CUATRO_CIFRAS").NewRow
+          fila("PID") = PID
+          fila("ZONA") = Codigo_Zona
+          fila("IMPORTE") = Importe
+          DS_Consultas.Tables("CUATRO_CIFRAS").Rows.Add(fila)
+        End If
+
+      End If
+      i = i + 1
+    End While
+
+    'ELIMINO LOS REGISTROS QUE NO SEAN MAYOR O IGUAL AL IMPORTE MINIMO PARA 4 DIGITO.
+    i = 0
+    Dim Importe_minimo As Decimal = CDec(txtImporte4.Text)
+    While i < DS_Consultas.Tables("CUATRO_CIFRAS").Rows.Count
+      If DS_Consultas.Tables("CUATRO_CIFRAS").Rows(i).Item("IMPORTE") < Importe_minimo Then
+        'elimino
+        DS_Consultas.Tables("CUATRO_CIFRAS").Rows.RemoveAt(i)
+        i = 0
+      Else
+        i = i + 1
+      End If
+
+    End While
+    grvCifra4.DataSource = DS_Consultas.Tables("CUATRO_CIFRAS")
+    grvCifra4.DataBind()
+  End Sub
+
   Private Sub btnBuscar_ServerClick(sender As Object, e As EventArgs) Handles btnBuscar.ServerClick
+    'IMPORTANTE SE CARGA DESDE CERO LA TABLA XCARGAS Y XCARGAS RECORRIDOS. FECHA: 22-08-04
+    DALiquidacion.XCargas_load()
+
+
+
     '--------------VALIDACION INICIAL------------------------------------------------
     BusquedaValidadInicial()
     '--------------FIN--------------------------------------------------------------
@@ -82,10 +286,21 @@ Public Class CodigoMasPremiado
     GenerarCadenaCodigos(DS_liqparcial.Tables("Recorridos_seleccionados"), CadenaCodigos)
     '--------------FIN---------------------------------------------------------------
 
-    LlenarTabla1Cifra(CadenaCodigos)
-    LlenarTabla2Cifra(CadenaCodigos)
-    LlenarTabla3Cifra(CadenaCodigos)
-    LlenarTabla4Cifra(CadenaCodigos)
+
+    Dim DS_Consultas As New DS_Consultas
+
+
+
+    CargaTabla1Cifra(DS_Consultas, CadenaCodigos)
+    CargaTabla2Cifra(DS_Consultas, CadenaCodigos)
+    CargaTabla3Cifra(DS_Consultas, CadenaCodigos)
+    CargaTabla4Cifra(DS_Consultas, CadenaCodigos)
+
+    'LlenarTabla1Cifra(CadenaCodigos)
+    'LlenarTabla2Cifra(CadenaCodigos)
+    'LlenarTabla3Cifra(CadenaCodigos)
+    'LlenarTabla4Cifra(CadenaCodigos)
+
     If (grvCifra1.Rows.Count = 0) And (grvCifra2.Rows.Count = 0) And (grvCifra3.Rows.Count = 0) And (grvCifra4.Rows.Count = 0) Then
       seccion1.Visible = False
       'error, la busqueda no arrojó resultados.
@@ -289,92 +504,7 @@ Public Class CodigoMasPremiado
     'lb_error_dias.Visible = False
   End Sub
 
-  Private Sub BOTON_GRABA_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles BOTON_GRABA.ServerClick
-    'limpiar_label_error()
-    'Dim valido_ingreso As String = "si"
 
-    'If Txt_cliente_codigo.Text = "" Then
-    '  valido_ingreso = "no"
-    '  lb_error_codigo.Visible = True
-    'End If
-
-    'If txt_fecha.Text = "" Then
-    '  valido_ingreso = "no"
-    '  lb_error_fecha.Visible = True
-    'Else
-    '  Try
-    '    Dim fecha As Date = CDate(txt_fecha.Text)
-    '  Catch ex As Exception
-    '    valido_ingreso = "no"
-    '    lb_error_fecha.Visible = True
-    '  End Try
-    'End If
-
-    'Dim importe As Decimal
-    'Try
-    '  importe = CDec(Txt_importe.Text.Replace(".", ","))
-    'Catch ex As Exception
-    '  valido_ingreso = "no"
-    '  lb_error_importe.Visible = True
-    'End Try
-
-    'Dim porcentaje As Decimal
-    'Try
-    '  porcentaje = CDec(Txt_porcentaje.Text.Replace(".", ","))
-    'Catch ex As Exception
-    '  porcentaje = CDec(0)
-    '  lb_error_porcentaje.Visible = True
-    '  valido_ingreso = "no"
-    'End Try
-
-    'Dim dias As Integer = 0
-    'If Txt_diasacobrar.Text = "" Or Txt_diasacobrar.Text = "0" Then
-    '  valido_ingreso = "no"
-    '  lb_error_dias.Visible = True
-    'End If
-    'Try
-    '  dias = CInt(Txt_diasacobrar.Text)
-    'Catch ex As Exception
-    '  valido_ingreso = "no"
-    '  lb_error_dias.Visible = True
-    'End Try
-
-    'If valido_ingreso = "si" Then
-    '  Try
-    '    Dim ds_info As DataSet = DAprestamoscreditos.Creditos_buscar_cliente_info(Txt_cliente_codigo.Text, txt_fecha.Text)
-    '    If ds_info.Tables(0).Rows.Count <> 0 Then 'verifico que existe el cliente
-    '      Session("Cliente") = ds_info.Tables(0).Rows(0).Item("Cliente")
-    '      If ds_info.Tables(2).Rows.Count <> 0 Then
-    '        'entonces pregunto si quiero modificar el prestamo actual.
-    '        ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "Mdl_graba_modif", "$(document).ready(function () {$('#Mdl_graba_modif').modal();});", True)
-    '      Else
-    '        'entonces es un alta para ello primero valido si tengo margen para pedir creditos
-
-    '        Dim cant_pc As Integer = CInt(ds_info.Tables(0).Rows(0).Item("Cantidadpc"))
-
-    '        If ds_info.Tables(1).Rows.Count < cant_pc Then
-    '          'entonces pregunto si deseo dar de alta el prestamo.
-    '          ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "Mdl_graba_alta", "$(document).ready(function () {$('#Mdl_graba_alta').modal();});", True)
-    '        Else
-    '          'mensaje: Cantidad máxima. No puede solicitar un prestamo.
-
-    '          ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-sm_error_limite", "$(document).ready(function () {$('#modal-sm_error_limite').modal();});", True)
-    '        End If
-
-    '      End If
-    '    End If
-
-
-    '  Catch ex As Exception
-
-    '  End Try
-    'Else
-    '  'mensaje ingrese la informacion solicitada.
-    '  ScriptManager.RegisterStartupScript(Page, Page.[GetType](), "modal-sm_error_ingreso", "$(document).ready(function () {$('#modal-sm_error_ingreso').modal();});", True)
-    'End If
-
-
-  End Sub
 
 
 #Region "Mdl_graba_alta"

@@ -60,13 +60,6 @@ Public Class Listados_DeLosQueGanan
       End Try
       j = j + 1
     End While
-    Dim fila As DataRow = DS_Listados.Tables("DeLosQueGanan").NewRow
-    fila("Nombre") = "TOTAL GENERAL:"
-    fila("Gana") = (Math.Round(Total, 2).ToString("N2"))
-    DS_Listados.Tables("DeLosQueGanan").Rows.Add(fila)
-
-    GridView1.DataSource = DS_Listados.Tables("DeLosQueGanan")
-    GridView1.DataBind()
 
     'AQUI REPORTE..........
     Dim fila2 As DataRow = DS_Listados.Tables("DeLosQueGanan_info").NewRow
@@ -80,6 +73,18 @@ Public Class Listados_DeLosQueGanan
     CrReport.Database.Tables("DeLosQueGanan").SetDataSource(DS_Listados.Tables("DeLosQueGanan"))
 
     CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/ListadoDeLosQueGanan.pdf"))
+
+    '//////////////FIN REPORTE/////////////////////////
+
+    Dim fila As DataRow = DS_Listados.Tables("DeLosQueGanan").NewRow
+    fila("Nombre") = "TOTAL GENERAL:"
+    fila("Gana") = (Math.Round(Total, 2).ToString("N2"))
+    DS_Listados.Tables("DeLosQueGanan").Rows.Add(fila)
+
+    GridView1.DataSource = DS_Listados.Tables("DeLosQueGanan")
+    GridView1.DataBind()
+
+
 
 
   End Sub

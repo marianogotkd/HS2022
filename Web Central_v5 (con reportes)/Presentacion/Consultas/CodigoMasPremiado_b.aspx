@@ -1,100 +1,73 @@
-<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="CodigoMasPremiado.aspx.vb" Inherits="Presentacion.CodigoMasPremiado" %>
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="CodigoMasPremiado_b.aspx.vb" Inherits="Presentacion.CodigoMasPremiado_b" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<script>
+  <script>
     //funcion que reconoce teclas para ir a los botones retroceso, baja y graba
     function tecla_op(e) {
-        var keycode = e.keyCode;
-        ///ESC RETROCEDE
-        if (keycode == '27') {
-            e.preventDefault();
-            document.getElementsByTagName('button')[1].focus();
-            document.getElementsByTagName('button')[1].click();
+      var keycode = e.keyCode;
+      ///ESC RETROCEDE
+      if (keycode == '27') {
+        e.preventDefault();
+        document.getElementsByTagName('button')[0].focus();
+        document.getElementsByTagName('button')[0].click();
 
-        }
-        ///se anula el enter Y PASO AL BOTON DE GRABA
-        if (keycode == '13') {
-            e.preventDefault();
+      }
+      ///se anula el enter y va al boton graba
+      if (keycode == '13') {
+        e.preventDefault();
+        document.getElementsByTagName('button')[1].focus();
+        document.getElementsByTagName('button')[1].click();
+      }
 
-        }
 
-
-        //F8 GRABA
-        if (keycode == '119') {
-            e.preventDefault();
-            document.getElementsByTagName('button')[2].focus();
-            document.getElementsByTagName('button')[2].click();
-        }
+      //F8 GRABA
+      if (keycode == '119') {
+        e.preventDefault();
+        document.getElementsByTagName('button')[1].focus();
+        document.getElementsByTagName('button')[1].click();
+      }
     }
 
     //funcion que reconoce teclas para ir a los botones retroceso, baja y graba
     function tecla_op_botones(e) {
-        var keycode = e.keyCode;
-        ///ESC RETROCEDE
-        if (keycode == '27') {
-            e.preventDefault();
-            document.getElementsByTagName('button')[1].focus();
-            document.getElementsByTagName('button')[1].click();
+      var keycode = e.keyCode;
+      ///ESC RETROCEDE
+      if (keycode == '27') {
+        e.preventDefault();
+        document.getElementsByTagName('button')[0].focus();
+        document.getElementsByTagName('button')[0].click();
 
-        }
-        //        ///no voy a anular el ENTER
-        //        if (keycode == '13') {
-        //            e.preventDefault();
-        //        }
-
-
-        //F8 GRABA
-        if (keycode == '119') {
-            e.preventDefault();
-            document.getElementsByTagName('button')[2].focus();
-            document.getElementsByTagName('button')[2].click();
-        }
-    }
+      }
+      //        ///no voy a anular el ENTER
+      //        if (keycode == '13') {
+      //            e.preventDefault();
+      //        }
 
 
-    //funcion que reconoce teclas ENTER, EL BOTON DE BUSQUEDA, ESC Y GRABA...SOLO LO VOY A USAR EN LOS TEXTBOX CLIENTE Y FECHA.
-    function tecla_op_BUSQUEDA(e) {
-        var keycode = e.keyCode;
-        ///ESC RETROCEDE
-        if (keycode == '27') {
-            e.preventDefault();
-            document.getElementsByTagName('button')[1].focus();
-            document.getElementsByTagName('button')[1].click();
-
-        }
-        ///se anula el enter Y PASO AL BOTON DE GRABA
-        if (keycode == '13') {
-            e.preventDefault();
-            document.getElementsByTagName('button')[0].focus();
-            document.getElementsByTagName('button')[0].click();
-        }
-
-
-        //F8 GRABA
-        if (keycode == '119') {
-            e.preventDefault();
-            document.getElementsByTagName('button')[2].focus();
-            document.getElementsByTagName('button')[2].click();
-        }
+      //F8 GRABA
+      if (keycode == '119') {
+        e.preventDefault();
+        document.getElementsByTagName('button')[1].focus();
+        document.getElementsByTagName('button')[1].click();
+      }
     }
 
 
     //funcion para seleccionar todo le contenido de un textbox cuando se pone el foco sobre el control. se agrega como atributo en el codebehind
     function seleccionarTexto(obj) {
-        if (obj != null) {
-            obj.select();
-        }
+      if (obj != null) {
+        obj.select();
+      }
     }
-    
-</script>
-</asp:Content>
 
+  </script>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="True"></asp:ScriptManager>
 <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 <ContentTemplate>
 <div class="card card-primary">
 <div class="card-header">
-                <h3 class="card-title">CODIGOS MAS CARGADOS</h3>
+                <h3 class="card-title">CODIGO PREMIADO</h3>
 </div>
     
 <form role="form">
@@ -115,42 +88,20 @@
               <div class="form-group">       
                 <div class="row justify-content-center">
                   <div class="col-md-4">
-                                                <label for="lblClienteDesde">DESDE CLIENTE</label>
-                                                <asp:TextBox ID="txtClienteDesde" runat="server" 
-                                                    placeholder="." class="form-control" 
-                                                    onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);" 
-                                                    MaxLength="4"></asp:TextBox>
-                                                <asp:Label ID="lb_error_codigo" runat="server" ForeColor="Red" Text="*" Visible="false"></asp:Label>
+                                                <label for="lblZONA">ZONA:</label>
+                                                <asp:TextBox ID="txtZona" runat="server" 
+                                                    class="form-control" 
+                                                    onkeydown="tecla_op(event);" ReadOnly="true" ></asp:TextBox>
+                                                
                                                 
                                     </div>
-                  <div class="col-md-8">
-                                          
-                                                
+                  <div class="col-md-4">
+                                          <label for="lblZONA">CODIGO:</label>
+                                          <asp:TextBox ID="TxtCodigo" runat="server" class="form-control" MaxLength="4" onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);" placeholder=""></asp:TextBox>
                                     </div>
                   </div>
                 </div>
-                    <div class="form-group">       
-                                <div class="row justify-content-center">
-                                        
-                                    
-
-                                    <div class="col-md-4">
-                                                  <caption>
-                                                      <label for="lblClienteHasta">
-                                                      HASTA CLIENTE</label>
-                                                      <asp:TextBox ID="txtClienteHasta" runat="server" class="form-control" MaxLength="4" onkeydown="tecla_op(event);" onkeypress="return justNumbers(event);" placeholder=""></asp:TextBox>
-                                                      <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="*" Visible="false"></asp:Label>
-                                                  </caption>
-                                                
-                                     </div>
-                                  <div class="col-md-8">
-                                    
-                                  
-                                  </div>
-                               
-
-                    </div>
-          </div>
+                    
               <div class="form-group">       
                 <div class="row justify-content-center">
                   <div class="col-md-4">
@@ -160,7 +111,7 @@
                             
                                      </div>
 
-                  <div class="col-md-8">
+                  <div class="col-md-4">
                                       
                             
                                      </div>
@@ -177,7 +128,7 @@
                             
                                      </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-4">
 
                       </div>
                   </div>
@@ -192,7 +143,7 @@
                             
                                        </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-4">
 
                       </div>
                   </div>
@@ -209,7 +160,7 @@
                                                     <asp:Label ID="Label5" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                             
                                        </div>
-                    <div class="col-md-8">
+                    <div class="col-md-4">
 
                       </div>
 
@@ -331,6 +282,10 @@
     </table>
 
   </div>
+    <div class="row justify-content-center">
+      
+    <asp:Label ID="Label_TotalRecaudado" runat="server" Text="TOTAL RECAUDADO:"></asp:Label>
+    </div>
 
   </div>
   
@@ -535,3 +490,4 @@
 </ContentTemplate>
 </asp:UpdatePanel>
 </asp:Content>
+

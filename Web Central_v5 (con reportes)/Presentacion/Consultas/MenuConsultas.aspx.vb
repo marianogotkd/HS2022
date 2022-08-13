@@ -45,8 +45,9 @@ Public Class MenuConsultas
     Select Case txt_opcion.Text.ToUpper
       Case "1"
         Response.Redirect("~/Consultas/CodigoMasPremiadoRecorridos.aspx")
+        'Response.Redirect("~/Consultas/CodigoMasPremiado.aspx")
       Case "2"
-        'Response.Redirect("~/WC_Carga de Recorridos_Zonas/carga_recorridos_zonas_a.aspx")
+        Response.Redirect("~/Consultas/CodigoMasPremiadoRecorridos_b.aspx")
       Case "3"
         Response.Redirect("~/Consultas/IngresoTerminales.aspx")
 

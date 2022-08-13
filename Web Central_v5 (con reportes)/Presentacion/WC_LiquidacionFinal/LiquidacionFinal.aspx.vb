@@ -132,6 +132,13 @@ Public Class LiquidacionFinal
   End Sub
 
   Private Sub metodo1()
+    'IMPORTANTE SE CARGA DESDE CERO LA TABLA XCARGAS Y XCARGAS RECORRIDOS. FECHA: 22-08-04
+    DALiquidacion.XCargas_load()
+
+    'IMPORTANTE: SE GENERA UN BACKUP DE LA BASE DE DATOS ANTES DE LA LIQUIDACION.
+    DALiquidacion.BKP()
+
+
     Dim DS_liqparcial As New DS_liqparcial
 
     '1ra VALIDACION.------------------------------------

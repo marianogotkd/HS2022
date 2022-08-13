@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class CodigoMasPremiadoRecorridos
+Partial Public Class CodigoMasPremiadoRecorridos_b
 
     '''<summary>
     '''Control ScriptManager1.
@@ -2118,6 +2118,24 @@ Partial Public Class CodigoMasPremiadoRecorridos
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents LK_5TODAS As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''Control Labl2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Labl2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txt_zona.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txt_zona As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Control btn_retroceder.

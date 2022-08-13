@@ -37,6 +37,11 @@
               <xs:element name="ZO20" msprop:Generator_ColumnVarNameInTable="columnZO20" msprop:Generator_ColumnPropNameInRow="ZO20" msprop:Generator_ColumnPropNameInTable="ZO20Column" msprop:Generator_UserColumnName="ZO20" type="xs:string" minOccurs="0" />
               <xs:element name="ITEM" msprop:Generator_ColumnVarNameInTable="columnITEM" msprop:Generator_ColumnPropNameInRow="ITEM" msprop:Generator_ColumnPropNameInTable="ITEMColumn" msprop:Generator_UserColumnName="ITEM" type="xs:string" minOccurs="0" />
               <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ZO21" msprop:Generator_ColumnVarNameInTable="columnZO21" msprop:Generator_ColumnPropNameInRow="ZO21" msprop:Generator_ColumnPropNameInTable="ZO21Column" msprop:Generator_UserColumnName="ZO21" type="xs:string" minOccurs="0" />
+              <xs:element name="ZO22" msprop:Generator_ColumnVarNameInTable="columnZO22" msprop:Generator_ColumnPropNameInRow="ZO22" msprop:Generator_ColumnPropNameInTable="ZO22Column" msprop:Generator_UserColumnName="ZO22" type="xs:string" minOccurs="0" />
+              <xs:element name="ZO23" msprop:Generator_ColumnVarNameInTable="columnZO23" msprop:Generator_ColumnPropNameInRow="ZO23" msprop:Generator_ColumnPropNameInTable="ZO23Column" msprop:Generator_UserColumnName="ZO23" type="xs:string" minOccurs="0" />
+              <xs:element name="ZO24" msprop:Generator_ColumnVarNameInTable="columnZO24" msprop:Generator_ColumnPropNameInRow="ZO24" msprop:Generator_ColumnPropNameInTable="ZO24Column" msprop:Generator_UserColumnName="ZO24" type="xs:string" minOccurs="0" />
+              <xs:element name="ZO25" msprop:Generator_ColumnVarNameInTable="columnZO25" msprop:Generator_ColumnPropNameInRow="ZO25" msprop:Generator_ColumnPropNameInTable="ZO25Column" msprop:Generator_UserColumnName="ZO25" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

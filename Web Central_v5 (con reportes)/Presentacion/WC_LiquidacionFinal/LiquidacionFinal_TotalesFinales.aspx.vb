@@ -25,7 +25,6 @@ Public Class LiquidacionFinal_TotalesFinales
 
       resumen_PagosCobrosReclamos()
 
-
       '-----AQUI ARMO EL REPORTE--------
       Dim fila_1 As DataRow = DS_liqparcial.Tables("Totales_Parciales_info").NewRow
       fila_1("Fecha") = CDate(HF_fecha.Value)
@@ -42,23 +41,25 @@ Public Class LiquidacionFinal_TotalesFinales
       CrReport.Database.Tables("Totales_Parciales").SetDataSource(DS_liqparcial.Tables("Totales_Parciales"))
       CrReport.Database.Tables("Totales_Parciales_info").SetDataSource(DS_liqparcial.Tables("Totales_Parciales_info"))
 
-      If DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Count <> 0 Then
-        Dim fila_2 As DataRow = DS_liqfinal.Tables("PagosCobrosReclamos_info").NewRow
+      'If DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Count <> 0 Then
+      Dim fila_2 As DataRow = DS_liqfinal.Tables("PagosCobrosReclamos_info").NewRow
         fila_2("Fecha") = CDate(HF_fecha.Value)
 
         DS_liqfinal.Tables("PagosCobrosReclamos_info").Rows.Add(fila_2)
 
         CrReport.Database.Tables("PagosCobrosReclamos").SetDataSource(DS_liqfinal.Tables("PagosCobrosReclamos"))
-        CrReport.Database.Tables("PagosCobrosReclamos_info").SetDataSource(DS_liqfinal.Tables("PagosCobrosReclamos_info"))
-
+      CrReport.Database.Tables("PagosCobrosReclamos_info").SetDataSource(DS_liqfinal.Tables("PagosCobrosReclamos_info"))
+      Dim pagocobroreclamo As String = ""
+      If DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Count <> 0 Then
+        pagocobroreclamo = "si"
+      Else
+        pagocobroreclamo = "no"
       End If
+      CrReport.SetParameterValue("var_PAGOCOBRORECLAMO", pagocobroreclamo)
+
+      'End If
 
       CrReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, String.Concat(Server.MapPath("~"), "/WC_Reportes/Rpt/LiqFinal_TotalesFinales.pdf"))
-
-
-
-
-
 
       Session("OP") = "si" 'esto habilita el click del boton continuar
 

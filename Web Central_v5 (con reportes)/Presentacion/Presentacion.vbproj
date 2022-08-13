@@ -1257,6 +1257,8 @@
     <Content Include="build\npm\DocsPublish.js" />
     <Content Include="build\npm\Plugins.js" />
     <Content Include="build\npm\Publish.js" />
+    <Content Include="Consultas\CodigoMasPremiadoRecorridos_b.aspx" />
+    <Content Include="Consultas\CodigoMasPremiado_b.aspx" />
     <Content Include="Consultas\IngresoTerminales.aspx" />
     <Content Include="Consultas\CodigoMasPremiado.aspx" />
     <Content Include="Consultas\CodigoMasPremiadoRecorridos.aspx" />
@@ -3253,6 +3255,25 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\CodigoMasPremiadoRecorridos_b.aspx.designer.vb">
+      <DependentUpon>CodigoMasPremiadoRecorridos_b.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\CodigoMasPremiadoRecorridos_b.aspx.vb">
+      <DependentUpon>CodigoMasPremiadoRecorridos_b.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\CodigoMasPremiado_b.aspx.designer.vb">
+      <DependentUpon>CodigoMasPremiado_b.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\CodigoMasPremiado_b.aspx.vb">
+      <DependentUpon>CodigoMasPremiado_b.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\DS_Consultas.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Consultas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\IngresoTerminales.aspx.designer.vb">
       <DependentUpon>IngresoTerminales.aspx</DependentUpon>
     </Compile>
@@ -3900,6 +3921,12 @@
       <DependentUpon>TicketsClientesPorOrden_informe01a.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WC_Reportes\Rpt\TicketsClientesPorOrden_informe01b.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TicketsClientesPorOrden_informe01b.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WC_TicketsClientes\DS_ticketsclientes.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -4121,6 +4148,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>TicketsClientesPorOrden_informe01a.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="WC_Reportes\Rpt\TicketsClientesPorOrden_informe01b.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TicketsClientesPorOrden_informe01b.vb</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include=".babelrc" />
@@ -4207,6 +4238,17 @@
     <None Include="build\scss\_users-list.scss" />
     <None Include="build\scss\_variables.scss" />
     <None Include="composer.json" />
+    <Content Include="Consultas\DS_Consultas.xsc">
+      <DependentUpon>DS_Consultas.xsd</DependentUpon>
+    </Content>
+    <None Include="Consultas\DS_Consultas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Consultas.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Consultas\DS_Consultas.xss">
+      <DependentUpon>DS_Consultas.xsd</DependentUpon>
+    </Content>
     <None Include="dist\css\adminlte.css.map" />
     <None Include="dist\css\adminlte.min.css.map" />
     <None Include="dist\css\alt\adminlte.components.css.map" />

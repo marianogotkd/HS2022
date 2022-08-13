@@ -446,4 +446,72 @@ Public Class WC_Liquidacion
     End Function
 
 #End Region
+
+#Region "LOAD XCARGAS"
+
+    Public Function XCargas_load() As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("XCargas_load", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+
+
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Grupo".
+        DA.Fill(ds, "XCargas")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
+#End Region
+
+#Region "BACKUP"
+    Public Function BKP() As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("BKP", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+
+
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Grupo".
+        DA.Fill(ds, "XCargas")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
+#End Region
+
+#Region "DELETE XCARGAS"
+    Public Function XCargas_delete() As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("XCargas_delete", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+
+
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Grupo".
+        DA.Fill(ds, "XCargas")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+#End Region
+
+
 End Class

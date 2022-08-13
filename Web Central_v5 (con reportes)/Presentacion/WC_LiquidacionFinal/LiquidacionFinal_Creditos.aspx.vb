@@ -5,6 +5,7 @@ Public Class LiquidacionFinal_Creditos
   Dim DACtaCte As New Capa_Datos.WC_CtaCte
   Dim DACliente As New Capa_Datos.WB_clientes
   Dim DAParametro As New Capa_Datos.WC_parametro
+  Dim DALiquidacion As New Capa_Datos.WC_Liquidacion
 #End Region
 
 #Region "METODOS"
@@ -134,16 +135,17 @@ Public Class LiquidacionFinal_Creditos
 
       '------------------------------------------------------------------------------
 
-
-
-
-
-
       If GridView1.Rows.Count = 0 Then
         Label_noprestamos.Visible = True
       End If
 
       DAParametro.Parametro_finalizar_dia(HF_fecha.Value)
+
+      '-------------------------------------------------------------------------------
+      'NOTA: ELIMINO LOS REGISTRO EN XCARGAS 1 A N.
+      DALiquidacion.XCargas_delete()
+      'fecha:11-08-2022
+      '-------------------------------------------------------------------------------
 
 
       btn_continuar.Focus()
