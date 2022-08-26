@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_instituciones" targetNamespace="http://tempuri.org/DS_instituciones.xsd" xmlns:mstns="http://tempuri.org/DS_instituciones.xsd" xmlns="http://tempuri.org/DS_instituciones.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_instituciones" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_instituciones" msprop:Generator_UserDSName="DS_instituciones">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Instituciones" msprop:Generator_TableClassName="InstitucionesDataTable" msprop:Generator_TableVarName="tableInstituciones" msprop:Generator_TablePropName="Instituciones" msprop:Generator_RowDeletingName="InstitucionesRowDeleting" msprop:Generator_RowChangingName="InstitucionesRowChanging" msprop:Generator_RowEvHandlerName="InstitucionesRowChangeEventHandler" msprop:Generator_RowDeletedName="InstitucionesRowDeleted" msprop:Generator_UserTableName="Instituciones" msprop:Generator_RowChangedName="InstitucionesRowChanged" msprop:Generator_RowEvArgName="InstitucionesRowChangeEvent" msprop:Generator_RowClassName="InstitucionesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="institucion_id" msprop:Generator_ColumnVarNameInTable="columninstitucion_id" msprop:Generator_ColumnPropNameInRow="institucion_id" msprop:Generator_ColumnPropNameInTable="institucion_idColumn" msprop:Generator_UserColumnName="institucion_id" type="xs:int" minOccurs="0" />
+              <xs:element name="provincia_id" msprop:Generator_ColumnVarNameInTable="columnprovincia_id" msprop:Generator_ColumnPropNameInRow="provincia_id" msprop:Generator_ColumnPropNameInTable="provincia_idColumn" msprop:Generator_UserColumnName="provincia_id" type="xs:int" minOccurs="0" />
+              <xs:element name="provincia_desc" msprop:Generator_ColumnVarNameInTable="columnprovincia_desc" msprop:Generator_ColumnPropNameInRow="provincia_desc" msprop:Generator_ColumnPropNameInTable="provincia_descColumn" msprop:Generator_UserColumnName="provincia_desc" type="xs:string" minOccurs="0" />
+              <xs:element name="institucion_descripcion" msprop:Generator_ColumnVarNameInTable="columninstitucion_descripcion" msprop:Generator_ColumnPropNameInRow="institucion_descripcion" msprop:Generator_ColumnPropNameInTable="institucion_descripcionColumn" msprop:Generator_UserColumnName="institucion_descripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="institucion_abreviacion" msprop:Generator_ColumnVarNameInTable="columninstitucion_abreviacion" msprop:Generator_ColumnPropNameInRow="institucion_abreviacion" msprop:Generator_ColumnPropNameInTable="institucion_abreviacionColumn" msprop:Generator_UserColumnName="institucion_abreviacion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Instructores" msprop:Generator_TableClassName="InstructoresDataTable" msprop:Generator_TableVarName="tableInstructores" msprop:Generator_TablePropName="Instructores" msprop:Generator_RowDeletingName="InstructoresRowDeleting" msprop:Generator_RowChangingName="InstructoresRowChanging" msprop:Generator_RowEvHandlerName="InstructoresRowChangeEventHandler" msprop:Generator_RowDeletedName="InstructoresRowDeleted" msprop:Generator_UserTableName="Instructores" msprop:Generator_RowChangedName="InstructoresRowChanged" msprop:Generator_RowEvArgName="InstructoresRowChangeEvent" msprop:Generator_RowClassName="InstructoresRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="instructor_id" msprop:Generator_ColumnVarNameInTable="columninstructor_id" msprop:Generator_ColumnPropNameInRow="instructor_id" msprop:Generator_ColumnPropNameInTable="instructor_idColumn" msprop:Generator_UserColumnName="instructor_id" type="xs:long" minOccurs="0" />
+              <xs:element name="usuario_doc" msprop:Generator_ColumnVarNameInTable="columnusuario_doc" msprop:Generator_ColumnPropNameInRow="usuario_doc" msprop:Generator_ColumnPropNameInTable="usuario_docColumn" msprop:Generator_UserColumnName="usuario_doc" type="xs:long" minOccurs="0" />
+              <xs:element name="Apellido_y_Nombre" msprop:Generator_ColumnVarNameInTable="columnApellido_y_Nombre" msprop:Generator_ColumnPropNameInRow="Apellido_y_Nombre" msprop:Generator_ColumnPropNameInTable="Apellido_y_NombreColumn" msprop:Generator_UserColumnName="Apellido_y_Nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="provincia_desc" msprop:Generator_ColumnVarNameInTable="columnprovincia_desc" msprop:Generator_ColumnPropNameInRow="provincia_desc" msprop:Generator_ColumnPropNameInTable="provincia_descColumn" msprop:Generator_UserColumnName="provincia_desc" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
