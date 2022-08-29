@@ -971,7 +971,7 @@ Public Class LiquidacionFinal
           Dim Clie_Saldo As Decimal = ds_xcargas.Tables(0).Rows(i).Item("Cliente_Saldo")
           Dim Clie_SaldoAnterior As Decimal = Clie_Saldo
           'dbo.Clientes.Saldo = dbo.Clientes.Saldo + dbo.CtaCteRecaudacion + dbo.CtaCteRecaudacionSC + dbo.CtaCteRecaudacionB - dbo.CtaCte.Comision - dbo.CtaCte.ComisionSC - dbo.CtaCte.ComisionB - dbo.CtaCte.Premios - dbo.CtaCte.PremiosSC - dbo.CtaCte.PremiosB - dbo.CtaCte.Reclamos - dbo.CtaCte.ReclamosSC - dbo.CtaCte.ReclamosB - dbo.CtaCte.Cobros + dbo.CtaCte.Pagos + dbo.CtaCte.CobPrestamo + dbo.CtaCte.CobCredito + dbo.Ctacte.Prestamo + dbo.Ctacte.Credito
-          Clie_Saldo = Clie_Saldo + recaudacion + recaudacionSC + RecaudacionB - comision - comisionSC - ComisionB - Premios - PremiosSC - PremiosB - Reclamos - ReclamosSC - ReclamosB + Cobros - Pagos + 0 + 0 + Prestamo + Credito
+          Clie_Saldo = Clie_Saldo + recaudacion + recaudacionSC + RecaudacionB - comision - comisionSC - ComisionB - Premios - PremiosSC - PremiosB - Reclamos - ReclamosSC - ReclamosB - Cobros + Pagos + 0 + 0 + Prestamo + Credito
 
           '---aqui guardo en bd -----
           DACliente.Clientes_ActualizarSaldo(Codigo_cliente, Clie_SaldoAnterior, Clie_Saldo)

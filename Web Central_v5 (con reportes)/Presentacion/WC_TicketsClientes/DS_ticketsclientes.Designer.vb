@@ -2083,6 +2083,8 @@ Partial Public Class DS_ticketsclientes
         
         Private columnmensaje_usuario As Global.System.Data.DataColumn
         
+        Private columnClientes_SaldoDESC As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -2471,6 +2473,14 @@ Partial Public Class DS_ticketsclientes
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Clientes_SaldoDESCColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnClientes_SaldoDESC
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2551,9 +2561,10 @@ Partial Public Class DS_ticketsclientes
                     ByVal Regalo_monto As Decimal,  _
                     ByVal Fecha As Date,  _
                     ByVal ReclamosB As Decimal,  _
-                    ByVal mensaje_usuario As String) As Cliente_CtacteInfoRow
+                    ByVal mensaje_usuario As String,  _
+                    ByVal Clientes_SaldoDESC As String) As Cliente_CtacteInfoRow
             Dim rowCliente_CtacteInfoRow As Cliente_CtacteInfoRow = CType(Me.NewRow,Cliente_CtacteInfoRow)
-            Dim columnValuesArray() As Object = New Object() {Grupo_id, Grupo_codigo, Grupo_nombre, Cliente, Cliente_codigo, Cliente_nombre, R, O, Recaudacion, Comision, Premios, Reclamos, DejoGano_desc, DejoGano, RecaudacionSC, ComisionSC, PremiosSC, ReclamosSC, DejoGanoSC_desc, DejoGanoSC, DejoGanoGeneral_desc, DejoGanoGeneral, RecaudacionB, ComisionB, PremiosB, DejoGanoB_desc, DejoGanoB, DejoGanoGeneralDia_desc, DejoGanoGeneralDia, Saldoanterior, Cobros, Regalos, Pagos, Prestamo, CobPrestamo, Credito, Credito_Cuota, CobCredito, Clientes_Saldo, Regalo_desc, Regalo_monto, Fecha, ReclamosB, mensaje_usuario}
+            Dim columnValuesArray() As Object = New Object() {Grupo_id, Grupo_codigo, Grupo_nombre, Cliente, Cliente_codigo, Cliente_nombre, R, O, Recaudacion, Comision, Premios, Reclamos, DejoGano_desc, DejoGano, RecaudacionSC, ComisionSC, PremiosSC, ReclamosSC, DejoGanoSC_desc, DejoGanoSC, DejoGanoGeneral_desc, DejoGanoGeneral, RecaudacionB, ComisionB, PremiosB, DejoGanoB_desc, DejoGanoB, DejoGanoGeneralDia_desc, DejoGanoGeneralDia, Saldoanterior, Cobros, Regalos, Pagos, Prestamo, CobPrestamo, Credito, Credito_Cuota, CobCredito, Clientes_Saldo, Regalo_desc, Regalo_monto, Fecha, ReclamosB, mensaje_usuario, Clientes_SaldoDESC}
             rowCliente_CtacteInfoRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCliente_CtacteInfoRow)
             Return rowCliente_CtacteInfoRow
@@ -2620,6 +2631,7 @@ Partial Public Class DS_ticketsclientes
             Me.columnFecha = MyBase.Columns("Fecha")
             Me.columnReclamosB = MyBase.Columns("ReclamosB")
             Me.columnmensaje_usuario = MyBase.Columns("mensaje_usuario")
+            Me.columnClientes_SaldoDESC = MyBase.Columns("Clientes_SaldoDESC")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2713,6 +2725,8 @@ Partial Public Class DS_ticketsclientes
             MyBase.Columns.Add(Me.columnReclamosB)
             Me.columnmensaje_usuario = New Global.System.Data.DataColumn("mensaje_usuario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnmensaje_usuario)
+            Me.columnClientes_SaldoDESC = New Global.System.Data.DataColumn("Clientes_SaldoDESC", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnClientes_SaldoDESC)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6742,6 +6756,22 @@ Partial Public Class DS_ticketsclientes
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Clientes_SaldoDESC() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtacteInfo.Clientes_SaldoDESCColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Clientes_SaldoDESC' de la tabla 'Cliente_CtacteInfo' es D"& _ 
+                            "BNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtacteInfo.Clientes_SaldoDESCColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsGrupo_idNull() As Boolean
             Return Me.IsNull(Me.tableCliente_CtacteInfo.Grupo_idColumn)
         End Function
@@ -7266,6 +7296,18 @@ Partial Public Class DS_ticketsclientes
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setmensaje_usuarioNull()
             Me(Me.tableCliente_CtacteInfo.mensaje_usuarioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsClientes_SaldoDESCNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtacteInfo.Clientes_SaldoDESCColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetClientes_SaldoDESCNull()
+            Me(Me.tableCliente_CtacteInfo.Clientes_SaldoDESCColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

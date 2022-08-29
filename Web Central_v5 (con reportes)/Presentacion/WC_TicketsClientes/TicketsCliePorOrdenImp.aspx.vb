@@ -526,6 +526,21 @@ Public Class TicketsCliePorOrdenImp
           End If
           fila("Clientes_Saldo") = ds_ctacte.Tables(0).Rows(indice).Item("Clientes_Saldo")
 
+          '--------------------------------------------------------------------
+          'nota: MODIF 29-08-2022
+          Try
+            Dim Clie_Saldo As Decimal = ds_ctacte.Tables(0).Rows(indice).Item("Clientes_Saldo")
+            If Clie_Saldo > 0 Then
+              fila("Clientes_SaldoDESC") = "SALDO FINAL DEBE:"
+            Else
+              If Clie_Saldo < 0 Then
+                fila("Clientes_SaldoDESC") = "SALDO FINAL GANO:"
+              End If
+            End If
+          Catch ex As Exception
+          End Try
+          '--------------------------------------------------------------------
+
           If ds_ctacte.Tables(0).Rows(indice).Item("Clientes_Imprime") = True Then
             Dim calculo_importe As Decimal = (100 * CDec(ds_ctacte.Tables(0).Rows(indice).Item("Clientes_SaldoRegalo"))) / CDec(ds_ctacte.Tables(0).Rows(indice).Item("Clientes_Regalo"))
             fila("Regalo_monto") = calculo_importe
