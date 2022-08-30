@@ -65,8 +65,8 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=15.1.2.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -2972,21 +2972,21 @@
     </Compile>
     <Compile Include="Areas\Area_asignar.aspx.vb">
       <DependentUpon>Area_asignar.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Calendario\Calendario.aspx.designer.vb">
       <DependentUpon>Calendario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Calendario\Calendario.aspx.vb">
       <DependentUpon>Calendario.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Carga Competidores\Carga_Manual_Competidores.aspx.designer.vb">
       <DependentUpon>Carga_Manual_Competidores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Carga Competidores\Carga_Manual_Competidores.aspx.vb">
       <DependentUpon>Carga_Manual_Competidores.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Carga Competidores\Categorias.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -2998,28 +2998,28 @@
     </Compile>
     <Compile Include="Contraseña\contraseña_cambiar.aspx.vb">
       <DependentUpon>contraseña_cambiar.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Credenciales\Credenciales_generar.aspx.designer.vb">
       <DependentUpon>Credenciales_generar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Credenciales\Credenciales_generar.aspx.vb">
       <DependentUpon>Credenciales_generar.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Credenciales\Credenciales_view.aspx.designer.vb">
       <DependentUpon>Credenciales_view.aspx</DependentUpon>
     </Compile>
     <Compile Include="Credenciales\Credenciales_view.aspx.vb">
       <DependentUpon>Credenciales_view.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Credenciales\Credenciales_visor.aspx.designer.vb">
       <DependentUpon>Credenciales_visor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Credenciales\Credenciales_visor.aspx.vb">
       <DependentUpon>Credenciales_visor.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Credenciales\reportes\Credenciales_2.vb">
       <AutoGen>True</AutoGen>
@@ -3044,21 +3044,21 @@
     </Compile>
     <Compile Include="Error\UnderConstruction.aspx.vb">
       <DependentUpon>UnderConstruction.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Crear_Evento.aspx.designer.vb">
       <DependentUpon>Crear_Evento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Eventos\Crear_Evento.aspx.vb">
       <DependentUpon>Crear_Evento.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Curso.aspx.designer.vb">
       <DependentUpon>Curso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Eventos\Curso.aspx.vb">
       <DependentUpon>Curso.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Curso_DS.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -3078,35 +3078,35 @@
     </Compile>
     <Compile Include="Eventos\EventoRPT_inscriptos.aspx.vb">
       <DependentUpon>EventoRPT_inscriptos.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Evento_Crear.aspx.designer.vb">
       <DependentUpon>Evento_Crear.aspx</DependentUpon>
     </Compile>
     <Compile Include="Eventos\Evento_Crear.aspx.vb">
       <DependentUpon>Evento_Crear.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Evento_Seleccionar_Curso.aspx.designer.vb">
       <DependentUpon>Evento_Seleccionar_Curso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Eventos\Evento_Seleccionar_Curso.aspx.vb">
       <DependentUpon>Evento_Seleccionar_Curso.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Evento_Seleccionar_Examen.aspx.designer.vb">
       <DependentUpon>Evento_Seleccionar_Examen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Eventos\Evento_Seleccionar_Examen.aspx.vb">
       <DependentUpon>Evento_Seleccionar_Examen.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Evento_Seleccionar_Torneo.aspx.designer.vb">
       <DependentUpon>Evento_Seleccionar_Torneo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Eventos\Evento_Seleccionar_Torneo.aspx.vb">
       <DependentUpon>Evento_Seleccionar_Torneo.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Examen.aspx.designer.vb">
       <DependentUpon>Examen.aspx</DependentUpon>
@@ -3120,14 +3120,14 @@
     </Compile>
     <Compile Include="Eventos\Examenes_turnos_agregar.aspx.vb">
       <DependentUpon>Examenes_turnos_agregar.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Examen_costos.aspx.designer.vb">
       <DependentUpon>Examen_costos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Eventos\Examen_costos.aspx.vb">
       <DependentUpon>Examen_costos.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Examen_ds.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -3139,7 +3139,7 @@
     </Compile>
     <Compile Include="Eventos\Modificar_Evento.aspx.vb">
       <DependentUpon>Modificar_Evento.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Reportes\Ds_rptEventos.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -3151,7 +3151,7 @@
     </Compile>
     <Compile Include="Eventos\Reportes\Inscriptos.aspx.vb">
       <DependentUpon>Inscriptos.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Reportes\Inscriptos.vb">
       <AutoGen>True</AutoGen>
@@ -3164,7 +3164,7 @@
     </Compile>
     <Compile Include="Eventos\Torneo.aspx.vb">
       <DependentUpon>Torneo.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Torneo_ds.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -3176,21 +3176,21 @@
     </Compile>
     <Compile Include="Eventos\Torneo_insc.aspx.vb">
       <DependentUpon>Torneo_insc.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Eventos\Torneo_insc_modif.aspx.designer.vb">
       <DependentUpon>Torneo_insc_modif.aspx</DependentUpon>
     </Compile>
     <Compile Include="Eventos\Torneo_insc_modif.aspx.vb">
       <DependentUpon>Torneo_insc_modif.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Inicio_Blanco.aspx.designer.vb">
       <DependentUpon>Inicio_Blanco.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inicio_Blanco.aspx.vb">
       <DependentUpon>Inicio_Blanco.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Inscripciones\Evento_datos.aspx.designer.vb">
       <DependentUpon>Evento_datos.aspx</DependentUpon>
@@ -3209,14 +3209,14 @@
     </Compile>
     <Compile Include="Inscripciones\Evento_seleccionar.aspx.vb">
       <DependentUpon>Evento_seleccionar.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Inscripciones\Evento_seleccionar_prueba.aspx.designer.vb">
       <DependentUpon>Evento_seleccionar_prueba.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inscripciones\Evento_seleccionar_prueba.aspx.vb">
       <DependentUpon>Evento_seleccionar_prueba.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Inscripciones\Evento_seleccionar_varios.aspx.designer.vb">
       <DependentUpon>Evento_seleccionar_varios.aspx</DependentUpon>
@@ -3230,7 +3230,7 @@
     </Compile>
     <Compile Include="Inscripciones\formasdasd.aspx.vb">
       <DependentUpon>formasdasd.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Inscripciones\Inscripcion _varios.aspx.designer.vb">
       <DependentUpon>Inscripcion _varios.aspx</DependentUpon>
@@ -3261,35 +3261,35 @@
     </Compile>
     <Compile Include="Instituciones\Institucion_modificar.aspx.vb">
       <DependentUpon>Institucion_modificar.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Instituciones\Institucion_modificar_datos.aspx.designer.vb">
       <DependentUpon>Institucion_modificar_datos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Instituciones\Institucion_modificar_datos.aspx.vb">
       <DependentUpon>Institucion_modificar_datos.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Instituciones\Instructor_institucion_a.aspx.designer.vb">
       <DependentUpon>Instructor_institucion_a.aspx</DependentUpon>
     </Compile>
     <Compile Include="Instituciones\Instructor_institucion_a.aspx.vb">
       <DependentUpon>Instructor_institucion_a.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Instituciones\Instructor_institucion_b.aspx.designer.vb">
       <DependentUpon>Instructor_institucion_b.aspx</DependentUpon>
     </Compile>
     <Compile Include="Instituciones\Instructor_institucion_b.aspx.vb">
       <DependentUpon>Instructor_institucion_b.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Instructores\Instructores_nuevo.aspx.designer.vb">
       <DependentUpon>Instructores_nuevo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Instructores\Instructores_nuevo.aspx.vb">
       <DependentUpon>Instructores_nuevo.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llaves_ds.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -3301,98 +3301,98 @@
     </Compile>
     <Compile Include="Llaves\Llave_16.aspx.vb">
       <DependentUpon>Llave_16.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_2.aspx.designer.vb">
       <DependentUpon>Llave_2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_2.aspx.vb">
       <DependentUpon>Llave_2.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_32.aspx.designer.vb">
       <DependentUpon>Llave_32.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_32.aspx.vb">
       <DependentUpon>Llave_32.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_4.aspx.designer.vb">
       <DependentUpon>Llave_4.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_4.aspx.vb">
       <DependentUpon>Llave_4.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_8.aspx.designer.vb">
       <DependentUpon>Llave_8.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_8.aspx.vb">
       <DependentUpon>Llave_8.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_detalle_evento.aspx.designer.vb">
       <DependentUpon>Llave_detalle_evento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_detalle_evento.aspx.vb">
       <DependentUpon>Llave_detalle_evento.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_disponibles.aspx.designer.vb">
       <DependentUpon>Llave_disponibles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_disponibles.aspx.vb">
       <DependentUpon>Llave_disponibles.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_generar.aspx.designer.vb">
       <DependentUpon>Llave_generar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_generar.aspx.vb">
       <DependentUpon>Llave_generar.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_mod_a.aspx.designer.vb">
       <DependentUpon>Llave_mod_a.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_mod_a.aspx.vb">
       <DependentUpon>Llave_mod_a.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_mod_b.aspx.designer.vb">
       <DependentUpon>Llave_mod_b.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_mod_b.aspx.vb">
       <DependentUpon>Llave_mod_b.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_mod_c.aspx.designer.vb">
       <DependentUpon>Llave_mod_c.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_mod_c.aspx.vb">
       <DependentUpon>Llave_mod_c.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_mod_d.aspx.designer.vb">
       <DependentUpon>Llave_mod_d.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_mod_d.aspx.vb">
       <DependentUpon>Llave_mod_d.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_selecc_evento.aspx.designer.vb">
       <DependentUpon>Llave_selecc_evento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_selecc_evento.aspx.vb">
       <DependentUpon>Llave_selecc_evento.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Llave_view.aspx.designer.vb">
       <DependentUpon>Llave_view.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\Llave_view.aspx.vb">
       <DependentUpon>Llave_view.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\Reporte_llaves\Competidores_02.vb">
       <AutoGen>True</AutoGen>
@@ -3452,42 +3452,42 @@
     </Compile>
     <Compile Include="Llaves\Reporte_llaves\Visor_llaves_report.aspx.vb">
       <DependentUpon>Visor_llaves_report.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\RPTcompetidores16.aspx.designer.vb">
       <DependentUpon>RPTcompetidores16.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\RPTcompetidores16.aspx.vb">
       <DependentUpon>RPTcompetidores16.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\RPTcompetidores_02.aspx.designer.vb">
       <DependentUpon>RPTcompetidores_02.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\RPTcompetidores_02.aspx.vb">
       <DependentUpon>RPTcompetidores_02.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\RPTcompetidores_04.aspx.designer.vb">
       <DependentUpon>RPTcompetidores_04.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\RPTcompetidores_04.aspx.vb">
       <DependentUpon>RPTcompetidores_04.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Llaves\RPTcompetidores_08.aspx.designer.vb">
       <DependentUpon>RPTcompetidores_08.aspx</DependentUpon>
     </Compile>
     <Compile Include="Llaves\RPTcompetidores_08.aspx.vb">
       <DependentUpon>RPTcompetidores_08.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login2\login2.aspx.designer.vb">
       <DependentUpon>login2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login2\login2.aspx.vb">
       <DependentUpon>login2.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="LoginDNI\LoginDNI.aspx.designer.vb">
       <DependentUpon>LoginDNI.aspx</DependentUpon>
@@ -3501,7 +3501,7 @@
     </Compile>
     <Compile Include="Login\login.aspx.vb">
       <DependentUpon>login.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Mailbox\Dataset\DataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -3513,21 +3513,21 @@
     </Compile>
     <Compile Include="Mailbox\mailbox.aspx.vb">
       <DependentUpon>mailbox.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Mailbox\Mensaje_Datos_Personales.aspx.designer.vb">
       <DependentUpon>Mensaje_Datos_Personales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mailbox\Mensaje_Datos_Personales.aspx.vb">
       <DependentUpon>Mensaje_Datos_Personales.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MantenimientoHamer\CambioCategoriaenInscripcion.aspx.designer.vb">
       <DependentUpon>CambioCategoriaenInscripcion.aspx</DependentUpon>
     </Compile>
     <Compile Include="MantenimientoHamer\CambioCategoriaenInscripcion.aspx.vb">
       <DependentUpon>CambioCategoriaenInscripcion.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MantenimientoHamer\MantHamer_ds.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -3546,14 +3546,14 @@
     </Compile>
     <Compile Include="MasterPage\prueba.aspx.vb">
       <DependentUpon>prueba.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Miembros\Config_costos\Config_costos.aspx.designer.vb">
       <DependentUpon>Config_costos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Miembros\Config_costos\Config_costos.aspx.vb">
       <DependentUpon>Config_costos.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Miembros\Config_costos\DS_configcostos.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -3565,7 +3565,7 @@
     </Compile>
     <Compile Include="Miembros\Config_liquidacion.aspx.vb">
       <DependentUpon>Config_liquidacion.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Miembros\DataSet_miembros.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -3577,21 +3577,21 @@
     </Compile>
     <Compile Include="Miembros\Miembros.aspx.vb">
       <DependentUpon>Miembros.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Miembros\Miembros_datos_diseño.aspx.designer.vb">
       <DependentUpon>Miembros_datos_diseño.aspx</DependentUpon>
     </Compile>
     <Compile Include="Miembros\Miembros_datos_diseño.aspx.vb">
       <DependentUpon>Miembros_datos_diseño.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Miembros\Miembros_editar_datospersonales.aspx.designer.vb">
       <DependentUpon>Miembros_editar_datospersonales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Miembros\Miembros_editar_datospersonales.aspx.vb">
       <DependentUpon>Miembros_editar_datospersonales.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -3618,28 +3618,28 @@
     </Compile>
     <Compile Include="Registro\RegistroInvitado.aspx.vb">
       <DependentUpon>RegistroInvitado.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Registro\imagen.aspx.designer.vb">
       <DependentUpon>imagen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registro\imagen.aspx.vb">
       <DependentUpon>imagen.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Registro\Prueba_popup.aspx.designer.vb">
       <DependentUpon>Prueba_popup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registro\Prueba_popup.aspx.vb">
       <DependentUpon>Prueba_popup.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Registro\registro.aspx.designer.vb">
       <DependentUpon>registro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registro\registro.aspx.vb">
       <DependentUpon>registro.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reportes\Inscripciones\Ds_Reporte_inscripciones.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -3651,7 +3651,7 @@
     </Compile>
     <Compile Include="Reportes\inscripcion_persona.aspx.vb">
       <DependentUpon>inscripcion_persona.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reportes\Llaves\DS_reporte_llaves.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -3663,7 +3663,7 @@
     </Compile>
     <Compile Include="Reportes\Llaves\Visor_ejemplo.aspx.vb">
       <DependentUpon>Visor_ejemplo.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reportes\Repo01.vb">
       <AutoGen>True</AutoGen>
@@ -3676,35 +3676,35 @@
     </Compile>
     <Compile Include="Reportes\Reporte_Inscriptos_Categoria.aspx.vb">
       <DependentUpon>Reporte_Inscriptos_Categoria.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reportes\WebFormRepo01.aspx.designer.vb">
       <DependentUpon>WebFormRepo01.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reportes\WebFormRepo01.aspx.vb">
       <DependentUpon>WebFormRepo01.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Torneo\Seleccion_Area.aspx.designer.vb">
       <DependentUpon>Seleccion_Area.aspx</DependentUpon>
     </Compile>
     <Compile Include="Torneo\Seleccion_Area.aspx.vb">
       <DependentUpon>Seleccion_Area.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Torneo\Torneo_usuario_add.aspx.designer.vb">
       <DependentUpon>Torneo_usuario_add.aspx</DependentUpon>
     </Compile>
     <Compile Include="Torneo\Torneo_usuario_add.aspx.vb">
       <DependentUpon>Torneo_usuario_add.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Visor_reporte_llave2.aspx.designer.vb">
       <DependentUpon>Visor_reporte_llave2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Visor_reporte_llave2.aspx.vb">
       <DependentUpon>Visor_reporte_llave2.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reportes\Reportes.aspx.designer.vb">
       <DependentUpon>Reportes.aspx</DependentUpon>
@@ -3718,7 +3718,7 @@
     </Compile>
     <Compile Include="Reporte_independiente.aspx.vb">
       <DependentUpon>Reporte_independiente.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
