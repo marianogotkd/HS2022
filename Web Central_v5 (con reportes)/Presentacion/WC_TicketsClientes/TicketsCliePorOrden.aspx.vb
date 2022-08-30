@@ -507,12 +507,12 @@ Public Class TicketsCliePorOrden
             fila("DejoGanoGeneralDia_desc") = "GENERAL DEL DIA GANO:"
           End If
           fila("Saldoanterior") = ds_ctacte.Tables(0).Rows(indice).Item("Clientes_Saldoanterior")
-          fila("Cobros") = ds_ctacte.Tables(0).Rows(indice).Item("Cobros")
-          fila("Regalos") = ds_ctacte.Tables(0).Rows(indice).Item("Regalos")
-          fila("Pagos") = ds_ctacte.Tables(0).Rows(indice).Item("Pagos")
-          fila("Prestamo") = ds_ctacte.Tables(0).Rows(indice).Item("Prestamo")
-          fila("CobPrestamo") = ds_ctacte.Tables(0).Rows(indice).Item("CobPrestamo")
-          fila("Credito") = ds_ctacte.Tables(0).Rows(indice).Item("Credito")
+          fila("Cobros") = ds_ctacte.Tables(0).Rows(indice).Item("Cobros") 'PAGO
+          fila("Regalos") = ds_ctacte.Tables(0).Rows(indice).Item("Regalos") 'PAGO REGALO
+          fila("Pagos") = ds_ctacte.Tables(0).Rows(indice).Item("Pagos") 'DI
+          fila("Prestamo") = ds_ctacte.Tables(0).Rows(indice).Item("Prestamo") 'ENTREGA DE PRESTAMO
+          fila("CobPrestamo") = ds_ctacte.Tables(0).Rows(indice).Item("CobPrestamo") 'DEVOLUCION PRESTAMO
+          fila("Credito") = ds_ctacte.Tables(0).Rows(indice).Item("Credito") 'ENTREGA DE CREDITO
           fila("CobCredito") = ds_ctacte.Tables(0).Rows(indice).Item("CobCredito")
 
           Dim ds_credi As DataSet = DAtickets.CobroCreditos_ClienteObtener(CDate(HF_fecha.Value), CInt(ds_ctacte.Tables(0).Rows(indice).Item("Cliente")))
@@ -524,6 +524,21 @@ Public Class TicketsCliePorOrden
             fila("Credito_Cuota") = "CREDITO CUOTA"
           End If
           fila("Clientes_Saldo") = ds_ctacte.Tables(0).Rows(indice).Item("Clientes_Saldo")
+
+          '--------------------------------------------------------------------
+          'nota: MODIF 29-08-2022
+          Try
+            Dim Clie_Saldo As Decimal = ds_ctacte.Tables(0).Rows(indice).Item("Clientes_Saldo")
+            If Clie_Saldo > 0 Then
+              fila("Clientes_SaldoDESC") = "SALDO FINAL DEBE:"
+            Else
+              If Clie_Saldo < 0 Then
+                fila("Clientes_SaldoDESC") = "SALDO FINAL GANO:"
+              End If
+            End If
+          Catch ex As Exception
+          End Try
+          '--------------------------------------------------------------------
 
           If ds_ctacte.Tables(0).Rows(indice).Item("Clientes_Imprime") = True Then
             Dim calculo_importe As Decimal = (100 * CDec(ds_ctacte.Tables(0).Rows(indice).Item("Clientes_SaldoRegalo"))) / CDec(ds_ctacte.Tables(0).Rows(indice).Item("Clientes_Regalo"))

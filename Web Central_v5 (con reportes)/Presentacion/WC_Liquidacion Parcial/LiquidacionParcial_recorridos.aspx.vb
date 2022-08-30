@@ -734,90 +734,113 @@ Public Class LiquidacionParcial_recorridos
 
   End Sub
 
-  Private Sub Recorrido_1(ByRef DS_liqparcial As DataSet, ByRef valido As String, ByRef valido_xcargas As String, ByRef codigo_error As String, ByRef check As String)
+  Private Sub Recorrido_1(ByRef DS_liqparcial As DataSet, ByRef codigo_error As String, ByRef check As String)
+
+    Dim valido = "si"
+    Dim valido_xcargas = "si"
     If ChkBox_1TODAS.Checked = True And valido = "si" And valido_xcargas = "si" Then
       'se seleccionaron todas las zonas de Recorrido 1.
       check = "si"
-      If valido = "si" And valido_xcargas = "si" Then
-        'valido zona 1A
-        Validar_recorridos_a(valido, "1A", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "1A", codigo_error)
+      If ChkBox_1A.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          'valido zona 1A
+          Validar_recorridos_a(valido, "1A", codigo_error, check) 'VER SI TIENE PUNTOS CARGADOS
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "1A", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "1A", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "1A", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "1B", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "1B", codigo_error)
+      If ChkBox_1B.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "1B", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "1B", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "1B", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "1B", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "1C", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "1C", codigo_error)
+      If ChkBox_1C.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "1C", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "1C", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "1C", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "1C", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "1D", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "1D", codigo_error)
+      If ChkBox_1D.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "1D", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "1D", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "1D", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "1D", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "1E", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "1E", codigo_error)
+      If ChkBox_1E.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "1E", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "1E", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "1E", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "1E", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "1F", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "1F", codigo_error)
+      If ChkBox_1F.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "1F", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "1F", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "1F", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "1F", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "1G", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "1G", codigo_error)
+      If ChkBox_1G.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "1G", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "1G", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "1G", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "1G", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "1H", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "1H", codigo_error)
+      If ChkBox_1H.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "1H", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "1H", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "1H", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "1H", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "1I", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "1I", codigo_error)
+      If ChkBox_1H.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "1I", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "1I", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "1I", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "1I", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "1J", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "1J", codigo_error)
+      If ChkBox_1I.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "1J", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "1J", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "1J", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "1J", DS_liqparcial)
       End If
 
     Else
@@ -907,91 +930,123 @@ Public Class LiquidacionParcial_recorridos
     End If
   End Sub
 
-  Private Sub Recorrido_2(ByRef DS_liqparcial As DataSet, ByRef valido As String, ByRef valido_xcargas As String, ByRef codigo_error As String, ByRef check As String)
+  Private Sub Recorrido_2(ByRef DS_liqparcial As DataSet, ByRef codigo_error As String, ByRef check As String)
+    Dim valido = "si"
+    Dim valido_xcargas = "si"
     If ChkBox_2TODAS.Checked = True And valido = "si" And valido_xcargas = "si" Then
       'se seleccionaron todas las zonas de Recorrido 1.
       check = "si"
-      If valido = "si" And valido_xcargas = "si" Then
-        'valido zona 1A
-        Validar_recorridos_a(valido, "2A", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "2A", codigo_error)
+      If ChkBox_2A.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          'valido zona 1A
+          Validar_recorridos_a(valido, "2A", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "2A", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "2A", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "2A", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "2B", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "2B", codigo_error)
+
+      If ChkBox_2B.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "2B", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "2B", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "2B", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "2B", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "2C", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "2C", codigo_error)
+
+      If ChkBox_2C.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "2C", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "2C", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "2C", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "2C", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "2D", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "2D", codigo_error)
+
+      If ChkBox_2D.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "2D", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "2D", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "2D", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "2D", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "2E", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "2E", codigo_error)
+
+      If ChkBox_2E.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "2E", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "2E", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "2E", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "2E", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "2F", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "2F", codigo_error)
+
+      If ChkBox_2F.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "2F", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "2F", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "2F", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "2F", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "2G", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "2G", codigo_error)
+
+      If ChkBox_2G.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "2G", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "2G", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "2G", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "2G", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "2H", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "2H", codigo_error)
+
+      If ChkBox_2H.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "2H", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "2H", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "2H", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "2H", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "2I", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "2I", codigo_error)
+
+      If ChkBox_2I.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "2I", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "2I", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "2I", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "2I", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "2J", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "2J", codigo_error)
+
+      If ChkBox_2J.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "2J", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "2J", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "2J", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "2J", DS_liqparcial)
       End If
+
 
     Else
       If ChkBox_2A.Checked = True And valido = "si" And valido_xcargas = "si" Then
@@ -1081,94 +1136,117 @@ Public Class LiquidacionParcial_recorridos
 
   End Sub
 
-  Private Sub Recorrido_3(ByRef DS_liqparcial As DataSet, ByRef valido As String, ByRef valido_xcargas As String, ByRef codigo_error As String, ByRef check As String)
+  Private Sub Recorrido_3(ByRef DS_liqparcial As DataSet, ByRef codigo_error As String, ByRef check As String)
+    Dim valido = "si"
+    Dim valido_xcargas = "si"
     If ChkBox_3TODAS.Checked = True And valido = "si" And valido_xcargas = "si" Then
       'se seleccionaron todas las zonas de Recorrido 3.
       check = "si"
-      If valido = "si" And valido_xcargas = "si" Then
-        'valido zona 3A
-        Validar_recorridos_a(valido, "3A", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "3A", codigo_error)
+      If ChkBox_3A.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          'valido zona 3A
+          Validar_recorridos_a(valido, "3A", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "3A", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "3A", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "3A", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "3B", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "3B", codigo_error)
+      If ChkBox_3B.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "3B", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "3B", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "3B", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "3B", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "3C", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "3C", codigo_error)
+      If ChkBox_3C.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "3C", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "3C", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "3C", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "3C", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "3D", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "3D", codigo_error)
+      If ChkBox_3D.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "3D", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "3D", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "3D", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "3D", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "3E", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "3E", codigo_error)
+      If ChkBox_3E.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "3E", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "3E", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "3E", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "3E", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "3F", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "3F", codigo_error)
+      If ChkBox_3F.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "3F", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "3F", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "3F", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "3F", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "3G", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "3G", codigo_error)
+      If ChkBox_3G.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "3G", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "3G", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "3G", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "3G", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "3H", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "3H", codigo_error)
+      If ChkBox_3H.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "3H", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "3H", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "3H", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "3H", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "3I", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "3I", codigo_error)
+      If ChkBox_3I.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "3I", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "3I", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "3I", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "3I", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "3J", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "3J", codigo_error)
+      If ChkBox_3J.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "3J", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "3J", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "3J", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "3J", DS_liqparcial)
       End If
 
+
     Else
-      If ChkBox_3A.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        If ChkBox_3A.Checked = True And valido = "si" And valido_xcargas = "si" Then
         'valido zona 3A
         Validar_recorridos_a(valido, "3A", codigo_error, check)
         If valido = "si" Then
@@ -1255,94 +1333,117 @@ Public Class LiquidacionParcial_recorridos
 
   End Sub
 
-  Private Sub Recorrido_4(ByRef DS_liqparcial As DataSet, ByRef valido As String, ByRef valido_xcargas As String, ByRef codigo_error As String, ByRef check As String)
+  Private Sub Recorrido_4(ByRef DS_liqparcial As DataSet, ByRef codigo_error As String, ByRef check As String)
+    Dim valido = "si"
+    Dim valido_xcargas = "si"
     If ChkBox_4TODAS.Checked = True And valido = "si" And valido_xcargas = "si" Then
       'se seleccionaron todas las zonas de Recorrido 1.
       check = "si"
-      If valido = "si" And valido_xcargas = "si" Then
-        'valido zona 1A
-        Validar_recorridos_a(valido, "4A", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "4A", codigo_error)
+      If ChkBox_4A.Visible = True Then
+
+        If valido = "si" And valido_xcargas = "si" Then
+          'valido zona 1A
+          Validar_recorridos_a(valido, "4A", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "4A", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "4A", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "4A", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "4B", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "4B", codigo_error)
+      If ChkBox_4B.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "4B", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "4B", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "4B", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "4B", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "4C", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "4C", codigo_error)
+      If ChkBox_4C.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "4C", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "4C", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "4C", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "4C", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "4D", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "4D", codigo_error)
+      If ChkBox_4D.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "4D", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "4D", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "4D", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "4D", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "4E", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "4E", codigo_error)
+      If ChkBox_4E.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "4E", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "4E", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "4E", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "4E", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "4F", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "4F", codigo_error)
+      If ChkBox_4F.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "4F", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "4F", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "4F", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "4F", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "4G", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "4G", codigo_error)
+      If ChkBox_4G.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "4G", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "4G", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "4G", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "4G", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "4H", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "4H", codigo_error)
+      If ChkBox_4H.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "4H", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "4H", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "4H", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "4H", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "4I", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "4I", codigo_error)
+      If ChkBox_4I.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "4I", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "4I", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "4I", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "4I", DS_liqparcial)
       End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "4J", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "4J", codigo_error)
+      If ChkBox_4J.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "4J", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "4J", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "4J", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "4J", DS_liqparcial)
       End If
 
     Else
-      If ChkBox_4A.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        If ChkBox_4A.Checked = True And valido = "si" And valido_xcargas = "si" Then
         'valido zona 1A
         Validar_recorridos_a(valido, "4A", codigo_error, check)
         If valido = "si" Then
@@ -1429,94 +1530,125 @@ Public Class LiquidacionParcial_recorridos
 
   End Sub
 
-  Private Sub Recorrido_5(ByRef DS_liqparcial As DataSet, ByRef valido As String, ByRef valido_xcargas As String, ByRef codigo_error As String, ByRef check As String)
+  Private Sub Recorrido_5(ByRef DS_liqparcial As DataSet, ByRef codigo_error As String, ByRef check As String)
+    Dim valido = "si"
+    Dim valido_xcargas = "si"
     If ChkBox_5TODAS.Checked = True And valido = "si" And valido_xcargas = "si" Then
       'se seleccionaron todas las zonas de Recorrido 5.
       check = "si"
-      If valido = "si" And valido_xcargas = "si" Then
-        'valido zona 5A
-        Validar_recorridos_a(valido, "5A", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "5A", codigo_error)
+
+      If ChkBox_5A.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          'valido zona 5A
+          Validar_recorridos_a(valido, "5A", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "5A", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "5A", DS_liqparcial)
         End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "5A", DS_liqparcial)
-      End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "5B", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "5B", codigo_error)
-        End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "5B", DS_liqparcial)
-      End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "5C", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "5C", codigo_error)
-        End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "5C", DS_liqparcial)
-      End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "5D", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "5D", codigo_error)
-        End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "5D", DS_liqparcial)
-      End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "5E", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "5E", codigo_error)
-        End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "5E", DS_liqparcial)
-      End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "5F", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "5F", codigo_error)
-        End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "5F", DS_liqparcial)
-      End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "5G", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "5G", codigo_error)
-        End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "5G", DS_liqparcial)
-      End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "5H", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "5H", codigo_error)
-        End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "5H", DS_liqparcial)
-      End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "5I", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "5I", codigo_error)
-        End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "5I", DS_liqparcial)
-      End If
-      If valido = "si" And valido_xcargas = "si" Then
-        Validar_recorridos_a(valido, "5J", codigo_error, check)
-        If valido = "si" Then
-          '2DA VALIDACION------------------------
-          Validar_XCargas_parcial(valido_xcargas, "5J", codigo_error)
-        End If
-        Cargar_recorrido_valido(valido, valido_xcargas, "5J", DS_liqparcial)
       End If
 
+      If ChkBox_5B.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "5B", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "5B", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "5B", DS_liqparcial)
+        End If
+      End If
+
+      If ChkBox_5C.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "5C", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "5C", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "5C", DS_liqparcial)
+        End If
+      End If
+
+      If ChkBox_5D.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "5D", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "5D", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "5D", DS_liqparcial)
+        End If
+      End If
+
+      If ChkBox_5E.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "5E", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "5E", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "5E", DS_liqparcial)
+        End If
+      End If
+
+      If ChkBox_5F.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "5F", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "5F", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "5F", DS_liqparcial)
+        End If
+      End If
+
+      If ChkBox_5G.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "5G", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "5G", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "5G", DS_liqparcial)
+        End If
+      End If
+
+      If ChkBox_5H.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "5H", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "5H", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "5H", DS_liqparcial)
+        End If
+      End If
+
+      If ChkBox_5I.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "5I", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "5I", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "5I", DS_liqparcial)
+        End If
+      End If
+
+      If ChkBox_5J.Visible = True Then
+        If valido = "si" And valido_xcargas = "si" Then
+          Validar_recorridos_a(valido, "5J", codigo_error, check)
+          If valido = "si" Then
+            '2DA VALIDACION------------------------
+            Validar_XCargas_parcial(valido_xcargas, "5J", codigo_error)
+          End If
+          Cargar_recorrido_valido(valido, valido_xcargas, "5J", DS_liqparcial)
+        End If
+      End If
     Else
-      If ChkBox_5A.Checked = True And valido = "si" And valido_xcargas = "si" Then
+        If ChkBox_5A.Checked = True And valido = "si" And valido_xcargas = "si" Then
         'valido zona 5A
         Validar_recorridos_a(valido, "5A", codigo_error, check)
         If valido = "si" Then
@@ -2043,13 +2175,13 @@ Public Class LiquidacionParcial_recorridos
       Dim valido_xcargas As String = "si"
 
       'validamos todos los elementos de Recorrido1
-      Recorrido_1(DS_liqparcial, valido, valido_xcargas, codigo_error, check)
-      Recorrido_2(DS_liqparcial, valido, valido_xcargas, codigo_error, check)
-      Recorrido_3(DS_liqparcial, valido, valido_xcargas, codigo_error, check)
-      Recorrido_4(DS_liqparcial, valido, valido_xcargas, codigo_error, check)
-      Recorrido_5(DS_liqparcial, valido, valido_xcargas, codigo_error, check)
+      Recorrido_1(DS_liqparcial, codigo_error, check)
+      Recorrido_2(DS_liqparcial, codigo_error, check)
+      Recorrido_3(DS_liqparcial, codigo_error, check)
+      Recorrido_4(DS_liqparcial, codigo_error, check)
+      Recorrido_5(DS_liqparcial, codigo_error, check)
 
-      If (codigo_error <> "") And (DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Count = 0) Then
+      If (DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Count = 0) Then '(codigo_error <> "") And
         DS_liqparcial.Tables("Recorridos_seleccionados").Rows.Clear()
         'falló alguna validacion
         Label_error_liq02.Text = codigo_error
