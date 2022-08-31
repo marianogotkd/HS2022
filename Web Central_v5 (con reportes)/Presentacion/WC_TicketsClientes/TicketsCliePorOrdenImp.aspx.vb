@@ -602,6 +602,8 @@ Public Class TicketsCliePorOrdenImp
         'DS_ticketsclientes.Tables("TicketClieOrden_info1").Rows.Add(filab)
 
         '------------------AQUIREPORTE ------------------------------------------------
+        DS_ticketsclientes.Tables("Cliente_CtacteInfo_2").Merge(DS_ticketsclientes.Tables("Cliente_CtacteInfo"))
+
 
         Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
         CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
@@ -610,6 +612,7 @@ Public Class TicketsCliePorOrdenImp
         CrReport.Database.Tables("Puntos_A").SetDataSource(DS_ticketsclientes.Tables("Puntos_A"))
 
         CrReport.Database.Tables("Cliente_CtacteInfo").SetDataSource(DS_ticketsclientes.Tables("Cliente_CtacteInfo"))
+        CrReport.Database.Tables("Cliente_CtacteInfo_2").SetDataSource(DS_ticketsclientes.Tables("Cliente_CtacteInfo_2"))
         CrReport.Database.Tables("Cliente_PremiosInfo").SetDataSource(DS_ticketsclientes.Tables("Cliente_PremiosInfo"))
 
         'creo una cadena que voy a necesitar para el nombre del archivo a generar
