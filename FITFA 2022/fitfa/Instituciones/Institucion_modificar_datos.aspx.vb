@@ -1,0 +1,125 @@
+﻿Imports System.Drawing
+Imports System.IO
+
+Public Class Institucion_modificar_datos
+    Inherits System.Web.UI.Page
+    Dim DAusuario As New Capa_de_datos.usuario
+    Dim tamanio As Integer
+    Dim ImagenOriginal As Byte()
+    Dim ImagenOriginalBinaria As Bitmap
+    Dim ImagenDataURL64 As String
+    Dim DAinstitucion As New Capa_de_datos.Instituciones
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not IsPostBack Then
+            Session("imagen") = ""
+            Session("foto_subido") = "no"
+            div_modalOK.Visible = False
+            Dim ID As Integer = Session("ID_institucion")
+            Dim ds_intitucion As DataSet = DAinstitucion.institucion_buscar(ID)
+            tb_nombre.Value = ds_intitucion.Tables(0).Rows(0).Item("institucion_descripcion")
+            tb_abreviatura.Value = ds_intitucion.Tables(0).Rows(0).Item("institucion_abreviacion")
+            combo_provincia.SelectedValue = ds_intitucion.Tables(0).Rows(0).Item("provincia_id")
+            Dim ImagenBD As Byte() = ds_intitucion.Tables(0).Rows(0).Item("institucion_logo")
+            Dim ImagenDataURL64 As String = "data:image/jpg;base64," + Convert.ToBase64String(ImagenBD)
+            'choco
+            'image1.ImageUrl = ImagenDataURL64
+            Image1.ImageUrl = ImagenDataURL64
+
+
+        End If
+    End Sub
+
+    Private Sub combo_provincia_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles combo_provincia.Init
+        Obtener_provincias()
+    End Sub
+
+    Private Sub Obtener_provincias()
+        Dim ds_provincias As DataSet = DAusuario.Usuario_ObtenerProvincias()
+
+        If ds_provincias.Tables(0).Rows.Count <> 0 Then
+            combo_provincia.DataSource = ds_provincias.Tables(0)
+            combo_provincia.DataTextField = "provincia_desc"
+            combo_provincia.DataValueField = "provincia_id"
+            combo_provincia.DataBind()
+        End If
+    End Sub
+
+    Private Sub Subir_Foto_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles Subir_Foto.ServerClick
+        If FileUpload1.HasFile Then
+            Dim fileExt As String = System.IO.Path.GetExtension(FileUpload1.FileName)
+            If fileExt = ".jpeg" Or fileExt = ".bmp" Or fileExt = ".png" Or fileExt = ".jpg" Or fileExt = ".JPG" Or fileExt = ".PNG" Or fileExt = ".JPEG" Or fileExt = ".BMP" Then
+                Session("foto_subido") = "si"
+                tamanio = FileUpload1.PostedFile.ContentLength
+                'int Tamanio = fuploadImagen.PostedFile.ContentLength;
+                'choco
+                ImagenOriginal = New Byte(tamanio - 1) {}
+                'byte[] ImagenOriginal = new byte[Tamanio];
+                'choco
+                FileUpload1.PostedFile.InputStream.Read(ImagenOriginal, 0, tamanio)
+                'fuploadImagen.PostedFile.InputStream.Read(ImagenOriginal, 0, Tamanio);
+                'choco
+                ImagenOriginalBinaria = New Bitmap(FileUpload1.PostedFile.InputStream)
+                'Bitmap ImagenOriginalBinaria = new Bitmap(fuploadImagen.PostedFile.InputStream);
+                'choco
+                ImagenDataURL64 = "data:image/jpg;base64," + Convert.ToBase64String(ImagenOriginal)
+                'string ImagenDataURL64 = "data:image/jpg;base64." + Convert.ToBase64String(ImagenOriginal);
+
+                Session("imagen") = ImagenOriginal
+                Image1.ImageUrl = ImagenDataURL64
+
+                Image1.Visible = True
+                'lbl_errImg.Visible = False
+                btn_Examinar.Visible = True
+                btn_quitar.Visible = True
+            Else
+
+                'lbl_errImg.Visible = True
+                'lbl_errImg.InnerText = "Solo Archivos de Tipo Imagen"
+            End If
+
+        End If
+    End Sub
+
+
+
+    Private Sub btn_quitar_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_quitar.ServerClick
+        Image1.ImageUrl = "~/Instituciones/imagen/logo_institucion.jpg"
+        Session("imagen") = ""
+        Session("foto_subido") = "quitada"
+    End Sub
+
+    Public Function ImageControlToByteArray(ByVal foto)
+        Return File.ReadAllBytes(Server.MapPath(foto.ImageUrl))
+    End Function
+
+    Private Sub btn_guardar_ServerClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_guardar.ServerClick
+        If Session("foto_subido") = "quitada" Then 'nota: esto valido en caso que quiera dejar la foto con la imagen generica de LOGO
+            Dim imagebytes As Byte() = ImageControlToByteArray(Image1)
+            Session("imagen") = imagebytes
+            Session("foto_subido") = "si"
+        End If
+        'validacion 
+        If tb_nombre.Value <> "" And tb_abreviatura.Value <> "" Then
+            If Session("foto_subido") = "si" Then
+                DAinstitucion.Instituciones_modificar_con_foto(Session("ID_institucion"), combo_provincia.SelectedValue, tb_nombre.Value, tb_abreviatura.Value, Session("imagen"))
+            Else
+                'no paso foto como parametro
+                DAinstitucion.Instituciones_modificar_sin_foto(Session("ID_institucion"), combo_provincia.SelectedValue, tb_nombre.Value, tb_abreviatura.Value)
+            End If
+
+            'DAinstitucion.Instituciones_alta(combo_provincia.SelectedValue, tb_nombre.Value, tb_abreviatura.Value, Session("imagen"))
+            div_modalOK.Visible = True
+            Modal_OK.Show()
+            Response.Redirect("~/Instituciones/Instructor_institucion_b.aspx")
+        End If
+    End Sub
+    Private Sub limpiarbox()
+        Image1.ImageUrl = "~/Instituciones/imagen/logo_institucion.jpg"
+        Session("imagen") = ""
+        Session("foto_subido") = "no"
+        tb_nombre.Value = ""
+        tb_abreviatura.Value = ""
+        tb_nombre.Focus()
+    End Sub
+End Class
