@@ -111,6 +111,7 @@
                                                   </asp:BoundField>
                                                   <asp:BoundField DataField="instructor_id" HeaderText="Instructor_id" />
                                                   <asp:BoundField DataField="instructor" HeaderText="Instructor" />
+                                                  <asp:BoundField DataField="Inscripcion_id" HeaderText="Inscripcion_id" />
                                               </Columns>
                                           </asp:GridView>
                                           <button ID="Button_eliminar_inscripto2" runat="server" class="btn btn-primary" 

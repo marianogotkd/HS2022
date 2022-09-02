@@ -1,0 +1,12 @@
+create procedure Llave_para_reordenar
+
+@Llave_id int
+as
+select  LLave_item_id, Llave_item_usuario_id, Llave_item_PIzq, Llave_item_PDerecho, Llave_item_nivel, Llave_item_Numero, Llave_item_enlazado, Llave_id, 
+usuario_apellido +','+usuario_nombre as 'USUARIO', alumnos_x_instructor.instructor_id
+from Llave_item inner join usuario on usuario.usuario_id = Llave_item_usuario_id
+inner join alumnos_x_instructor on alumnos_x_instructor.usuario_id = usuario.usuario_id   where Llave_id = @Llave_id order by LLave_item_id asc 
+
+select * from Llave_item where Llave_id = @Llave_id 
+
+go

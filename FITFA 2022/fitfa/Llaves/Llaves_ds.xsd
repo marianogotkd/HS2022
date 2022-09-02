@@ -65,6 +65,7 @@
               <xs:element name="instructor_id" msprop:Generator_ColumnVarNameInTable="columninstructor_id" msprop:Generator_ColumnPropNameInRow="instructor_id" msprop:Generator_ColumnPropNameInTable="instructor_idColumn" msprop:Generator_UserColumnName="instructor_id" type="xs:string" minOccurs="0" />
               <xs:element name="instructor" msprop:Generator_ColumnVarNameInTable="columninstructor" msprop:Generator_ColumnPropNameInRow="instructor" msprop:Generator_ColumnPropNameInTable="instructorColumn" msprop:Generator_UserColumnName="instructor" type="xs:string" minOccurs="0" />
               <xs:element name="Peso" msprop:Generator_ColumnVarNameInTable="columnPeso" msprop:Generator_ColumnPropNameInRow="Peso" msprop:Generator_ColumnPropNameInTable="PesoColumn" msprop:Generator_UserColumnName="Peso" type="xs:string" minOccurs="0" />
+              <xs:element name="Inscripcion_id" msprop:Generator_ColumnVarNameInTable="columnInscripcion_id" msprop:Generator_ColumnPropNameInRow="Inscripcion_id" msprop:Generator_ColumnPropNameInTable="Inscripcion_idColumn" msprop:Generator_UserColumnName="Inscripcion_id" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -187,6 +188,36 @@
               <xs:element name="B30" msprop:Generator_ColumnVarNameInTable="columnB30" msprop:Generator_ColumnPropNameInRow="B30" msprop:Generator_ColumnPropNameInTable="B30Column" msprop:Generator_UserColumnName="B30" type="xs:string" minOccurs="0" />
               <xs:element name="B31" msprop:Generator_ColumnVarNameInTable="columnB31" msprop:Generator_ColumnPropNameInRow="B31" msprop:Generator_ColumnPropNameInTable="B31Column" msprop:Generator_UserColumnName="B31" type="xs:string" minOccurs="0" />
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Llave_pareja_single" msprop:Generator_TableClassName="Llave_pareja_singleDataTable" msprop:Generator_TableVarName="tableLlave_pareja_single" msprop:Generator_RowChangedName="Llave_pareja_singleRowChanged" msprop:Generator_TablePropName="Llave_pareja_single" msprop:Generator_RowDeletingName="Llave_pareja_singleRowDeleting" msprop:Generator_RowChangingName="Llave_pareja_singleRowChanging" msprop:Generator_RowEvHandlerName="Llave_pareja_singleRowChangeEventHandler" msprop:Generator_RowDeletedName="Llave_pareja_singleRowDeleted" msprop:Generator_RowClassName="Llave_pareja_singleRow" msprop:Generator_UserTableName="Llave_pareja_single" msprop:Generator_RowEvArgName="Llave_pareja_singleRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Llave_item_id" msprop:Generator_ColumnVarNameInTable="columnLlave_item_id" msprop:Generator_ColumnPropNameInRow="Llave_item_id" msprop:Generator_ColumnPropNameInTable="Llave_item_idColumn" msprop:Generator_UserColumnName="Llave_item_id" type="xs:int" minOccurs="0" />
+              <xs:element name="Llave_item_usuario_id" msprop:Generator_ColumnVarNameInTable="columnLlave_item_usuario_id" msprop:Generator_ColumnPropNameInRow="Llave_item_usuario_id" msprop:Generator_ColumnPropNameInTable="Llave_item_usuario_idColumn" msprop:Generator_UserColumnName="Llave_item_usuario_id" type="xs:int" minOccurs="0" />
+              <xs:element name="USUARIO" msprop:Generator_ColumnVarNameInTable="columnUSUARIO" msprop:Generator_ColumnPropNameInRow="USUARIO" msprop:Generator_ColumnPropNameInTable="USUARIOColumn" msprop:Generator_UserColumnName="USUARIO" type="xs:string" minOccurs="0" />
+              <xs:element name="instructor_id" msprop:Generator_ColumnVarNameInTable="columninstructor_id" msprop:Generator_ColumnPropNameInRow="instructor_id" msprop:Generator_ColumnPropNameInTable="instructor_idColumn" msprop:Generator_UserColumnName="instructor_id" type="xs:int" minOccurs="0" />
+              <xs:element name="tipo" msprop:Generator_ColumnVarNameInTable="columntipo" msprop:Generator_ColumnPropNameInRow="tipo" msprop:Generator_ColumnPropNameInTable="tipoColumn" msprop:Generator_UserColumnName="tipo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Inscriptos_x_instructor" msprop:Generator_TableClassName="Inscriptos_x_instructorDataTable" msprop:Generator_TableVarName="tableInscriptos_x_instructor" msprop:Generator_RowChangedName="Inscriptos_x_instructorRowChanged" msprop:Generator_TablePropName="Inscriptos_x_instructor" msprop:Generator_RowDeletingName="Inscriptos_x_instructorRowDeleting" msprop:Generator_RowChangingName="Inscriptos_x_instructorRowChanging" msprop:Generator_RowEvHandlerName="Inscriptos_x_instructorRowChangeEventHandler" msprop:Generator_RowDeletedName="Inscriptos_x_instructorRowDeleted" msprop:Generator_RowClassName="Inscriptos_x_instructorRow" msprop:Generator_UserTableName="Inscriptos_x_instructor" msprop:Generator_RowEvArgName="Inscriptos_x_instructorRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="instructor_id" msprop:Generator_ColumnVarNameInTable="columninstructor_id" msprop:Generator_ColumnPropNameInRow="instructor_id" msprop:Generator_ColumnPropNameInTable="instructor_idColumn" msprop:Generator_UserColumnName="instructor_id" type="xs:int" minOccurs="0" />
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Llave_pareja_single1" msprop:Generator_TableClassName="Llave_pareja_single1DataTable" msprop:Generator_TableVarName="tableLlave_pareja_single1" msprop:Generator_RowChangedName="Llave_pareja_single1RowChanged" msprop:Generator_TablePropName="Llave_pareja_single1" msprop:Generator_RowDeletingName="Llave_pareja_single1RowDeleting" msprop:Generator_RowChangingName="Llave_pareja_single1RowChanging" msprop:Generator_RowEvHandlerName="Llave_pareja_single1RowChangeEventHandler" msprop:Generator_RowDeletedName="Llave_pareja_single1RowDeleted" msprop:Generator_RowClassName="Llave_pareja_single1Row" msprop:Generator_UserTableName="Llave_pareja_single1" msprop:Generator_RowEvArgName="Llave_pareja_single1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Llave_item_id" msprop:Generator_ColumnVarNameInTable="columnLlave_item_id" msprop:Generator_ColumnPropNameInRow="Llave_item_id" msprop:Generator_ColumnPropNameInTable="Llave_item_idColumn" msprop:Generator_UserColumnName="Llave_item_id" type="xs:int" minOccurs="0" />
+              <xs:element name="Llave_item_usuario_id" msprop:Generator_ColumnVarNameInTable="columnLlave_item_usuario_id" msprop:Generator_ColumnPropNameInRow="Llave_item_usuario_id" msprop:Generator_ColumnPropNameInTable="Llave_item_usuario_idColumn" msprop:Generator_UserColumnName="Llave_item_usuario_id" type="xs:int" minOccurs="0" />
+              <xs:element name="USUARIO" msprop:Generator_ColumnVarNameInTable="columnUSUARIO" msprop:Generator_ColumnPropNameInRow="USUARIO" msprop:Generator_ColumnPropNameInTable="USUARIOColumn" msprop:Generator_UserColumnName="USUARIO" type="xs:string" minOccurs="0" />
+              <xs:element name="instructor_id" msprop:Generator_ColumnVarNameInTable="columninstructor_id" msprop:Generator_ColumnPropNameInRow="instructor_id" msprop:Generator_ColumnPropNameInTable="instructor_idColumn" msprop:Generator_UserColumnName="instructor_id" type="xs:int" minOccurs="0" />
+              <xs:element name="tipo" msprop:Generator_ColumnVarNameInTable="columntipo" msprop:Generator_ColumnPropNameInRow="tipo" msprop:Generator_ColumnPropNameInTable="tipoColumn" msprop:Generator_UserColumnName="tipo" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

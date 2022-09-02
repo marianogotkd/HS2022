@@ -23,13 +23,9 @@ Public Class Conexion
     'NOTA: LA CADENA DE ABAJO LA USO CON UNA BD QUE SE RESTAURO DEL SERVIDOR DONDE ESTA ACTIVO LA PAGINA
     'Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Password=123choco;Persist Security Info=True;User ID=CHOCO;Initial Catalog=wi181976_fitfabd;Data Source=DESKTOP-IPJ62B9\SQLEXPRESS_CHOK")
 
-
-
     '
     'Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Password=123choco;Persist Security Info=True;User ID=CHOCO;Initial Catalog=fitfaBD_mariano;Data Source=DESKTOP-IPJ62B9\SQLEXPRESS_CHOK")
     'Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Password=123choco;Persist Security Info=True;User ID=CHOCO;Initial Catalog=fitfaBD;Data Source=DESKTOP-IPJ62B9\SQLEXPRESS_CHOK")
-
-
 
     'hamer conexion
     ' Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Persist Security Info=False;User ID=choco; password=123choco;Initial Catalog=fitfaBD;Data Source=HAMER")

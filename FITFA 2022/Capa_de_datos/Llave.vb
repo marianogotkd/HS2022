@@ -361,4 +361,42 @@ ByVal Llave_item_Numero As Integer, ByVal estado As String, ByVal Llave_id As In
         Return ds_JE
     End Function
 
+    '------------------------------------------------------------------------------------------------
+    'fecha: 31-08-2022 16.49hrs Choco. para form Lllave_generar.aspx
+    Public Function Llave_para_reordenar(ByVal Llave_id As Integer) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Llave_para_reordenar", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Llave_id", Llave_id))
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "llave")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+    '------------------------------------------------------------------------------------------------
+
+    Public Function Llave_item_actualizar_orden(ByVal LLave_item_id As Integer, ByVal Llave_item_usuario_id As Integer) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Llave_item_actualizar_orden", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@LLave_item_id", LLave_item_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Llave_item_usuario_id", Llave_item_usuario_id))
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "llave")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+
+
 End Class

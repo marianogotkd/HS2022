@@ -19,8 +19,518 @@
             crear_tabla_resultados()
 
             cargar_resultados_competencia()
+
+            'REORDENAR_LLAVE_PRIORIDAD_PROFES(llave_id)
+
+
         End If
     End Sub
+
+    Private Sub REORDENAR_LLAVE_PRIORIDAD_PROFES(ByVal llave_id As Integer)
+        Dim ds_llave As DataSet = DAllave.Llave_para_reordenar(llave_id)
+        If ds_llave.Tables(0).Rows.Count <> 0 Then
+            'aqui me fijo primero cuales son pareja y los voy a meter en un dataset, donde 1 columna me dice que son pareja o single.
+            'si tienen el mismo numero en la columna son pareja, si esta 1 sola vez es single.
+
+            'Llaves_ds2.tables("Llave_pareja_single").
+            Dim Llaves_ds2 As New Llaves_ds
+
+
+            Dim pareja As String = "pareja2"
+            Dim i As Integer = 0
+            While i < ds_llave.Tables(0).Rows.Count
+                Dim usuario_id As Integer = CInt(ds_llave.Tables(0).Rows(i).Item("Llave_item_usuario_id"))
+                If usuario_id <> 0 Then
+                    'es competidor
+                    Dim Llave_item_id As Integer = CInt(ds_llave.Tables(0).Rows(i).Item("Llave_item_id"))
+                    'busco la llave_item_id en otro registro, en el puntero derecho o izquierdo.
+                    Dim j As Integer = 0
+                    While j < ds_llave.Tables(1).Rows.Count
+                        Dim Llave_item_PIzqp As Integer = CInt(ds_llave.Tables(1).Rows(j).Item("Llave_item_PIzq"))
+                        Dim Llave_item_PDerecho As Integer = CInt(ds_llave.Tables(1).Rows(j).Item("Llave_item_PDerecho"))
+                        If Llave_item_id = Llave_item_PIzqp Then
+                            'me fijo que ocurre con el derecho. si no esta en table(0) es un competidor "single" o Libre
+                            Dim k As Integer = 0
+                            Dim existe = "no"
+                            While k < ds_llave.Tables(0).Rows.Count
+                                If Llave_item_PDerecho = ds_llave.Tables(0).Rows(k).Item("Llave_item_id") Then
+                                    existe = "si"
+                                    Exit While
+                                End If
+                                k = k + 1
+                            End While
+
+                            Dim fila As DataRow = Llaves_ds2.Tables("Llave_pareja_single").NewRow
+                            fila("Llave_item_id") = Llave_item_id
+                            fila("Llave_item_usuario_id") = usuario_id
+                            fila("USUARIO") = ds_llave.Tables(0).Rows(i).Item("USUARIO")
+                            fila("instructor_id") = ds_llave.Tables(0).Rows(i).Item("instructor_id")
+                            If existe = "si" Then
+                                If pareja = "pareja1" Then
+                                    pareja = "pareja2"
+                                Else
+                                    pareja = "pareja1"
+                                End If
+
+                                'lo ingreso como pareja
+                                fila("tipo") = pareja
+                            Else
+                                fila("tipo") = "single"
+                            End If
+                            Llaves_ds2.Tables("Llave_pareja_single").Rows.Add(fila)
+                        Else
+                            If Llave_item_id = Llave_item_PDerecho Then
+                                'me fijo que ocurre con el izquierdo. si no esta en table(0) es un competidor "single" o Libre
+                                Dim k As Integer = 0
+                                Dim existe = "no"
+                                While k < ds_llave.Tables(0).Rows.Count
+                                    If Llave_item_PIzqp = ds_llave.Tables(0).Rows(k).Item("Llave_item_id") Then
+                                        existe = "si"
+                                        Exit While
+                                    End If
+                                    k = k + 1
+                                End While
+
+                                Dim fila As DataRow = Llaves_ds2.Tables("Llave_pareja_single").NewRow
+                                fila("Llave_item_id") = Llave_item_id
+                                fila("Llave_item_usuario_id") = usuario_id
+                                fila("USUARIO") = ds_llave.Tables(0).Rows(i).Item("USUARIO")
+                                fila("instructor_id") = ds_llave.Tables(0).Rows(i).Item("instructor_id")
+                                If existe = "si" Then
+                                    If pareja = "pareja1" Then
+                                        pareja = "pareja2"
+                                    Else
+                                        pareja = "pareja1"
+                                    End If
+                                    'lo ingreso como pareja
+                                    fila("tipo") = pareja
+                                Else
+                                    fila("tipo") = "single"
+                                End If
+                                Llaves_ds2.Tables("Llave_pareja_single").Rows.Add(fila)
+                            End If
+                        End If
+
+                        j = j + 1
+                    End While
+
+                End If
+
+                i = i + 1
+            End While
+
+            If Llaves_ds2.Tables("Llave_pareja_single").Rows.Count <> 0 Then
+                'aqui comienza la reorganización
+                '1) voy a contar la cant de registros por instructor
+                '//////////////////////////////////////////////////////////////////////////////////////////////////////////
+                i = 0
+                While i < Llaves_ds2.Tables("Llave_pareja_single").Rows.Count
+                    Dim instructor_id As Integer = CInt(Llaves_ds2.Tables("Llave_pareja_single").Rows(i).Item("instructor_id"))
+                    Dim j As Integer = 0
+                    Dim existe = "no"
+                    While j < Llaves_ds2.Tables("Inscriptos_x_instructor").Rows.Count
+                        If instructor_id = Llaves_ds2.Tables("Inscriptos_x_instructor").Rows(j).Item("instructor_id") Then
+                            Llaves_ds2.Tables("Inscriptos_x_instructor").Rows(j).Item("cantidad") = CInt(Llaves_ds2.Tables("Inscriptos_x_instructor").Rows(j).Item("cantidad")) + 1
+                            existe = "si"
+                            Exit While
+                        End If
+                        j = j + 1
+                    End While
+                    If existe = "no" Then
+                        Dim fila As DataRow = Llaves_ds2.Tables("Inscriptos_x_instructor").NewRow
+                        fila("instructor_id") = instructor_id
+                        fila("cantidad") = 1
+                        Llaves_ds2.Tables("Inscriptos_x_instructor").Rows.Add(fila)
+                    End If
+                    i = i + 1
+                End While
+                'ordeno la tabla Inscriptos_x_instructor  por la columna cantidad.
+                Dim dtV As DataView = Llaves_ds2.Tables("Inscriptos_x_instructor").DefaultView
+                dtV.Sort = "cantidad DESC"
+                Dim dt_list As DataTable = dtV.ToTable
+                '//////////////////////////////////////////////////////////////////////////////////////////////////////////
+                If dt_list.Rows.Count Then
+                    Llaves_ds2.Tables("Llave_pareja_single1").Merge(Llaves_ds2.Tables("Llave_pareja_single"))
+                    'o) voy a quitar de estos registros el usuario, instructor_id, llave_item_usuario_id
+                    i = 0
+                    While i < Llaves_ds2.Tables("Llave_pareja_single1").Rows.Count
+                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(i).Item("Llave_item_usuario_id") = 0
+                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(i).Item("USUARIO") = ""
+                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(i).Item("instructor_id") = 0
+                        i = i + 1
+                    End While
+
+                    'este dt_list tiene el conteo de registros de todos los instructores: ejemplo instructor 45, cant 3. instructor 10, cant 2. instructor 60, cant 1.
+                    i = 0
+                    'primero determino cuantos inscriptos son...x que voy a ir metiendo 1 arriba y otro abajo.
+                    Dim cant_insc As Integer = Llaves_ds2.Tables("Llave_pareja_single").Rows.Count
+                    Dim inicio As Integer = 0
+                    Dim medio As Integer = 0
+                    If cant_insc Mod (2) = 0 Then
+                        'es par
+                        medio = cant_insc / 2
+                    Else
+                        medio = CInt(cant_insc / 2) + 1
+                    End If
+
+                    Dim mov_inicio As Integer = inicio
+                    Dim mov_medio As Integer = medio
+                    Dim donde_poner As String = "arriba"
+                    Dim ingreso_secuenal As String = ""
+                    While i < dt_list.Rows.Count
+                        Dim instructor_id = CInt(dt_list.Rows(i).Item(0))
+
+                        Dim j As Integer = 0
+                        While j < Llaves_ds2.Tables("Llave_pareja_single").Rows.Count
+                            If instructor_id = Llaves_ds2.Tables("Llave_pareja_single").Rows(j).Item("instructor_id") Then
+                                Dim usuario_id As Integer = Llaves_ds2.Tables("Llave_pareja_single").Rows(j).Item("Llave_item_usuario_id")
+                                Dim USUARIO As String = Llaves_ds2.Tables("Llave_pareja_single").Rows(j).Item("USUARIO")
+                                If ingreso_secuenal = "si" Then
+
+                                    Dim h As Integer = 0
+                                    While h < Llaves_ds2.Tables("Llave_pareja_single1").Rows.Count
+                                        If Llaves_ds2.Tables("Llave_pareja_single1").Rows(h).Item("instructor_id") = 0 Then
+                                            Llaves_ds2.Tables("Llave_pareja_single1").Rows(h).Item("Llave_item_usuario_id") = usuario_id
+                                            Llaves_ds2.Tables("Llave_pareja_single1").Rows(h).Item("USUARIO") = USUARIO
+                                            Llaves_ds2.Tables("Llave_pareja_single1").Rows(h).Item("instructor_id") = instructor_id
+                                            Exit While
+                                        End If
+                                        h = h + 1
+                                    End While
+
+                                Else
+                                    If donde_poner = "arriba" Then
+
+                                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_inicio).Item("Llave_item_usuario_id") = usuario_id
+                                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_inicio).Item("USUARIO") = USUARIO
+                                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_inicio).Item("instructor_id") = instructor_id
+                                        If Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_inicio).Item("tipo") = "pareja1" Then
+                                            mov_inicio = mov_inicio + 2
+                                            donde_poner = "abajo"
+                                        Else
+                                            mov_inicio = mov_inicio + 1
+                                            donde_poner = "abajo"
+                                        End If
+
+
+                                    Else
+                                        'poner abajo
+                                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_medio).Item("Llave_item_usuario_id") = usuario_id
+                                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_medio).Item("USUARIO") = USUARIO
+                                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_medio).Item("instructor_id") = instructor_id
+                                        If Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_medio).Item("tipo") = "pareja1" Then
+                                            mov_medio = mov_medio + 2
+                                            donde_poner = "arriba"
+                                        Else
+                                            mov_medio = mov_medio + 1
+                                            donde_poner = "arriba"
+                                        End If
+
+                                    End If
+
+                                    If donde_poner = "abajo" Then
+                                        'verifico si no estoy al final
+                                        If (mov_medio = medio + 1) Or (mov_medio > medio + 1) Then
+                                            'verifico si no estoy al final de parte de arriba
+                                            If (mov_inicio = medio) Or (mov_inicio > medio) Then
+                                                ingreso_secuenal = "si"
+                                            End If
+                                            ''ya no puedo ingresar mas...entonces voy colocando secuencial
+                                            'ingreso_secuenal = "si"
+                                        End If
+                                    Else
+                                        If donde_poner = "arriba" Then
+                                            'verifico si no estoy al final de parte de arriba
+                                            If (mov_inicio = medio) Or (mov_inicio > medio) Then
+                                                'ya no puedo ingresar mas aqui...
+                                                If (mov_medio = medio + 1) Or (mov_medio > medio + 1) Then
+                                                    'ya no puedo ingresar mas...entonces voy colocando secuencial.
+                                                    ingreso_secuenal = "si"
+                                                Else
+                                                    donde_poner = "abajo"
+                                                End If
+                                            End If
+                                        End If
+                                    End If
+                                End If
+
+                            End If
+                            j = j + 1
+                        End While
+
+                        i = i + 1
+                    End While
+
+
+                End If
+                '//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+                If Llaves_ds2.Tables("Llave_pareja_single1").Rows.Count <> 0 Then
+
+                End If
+
+
+            End If
+
+
+        End If
+
+
+
+    End Sub
+
+
+    Private Sub REORDENAR_LLAVE_PRIORIDAD_PROFES_viejo(ByVal llave_id As Integer)
+        Dim ds_llave As DataSet = DAllave.Llave_para_reordenar(llave_id)
+        If ds_llave.Tables(0).Rows.Count <> 0 Then
+            'aqui me fijo primero cuales son pareja y los voy a meter en un dataset, donde 1 columna me dice que son pareja o single.
+            'si tienen el mismo numero en la columna son pareja, si esta 1 sola vez es single.
+
+            'Llaves_ds2.tables("Llave_pareja_single").
+            Dim Llaves_ds2 As New Llaves_ds
+
+
+            Dim pareja As String = "pareja2"
+            Dim i As Integer = 0
+            While i < ds_llave.Tables(0).Rows.Count
+                Dim usuario_id As Integer = CInt(ds_llave.Tables(0).Rows(i).Item("Llave_item_usuario_id"))
+                If usuario_id <> 0 Then
+                    'es competidor
+                    Dim Llave_item_id As Integer = CInt(ds_llave.Tables(0).Rows(i).Item("Llave_item_id"))
+                    'busco la llave_item_id en otro registro, en el puntero derecho o izquierdo.
+                    Dim j As Integer = 0
+                    While j < ds_llave.Tables(1).Rows.Count
+                        Dim Llave_item_PIzqp As Integer = CInt(ds_llave.Tables(1).Rows(j).Item("Llave_item_PIzq"))
+                        Dim Llave_item_PDerecho As Integer = CInt(ds_llave.Tables(1).Rows(j).Item("Llave_item_PDerecho"))
+                        If Llave_item_id = Llave_item_PIzqp Then
+                            'me fijo que ocurre con el derecho. si no esta en table(0) es un competidor "single" o Libre
+                            Dim k As Integer = 0
+                            Dim existe = "no"
+                            While k < ds_llave.Tables(0).Rows.Count
+                                If Llave_item_PDerecho = ds_llave.Tables(0).Rows(k).Item("Llave_item_id") Then
+                                    existe = "si"
+                                    Exit While
+                                End If
+                                k = k + 1
+                            End While
+
+                            Dim fila As DataRow = Llaves_ds2.Tables("Llave_pareja_single").NewRow
+                            fila("Llave_item_id") = Llave_item_id
+                            fila("Llave_item_usuario_id") = usuario_id
+                            fila("USUARIO") = ds_llave.Tables(0).Rows(i).Item("USUARIO")
+                            fila("instructor_id") = ds_llave.Tables(0).Rows(i).Item("instructor_id")
+                            If existe = "si" Then
+                                If pareja = "pareja1" Then
+                                    pareja = "pareja2"
+                                Else
+                                    pareja = "pareja1"
+                                End If
+
+                                'lo ingreso como pareja
+                                fila("tipo") = pareja
+                            Else
+                                fila("tipo") = "single"
+                            End If
+                            Llaves_ds2.Tables("Llave_pareja_single").Rows.Add(fila)
+                        Else
+                            If Llave_item_id = Llave_item_PDerecho Then
+                                'me fijo que ocurre con el izquierdo. si no esta en table(0) es un competidor "single" o Libre
+                                Dim k As Integer = 0
+                                Dim existe = "no"
+                                While k < ds_llave.Tables(0).Rows.Count
+                                    If Llave_item_PIzqp = ds_llave.Tables(0).Rows(k).Item("Llave_item_id") Then
+                                        existe = "si"
+                                        Exit While
+                                    End If
+                                    k = k + 1
+                                End While
+
+                                Dim fila As DataRow = Llaves_ds2.Tables("Llave_pareja_single").NewRow
+                                fila("Llave_item_id") = Llave_item_id
+                                fila("Llave_item_usuario_id") = usuario_id
+                                fila("USUARIO") = ds_llave.Tables(0).Rows(i).Item("USUARIO")
+                                fila("instructor_id") = ds_llave.Tables(0).Rows(i).Item("instructor_id")
+                                If existe = "si" Then
+                                    If pareja = "pareja1" Then
+                                        pareja = "pareja2"
+                                    Else
+                                        pareja = "pareja1"
+                                    End If
+                                    'lo ingreso como pareja
+                                    fila("tipo") = pareja
+                                Else
+                                    fila("tipo") = "single"
+                                End If
+                                Llaves_ds2.Tables("Llave_pareja_single").Rows.Add(fila)
+                            End If
+                        End If
+
+                        j = j + 1
+                    End While
+
+                End If
+
+                i = i + 1
+            End While
+
+            If Llaves_ds2.Tables("Llave_pareja_single").Rows.Count <> 0 Then
+                'aqui comienza la reorganización
+                '1) voy a contar la cant de registros por instructor
+                '//////////////////////////////////////////////////////////////////////////////////////////////////////////
+                i = 0
+                While i < Llaves_ds2.Tables("Llave_pareja_single").Rows.Count
+                    Dim instructor_id As Integer = CInt(Llaves_ds2.Tables("Llave_pareja_single").Rows(i).Item("instructor_id"))
+                    Dim j As Integer = 0
+                    Dim existe = "no"
+                    While j < Llaves_ds2.Tables("Inscriptos_x_instructor").Rows.Count
+                        If instructor_id = Llaves_ds2.Tables("Inscriptos_x_instructor").Rows(j).Item("instructor_id") Then
+                            Llaves_ds2.Tables("Inscriptos_x_instructor").Rows(j).Item("cantidad") = CInt(Llaves_ds2.Tables("Inscriptos_x_instructor").Rows(j).Item("cantidad")) + 1
+                            existe = "si"
+                            Exit While
+                        End If
+                        j = j + 1
+                    End While
+                    If existe = "no" Then
+                        Dim fila As DataRow = Llaves_ds2.Tables("Inscriptos_x_instructor").NewRow
+                        fila("instructor_id") = instructor_id
+                        fila("cantidad") = 1
+                        Llaves_ds2.Tables("Inscriptos_x_instructor").Rows.Add(fila)
+                    End If
+                    i = i + 1
+                End While
+                'ordeno la tabla Inscriptos_x_instructor  por la columna cantidad.
+                Dim dtV As DataView = Llaves_ds2.Tables("Inscriptos_x_instructor").DefaultView
+                dtV.Sort = "cantidad DESC"
+                Dim dt_list As DataTable = dtV.ToTable
+                '//////////////////////////////////////////////////////////////////////////////////////////////////////////
+                If dt_list.Rows.Count Then
+                    Llaves_ds2.Tables("Llave_pareja_single1").Merge(Llaves_ds2.Tables("Llave_pareja_single"))
+                    'o) voy a quitar de estos registros el usuario, instructor_id, llave_item_usuario_id
+                    i = 0
+                    While i < Llaves_ds2.Tables("Llave_pareja_single1").Rows.Count
+                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(i).Item("Llave_item_usuario_id") = 0
+                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(i).Item("USUARIO") = ""
+                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(i).Item("instructor_id") = 0
+                        i = i + 1
+                    End While
+
+                    'este dt_list tiene el conteo de registros de todos los instructores: ejemplo instructor 45, cant 3. instructor 10, cant 2. instructor 60, cant 1.
+                    i = 0
+                    'primero determino cuantos inscriptos son...x que voy a ir metiendo 1 arriba y otro abajo.
+                    Dim cant_insc As Integer = Llaves_ds2.Tables("Llave_pareja_single").Rows.Count
+                    Dim inicio As Integer = 0
+                    Dim medio As Integer = 0
+                    If cant_insc Mod (2) = 0 Then
+                        'es par
+                        medio = cant_insc / 2
+                    Else
+                        medio = CInt(cant_insc / 2) + 1
+                    End If
+
+                    Dim mov_inicio As Integer = inicio
+                    Dim mov_medio As Integer = medio
+                    Dim donde_poner As String = "arriba"
+                    Dim ingreso_secuenal As String = ""
+                    While i < dt_list.Rows.Count
+                        Dim instructor_id = CInt(dt_list.Rows(i).Item(0))
+
+                        Dim j As Integer = 0
+                        While j < Llaves_ds2.Tables("Llave_pareja_single").Rows.Count
+                            If instructor_id = Llaves_ds2.Tables("Llave_pareja_single").Rows(j).Item("instructor_id") Then
+                                Dim usuario_id As Integer = Llaves_ds2.Tables("Llave_pareja_single").Rows(j).Item("Llave_item_usuario_id")
+                                Dim USUARIO As String = Llaves_ds2.Tables("Llave_pareja_single").Rows(j).Item("USUARIO")
+                                If ingreso_secuenal = "si" Then
+
+                                    Dim h As Integer = 0
+                                    While h < Llaves_ds2.Tables("Llave_pareja_single1").Rows.Count
+                                        If Llaves_ds2.Tables("Llave_pareja_single1").Rows(h).Item("instructor_id") = 0 Then
+                                            Llaves_ds2.Tables("Llave_pareja_single1").Rows(h).Item("Llave_item_usuario_id") = usuario_id
+                                            Llaves_ds2.Tables("Llave_pareja_single1").Rows(h).Item("USUARIO") = USUARIO
+                                            Llaves_ds2.Tables("Llave_pareja_single1").Rows(h).Item("instructor_id") = instructor_id
+                                            Exit While
+                                        End If
+                                        h = h + 1
+                                    End While
+
+                                Else
+                                    If donde_poner = "arriba" Then
+
+                                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_inicio).Item("Llave_item_usuario_id") = usuario_id
+                                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_inicio).Item("USUARIO") = USUARIO
+                                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_inicio).Item("instructor_id") = instructor_id
+                                        If Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_inicio).Item("tipo") = "pareja1" Then
+                                            mov_inicio = mov_inicio + 2
+                                            donde_poner = "abajo"
+                                        Else
+                                            mov_inicio = mov_inicio + 1
+                                            donde_poner = "abajo"
+                                        End If
+
+
+                                    Else
+                                        'poner abajo
+                                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_medio).Item("Llave_item_usuario_id") = usuario_id
+                                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_medio).Item("USUARIO") = USUARIO
+                                        Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_medio).Item("instructor_id") = instructor_id
+                                        If Llaves_ds2.Tables("Llave_pareja_single1").Rows(mov_medio).Item("tipo") = "pareja1" Then
+                                            mov_medio = mov_medio + 2
+                                            donde_poner = "arriba"
+                                        Else
+                                            mov_medio = mov_medio + 1
+                                            donde_poner = "arriba"
+                                        End If
+
+                                    End If
+
+                                    If donde_poner = "abajo" Then
+                                        'verifico si no estoy al final
+                                        If (mov_medio = medio + 1) Or (mov_medio > medio + 1) Then
+                                            'ya no puedo ingresar mas...entonces voy colocando secuencial
+                                            ingreso_secuenal = "si"
+                                        End If
+                                    Else
+                                        If donde_poner = "arriba" Then
+                                            'verifico si no estoy al final de parte de arriba
+                                            If (mov_inicio = medio) Or (mov_inicio > medio) Then
+                                                'ya no puedo ingresar mas aqui...
+                                                If (mov_medio = medio + 1) Or (mov_medio > medio + 1) Then
+                                                    'ya no puedo ingresar mas...entonces voy colocando secuencial.
+                                                    ingreso_secuenal = "si"
+                                                Else
+                                                    donde_poner = "abajo"
+                                                End If
+                                            End If
+                                        End If
+                                    End If
+                                End If
+
+                            End If
+                            j = j + 1
+                        End While
+
+                        i = i + 1
+                    End While
+
+
+                End If
+                '//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+                If Llaves_ds2.Tables("Llave_pareja_single1").Rows.Count <> 0 Then
+
+                End If
+
+
+            End If
+
+
+        End If
+
+
+
+    End Sub
+
 
     Private Sub crear_tabla_resultados()
         Dim fila1 As DataRow = Llaves_ds.Tables("RESULTADOS").NewRow

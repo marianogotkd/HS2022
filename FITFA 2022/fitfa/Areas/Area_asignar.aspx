@@ -148,6 +148,9 @@
       <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="Panel_error1" TargetControlID="HiddenErrorAreas" BackgroundCssClass="modalBackground">
                  </cc1:ModalPopupExtender>
 
+
+  
+
   
   </ContentTemplate>
       <Triggers>
