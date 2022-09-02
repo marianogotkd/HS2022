@@ -21,7 +21,8 @@
                   <div class="row">
                   <div class="col-md-4 col-center">  
                   <div class="form-group" >
-                    <%--<label>Nombre</label>--%>
+                    <%--<label>Nombre</label>   --%>
+
                     <label>Nombre:</label>
                     <label id="lbl_errNom" class="label label-danger" runat="server">Debe Completar El Campo</label>
                       <input type="text" class="form-control" id="tb_nombre" runat="server" causesvalidation="False" required="" placeholder="Ingrese nombre..." maxlength="50"/>

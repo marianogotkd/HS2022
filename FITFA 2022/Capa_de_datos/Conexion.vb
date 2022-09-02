@@ -9,15 +9,17 @@ Public Class Conexion
     'Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=FitfaBD;Data Source=CHOCO-PC")
 
     ''LOCAL
-    'Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=fitfaBD;Data Source=(local)")
+    ' Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=FitfaWeb;Data Source=(local)")
+
+    ' Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=FitfaWeb;Data Source=DESKTOP-OKRIR2V\HAMERSQL")
 
     ''LOCAL Con BKP desde la WEB (otro nombre de BD)
-    'Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Password=123choco;Persist Security Info=True;User ID=CHOCO;Initial Catalog=wi181976_fitfabd;Data Source=DESKTOP-IPJ62B9\SQLEXPRESS_CHOK")
+    Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Password=123choco;Persist Security Info=True;User ID=CHOCO;Initial Catalog=FitfaWeb;Data Source=DESKTOP-IPJ62B9\SQLEXPRESS_CHOK")
 
 
     ''local sin seguridad CHOCO RYZEN
     'NOTA: LA CADENA DE ABAJO ES LA QUE TIENE LA BD PRUEBA DONDE TIENE LOS ULTIMOS PROC ALMACENADOS
-    Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Password=123choco;Persist Security Info=True;User ID=CHOCO;Initial Catalog=fitfa_prueba;Data Source=DESKTOP-IPJ62B9\SQLEXPRESS_CHOK")
+    ' Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Password=123choco;Persist Security Info=True;User ID=CHOCO;Initial Catalog=fitfa_prueba;Data Source=DESKTOP-IPJ62B9\SQLEXPRESS_CHOK")
 
 
     'NOTA: LA CADENA DE ABAJO LA USO CON UNA BD QUE SE RESTAURO DEL SERVIDOR DONDE ESTA ACTIVO LA PAGINA
