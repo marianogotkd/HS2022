@@ -41,7 +41,7 @@
                <div class="row">
                       
                        <div class="col-sm-12">
-                       <%--'aqui podria poner la grilla de disponibles--%>
+                       
                        
                            <asp:Label ID="Lab_no_llaves" runat="server" Font-Bold="True" ForeColor="Red" 
                                Text="No hay llaves generadas para el evento!" Visible="False"></asp:Label>
@@ -103,7 +103,60 @@
               
 
               </div>
-              
+              <div align="center" style="background-color: #00CC00">
+              <asp:Label ID="lbl_llf" runat="server" Text="LLAVES FINALIZADAS" Font-Bold="True" Visible="false"></asp:Label>      
+              </div>
+                    
+                  <div class="card-body table-responsive p-0">
+                  <asp:GridView ID="GridView_LLF" 
+                      class="table table-hover" runat="server" AutoGenerateColumns="False" 
+                      AllowSorting="True" BorderColor="Black"
+                                          >
+                                              <Columns>
+                                                  <asp:TemplateField>
+                                                      <ItemTemplate>
+                                                          <asp:CheckBox ID="CheckBox_item1" runat="server" />
+                                                      </ItemTemplate>
+                                                      <HeaderTemplate>
+                                                          <asp:CheckBox ID="CheckBox_all1" runat="server" onclick = "checkAll(this);" />
+                                                      </HeaderTemplate>
+                                                  </asp:TemplateField>
+                                                  <asp:BoundField DataField="ID" HeaderText="ID">
+                                                  <HeaderStyle ForeColor="#0099FF" />
+                                                  </asp:BoundField>
+                                                  <asp:BoundField DataField="modalidad" HeaderText="Modalidad">
+                                                  <HeaderStyle ForeColor="#0099FF" />
+                                                  </asp:BoundField>
+                                                  <asp:BoundField DataField="categoria" HeaderText="Categoría">
+                                                  <HeaderStyle ForeColor="#0099FF" Width="500px" />
+                                                  </asp:BoundField>
+                                                  <asp:BoundField DataField="inscriptos" HeaderText="Inscriptos">
+                                                  <HeaderStyle ForeColor="#0099FF" HorizontalAlign="Center" 
+                                                      VerticalAlign="Middle" />
+                                                  <ItemStyle HorizontalAlign="Center" />
+                                                  </asp:BoundField>
+                                                  <asp:BoundField DataField="Area" HeaderText="Area">
+                                                  <HeaderStyle ForeColor="#0099FF" HorizontalAlign="Center" 
+                                                      VerticalAlign="Middle" />
+                                                  </asp:BoundField>
+                                                  <asp:TemplateField HeaderText="Ver">
+                                                      <ItemTemplate>
+                                                          <asp:ImageButton ID="ImageButton3" runat="server" CausesValidation="False" 
+                                                              CommandName="ID" Height="30px" ImageAlign="AbsMiddle" ImageUrl="~/img/lupa.png" 
+                                                              ToolTip="Ver detalle de llave" Width="30px" CommandArgument='<%# Eval("ID") %>' />
+                                                      </ItemTemplate>
+                                                      <HeaderStyle ForeColor="#0099FF" />
+                                                  </asp:TemplateField>
+                                              </Columns>
+                                          </asp:GridView>
+                                                       
+
+              </div>
+
+
+
+
+
               </div>
               
               <div id="div_Volver" runat="server" visible="false" >

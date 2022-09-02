@@ -361,4 +361,20 @@ ByVal Llave_item_Numero As Integer, ByVal estado As String, ByVal Llave_id As In
         Return ds_JE
     End Function
 
+    Public Function Llaves_Finalizadas_filtro(ByVal Llave_id As Integer) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Llaves_Finalizadas_filtro", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Llave_id", Llave_id))
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "llave")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
 End Class

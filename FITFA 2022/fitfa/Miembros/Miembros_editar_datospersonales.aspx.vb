@@ -21,6 +21,8 @@ Public Class Miembros_editar_datospersonales
         lbl_errMail.Visible = False
         lbl_err_libreta.Visible = False
         lbl_err_libreta_validar.Visible = False
+        lbl_errpass.Visible = False
+        lbl_errus.Visible = False
         If Not IsPostBack Then
             Cargar_Datos()
             div_modalmsjOK.Visible = False
@@ -35,7 +37,8 @@ Public Class Miembros_editar_datospersonales
             tb_nombre.Value = ds_Usuarios.Tables(0).Rows(0).Item(0)
             tb_apellido.Value = ds_Usuarios.Tables(0).Rows(0).Item(1)
             tb_fechnacc.Value = ds_Usuarios.Tables(0).Rows(0).Item(2)
-            'tb_nacionalidad.Value = ds_Usuarios.Tables(0).Rows(0).Item(3)
+            tb_us.Value = ds_Usuarios.Tables(0).Rows(0).Item("usuario_usuario")
+            tb_pass.Value = ds_Usuarios.Tables(0).Rows(0).Item("usuario_password")
 
             If ds_Usuarios.Tables(0).Rows(0).Item(4) = "Hombre" Then
                 combo_Sexo.SelectedValue = "1"
@@ -191,7 +194,19 @@ Public Class Miembros_editar_datospersonales
             lbl_errTel.Visible = True
             Vacio = True
         End If
+        If tb_us.Value <> "" Then
 
+        Else
+            lbl_errus.Visible = True
+            Vacio = True
+        End If
+
+        If tb_pass.Value <> "" Then
+
+        Else
+            lbl_errpass.Visible = True
+            Vacio = True
+        End If
         'If tb_nrolibreta.Value <> "" Then
         'Else
         '    lbl_err_libreta.Visible = True
@@ -218,7 +233,7 @@ Public Class Miembros_editar_datospersonales
             End If
 
             If valido = "si" Then
-                DAusuario.Datos_Personales_Actualizar_Datos(CInt(Session("Alumno_Us_id")), tb_nombre.Value, tb_apellido.Value, tb_fechnacc.Value, "Argentino", combo_Sexo.SelectedValue, 1, "", tb_dir.Value, textbox_CP.Text, Combo_provincia.SelectedValue, combo_ciudad.SelectedValue, tb_tel.Value, tb_Email.Value, tb_nrolibreta.Value, Combo_graduacion.SelectedValue)
+                DAusuario.Datos_Personales_Actualizar_Datos(CInt(Session("Alumno_Us_id")), tb_nombre.Value, tb_apellido.Value, tb_fechnacc.Value, "Argentino", combo_Sexo.SelectedValue, 1, "", tb_dir.Value, textbox_CP.Text, Combo_provincia.SelectedValue, combo_ciudad.SelectedValue, tb_tel.Value, tb_Email.Value, tb_nrolibreta.Value, Combo_graduacion.SelectedValue, tb_us.Value, tb_pass.Value)
                 'div_registro_guardado.Visible = True
 
                 'Actualizo Instructor 19-10-21 -MGO

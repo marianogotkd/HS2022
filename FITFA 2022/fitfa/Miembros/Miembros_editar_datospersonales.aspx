@@ -139,6 +139,22 @@
                    </asp:DropDownList>
                    </div>
                   
+                       <div class="form-group">
+                    <label>Usuario:</label>
+                    <label id="lbl_errus" class="label label-danger" runat="server">Debe Completar El Campo</label>
+                    <input type="text" class="form-control" id="tb_us" runat="server" required=""  maxlength="50"/>
+                  </div>
+
+                                 
+                  <div class="form-group">             
+                    <label>Contraseña:</label>
+                    <label id="lbl_errpass" class="label label-danger" runat="server">Debe Completar El Campo</label>
+                    <input type="password" class="form-control" id="tb_pass" placeholder="Ingrese Nueva Contraseña" runat="server" required=""  maxlength="50"/>
+                  </div>
+
+
+
+
                   </div>
                   
                   </div>

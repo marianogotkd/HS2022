@@ -230,6 +230,42 @@ Partial Public Class Miembros_editar_datospersonales
     Protected WithEvents cmb_instructor As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''Control lbl_errus.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lbl_errus As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Control tb_us.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents tb_us As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''Control lbl_errpass.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lbl_errpass As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Control tb_pass.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents tb_pass As Global.System.Web.UI.HtmlControls.HtmlInputPassword
+
+    '''<summary>
     '''Control btn_guardar.
     '''</summary>
     '''<remarks>

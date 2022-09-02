@@ -149,6 +149,24 @@ Partial Public Class Llave_disponibles
     Protected WithEvents btn_Examinar As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
+    '''Control lbl_llf.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lbl_llf As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control GridView_LLF.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents GridView_LLF As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
     '''Control div_Volver.
     '''</summary>
     '''<remarks>

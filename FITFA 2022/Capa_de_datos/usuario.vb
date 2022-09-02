@@ -385,7 +385,9 @@ ByVal usuario_nrolibreta As String) As DataSet
         ByVal usuario_telefono As String,
         ByVal usuario_mail As String,
         ByVal usuario_nrolibreta As String,
-        ByVal graduacion_id As Integer) As DataSet
+        ByVal graduacion_id As Integer,
+        ByVal usuario_usuario As String,
+        ByVal usuario_password As String) As DataSet
 
         Try
             dbconn.Open()
@@ -411,6 +413,8 @@ ByVal usuario_nrolibreta As String) As DataSet
         comando.Parameters.Add(New OleDb.OleDbParameter("@usuario_mail", usuario_mail))
         comando.Parameters.Add(New OleDb.OleDbParameter("@usuario_nrolibreta", usuario_nrolibreta))
         comando.Parameters.Add(New OleDb.OleDbParameter("@graduacion_id", graduacion_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@usuario_usuario", usuario_usuario))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@usuario_password", usuario_password))
 
         Dim ds_JE As New DataSet()
         Dim da_JE As New OleDbDataAdapter(comando)

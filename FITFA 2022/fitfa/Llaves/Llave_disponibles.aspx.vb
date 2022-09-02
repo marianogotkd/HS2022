@@ -66,49 +66,56 @@
             Dim item_nuevo As String = "no"
             While i < ds_llave.Tables(0).Rows.Count
 
-                'aqui lo agrego al primero.
-                'la categoria va concatenada en una var string
-                Dim tipo As String = ds_llave.Tables(0).Rows(i).Item("categoria_tipo")
-                'busco graduacion desde
-                Dim graduacion_desde As String = ""
-                Dim k As Integer = 0
-                While k < ds_llave.Tables(1).Rows.Count
-                    If (ds_llave.Tables(1).Rows(k).Item("graduacion_id") = ds_llave.Tables(0).Rows(i).Item("categoria_gradinicial")) Then
-                        graduacion_desde = ds_llave.Tables(1).Rows(k).Item("graduacion_desc")
-                        k = ds_llave.Tables(1).Rows.Count
-                    End If
-                    k = k + 1
-                End While
-                'busco graduacion hasta
-                Dim graduacion_hasta As String = ""
-                k = 0
-                While k < ds_llave.Tables(1).Rows.Count
-                    If ds_llave.Tables(1).Rows(k).Item("graduacion_id") = ds_llave.Tables(0).Rows(i).Item("categoria_gradfinal") Then
-                        graduacion_hasta = ds_llave.Tables(1).Rows(k).Item("graduacion_desc")
-                        k = ds_llave.Tables(1).Rows.Count
-                    End If
-                    k = k + 1
-                End While
-                Dim edad_desde As String = ds_llave.Tables(0).Rows(i).Item("categoria_edadinicial")
-                Dim edad_hasta As String = ds_llave.Tables(0).Rows(i).Item("categoria_edadfinal")
-                Dim peso_inicial As String = ds_llave.Tables(0).Rows(i).Item("categoria_peso_inical")
-                Dim peso_final As String = ds_llave.Tables(0).Rows(i).Item("categoria_peso_Final")
-                Dim sexo As String = ds_llave.Tables(0).Rows(i).Item("categoria_sexo")
-                'ahora junto todas las variables para mostrar en categoria
-                Dim categoria As String = sexo + ", " + graduacion_desde + "-" + graduacion_hasta + "(" + edad_desde + " a " + edad_hasta + " años)"
-                If tipo = "Lucha" Then
-                    categoria = sexo + ", " + graduacion_desde + "-" + graduacion_hasta + "(" + edad_desde + " a " + edad_hasta + " años)" + " de " + peso_inicial + " a " + peso_final + " Kilos"
-                End If
-                Dim row_insc As DataRow = key_insc_ds.Tables("Llaves_generadas").NewRow()
-                'Dim Estado = "Pendiente"
-                row_insc("ID") = ds_llave.Tables(0).Rows(i).Item("ID")
-                row_insc("modalidad") = tipo
-                row_insc("categoria") = categoria
-                row_insc("inscriptos") = ds_llave.Tables(0).Rows(i).Item("inscriptos")
-                row_insc("Area") = ds_llave.Tables(0).Rows(i).Item("Area") 'choco: 19-07-2019 ahora recupera el area vinculada a la llave
+                Dim ds_llave_filto As DataSet = DAllave.Llaves_Finalizadas_filtro(ds_llave.Tables(0).Rows(i).Item("ID"))
+                If ds_llave_filto.Tables(0).Rows(0).Item("Llave_item_usuario_id") = 0 Then
 
-                key_insc_ds.Tables("Llaves_generadas").Rows.Add(row_insc)
-                i = i + 1
+                    'aqui lo agrego al primero.
+                    'la categoria va concatenada en una var string
+                    Dim tipo As String = ds_llave.Tables(0).Rows(i).Item("categoria_tipo")
+                    'busco graduacion desde
+                    Dim graduacion_desde As String = ""
+                    Dim k As Integer = 0
+                    While k < ds_llave.Tables(1).Rows.Count
+                        If (ds_llave.Tables(1).Rows(k).Item("graduacion_id") = ds_llave.Tables(0).Rows(i).Item("categoria_gradinicial")) Then
+                            graduacion_desde = ds_llave.Tables(1).Rows(k).Item("graduacion_desc")
+                            k = ds_llave.Tables(1).Rows.Count
+                        End If
+                        k = k + 1
+                    End While
+                    'busco graduacion hasta
+                    Dim graduacion_hasta As String = ""
+                    k = 0
+                    While k < ds_llave.Tables(1).Rows.Count
+                        If ds_llave.Tables(1).Rows(k).Item("graduacion_id") = ds_llave.Tables(0).Rows(i).Item("categoria_gradfinal") Then
+                            graduacion_hasta = ds_llave.Tables(1).Rows(k).Item("graduacion_desc")
+                            k = ds_llave.Tables(1).Rows.Count
+                        End If
+                        k = k + 1
+                    End While
+                    Dim edad_desde As String = ds_llave.Tables(0).Rows(i).Item("categoria_edadinicial")
+                    Dim edad_hasta As String = ds_llave.Tables(0).Rows(i).Item("categoria_edadfinal")
+                    Dim peso_inicial As String = ds_llave.Tables(0).Rows(i).Item("categoria_peso_inical")
+                    Dim peso_final As String = ds_llave.Tables(0).Rows(i).Item("categoria_peso_Final")
+                    Dim sexo As String = ds_llave.Tables(0).Rows(i).Item("categoria_sexo")
+                    'ahora junto todas las variables para mostrar en categoria
+                    Dim categoria As String = sexo + ", " + graduacion_desde + "-" + graduacion_hasta + "(" + edad_desde + " a " + edad_hasta + " años)"
+                    If tipo = "Lucha" Then
+                        categoria = sexo + ", " + graduacion_desde + "-" + graduacion_hasta + "(" + edad_desde + " a " + edad_hasta + " años)" + " de " + peso_inicial + " a " + peso_final + " Kilos"
+                    End If
+                    Dim row_insc As DataRow = key_insc_ds.Tables("Llaves_generadas").NewRow()
+                    'Dim Estado = "Pendiente"
+                    row_insc("ID") = ds_llave.Tables(0).Rows(i).Item("ID")
+                    row_insc("modalidad") = tipo
+                    row_insc("categoria") = categoria
+                    row_insc("inscriptos") = ds_llave.Tables(0).Rows(i).Item("inscriptos")
+                    row_insc("Area") = ds_llave.Tables(0).Rows(i).Item("Area") 'choco: 19-07-2019 ahora recupera el area vinculada a la llave
+
+                    key_insc_ds.Tables("Llaves_generadas").Rows.Add(row_insc)
+                    i = i + 1
+
+                Else
+                    i = i + 1
+                End If
             End While
             GridView2.DataSource = key_insc_ds.Tables("Llaves_generadas")
             GridView2.DataBind()
@@ -123,6 +130,91 @@
             btn_Examinar.Visible = True 'es el boton de eliminar llave
         End If
 
+
+
+
+        ''------------LLAVES FINALIZADAS-----------------
+        key_insc_ds.Tables("Llaves_generadas").Rows.Clear()
+        GridView_LLF.DataSource = ""
+        GridView_LLF.DataBind()
+
+        'se consulta en la bd las llaves generadas y se muestra en la grilla 2
+
+        If ds_llave.Tables(0).Rows.Count <> 0 Then
+
+            'aqui lo relleno
+            'Llaves_generadas
+            Dim i As Integer = 0
+            Dim item_nuevo As String = "no"
+            While i < ds_llave.Tables(0).Rows.Count
+
+                Dim ds_llave_filto As DataSet = DAllave.Llaves_Finalizadas_filtro(ds_llave.Tables(0).Rows(i).Item("ID"))
+                If ds_llave_filto.Tables(0).Rows(0).Item("Llave_item_usuario_id") = 0 Then
+                    i = i + 1
+                Else
+
+                    'aqui lo agrego al primero.
+                    'la categoria va concatenada en una var string
+                    Dim tipo As String = ds_llave.Tables(0).Rows(i).Item("categoria_tipo")
+                    'busco graduacion desde
+                    Dim graduacion_desde As String = ""
+                    Dim k As Integer = 0
+                    While k < ds_llave.Tables(1).Rows.Count
+                        If (ds_llave.Tables(1).Rows(k).Item("graduacion_id") = ds_llave.Tables(0).Rows(i).Item("categoria_gradinicial")) Then
+                            graduacion_desde = ds_llave.Tables(1).Rows(k).Item("graduacion_desc")
+                            k = ds_llave.Tables(1).Rows.Count
+                        End If
+                        k = k + 1
+                    End While
+                    'busco graduacion hasta
+                    Dim graduacion_hasta As String = ""
+                    k = 0
+                    While k < ds_llave.Tables(1).Rows.Count
+                        If ds_llave.Tables(1).Rows(k).Item("graduacion_id") = ds_llave.Tables(0).Rows(i).Item("categoria_gradfinal") Then
+                            graduacion_hasta = ds_llave.Tables(1).Rows(k).Item("graduacion_desc")
+                            k = ds_llave.Tables(1).Rows.Count
+                        End If
+                        k = k + 1
+                    End While
+                    Dim edad_desde As String = ds_llave.Tables(0).Rows(i).Item("categoria_edadinicial")
+                    Dim edad_hasta As String = ds_llave.Tables(0).Rows(i).Item("categoria_edadfinal")
+                    Dim peso_inicial As String = ds_llave.Tables(0).Rows(i).Item("categoria_peso_inical")
+                    Dim peso_final As String = ds_llave.Tables(0).Rows(i).Item("categoria_peso_Final")
+                    Dim sexo As String = ds_llave.Tables(0).Rows(i).Item("categoria_sexo")
+                    'ahora junto todas las variables para mostrar en categoria
+                    Dim categoria As String = sexo + ", " + graduacion_desde + "-" + graduacion_hasta + "(" + edad_desde + " a " + edad_hasta + " años)"
+                    If tipo = "Lucha" Then
+                        categoria = sexo + ", " + graduacion_desde + "-" + graduacion_hasta + "(" + edad_desde + " a " + edad_hasta + " años)" + " de " + peso_inicial + " a " + peso_final + " Kilos"
+                    End If
+                    Dim row_insc As DataRow = key_insc_ds.Tables("Llaves_generadas").NewRow()
+                    'Dim Estado = "Pendiente"
+                    row_insc("ID") = ds_llave.Tables(0).Rows(i).Item("ID")
+                    row_insc("modalidad") = tipo
+                    row_insc("categoria") = categoria
+                    row_insc("inscriptos") = ds_llave.Tables(0).Rows(i).Item("inscriptos")
+                    row_insc("Area") = ds_llave.Tables(0).Rows(i).Item("Area") 'choco: 19-07-2019 ahora recupera el area vinculada a la llave
+
+                    key_insc_ds.Tables("Llaves_generadas").Rows.Add(row_insc)
+                    i = i + 1
+
+
+                End If
+            End While
+            GridView_LLF.DataSource = key_insc_ds.Tables("Llaves_generadas")
+            GridView_LLF.DataBind()
+
+        End If
+        If GridView_LLF.Rows.Count = 0 Then
+            lbl_llf.Visible = False
+        Else
+            lbl_llf.Visible = True
+
+        End If
+
+
+
+
+
     End Sub
 
     Private Sub obtener_llaves_generadas_info()
@@ -135,6 +227,7 @@
 
         'se consulta en la bd las llaves generadas y se muestra en la grilla 2
         Dim ds_llave As DataSet = DAllave.Llave_obtener_llaves_generadas_info(HF_evento_id.Value)
+
         If ds_llave.Tables(0).Rows.Count <> 0 Then
 
             'aqui lo relleno
@@ -143,55 +236,59 @@
             Dim item_nuevo As String = "no"
             While i < ds_llave.Tables(0).Rows.Count
 
+
+
                 'aqui lo agrego al primero.
                 'la categoria va concatenada en una var string
                 Dim tipo As String = ds_llave.Tables(0).Rows(i).Item("categoria_tipo")
-                'busco graduacion desde
-                Dim graduacion_desde As String = ""
-                Dim k As Integer = 0
-                While k < ds_llave.Tables(1).Rows.Count
-                    If (ds_llave.Tables(1).Rows(k).Item("graduacion_id") = ds_llave.Tables(0).Rows(i).Item("categoria_gradinicial")) Then
-                        graduacion_desde = ds_llave.Tables(1).Rows(k).Item("graduacion_desc")
-                        k = ds_llave.Tables(1).Rows.Count
+                    'busco graduacion desde
+                    Dim graduacion_desde As String = ""
+                    Dim k As Integer = 0
+                    While k < ds_llave.Tables(1).Rows.Count
+                        If (ds_llave.Tables(1).Rows(k).Item("graduacion_id") = ds_llave.Tables(0).Rows(i).Item("categoria_gradinicial")) Then
+                            graduacion_desde = ds_llave.Tables(1).Rows(k).Item("graduacion_desc")
+                            k = ds_llave.Tables(1).Rows.Count
+                        End If
+                        k = k + 1
+                    End While
+                    'busco graduacion hasta
+                    Dim graduacion_hasta As String = ""
+                    k = 0
+                    While k < ds_llave.Tables(1).Rows.Count
+                        If ds_llave.Tables(1).Rows(k).Item("graduacion_id") = ds_llave.Tables(0).Rows(i).Item("categoria_gradfinal") Then
+                            graduacion_hasta = ds_llave.Tables(1).Rows(k).Item("graduacion_desc")
+                            k = ds_llave.Tables(1).Rows.Count
+                        End If
+                        k = k + 1
+                    End While
+                    Dim edad_desde As String = ds_llave.Tables(0).Rows(i).Item("categoria_edadinicial")
+                    Dim edad_hasta As String = ds_llave.Tables(0).Rows(i).Item("categoria_edadfinal")
+                    Dim peso_inicial As String = ds_llave.Tables(0).Rows(i).Item("categoria_peso_inical")
+                    Dim peso_final As String = ds_llave.Tables(0).Rows(i).Item("categoria_peso_Final")
+                    Dim sexo As String = ds_llave.Tables(0).Rows(i).Item("categoria_sexo")
+                    'ahora junto todas las variables para mostrar en categoria
+                    Dim categoria As String = sexo + ", " + graduacion_desde + "-" + graduacion_hasta + "(" + edad_desde + " a " + edad_hasta + " años)"
+                    If tipo = "Lucha" Then
+                        categoria = sexo + ", " + graduacion_desde + "-" + graduacion_hasta + "(" + edad_desde + " a " + edad_hasta + " años)" + " de " + peso_inicial + " a " + peso_final + " Kilos"
                     End If
-                    k = k + 1
-                End While
-                'busco graduacion hasta
-                Dim graduacion_hasta As String = ""
-                k = 0
-                While k < ds_llave.Tables(1).Rows.Count
-                    If ds_llave.Tables(1).Rows(k).Item("graduacion_id") = ds_llave.Tables(0).Rows(i).Item("categoria_gradfinal") Then
-                        graduacion_hasta = ds_llave.Tables(1).Rows(k).Item("graduacion_desc")
-                        k = ds_llave.Tables(1).Rows.Count
-                    End If
-                    k = k + 1
-                End While
-                Dim edad_desde As String = ds_llave.Tables(0).Rows(i).Item("categoria_edadinicial")
-                Dim edad_hasta As String = ds_llave.Tables(0).Rows(i).Item("categoria_edadfinal")
-                Dim peso_inicial As String = ds_llave.Tables(0).Rows(i).Item("categoria_peso_inical")
-                Dim peso_final As String = ds_llave.Tables(0).Rows(i).Item("categoria_peso_Final")
-                Dim sexo As String = ds_llave.Tables(0).Rows(i).Item("categoria_sexo")
-                'ahora junto todas las variables para mostrar en categoria
-                Dim categoria As String = sexo + ", " + graduacion_desde + "-" + graduacion_hasta + "(" + edad_desde + " a " + edad_hasta + " años)"
-                If tipo = "Lucha" Then
-                    categoria = sexo + ", " + graduacion_desde + "-" + graduacion_hasta + "(" + edad_desde + " a " + edad_hasta + " años)" + " de " + peso_inicial + " a " + peso_final + " Kilos"
-                End If
-                Dim row_insc As DataRow = key_insc_ds.Tables("Llaves_generadas").NewRow()
-                'Dim Estado = "Pendiente"
-                row_insc("ID") = ds_llave.Tables(0).Rows(i).Item("ID")
-                row_insc("modalidad") = tipo
-                row_insc("categoria") = categoria
-                row_insc("inscriptos") = ds_llave.Tables(0).Rows(i).Item("inscriptos")
-                row_insc("Area") = ds_llave.Tables(0).Rows(i).Item("Area") 'choco: 19-07-2019 ahora recupera el area vinculada a la llave
+                    Dim row_insc As DataRow = key_insc_ds.Tables("Llaves_generadas").NewRow()
+                    'Dim Estado = "Pendiente"
+                    row_insc("ID") = ds_llave.Tables(0).Rows(i).Item("ID")
+                    row_insc("modalidad") = tipo
+                    row_insc("categoria") = categoria
+                    row_insc("inscriptos") = ds_llave.Tables(0).Rows(i).Item("inscriptos")
+                    row_insc("Area") = ds_llave.Tables(0).Rows(i).Item("Area") 'choco: 19-07-2019 ahora recupera el area vinculada a la llave
 
-                key_insc_ds.Tables("Llaves_generadas").Rows.Add(row_insc)
-                i = i + 1
+                    key_insc_ds.Tables("Llaves_generadas").Rows.Add(row_insc)
+                    i = i + 1
+
+
             End While
             GridView2.DataSource = key_insc_ds.Tables("Llaves_generadas")
             GridView2.DataBind()
 
         End If
-        If GridView2.Rows.Count = 0 Then
+        If GridView2.Rows.Count = 0 And GridView_LLF.Rows.Count = 0 Then
             Lab_no_llaves.Visible = True
             btn_Examinar.Visible = False 'es el boton de eliminar llave
 
