@@ -59,6 +59,9 @@
                                       <td>
                                           <asp:Label ID="Label19" runat="server" ForeColor="#00CC66" 
                                               Text="Nota: las categoria listadas son solamente las que tienen inscriptos"></asp:Label>
+                                          <br />
+                                          <asp:Label ID="Label6" runat="server" Text="TOTAL DE INSCRIPTOS:"></asp:Label>
+                                          <asp:Label ID="LB_INSCRIPTOS" runat="server" Text=""></asp:Label>
                                       </td>
                                   </tr>
                               </table>

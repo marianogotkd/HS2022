@@ -158,6 +158,24 @@ Partial Public Class Llave_generar
     Protected WithEvents Label19 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''Control Label6.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control LB_INSCRIPTOS.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LB_INSCRIPTOS As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Control Label17.
     '''</summary>
     '''<remarks>

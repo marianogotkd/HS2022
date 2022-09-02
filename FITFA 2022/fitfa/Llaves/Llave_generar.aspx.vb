@@ -223,6 +223,8 @@
             'GridView1.DataSource = ds.Tables(0)
             GridView1.DataBind()
             label_catseleccionada.Text = DropDown_categoria.SelectedItem.Text
+            LB_INSCRIPTOS.Text = GridView1.Rows.Count
+
         Else
             label_catseleccionada.Text = ""
         End If
