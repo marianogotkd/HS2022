@@ -1,0 +1,10 @@
+create procedure Llave_item_actualizar_orden
+--nota: modificacion fecha 2022-09-01
+
+@LLave_item_id int,
+@Llave_item_usuario_id int
+
+as
+update Llave_item set Llave_item_usuario_id = @Llave_item_usuario_id where LLave_item_id = @LLave_item_id 
+
+go
