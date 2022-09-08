@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="PagosCobrosReclamos_resumen.aspx.vb" Inherits="Presentacion.PagosCobrosReclamos_resumen" %>
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Home.Master" CodeBehind="PagosCobrosReclamos_resumen.aspx.vb" Inherits="Presentacion.PagosCobrosReclamos_resumen" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
     //funcion que reconoce teclas para ir a los botones retroceso, baja y graba
