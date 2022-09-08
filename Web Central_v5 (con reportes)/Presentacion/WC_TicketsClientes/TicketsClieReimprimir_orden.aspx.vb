@@ -84,264 +84,267 @@ Public Class TicketsClieReimprimir_orden
   End Sub
 
 
-  Private Sub Colocar_zona(ByRef Codigo As String, ByRef DS_ticketsclientes As DataSet, ByVal registro As Integer, ByVal item_nomb As String)
-    Select Case Codigo
-      Case "1A"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON1"
-      Case "1B"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON2"
-      Case "1C"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON3"
-      Case "1D"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON4"
-      Case "1E"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON5"
-      Case "1F"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON6"
-      Case "1G"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON7"
-      Case "1H"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON8"
-      Case "1I"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON9"
-      Case "1J"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO10"
-      Case "2A"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO11"
-      Case "2B"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO12"
-      Case "2C"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO13"
-      Case "2D"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO14"
-      Case "2E"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO15"
-      Case "2F"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO16"
-      Case "2G"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO17"
-      Case "2H"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO18"
-      Case "2I"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO19"
-      Case "2J"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO20"
-      Case "3A"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO21"
-      Case "3B"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO22"
-      Case "3C"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO23"
-      Case "3D"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO24"
-      Case "3E"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO25"
-      Case "3F"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO26"
-      Case "3G"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO27"
-      Case "3H"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO28"
-      Case "3I"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO29"
-      Case "3J"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO30"
-      Case "4A"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO31"
-      Case "4B"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO32"
-      Case "4C"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO33"
-      Case "4D"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO34"
-      Case "4E"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO35"
-      Case "4F"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO36"
-      Case "4G"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO37"
-      Case "4H"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO38"
-      Case "4I"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO39"
-      Case "4J"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO40"
-      Case "5A"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO41"
-      Case "5B"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO42"
-      Case "5C"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO43"
-      Case "5D"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO44"
-      Case "5E"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO45"
-      Case "5F"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO46"
-      Case "5G"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO47"
-      Case "5H"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO48"
-      Case "5I"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO49"
-      Case "5J"
-        DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO50"
-    End Select
+  Private Sub Colocar_zona(ByRef Codigo As String, ByRef DS_ticketsclientes As DataSet, ByVal registro As Integer, ByVal item_nomb As String, ByVal Referencia As String)
+    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = Referencia
+
+
+    'Select Case Codigo
+    '  Case "1A"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON1"
+    '  Case "1B"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON2"
+    '  Case "1C"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON3"
+    '  Case "1D"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON4"
+    '  Case "1E"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON5"
+    '  Case "1F"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON6"
+    '  Case "1G"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON7"
+    '  Case "1H"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON8"
+    '  Case "1I"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZON9"
+    '  Case "1J"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO10"
+    '  Case "2A"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO11"
+    '  Case "2B"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO12"
+    '  Case "2C"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO13"
+    '  Case "2D"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO14"
+    '  Case "2E"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO15"
+    '  Case "2F"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO16"
+    '  Case "2G"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO17"
+    '  Case "2H"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO18"
+    '  Case "2I"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO19"
+    '  Case "2J"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO20"
+    '  Case "3A"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO21"
+    '  Case "3B"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO22"
+    '  Case "3C"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO23"
+    '  Case "3D"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO24"
+    '  Case "3E"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO25"
+    '  Case "3F"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO26"
+    '  Case "3G"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO27"
+    '  Case "3H"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO28"
+    '  Case "3I"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO29"
+    '  Case "3J"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO30"
+    '  Case "4A"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO31"
+    '  Case "4B"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO32"
+    '  Case "4C"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO33"
+    '  Case "4D"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO34"
+    '  Case "4E"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO35"
+    '  Case "4F"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO36"
+    '  Case "4G"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO37"
+    '  Case "4H"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO38"
+    '  Case "4I"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO39"
+    '  Case "4J"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO40"
+    '  Case "5A"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO41"
+    '  Case "5B"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO42"
+    '  Case "5C"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO43"
+    '  Case "5D"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO44"
+    '  Case "5E"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO45"
+    '  Case "5F"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO46"
+    '  Case "5G"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO47"
+    '  Case "5H"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO48"
+    '  Case "5I"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO49"
+    '  Case "5J"
+    '    DS_ticketsclientes.Tables("Puntos_A").Rows(registro).Item(item_nomb) = "ZO50"
+    'End Select
   End Sub
 
 
-  Private Sub RecuperoZona_part1(ByVal r As Integer, ByVal Codigo As String, ByRef Zona As String, ByRef DS_ticketsclientes As DataSet)
+  Private Sub RecuperoZona_part1(ByVal r As Integer, ByVal Codigo As String, ByRef Zona As String, ByRef DS_ticketsclientes As DataSet, ByVal Referencia As String)
     Select Case r
       Case 0
         Zona = "ZON1" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON1")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON1", Referencia)
       Case 1
         Zona = "ZON2" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON2")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON2", Referencia)
       Case 2
         Zona = "ZON3" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON3")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON3", Referencia)
       Case 3
         Zona = "ZON4" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON4")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON4", Referencia)
       Case 4
         Zona = "ZON5" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON5")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON5", Referencia)
       Case 5
         Zona = "ZON6" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON6")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON6", Referencia)
       Case 6
         Zona = "ZON7" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON7")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON7", Referencia)
       Case 7
         Zona = "ZON8" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON8")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON8", Referencia)
       Case 8
         Zona = "ZON9" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON9")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZON9", Referencia)
       Case 9
         Zona = "ZO10" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO10")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO10", Referencia)
       Case 10
         Zona = "ZO11" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO11")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO11", Referencia)
       Case 11
         Zona = "ZO12" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO12")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO12", Referencia)
       Case 12
         Zona = "ZO13" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO13")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO13", Referencia)
       Case 13
         Zona = "ZO14" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO14")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO14", Referencia)
       Case 14
         Zona = "ZO15" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO15")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO15", Referencia)
       Case 15
         Zona = "ZO16" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO16")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO16", Referencia)
       Case 16
         Zona = "ZO17" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO17")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO17", Referencia)
       Case 17
         Zona = "ZO18" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO18")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO18", Referencia)
       Case 18
         Zona = "ZO19" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO19")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO19", Referencia)
       Case 19
         Zona = "ZO20" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO20")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO20", Referencia)
       Case 20
         Zona = "ZO21" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO21")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO21", Referencia)
       Case 21
         Zona = "ZO22" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO22")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO22", Referencia)
       Case 22
         Zona = "ZO23" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO23")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO23", Referencia)
       Case 23
         Zona = "ZO24" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO24")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO24", Referencia)
       Case 24
         Zona = "ZO25" 'ESTO PARA QUE LE INDIQUE EN QUE PARTE DEL DATATABLE SE VA A GUARDAR.
-        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO25")
+        Colocar_zona(Codigo, DS_ticketsclientes, 0, "ZO25", Referencia)
       Case 25
         Zona = "ZON1"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON1")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON1", Referencia)
       Case 26
         Zona = "ZON2"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON2")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON2", Referencia)
       Case 27
         Zona = "ZON3"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON3")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON3", Referencia)
       Case 28
         Zona = "ZON4"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON4")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON4", Referencia)
       Case 29
         Zona = "ZON5"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON5")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON5", Referencia)
       Case 30
         Zona = "ZON6"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON6")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON6", Referencia)
       Case 31
         Zona = "ZON7"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON7")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON7", Referencia)
       Case 32
         Zona = "ZON8"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON8")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON8", Referencia)
       Case 33
         Zona = "ZON9"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON9")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZON9", Referencia)
       Case 34
         Zona = "ZO10"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO10")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO10", Referencia)
       Case 35
         Zona = "ZO11"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO11")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO11", Referencia)
       Case 36
         Zona = "ZO12"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO12")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO12", Referencia)
       Case 37
         Zona = "ZO13"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO13")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO13", Referencia)
       Case 38
         Zona = "ZO14"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO14")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO14", Referencia)
       Case 39
         Zona = "ZO15"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO15")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO15", Referencia)
       Case 40
         Zona = "ZO16"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO16")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO16", Referencia)
       Case 41
         Zona = "ZO17"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO17")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO17", Referencia)
       Case 42
         Zona = "ZO18"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO18")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO18", Referencia)
       Case 43
         Zona = "ZO19"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO19")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO19", Referencia)
       Case 44
         Zona = "ZO20"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO20")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO20", Referencia)
       Case 45
         Zona = "ZO21"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO21")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO21", Referencia)
       Case 46
         Zona = "ZO22"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO22")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO22", Referencia)
       Case 47
         Zona = "ZO23"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO23")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO23", Referencia)
       Case 48
         Zona = "ZO24"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO24")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO24", Referencia)
       Case 49
         Zona = "ZO25"
-        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO25")
+        Colocar_zona(Codigo, DS_ticketsclientes, 22, "ZO25", Referencia)
 
     End Select
 
@@ -402,7 +405,7 @@ Public Class TicketsClieReimprimir_orden
           i = i + 1
         End While
 
-        If ds_puntos.Tables(0).Rows.Count > 24 Then
+        If ds_puntos.Tables(0).Rows.Count > 25 Then
           DS_ticketsclientes.Tables("Puntos_A").Rows.Add() 'fila en blanco.
           DS_ticketsclientes.Tables("Puntos_A").Rows.Add() 'fila en blanco.--AQUI LUEGO SE CARGAN LOS ENCABEZADOS
           Dim j As Integer = 0
@@ -419,14 +422,15 @@ Public Class TicketsClieReimprimir_orden
         Dim ContZonas As Integer = 0
         While r < ds_puntos.Tables(0).Rows.Count
           Dim Codigo As String = CStr(ds_puntos.Tables(0).Rows(r).Item("Codigo"))
+          Dim Referencia As String = CStr(ds_puntos.Tables(0).Rows(r).Item("Referencia"))
           If ContZonas < 25 Then
             Dim Zona As String = ""
-            RecuperoZona_part1(r, Codigo, Zona, DS_ticketsclientes)
+            RecuperoZona_part1(r, Codigo, Zona, DS_ticketsclientes, Referencia)
             CARGA_1(DS_ticketsclientes, ds_puntos, Zona, 1, r)
           Else
             If ContZonas < 50 Then
               Dim Zona As String = ""
-              RecuperoZona_part1(r, Codigo, Zona, DS_ticketsclientes)
+              RecuperoZona_part1(r, Codigo, Zona, DS_ticketsclientes, Referencia)
               CARGA_1(DS_ticketsclientes, ds_puntos, Zona, 23, r)
             End If
           End If
@@ -600,6 +604,11 @@ Public Class TicketsClieReimprimir_orden
 
         '------------------AQUIREPORTE ------------------------------------------------
 
+        'CORRECCION: 2022-09-07
+        '-------------------------------------------------------------------------------
+        DS_ticketsclientes.Tables("Cliente_CtacteInfo_2").Merge(DS_ticketsclientes.Tables("Cliente_CtacteInfo"))
+        '-------------------------------------------------------------------------------
+
         Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
         CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
         CrReport.Load(Server.MapPath("~/WC_Reportes/Rpt/TicketsClientesPorOrden_informe01a.rpt"))
@@ -607,6 +616,7 @@ Public Class TicketsClieReimprimir_orden
         CrReport.Database.Tables("Puntos_A").SetDataSource(DS_ticketsclientes.Tables("Puntos_A"))
 
         CrReport.Database.Tables("Cliente_CtacteInfo").SetDataSource(DS_ticketsclientes.Tables("Cliente_CtacteInfo"))
+        CrReport.Database.Tables("Cliente_CtacteInfo_2").SetDataSource(DS_ticketsclientes.Tables("Cliente_CtacteInfo_2"))
         CrReport.Database.Tables("Cliente_PremiosInfo").SetDataSource(DS_ticketsclientes.Tables("Cliente_PremiosInfo"))
 
         'creo una cadena que voy a necesitar para el nombre del archivo a generar
