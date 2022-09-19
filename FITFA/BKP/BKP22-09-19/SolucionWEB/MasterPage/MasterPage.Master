@@ -1,0 +1,1160 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MasterPage.master.vb" Inherits="fitfa.MasterPage"  %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../jsPDF-1.3.2/dist/jspdf.min.js" type="text/javascript"></script>
+    <script src="../jsPDF-1.3.2/dist/jspdf.debug.js" type="text/javascript"></script>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <%--<title>AdminLTE 3 | Blank Page</title>--%>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../MasterPage/dist/css/adminlte.min.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+     <!-- daterange picker -->
+  <link rel="stylesheet" href=" /MasterPage/plugins/daterangepicker/daterangepicker-bs3.css" />
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href=" /MasterPage/plugins/iCheck/all.css"/>
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href=" /MasterPage/plugins/colorpicker/bootstrap-colorpicker.min.css"/>
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href=" /MasterPage/plugins/timepicker/bootstrap-timepicker.min.css"/>
+  <!-- Select2 -->
+  <link rel="stylesheet" href=" /MasterPage/plugins/select2/select2.min.css"/>
+
+  
+
+   <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+</head>
+<body class="hold-transition sidebar-mini">
+
+
+   
+
+    <form id="form1" runat="server">
+   
+
+
+    <!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="../index.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="../Login2/login2.aspx" class="nav-link">Cerrar Sesion</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+     <asp:Label ID="lbl_torneo" runat="server" Text="Label" Visible="False" Font-Bold="True"></asp:Label>
+      </li>
+      
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <%--<form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>--%>
+
+    <!-- Right navbar links -->
+    <%--<ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="fa fa-comments-o"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../MasterPage/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fa fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../MasterPage/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fa fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../MasterPage/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fa fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="fa fa-bell-o"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fa fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fa fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fa fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
+          <i class="fa fa-th-large"></i>
+        </a>
+      </li>--%>
+    </ul>
+  </nav>
+
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="../index.html" class="brand-link">
+      <img src="../img/LOGOANT400x400.png"
+           alt="Asociacion Norte de Taekwon-Do"
+           class="brand-image img-circle elevation-3"
+           style="opacity: .8; height: 85px;">
+      <span class="brand-text font-weight-light">ANT</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar" runat="server" id="Menu_Web">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <!--img src="../../MasterPage/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"-->
+          
+          <img src="~/MasterPage/dist/img/itflogo.gif" class="img-circle elevation-2" 
+                alt="User Image" id="imgusu" runat="server" >
+        </div>
+        <div class="info">
+          <!--a href="#" class="d-block">HamerSoft</a-->
+          <asp:Label ID="Label_usu_nombre" runat="server" ForeColor="#66CCFF"></asp:Label>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+        
+        <!--Datos Personales-->
+        
+          <li class="nav-item has-treeview" id="li_DatosPersonales" runat="server">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-edit"></i>
+              <p>
+                Mis Datos
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../Datos Personales/Datos_Personales.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Datos Personales</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../Contraseña/contraseña_cambiar.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Cambio de Contraseña</p>
+                </a>
+              </li>
+             <%-- <li class="nav-item">
+                <a href="../../MasterPage/index3.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Dashboard v3</p>
+                </a>
+              </li>--%>
+            </ul>
+          </li>
+          <!--Datos PersonalesFIN-->
+
+          <!--Mi Escuela-->
+           <li class="nav-item has-treeview" id="li_MiEscuela" runat="server" >
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-book"></i>
+              <p>
+                Mi Escuela
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../Miembros/Miembros.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Miembros</p>                  
+                </a>
+              </li>
+              <%--<li class="nav-item">
+                <a href="../examples/profile.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Instructores</p>
+                </a>
+              </li>
+              <li class="nav-item">
+              <a href="../Instituciones/Instructor_institucion_b.aspx" class="nav-link">
+              <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Instituciones</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/register.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Centros de Enseñanza</p>
+                </a>
+              </li>--%>
+               <li class="nav-item" runat="server" id="Li_Insc">
+                <%--<a href="../Inscripciones/Evento_seleccionar_varios.aspx" class="nav-link">--%>
+                <a href="../Error/UnderConstruction.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Inscribir Alumnos</p>
+                </a>
+              </li>
+
+              <%--<li class="nav-item" runat="server" id="Li_config_costos">
+                <a href="../Miembros/Config_liquidacion.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Configurar liquidacion.</p>
+                </a>
+              </li>--%>
+                           
+              <li class="nav-item" runat="server" id="Li_reporte_inscripts">
+                <a href="../Reportes/Reportes.aspx" class="nav-link">
+                <%--<a href="../Error/UnderConstruction.aspx" class="nav-link">--%>
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Reporte inscriptos</p>
+                </a>
+              </li>
+
+              <%--<li class="nav-item">
+                <a href="../examples/lockscreen.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Lockscreen</p>
+                </a>
+              </li>--%>
+            </ul>
+          </li>
+          <!--Mi EscuelaFIN-->
+
+           <!--Eventos-->
+           <li class="nav-item has-treeview" id="li_Eventos" runat="server" >
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Eventos
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../Inscripciones/Evento_seleccionar.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Inscribirme</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <%--<a href="../Reportes/Reporte_Inscriptos_Categoria.aspx" class="nav-link">--%>
+                <a href="../Error/UnderConstruction.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Ver Inscriptos del Evento</p>
+                </a>
+              </li>
+                 </li>
+              
+               <li class="nav-item" id="li_ImpComp" runat="server">
+                <%--<a href="../Reportes/inscripcion_persona.aspx" class="nav-link">--%>
+                <a href="../Error/UnderConstruction.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Imprimir Mi Comprobante</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!--EventosFIN-->
+
+           <!--Administrador-->
+           <li class="nav-item has-treeview" id="li_Adm" runat="server" >
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-plus-square-o"></i>
+              <p>
+                Administrador
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+           
+              <!--EventosADM-->
+             <li class="nav-item has-treeview" >
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Eventos
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+               <li class="nav-item">
+                <a href="../Eventos/Evento_Crear.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Crear Evento</p>
+                </a>
+              </li>
+
+               <li class="nav-item">
+                <a href="../Eventos/Modificar_Evento.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Modificar Evento</p>
+                </a>
+              </li>
+
+               
+
+                   <li class="nav-item">
+                <%--<a href="../Inscripciones/Evento_seleccionar.aspx" class="nav-link">--%>
+                <a href="../Eventos/Evento_Seleccionar_Curso.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Ver Inscriptos</p>
+                </a>
+              </li>
+
+           
+              
+
+            </ul>
+
+            </li>
+            <!--FINEventosADM-->
+              <!--TORNEO-->
+             <li class="nav-item has-treeview" >
+                 <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-book"></i>
+              <p>
+                TORNEO
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+                 <ul class="nav nav-treeview">
+
+                  <li class="nav-item">
+                <a href="../Llaves/Llave_selecc_evento.aspx" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o text-info"></i>
+                  <p>Administrar Llaves</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../Areas/Area_asignar.aspx" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o text-info"></i>
+                  <p>Crear Areas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../Torneo/Torneo_usuario_add.aspx" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o text-info"></i>
+                  <p>Crear Usuario para Evento</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../Eventos/Evento_Seleccionar_Torneo.aspx" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o text-info"></i>
+                  <p>Consultar Inscriptos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../Eventos/Evento_Seleccionar_Torneo.aspx" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o text-info"></i>
+                  <p>Torneos disponibles</p>
+                </a>
+              </li>
+                   
+                   
+                               
+         
+                 </ul>
+               </li>
+
+
+                 <li class="nav-item has-treeview" >
+                 <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-th"></i>
+              <p>
+                EXAMEN
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+                 <ul class="nav nav-treeview">
+
+
+                    <li class="nav-item">
+                <%--<a href="../Inscripciones/Evento_seleccionar.aspx" class="nav-link">--%>
+                <a href="../Eventos/Examen_costos.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Costos de Examen</p>
+                </a>
+              </li>
+
+                 <li class="nav-item">
+                <%--<a href="../Inscripciones/Evento_seleccionar.aspx" class="nav-link">--%>
+                <a href="../Eventos/Evento_Seleccionar_Examen.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Examen</p>
+                </a>
+              </li>
+
+
+     </ul>
+               </li>
+
+
+             <!--INSTITUCIONES ADM-->
+             <li class="nav-item has-treeview" >
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Instituciones
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="../Instituciones/Institucion_modificar.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Gestión Institución</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="../Instituciones/Instructor_institucion_a.aspx" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Asignar institución</p>
+                </a>
+              </li>
+
+
+            </ul>
+
+            </li>
+            <!--FIN INSTITUCIONES ADM-->
+            
+            <!--INSTRUCTORES ADM-->
+              <li class="nav-item has-treeview" >
+                    <a href="#" class="nav-link">
+                          <i class="nav-icon fa fa-table"></i>
+                          <p>
+                            Instructores
+                            <i class="fa fa-angle-left right"></i>
+                          </p>
+                    </a>
+                        <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../Instructores/Instructores_nuevo.aspx" class="nav-link">
+                                      <i class="fa fa-circle-o nav-icon"></i>
+                                      <p>Instructores Invitados</p>
+                                    </a>
+              </li>
+
+                        </ul>
+              </li>
+            <!--FIN INSTRUCTORES ADM-->
+            </ul>
+          </li>
+          <!--AdministradorFIN-->
+
+          <!--Calendario-->
+           <li class="nav-item" id="li_Calendar" runat="server">
+            <a href="../Calendario/Calendario.aspx" class="nav-link">
+              <i class="nav-icon fa fa-calendar"></i>
+              <p>
+               Calendario
+                <%--<span class="badge badge-info right">2</span>--%>
+              </p>
+            </a>
+          </li>
+           <!--CalendarioFIN-->
+
+
+           <!--Mensajes-->
+          <li class="nav-item" id="li_Msje_mailbox" runat="server">
+            <a href="../Mailbox/mailbox.aspx" class="nav-link">
+              <i class="nav-icon fa fa-th"></i>
+              <p>
+                Mensajes
+               
+                <span class="right badge badge-danger" id="msje" runat="server">New</span>
+                
+              </p>
+            </a>
+          </li>
+          <!--MensajesFIN-->
+
+          <!--Generar LLaves-->         
+              <li class="nav-item" id="li_Gen_llaves" runat="server">
+                <a href="../Llaves/Llave_generar.aspx" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o text-info"></i>
+                  <p>Generar LLaves</p>
+                </a>
+              </li>
+         <!--Generar LLavesFIN-->
+
+           <!--Ver LLaves Generadass-->         
+              <li class="nav-item" id="li_Ver_llav_Gen" runat="server">
+                <a href="../Llaves/Llave_disponibles.aspx" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o text-info"></i>
+                  <p>Ver LLaves Generadas</p>
+                </a>
+              </li>
+         <!--Ver LLaves Generadas-->
+          
+             
+
+
+         
+
+        <%--  <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-pie-chart"></i>
+              <p>
+                Charts
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../charts/chartjs.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>ChartJS</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../charts/flot.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Flot</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../charts/inline.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Inline</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-tree"></i>
+              <p>
+                UI Elements
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../UI/general.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>General</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/icons.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Icons</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/buttons.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Buttons</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/sliders.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Sliders</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-edit"></i>
+              <p>
+                Forms
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../forms/general.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>General Elements</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../forms/advanced.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Advanced Elements</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../forms/editors.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Editors</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Tables
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../tables/simple.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Simple Tables</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../tables/data.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Data Tables</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-header">EXAMPLES</li>
+          <li class="nav-item">
+            <a href="../calendar.html" class="nav-link">
+              <i class="nav-icon fa fa-calendar"></i>
+              <p>
+                Calendar
+                <span class="badge badge-info right">2</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-envelope-o"></i>
+              <p>
+                Mailbox
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../mailbox/mailbox.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Inbox</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../mailbox/compose.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Compose</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../mailbox/read-mail.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Read</p>
+                </a>
+              </li>
+            </ul>
+          </li>--%>
+         <%-- <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-book"></i>
+              <p>
+                Pages
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../examples/invoice.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Invoice</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/profile.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Profile</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/login.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Login</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/register.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Register</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/lockscreen.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Lockscreen</p>
+                </a>
+              </li>
+            </ul>
+          </li>--%>
+         <%-- <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-plus-square-o"></i>
+              <p>
+                Extras
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../examples/404.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Error 404</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/500.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Error 500</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/blank.html" class="nav-link active">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Blank Page</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../MasterPage/starter.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Starter Page</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-header">MISCELLANEOUS</li>
+          <li class="nav-item">
+            <a href="https://adminlte.io/docs" class="nav-link">
+              <i class="nav-icon fa fa-file"></i>
+              <p>Documentation</p>
+            </a>
+          </li>
+          <li class="nav-header">LABELS</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-circle-o text-danger"></i>
+              <p class="text">Important</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-circle-o text-warning"></i>
+              <p>Warning</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-circle-o text-info"></i>
+              <p>Informational</p>
+            </a>
+          </li>--%>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <%--<div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Blank Page</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Blank Page</li>
+            </ol>
+          </div>
+        </div>
+      </div>--%><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 1.0.0-Beta
+    </div>
+    <strong>Copyright &copy; 2018 <a href="wmhamer@gmail.com">Asociacion Norte de Taekwon-Do - HamerSoft</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src=" /MasterPage/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src=" /MasterPage/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- SlimScroll -->
+<script src=" /MasterPage/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src=" /MasterPage/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src=" /MasterPage/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src=" /MasterPage/dist/js/demo.js"></script>
+<!-- Select2 -->
+<script src=" /MasterPage/plugins/select2/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src=" /MasterPage/plugins/input-mask/jquery.inputmask.js"></script>
+<script src=" /MasterPage/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src=" /MasterPage/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+<script src=" /MasterPage/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src=" /MasterPage/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src=" /MasterPage/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src=" /MasterPage/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src=" /MasterPage/plugins/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src=" /MasterPage/plugins/fastclick/fastclick.js"></script>
+   
+    <script src=" /MasterPage/plugins/jspdf/jspdf.min.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<%--JS que hay que agregar para excel--%>
+<script src="/js/table2excel.js" type="text/javascript"></script>
+
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Datemask dd/mm/yyyy
+        $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+        //Datemask2 mm/dd/yyyy
+        $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+        //Money Euro
+        $('[data-mask]').inputmask()
+
+        //Date range picker
+        $('#reservation').daterangepicker()
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            format: 'MM/DD/YYYY h:mm A'
+        })
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+      {
+          ranges: {
+              'Today': [moment(), moment()],
+              'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+              'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+              'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+              'This Month': [moment().startOf('month'), moment().endOf('month')],
+              'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+      },
+      function (start, end) {
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass: 'iradio_minimal-blue'
+        })
+        //Red color scheme for iCheck
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+            checkboxClass: 'icheckbox_minimal-red',
+            radioClass: 'iradio_minimal-red'
+        })
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        })
+
+        //Colorpicker
+        $('.my-colorpicker1').colorpicker()
+        //color picker with addon
+        $('.my-colorpicker2').colorpicker()
+
+        //Timepicker
+        $('.timepicker').timepicker({
+            showInputs: false
+        })
+    })
+
+
+    function DescargarPDF(ContenidoID, nombre) {
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        html = $('#' + ContenidoID).html();
+        specialElementHandlers = {};
+        margins = { top: 10, bottom: 20, left: 20, width: 522 };
+        pdf.fromHTML(html, margins.left, margins.top, { 'width': margins.width },
+        function (dispose) { pdf.save(nombre + '.pdf'); }, margins);
+    }
+
+
+</script>
+
+<script type="text/javascript" >
+    //   DescargarPDF('reporte', 'Archivo');
+    function DescargarPDF(ContenidoID, nombre) {
+
+        var pdf = new jsPDF('p', 'pt', 'letter');
+
+        html = $('#' + ContenidoID).html();
+
+        specialElementHandlers = {};
+
+        margins = { top: 10, bottom: 20, left: 20, width: 522 };
+
+        pdf.fromHTML(html, margins.left, margins.top, { 'width': margins.width }, function (dispose) { pdf.save(nombre + '.pdf'); }, margins);
+
+    }
+</script>
+
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+
+        //Datemask dd/mm/yyyy
+        $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+        //Datemask2 mm/dd/yyyy
+        $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+        //Money Euro
+        $('[data-mask]').inputmask()
+
+        //Date range picker
+        $('#reservationdate').datetimepicker({
+            format: 'L'
+        });
+        //Date range picker
+        $('#reservation').daterangepicker()
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'MM/DD/YYYY hh:mm A'
+            }
+        })
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+      {
+          ranges: {
+              'Today': [moment(), moment()],
+              'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+              'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+              'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+              'This Month': [moment().startOf('month'), moment().endOf('month')],
+              'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+      },
+      function (start, end) {
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+
+        //Timepicker
+        $('#timepicker').datetimepicker({
+            format: 'LT'
+        })
+
+        //Bootstrap Duallistbox
+        $('.duallistbox').bootstrapDualListbox()
+
+        //Colorpicker
+        $('.my-colorpicker1').colorpicker()
+        //color picker with addon
+        $('.my-colorpicker2').colorpicker()
+
+        $('.my-colorpicker2').on('colorpickerChange', function (event) {
+            $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+        });
+
+        $("input[data-bootstrap-switch]").each(function () {
+            $(this).bootstrapSwitch('state', $(this).prop('checked'));
+        });
+
+    })
+
+    function onKeyDecimal(e, thix) {
+        var keynum = window.event ? window.event.keyCode : e.which;
+        if (document.getElementById(thix.id).value.indexOf('.') != -1 && keynum == 46)
+            return false;
+        if ((keynum == 8 || keynum == 48 || keynum == 46))
+            return true;
+        if (keynum <= 47 || keynum >= 58) return false;
+        return /\d/.test(String.fromCharCode(keynum));
+    }
+
+    function justNumbers(e) {
+        var keynum = window.event ? window.event.keyCode : e.which;
+        if ((keynum == 8 || keynum == 48))
+            return true;
+        if (keynum <= 47 || keynum >= 58) return false;
+        return /\d/.test(String.fromCharCode(keynum));
+    }
+
+    function soloLetras(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return true;
+
+        return false;
+    }
+
+
+</script>
+
+<%--Exportar a Excel --%>
+ <script type="text/javascript">
+     $("body").on("click", "#btnExport_Examen", function () {
+         $("[id*=GridView1]").table2excel({
+             filename: "Table.xls"
+         });
+     });
+</script>
+
+
+
+</form>
+
+</body>
+</html>
+
+
+
+<
+    
