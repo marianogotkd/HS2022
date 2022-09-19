@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_liqregalos" targetNamespace="http://tempuri.org/DS_liqregalos.xsd" xmlns:mstns="http://tempuri.org/DS_liqregalos.xsd" xmlns="http://tempuri.org/DS_liqregalos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_liqregalos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_liqregalos" msprop:Generator_UserDSName="DS_liqregalos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Diario" msprop:Generator_TableClassName="DiarioDataTable" msprop:Generator_TableVarName="tableDiario" msprop:Generator_TablePropName="Diario" msprop:Generator_RowDeletingName="DiarioRowDeleting" msprop:Generator_RowChangingName="DiarioRowChanging" msprop:Generator_RowEvHandlerName="DiarioRowChangeEventHandler" msprop:Generator_RowDeletedName="DiarioRowDeleted" msprop:Generator_UserTableName="Diario" msprop:Generator_RowChangedName="DiarioRowChanged" msprop:Generator_RowEvArgName="DiarioRowChangeEvent" msprop:Generator_RowClassName="DiarioRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="Monto_Favor" msprop:Generator_ColumnVarNameInTable="columnMonto_Favor" msprop:Generator_ColumnPropNameInRow="Monto_Favor" msprop:Generator_ColumnPropNameInTable="Monto_FavorColumn" msprop:Generator_UserColumnName="Monto_Favor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Favor" msprop:Generator_ColumnVarNameInTable="columnFavor" msprop:Generator_ColumnPropNameInRow="Favor" msprop:Generator_ColumnPropNameInTable="FavorColumn" msprop:Generator_UserColumnName="Favor" type="xs:string" minOccurs="0" />
+              <xs:element name="Contra" msprop:Generator_ColumnVarNameInTable="columnContra" msprop:Generator_ColumnPropNameInRow="Contra" msprop:Generator_ColumnPropNameInTable="ContraColumn" msprop:Generator_UserColumnName="Contra" type="xs:string" minOccurs="0" />
+              <xs:element name="Monto_Contra" msprop:Generator_ColumnVarNameInTable="columnMonto_Contra" msprop:Generator_ColumnPropNameInRow="Monto_Contra" msprop:Generator_ColumnPropNameInTable="Monto_ContraColumn" msprop:Generator_UserColumnName="Monto_Contra" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Semanal" msprop:Generator_TableClassName="SemanalDataTable" msprop:Generator_TableVarName="tableSemanal" msprop:Generator_RowChangedName="SemanalRowChanged" msprop:Generator_TablePropName="Semanal" msprop:Generator_RowDeletingName="SemanalRowDeleting" msprop:Generator_RowChangingName="SemanalRowChanging" msprop:Generator_RowEvHandlerName="SemanalRowChangeEventHandler" msprop:Generator_RowDeletedName="SemanalRowDeleted" msprop:Generator_RowClassName="SemanalRow" msprop:Generator_UserTableName="Semanal" msprop:Generator_RowEvArgName="SemanalRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="Monto_Favor" msprop:Generator_ColumnVarNameInTable="columnMonto_Favor" msprop:Generator_ColumnPropNameInRow="Monto_Favor" msprop:Generator_ColumnPropNameInTable="Monto_FavorColumn" msprop:Generator_UserColumnName="Monto_Favor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Favor" msprop:Generator_ColumnVarNameInTable="columnFavor" msprop:Generator_ColumnPropNameInRow="Favor" msprop:Generator_ColumnPropNameInTable="FavorColumn" msprop:Generator_UserColumnName="Favor" type="xs:string" minOccurs="0" />
+              <xs:element name="Contra" msprop:Generator_ColumnVarNameInTable="columnContra" msprop:Generator_ColumnPropNameInRow="Contra" msprop:Generator_ColumnPropNameInTable="ContraColumn" msprop:Generator_UserColumnName="Contra" type="xs:string" minOccurs="0" />
+              <xs:element name="Monto_Contra" msprop:Generator_ColumnVarNameInTable="columnMonto_Contra" msprop:Generator_ColumnPropNameInRow="Monto_Contra" msprop:Generator_ColumnPropNameInTable="Monto_ContraColumn" msprop:Generator_UserColumnName="Monto_Contra" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mensual" msprop:Generator_TableClassName="MensualDataTable" msprop:Generator_TableVarName="tableMensual" msprop:Generator_RowChangedName="MensualRowChanged" msprop:Generator_TablePropName="Mensual" msprop:Generator_RowDeletingName="MensualRowDeleting" msprop:Generator_RowChangingName="MensualRowChanging" msprop:Generator_RowEvHandlerName="MensualRowChangeEventHandler" msprop:Generator_RowDeletedName="MensualRowDeleted" msprop:Generator_RowClassName="MensualRow" msprop:Generator_UserTableName="Mensual" msprop:Generator_RowEvArgName="MensualRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="Monto_Favor" msprop:Generator_ColumnVarNameInTable="columnMonto_Favor" msprop:Generator_ColumnPropNameInRow="Monto_Favor" msprop:Generator_ColumnPropNameInTable="Monto_FavorColumn" msprop:Generator_UserColumnName="Monto_Favor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Favor" msprop:Generator_ColumnVarNameInTable="columnFavor" msprop:Generator_ColumnPropNameInRow="Favor" msprop:Generator_ColumnPropNameInTable="FavorColumn" msprop:Generator_UserColumnName="Favor" type="xs:string" minOccurs="0" />
+              <xs:element name="Contra" msprop:Generator_ColumnVarNameInTable="columnContra" msprop:Generator_ColumnPropNameInRow="Contra" msprop:Generator_ColumnPropNameInTable="ContraColumn" msprop:Generator_UserColumnName="Contra" type="xs:string" minOccurs="0" />
+              <xs:element name="Monto_Contra" msprop:Generator_ColumnVarNameInTable="columnMonto_Contra" msprop:Generator_ColumnPropNameInRow="Monto_Contra" msprop:Generator_ColumnPropNameInTable="Monto_ContraColumn" msprop:Generator_UserColumnName="Monto_Contra" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Diario_info" msprop:Generator_TableClassName="Diario_infoDataTable" msprop:Generator_TableVarName="tableDiario_info" msprop:Generator_TablePropName="Diario_info" msprop:Generator_RowDeletingName="Diario_infoRowDeleting" msprop:Generator_RowChangingName="Diario_infoRowChanging" msprop:Generator_RowEvHandlerName="Diario_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="Diario_infoRowDeleted" msprop:Generator_UserTableName="Diario_info" msprop:Generator_RowChangedName="Diario_infoRowChanged" msprop:Generator_RowEvArgName="Diario_infoRowChangeEvent" msprop:Generator_RowClassName="Diario_infoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Semanal_info" msprop:Generator_TableClassName="Semanal_infoDataTable" msprop:Generator_TableVarName="tableSemanal_info" msprop:Generator_TablePropName="Semanal_info" msprop:Generator_RowDeletingName="Semanal_infoRowDeleting" msprop:Generator_RowChangingName="Semanal_infoRowChanging" msprop:Generator_RowEvHandlerName="Semanal_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="Semanal_infoRowDeleted" msprop:Generator_UserTableName="Semanal_info" msprop:Generator_RowChangedName="Semanal_infoRowChanged" msprop:Generator_RowEvArgName="Semanal_infoRowChangeEvent" msprop:Generator_RowClassName="Semanal_infoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mensual_info" msprop:Generator_TableClassName="Mensual_infoDataTable" msprop:Generator_TableVarName="tableMensual_info" msprop:Generator_TablePropName="Mensual_info" msprop:Generator_RowDeletingName="Mensual_infoRowDeleting" msprop:Generator_RowChangingName="Mensual_infoRowChanging" msprop:Generator_RowEvHandlerName="Mensual_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="Mensual_infoRowDeleted" msprop:Generator_UserTableName="Mensual_info" msprop:Generator_RowChangedName="Mensual_infoRowChanged" msprop:Generator_RowEvArgName="Mensual_infoRowChangeEvent" msprop:Generator_RowClassName="Mensual_infoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

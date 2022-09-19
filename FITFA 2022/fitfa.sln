@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "fitfa", "fitfa\fitfa.vbproj", "{867F8522-059C-4A74-96C2-98F18058B391}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A28184F2-A6D1-443D-AE5A-E01C08EB22A8} = {A28184F2-A6D1-443D-AE5A-E01C08EB22A8}
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Capa_de_datos", "Capa_de_datos\Capa_de_datos.vbproj", "{A28184F2-A6D1-443D-AE5A-E01C08EB22A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{867F8522-059C-4A74-96C2-98F18058B391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{867F8522-059C-4A74-96C2-98F18058B391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{867F8522-059C-4A74-96C2-98F18058B391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{867F8522-059C-4A74-96C2-98F18058B391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A28184F2-A6D1-443D-AE5A-E01C08EB22A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A28184F2-A6D1-443D-AE5A-E01C08EB22A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A28184F2-A6D1-443D-AE5A-E01C08EB22A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A28184F2-A6D1-443D-AE5A-E01C08EB22A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {706ACCFA-14E0-47CF-8EDF-EDE164FAFC7A}
+	EndGlobalSection
+EndGlobal

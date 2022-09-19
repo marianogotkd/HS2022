@@ -85,6 +85,78 @@
               </div>
 
           </div>
+
+          <div id="seccion_PagosCobrosReclamos" runat="server" visible="false">
+
+            <div class="form-group">
+                        <div class="row justify-content-center">
+                                <div class="col-4">
+                                        <div class="form-group">
+                                                
+                                            <asp:Label ID="LABEL1" runat="server" Text="PAGOS, COBROS Y RECLAMOS PARA LA FECHA:"></asp:Label>
+                                          <asp:Label ID="LABEL_fecha_parametro2" runat="server" Text=""></asp:Label>
+                                            
+                                          
+                                        </div>
+                                        
+                                    
+                                </div>
+                                <div class="col-4">
+                                  
+                                                                        
+                                </div>
+                                <div class="col-4">
+                                    
+                                                                        
+                                </div>
+
+                        </div>
+                </div>
+
+          <div class="form-group">
+              <div class="row justify-content-center">
+              
+                <div class="col-8">
+                  
+                <div class="card">
+                    
+                    <div class="card-body table-responsive p-0" style="height: 400px" onkeydown="tecla_op_botones(event);"> <%--div class="form-group"--%>
+                            <asp:GridView ID="GridView4" runat="server" class="table table-head-fixed text-nowrap" AllowPaging="False" AllowSorting="True" AutoGenerateColumns="False" 
+                                   BorderColor="Black" GridLines="None" 
+                                  EnableSortingAndPagingCallbacks="True"  ShowHeader="True"> 
+                                    <Columns>
+                                        <asp:BoundField DataField="Cliente" HeaderText="CLIENTE" >                                                               
+                                        <HeaderStyle ForeColor="#0099FF" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="Movimiento" HeaderText="MOVIMIENTO" >                                                               
+                                        <HeaderStyle ForeColor="#0099FF" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="Importe" HeaderText="IMPORTE" >                                                               
+                                        <HeaderStyle ForeColor="#0099FF" />
+                                        </asp:BoundField>
+                                        
+                                        
+                                    </Columns>
+                                </asp:GridView>
+                        </div>
+
+
+                    </div>  
+                
+                
+                </div>
+               
+              </div>
+
+          </div>
+
+
+          </div>
+          
+
+
+
+
             
 
 

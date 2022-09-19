@@ -2059,6 +2059,8 @@
     <Content Include="WC_Cliente\Cliente_alta_b.aspx" />
     <Content Include="WC_Cobro Prestamos Manuales\Cobro_prestamos_manuales.aspx" />
     <Content Include="WC_Cobro Prestamos Manuales\Cobro_prestamos_manuales_det.aspx" />
+    <Content Include="WC_CobroPrestamosXRegalos\Cobro_PrestamosxRegalos.aspx" />
+    <Content Include="WC_CobroPrestamosXRegalos\Cobro_PrestamosxRegalos_det.aspx" />
     <Content Include="WC_Grupos\Grupos_abm.aspx" />
     <Content Include="WC_Grupos\Grupos_agregar.aspx" />
     <Content Include="WC_Grupos\Grupos_alta.aspx" />
@@ -2075,6 +2077,15 @@
     <Content Include="WC_LiquidacionFinal\LiquidacionFinal_PrestamosComision.aspx" />
     <Content Include="WC_LiquidacionFinal\LiquidacionFinal_PrestamosManuales.aspx" />
     <Content Include="WC_LiquidacionFinal\LiquidacionFinal_TotalesFinales.aspx" />
+    <Content Include="WC_LiquidacionGrupos\LiquidacionGrupos.aspx" />
+    <Content Include="WC_LiquidacionGrupos\LiquidacionGrupos_det.aspx" />
+    <Content Include="WC_LiquidacionRegalos\LiquidacionRegalosDiario.aspx" />
+    <Content Include="WC_LiquidacionRegalos\LiquidacionRegalosDiario_det.aspx" />
+    <Content Include="WC_LiquidacionRegalos\LiquidacionRegalosMensual.aspx" />
+    <Content Include="WC_LiquidacionRegalos\LiquidacionRegalosMensual_det.aspx" />
+    <Content Include="WC_LiquidacionRegalos\LiquidacionRegalosSemanal.aspx" />
+    <Content Include="WC_LiquidacionRegalos\LiquidacionRegalosSemanal_det.aspx" />
+    <Content Include="WC_LiquidacionRegalos\LiquidacionRegalos_op.aspx" />
     <Content Include="WC_Modificar Saldos\Modificar_saldos.aspx" />
     <Content Include="WC_Modificar Saldos\Modificar_saldos_detalle.aspx" />
     <Content Include="WC_Pagos Cobros Reclamos\Cobro.aspx" />
@@ -2299,6 +2310,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_cobro_prestamos_manuales.xsd</DependentUpon>
     </Compile>
+    <Compile Include="WC_CobroPrestamosXRegalos\Cobro_PrestamosxRegalos.aspx.designer.vb">
+      <DependentUpon>Cobro_PrestamosxRegalos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_CobroPrestamosXRegalos\Cobro_PrestamosxRegalos.aspx.vb">
+      <DependentUpon>Cobro_PrestamosxRegalos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_CobroPrestamosXRegalos\Cobro_PrestamosxRegalos_det.aspx.designer.vb">
+      <DependentUpon>Cobro_PrestamosxRegalos_det.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_CobroPrestamosXRegalos\Cobro_PrestamosxRegalos_det.aspx.vb">
+      <DependentUpon>Cobro_PrestamosxRegalos_det.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_CobroPrestamosXRegalos\DS_cobro_prestamos_regalos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cobro_prestamos_regalos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="WC_Grupos\DS_grupos.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2431,6 +2461,79 @@
     </Compile>
     <Compile Include="WC_LiquidacionFinal\LiquidacionFinal_TotalesFinales.aspx.vb">
       <DependentUpon>LiquidacionFinal_TotalesFinales.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_LiquidacionGrupos\DS_liqgrupos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_liqgrupos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionGrupos\LiquidacionGrupos.aspx.designer.vb">
+      <DependentUpon>LiquidacionGrupos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionGrupos\LiquidacionGrupos.aspx.vb">
+      <DependentUpon>LiquidacionGrupos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_LiquidacionGrupos\LiquidacionGrupos_det.aspx.designer.vb">
+      <DependentUpon>LiquidacionGrupos_det.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionGrupos\LiquidacionGrupos_det.aspx.vb">
+      <DependentUpon>LiquidacionGrupos_det.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\DS_liqregalos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_liqregalos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalosDiario.aspx.designer.vb">
+      <DependentUpon>LiquidacionRegalosDiario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalosDiario.aspx.vb">
+      <DependentUpon>LiquidacionRegalosDiario.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalosDiario_det.aspx.designer.vb">
+      <DependentUpon>LiquidacionRegalosDiario_det.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalosDiario_det.aspx.vb">
+      <DependentUpon>LiquidacionRegalosDiario_det.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalosMensual.aspx.designer.vb">
+      <DependentUpon>LiquidacionRegalosMensual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalosMensual.aspx.vb">
+      <DependentUpon>LiquidacionRegalosMensual.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalosMensual_det.aspx.designer.vb">
+      <DependentUpon>LiquidacionRegalosMensual_det.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalosMensual_det.aspx.vb">
+      <DependentUpon>LiquidacionRegalosMensual_det.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalosSemanal.aspx.designer.vb">
+      <DependentUpon>LiquidacionRegalosSemanal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalosSemanal.aspx.vb">
+      <DependentUpon>LiquidacionRegalosSemanal.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalosSemanal_det.aspx.designer.vb">
+      <DependentUpon>LiquidacionRegalosSemanal_det.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalosSemanal_det.aspx.vb">
+      <DependentUpon>LiquidacionRegalosSemanal_det.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalos_op.aspx.designer.vb">
+      <DependentUpon>LiquidacionRegalos_op.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_LiquidacionRegalos\LiquidacionRegalos_op.aspx.vb">
+      <DependentUpon>LiquidacionRegalos_op.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="WC_Modificar Saldos\Modificar_saldos.aspx.designer.vb">
@@ -2808,6 +2911,17 @@
     <None Include="WC_Cobro Prestamos Manuales\DS_cobro_prestamos_manuales.xss">
       <DependentUpon>DS_cobro_prestamos_manuales.xsd</DependentUpon>
     </None>
+    <Content Include="WC_CobroPrestamosXRegalos\DS_cobro_prestamos_regalos.xsc">
+      <DependentUpon>DS_cobro_prestamos_regalos.xsd</DependentUpon>
+    </Content>
+    <None Include="WC_CobroPrestamosXRegalos\DS_cobro_prestamos_regalos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cobro_prestamos_regalos.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="WC_CobroPrestamosXRegalos\DS_cobro_prestamos_regalos.xss">
+      <DependentUpon>DS_cobro_prestamos_regalos.xsd</DependentUpon>
+    </Content>
     <None Include="WC_Grupos\DS_grupos.xsc">
       <DependentUpon>DS_grupos.xsd</DependentUpon>
     </None>
@@ -2840,6 +2954,28 @@
     </None>
     <Content Include="WC_LiquidacionFinal\DS_liqfinal.xss">
       <DependentUpon>DS_liqfinal.xsd</DependentUpon>
+    </Content>
+    <Content Include="WC_LiquidacionRegalos\DS_liqregalos.xsc">
+      <DependentUpon>DS_liqregalos.xsd</DependentUpon>
+    </Content>
+    <Content Include="WC_LiquidacionGrupos\DS_liqgrupos.xsc">
+      <DependentUpon>DS_liqgrupos.xsd</DependentUpon>
+    </Content>
+    <None Include="WC_LiquidacionGrupos\DS_liqgrupos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_liqgrupos.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="WC_LiquidacionGrupos\DS_liqgrupos.xss">
+      <DependentUpon>DS_liqgrupos.xsd</DependentUpon>
+    </Content>
+    <None Include="WC_LiquidacionRegalos\DS_liqregalos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_liqregalos.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="WC_LiquidacionRegalos\DS_liqregalos.xss">
+      <DependentUpon>DS_liqregalos.xsd</DependentUpon>
     </Content>
     <None Include="WC_Pagos Cobros Reclamos\DS_pagoscobrosreclamos.xsc">
       <DependentUpon>DS_pagoscobrosreclamos.xsd</DependentUpon>

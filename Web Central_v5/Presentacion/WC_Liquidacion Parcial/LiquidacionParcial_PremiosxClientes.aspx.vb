@@ -658,6 +658,10 @@ Public Class LiquidacionParcial_PremiosxClientes
 
   End Sub
 
+  Private Sub btn_retroceder_ServerClick(sender As Object, e As EventArgs) Handles btn_retroceder.ServerClick
+    Response.Redirect("~/Inicio.aspx")
+  End Sub
+
 #End Region
 
 End Class

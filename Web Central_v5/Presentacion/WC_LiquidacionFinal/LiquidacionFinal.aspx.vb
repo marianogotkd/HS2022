@@ -145,11 +145,64 @@ Public Class LiquidacionFinal
 
     If valido = "si" Then
       'en la rutina VALIDACION se cargaron los codigos de las zonas habilitadas aqui: DS_liqparcial.Tables("Recorridos_seleccionados")
-      Liquidacion(DS_liqparcial)
+
+      Dim DS_liqfinal As New DS_liqfinal
+
+
+      Liquidacion(DS_liqparcial, DS_liqfinal)
 
       'envio los parametros y tablas para generar el informe con los Totales Finales.
       Session("fecha_parametro") = HF_fecha.Value
       Session("tabla_recorridos_seleccionados") = DS_liqparcial.Tables("Recorridos_seleccionados")
+
+
+
+      If DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Count <> 0 Then
+        Dim SumPagos As Decimal = 0
+        Dim SumCobros As Decimal = 0
+        Dim SumReclamos As Decimal = 0
+        Dim i As Integer = 0
+        While i < DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Count
+          Dim movimiento As String = DS_liqfinal.Tables("PagosCobrosReclamos").Rows(i).Item("Movimiento").ToString
+          If movimiento = "PAGO" Then
+            SumPagos = SumPagos + CDec(DS_liqfinal.Tables("PagosCobrosReclamos").Rows(i).Item("Importe"))
+          End If
+          If movimiento = "COBRO" Then
+            SumCobros = SumCobros + CDec(DS_liqfinal.Tables("PagosCobrosReclamos").Rows(i).Item("Importe"))
+          End If
+          If movimiento = "RECLAMO" Then
+            SumReclamos = SumReclamos + CDec(DS_liqfinal.Tables("PagosCobrosReclamos").Rows(i).Item("Importe"))
+          End If
+          i = i + 1
+        End While
+        DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Add() 'fila en blanco
+
+
+        SumPagos = (Math.Round(SumPagos, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+        SumCobros = (Math.Round(SumCobros, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+        SumReclamos = (Math.Round(SumReclamos, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
+        Dim fila_p As DataRow = DS_liqfinal.Tables("PagosCobrosReclamos").NewRow
+        fila_p("Cliente") = ""
+        fila_p("Movimiento") = "TOTAL PAGOS:"
+        fila_p("Importe") = SumPagos
+        DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Add(fila_p)
+
+        Dim fila_c As DataRow = DS_liqfinal.Tables("PagosCobrosReclamos").NewRow
+        fila_c("Cliente") = ""
+        fila_c("Movimiento") = "TOTAL COBROS:"
+        fila_c("Importe") = SumCobros
+        DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Add(fila_c)
+
+        Dim fila_r As DataRow = DS_liqfinal.Tables("PagosCobrosReclamos").NewRow
+        fila_r("Cliente") = ""
+        fila_r("Movimiento") = "TOTAL RECLAMOS:"
+        fila_r("Importe") = SumReclamos
+        DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Add(fila_r)
+      End If
+
+
+      Session("tabla_PagosCobrosReclamos") = DS_liqfinal.Tables("PagosCobrosReclamos")
+
       Response.Redirect("~/WC_LiquidacionFinal/LiquidacionFinal_TotalesFinales.aspx")
 
     Else
@@ -278,7 +331,7 @@ Public Class LiquidacionFinal
     End While
   End Sub
 
-  Private Sub Liquidacion(ByRef DS_liqparcial As DataSet)
+  Private Sub Liquidacion(ByRef DS_liqparcial As DataSet, ByRef DS_liqfinal As DataSet)
     'obtener_premios_x_clientes(DS_liqparcial)
     '1) recupero todos los registros de Xcargas y los ordenos en un datatable-----------------------------------------
     Dim DS_XCARGAS1 As DataSet = DALiquidacion.Liquidacion_parcial_recuperarXcargas(DS_liqparcial.Tables("Recorridos_seleccionados").Rows(0).Item("Codigo"), HF_fecha.Value)
@@ -302,14 +355,14 @@ Public Class LiquidacionFinal
     'dtTemp tiene todos los registros de XCargas ya ordenas para poder continuar.
     '-------------fin paso 1------------------------------------------------------------------------------------------
 
-    proceso_liquidacion(dtTemp)
+    proceso_liquidacion(dtTemp, DS_liqfinal)
 
 
     'GridView2.DataSource = dtTemp
     'GridView2.DataBind()
   End Sub
 
-  Private Sub proceso_liquidacion(ByVal dtTemp As DataTable)
+  Private Sub proceso_liquidacion(ByVal dtTemp As DataTable, ByRef DS_liqfinal As DataSet)
     '---------------PRIMERA ETAPA: PREMIOS--------------------------------
     Dim DS_liqparcial1 As New DS_liqparcial
     DS_liqparcial1.Tables("PremiosxClientes").Rows.Clear()
@@ -770,7 +823,7 @@ Public Class LiquidacionFinal
           Dim comision As Decimal = (recaudacion * cliente_comision) / 100
           comision = (Math.Round(comision, 2).ToString("N2")) 'redondeo a 2dig en el decimal para evitar desbordamiento
           'operacion: ComisionSC = al calculo del porcentaje del total de Recaudacion (el porcentaje se obtiene de la tabla dbo.Clientes.Comision) del cliente.
-          Dim comisionSC As Decimal = comision
+          Dim comisionSC As Decimal = (recaudacionSC * cliente_comision) / 100
           '--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
           'calculo premios-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -847,12 +900,61 @@ Public Class LiquidacionFinal
           Dim DejoGanoB As Decimal = RecaudacionB - ComisionB - PremiosB - ReclamosB
           '--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+          '--------------------------------------------------------------------------------------------------------------------------------------------------
+          'dbo.CtaCte.Prestamo = a la suma de todos los prestamos dados de alta para la fecha (dbo.PrestamosCreditos.Saldo)
+          'dbo.CtaCte.Credito = a la suma de todos los creditos dados de alta para la fecha (dbo.PrestamosCreditos.Saldo)
+          Dim Prestamo As Decimal = 0
+          Dim Credito As Decimal = 0
+          'recupero primero todos los prestamos donde fecha= fecha_liquidacion
+          Dim ds_prescred As DataSet = DALiquidacion.LiquidacionFinal_obtener_prestamoscreditos(CDate(HF_fecha.Value), CInt(Codigo_cliente))
+          Dim k As Integer = 0
+          While k < ds_prescred.Tables(0).Rows.Count
+            Select Case ds_prescred.Tables(0).Rows(k).Item("Tipo")
+              Case "P"
+                Prestamo = Prestamo + CDec(ds_prescred.Tables(0).Rows(k).Item("Saldo"))
+              Case "C"
+                Credito = Credito + CDec(ds_prescred.Tables(0).Rows(k).Item("Saldo"))
+            End Select
+            k = k + 1
+          End While
+
+
+          '--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
           '-------aqui guardo en bd-----
           DACtaCte.CtaCte_alta(Grupo_id, CInt(Codigo_cliente), HF_fecha.Value, SaldoAnterior, recaudacion, comision, Premios, Reclamos, DejoGano,
                       recaudacionSC, comisionSC, PremiosSC, ReclamosSC, DejoGanoSC,
-                      RecaudacionB, ComisionB, PremiosB, ReclamosB, DejoGanoB, Cobros, Pagos)
+                      RecaudacionB, ComisionB, PremiosB, ReclamosB, DejoGanoB, Cobros, Pagos, Prestamo, Credito)
           '---------fin--------------
 
+
+          '//////////////////////////////EN ESTA SECCION AGREGO UN REGISTRO POR CADA MOVIMIENTO DEL CLIENTE: PAGOS, COBROS, RECLAMOS/////////////////
+          'valido si alguno de esos parametros es distinto de 0 lo agrego.
+          If Pagos <> CDec(0) Then
+            Dim fila_mov As DataRow = DS_liqfinal.Tables("PagosCobrosReclamos").NewRow
+            fila_mov("Cliente") = Codigo_cliente
+            fila_mov("Movimiento") = "PAGO"
+            fila_mov("Importe") = CDec(Pagos)
+            DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Add(fila_mov)
+          End If
+          If Cobros <> CDec(0) Then
+            Dim fila_mov As DataRow = DS_liqfinal.Tables("PagosCobrosReclamos").NewRow
+            fila_mov("Cliente") = Codigo_cliente
+            fila_mov("Movimiento") = "COBRO"
+            fila_mov("Importe") = CDec(Cobros)
+            DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Add(fila_mov)
+          End If
+          Dim SumReclamos As Decimal = Reclamos + ReclamosSC + ReclamosB
+          If SumReclamos <> CDec(0) Then
+            Dim fila_mov As DataRow = DS_liqfinal.Tables("PagosCobrosReclamos").NewRow
+            fila_mov("Cliente") = Codigo_cliente
+            fila_mov("Movimiento") = "RECLAMO"
+            fila_mov("Importe") = CDec(SumReclamos)
+            DS_liqfinal.Tables("PagosCobrosReclamos").Rows.Add(fila_mov)
+          End If
+          '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
           '-------------TERCERA ETAPA: Actualizacion de Saldo y SaldoRegaldo por cada cliente que tuvo movimento en la fecha del parametro a liquidar.------------------------------------------------------------
 
@@ -861,8 +963,8 @@ Public Class LiquidacionFinal
           'dbo.Clientes.SaldoAnterior = dbo.Clientes.Saldo
           Dim Clie_Saldo As Decimal = ds_xcargas.Tables(0).Rows(i).Item("Cliente_Saldo")
           Dim Clie_SaldoAnterior As Decimal = Clie_Saldo
-          'dbo.Clientes.Saldo = dbo.Clientes.Saldo + dbo.CtaCteRecaudacion + dbo.CtaCteRecaudacionSC + dbo.CtaCteRecaudacionB - dbo.CtaCte.Comision - dbo.CtaCte.ComisionSC - dbo.CtaCte.ComisionB - dbo.CtaCte.Premios - dbo.CtaCte.PremiosSC - dbo.CtaCte.PremiosB - dbo.CtaCte.Reclamos - dbo.CtaCte.ReclamosSC - dbo.CtaCte.ReclamosB - dbo.CtaCte.Cobros + dbo.CtaCte.Pagos + dbo.CtaCte.CobPrestamo + dbo.CtaCte.CobCredito
-          Clie_Saldo = Clie_Saldo + recaudacion + recaudacionSC + RecaudacionB - comision - comisionSC - ComisionB - Premios - PremiosSC - PremiosB - Reclamos - ReclamosSC - ReclamosB - Cobros + Pagos + 0 + 0
+          'dbo.Clientes.Saldo = dbo.Clientes.Saldo + dbo.CtaCteRecaudacion + dbo.CtaCteRecaudacionSC + dbo.CtaCteRecaudacionB - dbo.CtaCte.Comision - dbo.CtaCte.ComisionSC - dbo.CtaCte.ComisionB - dbo.CtaCte.Premios - dbo.CtaCte.PremiosSC - dbo.CtaCte.PremiosB - dbo.CtaCte.Reclamos - dbo.CtaCte.ReclamosSC - dbo.CtaCte.ReclamosB - dbo.CtaCte.Cobros + dbo.CtaCte.Pagos + dbo.CtaCte.CobPrestamo + dbo.CtaCte.CobCredito + dbo.Ctacte.Prestamo + dbo.Ctacte.Credito
+          Clie_Saldo = Clie_Saldo + recaudacion + recaudacionSC + RecaudacionB - comision - comisionSC - ComisionB - Premios - PremiosSC - PremiosB - Reclamos - ReclamosSC - ReclamosB + Cobros - Pagos + 0 + 0 + Prestamo + Credito
 
           '---aqui guardo en bd -----
           DACliente.Clientes_ActualizarSaldo(Codigo_cliente, Clie_SaldoAnterior, Clie_Saldo)
@@ -872,7 +974,7 @@ Public Class LiquidacionFinal
           'Operacion: dbo.Clientes.SaldoRegalo = dbo.Clientes.SaldoRegalo + ((dbo.CtaCte.Recaudacion - dbo.CtaCte.Comision - dbo.CtaCte.Premios - dbo.CtaCte.Reclamos) * dbo.Clientes.Regalo)
           Dim Clie_Regalo As Decimal = ds_xcargas.Tables(0).Rows(i).Item("Cliente_Regalo")
           Dim SaldoRegalo As Decimal = ds_xcargas.Tables(0).Rows(i).Item("Cliente_SaldoRegalo")
-          SaldoRegalo = SaldoRegalo + ((recaudacion - comision - Premios - Reclamos) * Clie_Regalo)
+          SaldoRegalo = SaldoRegalo + (((recaudacion - comision - Premios - Reclamos) / 100) * Clie_Regalo * -1)
 
           '---aqui guardo en bd----
           DACliente.Clientes_ActualizarSaldoRegalo(Codigo_cliente, SaldoRegalo)

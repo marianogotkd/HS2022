@@ -53,7 +53,7 @@ Public Class LiquidacionFinal_PrestamosComision
                 'dbo.CobroPrestamosCreditos.Importe = dbo.CtaCte.Comision * dbo.PrestamosCreditos.Porcentaje
                 '(hay que revisar el saldo que le queda al prestamo dbo.PrestamosCreditos.Saldo ya que el cobro
                 'no puede ser mayor al saldo que le queda al prestamo)
-                Dim importe As Decimal = CtaCte_Comision * PrestamosCreditos_Porcentaje
+                Dim importe As Decimal = (CtaCte_Comision * PrestamosCreditos_Porcentaje) / 100
                 Dim Estado_id As Integer = 1 '1 activo, 2 cancelado, 3 baja
                 If importe > PrestamosCreditos_Saldo Then
                   importe = PrestamosCreditos_Saldo
@@ -89,7 +89,7 @@ Public Class LiquidacionFinal_PrestamosComision
 
                 '--------------------------------------------------------------------------------------------------------------------------
                 'Actualizar el saldo dbo.Clientes.Saldo = dbo.Clientes.Saldo + dbo.CtaCte.CobPrestamo
-                DACliente.Cliente_ActualizarSaldo_ctacte(Cliente_ID, IdCtaCte)
+                DACliente.Cliente_ActualizarSaldo_ctacte(Cliente_ID, importe)
                 '--------------------------------------------------------------------------------------------------------------------------
 
 
@@ -98,11 +98,12 @@ Public Class LiquidacionFinal_PrestamosComision
                 fila("Cliente") = CInt(Cliente_Codigo)
                 Dim FechaPrestamo_Ori As Date = DS_PrestamosComision.Tables(0).Rows(i).Item("Fecha")
                 fila("Fecha_Ori") = FechaPrestamo_Ori.ToString("dd-MM-yyyy")
-                fila("Importe_Cob") = importe
-                fila("Saldo") = PrestamosCreditos_Saldo
+                fila("Importe_Cob") = (Math.Round(importe, 2).ToString("N2"))
+                fila("Saldo") = (Math.Round(PrestamosCreditos_Saldo, 2).ToString("N2"))
                 Dim Prestamo As Decimal = DS_PrestamosComision.Tables(0).Rows(i).Item("Importe")
-                fila("Prestamo") = Prestamo
+                fila("Prestamo") = (Math.Round(Prestamo, 2).ToString("N2"))
                 DS_liqfinal.Tables("PrestamosComision").Rows.Add(fila)
+
 
               End If
             End If

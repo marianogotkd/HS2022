@@ -83,7 +83,7 @@ Public Class LiquidacionFinal_Creditos
 
               '----------------------------------------------------------------------------------------------------------------------------------------------------
               'Actualizar el saldo dbo.Clientes.Saldo = dbo.Clientes.Saldo + dbo.CtaCte.CobCredito
-              DACliente.Cliente_ActualizarSaldo_ctacte2(Cliente_ID, IdCtaCte)
+              DACliente.Cliente_ActualizarSaldo_ctacte2(Cliente_ID, importe)
               '----------------------------------------------------------------------------------------------------------------------------------------------------
 
               'agrego 1 registro al datatable q voy a mandar al gridview.
@@ -91,11 +91,18 @@ Public Class LiquidacionFinal_Creditos
               fila("Cliente") = CInt(Cliente_Codigo)
               Dim FechaPrestamo_Ori As Date = DS_Creditos.Tables(0).Rows(i).Item("Fecha")
               fila("Fecha_Ori") = FechaPrestamo_Ori.ToString("dd-MM-yyyy")
-              fila("Importe_Cob") = importe
-              fila("Cuota") = nro_cta_cobrada
-              fila("Saldo") = PrestamosCreditos_Saldo
-              Dim Credito As Decimal = DS_Creditos.Tables(0).Rows(i).Item("Importe")
-              fila("Credito") = Credito
+              fila("Importe_Cob") = (Math.Round(importe, 2).ToString("N2"))
+              fila("Cuota") = (Math.Round(nro_cta_cobrada, 2).ToString("N2"))
+              fila("Saldo") = (Math.Round(PrestamosCreditos_Saldo, 2).ToString("N2"))
+
+              Dim porcentaje As Decimal = DS_Creditos.Tables(0).Rows(i).Item("Porcentaje")
+              Dim Interes As Decimal = porcentaje / 100
+              Dim MontoInteres As Decimal = CDec(DS_Creditos.Tables(0).Rows(i).Item("Importe")) * Interes
+              Dim Credito As Decimal = CDec(DS_Creditos.Tables(0).Rows(i).Item("Importe")) + MontoInteres
+              '              Dim Credito As Decimal = DS_Creditos.Tables(0).Rows(i).Item("Importe")
+
+
+              fila("Credito") = (Math.Round(Credito, 2).ToString("N2"))
               DS_liqfinal.Tables("Creditos").Rows.Add(fila)
 
             End If

@@ -74,7 +74,7 @@ Public Class LiquidacionFinal_PrestamosManuales
         '---------------------------------------------------------------------------------------
 
         'Actualizar el saldo dbo.Clientes.Saldo = dbo.Clientes.Saldo + dbo.CtaCte.CobPrestamo
-        DACliente.Cliente_ActualizarSaldo_ctacte(Cliente_ID, IdCtaCte)
+        DACliente.Cliente_ActualizarSaldo_ctacte(Cliente_ID, CobroPrestamoCredito_Importe)
         '---------------------------------------------------------------------------------------
         '---------------------------------------------------------------------------------------
 
@@ -84,10 +84,9 @@ Public Class LiquidacionFinal_PrestamosManuales
         fila("Cliente") = CInt(Cliente_Codigo)
         fila("Fecha_Ori") = FechaPrestamo_Ori.ToString("dd-MM-yyyy")
 
-
-        fila("Importe_Cob") = CobroPrestamoCredito_Importe
-        fila("Saldo") = PrestamosCreditos_Saldo
-        fila("Prestamo") = Prestamo
+        fila("Importe_Cob") = (Math.Round(CobroPrestamoCredito_Importe, 2).ToString("N2"))
+        fila("Saldo") = (Math.Round(PrestamosCreditos_Saldo, 2).ToString("N2"))
+        fila("Prestamo") = (Math.Round(Prestamo, 2).ToString("N2"))
         DS_liqfinal.Tables("PrestamosManuales").Rows.Add(fila)
 
         '---------------------------------------------------------------------------------------

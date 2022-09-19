@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_Consultas" targetNamespace="http://tempuri.org/DS_Consultas.xsd" xmlns:mstns="http://tempuri.org/DS_Consultas.xsd" xmlns="http://tempuri.org/DS_Consultas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_Consultas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_Consultas" msprop:Generator_UserDSName="DS_Consultas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="UNA_CIFRA" msprop:Generator_TableClassName="UNA_CIFRADataTable" msprop:Generator_TableVarName="tableUNA_CIFRA" msprop:Generator_TablePropName="UNA_CIFRA" msprop:Generator_RowDeletingName="UNA_CIFRARowDeleting" msprop:Generator_RowChangingName="UNA_CIFRARowChanging" msprop:Generator_RowEvHandlerName="UNA_CIFRARowChangeEventHandler" msprop:Generator_RowDeletedName="UNA_CIFRARowDeleted" msprop:Generator_UserTableName="UNA_CIFRA" msprop:Generator_RowChangedName="UNA_CIFRARowChanged" msprop:Generator_RowEvArgName="UNA_CIFRARowChangeEvent" msprop:Generator_RowClassName="UNA_CIFRARow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PID" msprop:Generator_ColumnVarNameInTable="columnPID" msprop:Generator_ColumnPropNameInRow="PID" msprop:Generator_ColumnPropNameInTable="PIDColumn" msprop:Generator_UserColumnName="PID" type="xs:string" minOccurs="0" />
+              <xs:element name="ZONA" msprop:Generator_ColumnVarNameInTable="columnZONA" msprop:Generator_ColumnPropNameInRow="ZONA" msprop:Generator_ColumnPropNameInTable="ZONAColumn" msprop:Generator_UserColumnName="ZONA" type="xs:string" minOccurs="0" />
+              <xs:element name="IMPORTE" msprop:Generator_ColumnVarNameInTable="columnIMPORTE" msprop:Generator_ColumnPropNameInRow="IMPORTE" msprop:Generator_ColumnPropNameInTable="IMPORTEColumn" msprop:Generator_UserColumnName="IMPORTE" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DOS_CIFRAS" msprop:Generator_TableClassName="DOS_CIFRASDataTable" msprop:Generator_TableVarName="tableDOS_CIFRAS" msprop:Generator_TablePropName="DOS_CIFRAS" msprop:Generator_RowDeletingName="DOS_CIFRASRowDeleting" msprop:Generator_RowChangingName="DOS_CIFRASRowChanging" msprop:Generator_RowEvHandlerName="DOS_CIFRASRowChangeEventHandler" msprop:Generator_RowDeletedName="DOS_CIFRASRowDeleted" msprop:Generator_UserTableName="DOS_CIFRAS" msprop:Generator_RowChangedName="DOS_CIFRASRowChanged" msprop:Generator_RowEvArgName="DOS_CIFRASRowChangeEvent" msprop:Generator_RowClassName="DOS_CIFRASRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PID" msprop:Generator_ColumnVarNameInTable="columnPID" msprop:Generator_ColumnPropNameInRow="PID" msprop:Generator_ColumnPropNameInTable="PIDColumn" msprop:Generator_UserColumnName="PID" type="xs:string" minOccurs="0" />
+              <xs:element name="ZONA" msprop:Generator_ColumnVarNameInTable="columnZONA" msprop:Generator_ColumnPropNameInRow="ZONA" msprop:Generator_ColumnPropNameInTable="ZONAColumn" msprop:Generator_UserColumnName="ZONA" type="xs:string" minOccurs="0" />
+              <xs:element name="IMPORTE" msprop:Generator_ColumnVarNameInTable="columnIMPORTE" msprop:Generator_ColumnPropNameInRow="IMPORTE" msprop:Generator_ColumnPropNameInTable="IMPORTEColumn" msprop:Generator_UserColumnName="IMPORTE" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TRES_CIFRAS" msprop:Generator_TableClassName="TRES_CIFRASDataTable" msprop:Generator_TableVarName="tableTRES_CIFRAS" msprop:Generator_TablePropName="TRES_CIFRAS" msprop:Generator_RowDeletingName="TRES_CIFRASRowDeleting" msprop:Generator_RowChangingName="TRES_CIFRASRowChanging" msprop:Generator_RowEvHandlerName="TRES_CIFRASRowChangeEventHandler" msprop:Generator_RowDeletedName="TRES_CIFRASRowDeleted" msprop:Generator_UserTableName="TRES_CIFRAS" msprop:Generator_RowChangedName="TRES_CIFRASRowChanged" msprop:Generator_RowEvArgName="TRES_CIFRASRowChangeEvent" msprop:Generator_RowClassName="TRES_CIFRASRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PID" msprop:Generator_ColumnVarNameInTable="columnPID" msprop:Generator_ColumnPropNameInRow="PID" msprop:Generator_ColumnPropNameInTable="PIDColumn" msprop:Generator_UserColumnName="PID" type="xs:string" minOccurs="0" />
+              <xs:element name="ZONA" msprop:Generator_ColumnVarNameInTable="columnZONA" msprop:Generator_ColumnPropNameInRow="ZONA" msprop:Generator_ColumnPropNameInTable="ZONAColumn" msprop:Generator_UserColumnName="ZONA" type="xs:string" minOccurs="0" />
+              <xs:element name="IMPORTE" msprop:Generator_ColumnVarNameInTable="columnIMPORTE" msprop:Generator_ColumnPropNameInRow="IMPORTE" msprop:Generator_ColumnPropNameInTable="IMPORTEColumn" msprop:Generator_UserColumnName="IMPORTE" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CUATRO_CIFRAS" msprop:Generator_TableClassName="CUATRO_CIFRASDataTable" msprop:Generator_TableVarName="tableCUATRO_CIFRAS" msprop:Generator_TablePropName="CUATRO_CIFRAS" msprop:Generator_RowDeletingName="CUATRO_CIFRASRowDeleting" msprop:Generator_RowChangingName="CUATRO_CIFRASRowChanging" msprop:Generator_RowEvHandlerName="CUATRO_CIFRASRowChangeEventHandler" msprop:Generator_RowDeletedName="CUATRO_CIFRASRowDeleted" msprop:Generator_UserTableName="CUATRO_CIFRAS" msprop:Generator_RowChangedName="CUATRO_CIFRASRowChanged" msprop:Generator_RowEvArgName="CUATRO_CIFRASRowChangeEvent" msprop:Generator_RowClassName="CUATRO_CIFRASRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PID" msprop:Generator_ColumnVarNameInTable="columnPID" msprop:Generator_ColumnPropNameInRow="PID" msprop:Generator_ColumnPropNameInTable="PIDColumn" msprop:Generator_UserColumnName="PID" type="xs:string" minOccurs="0" />
+              <xs:element name="ZONA" msprop:Generator_ColumnVarNameInTable="columnZONA" msprop:Generator_ColumnPropNameInRow="ZONA" msprop:Generator_ColumnPropNameInTable="ZONAColumn" msprop:Generator_UserColumnName="ZONA" type="xs:string" minOccurs="0" />
+              <xs:element name="IMPORTE" msprop:Generator_ColumnVarNameInTable="columnIMPORTE" msprop:Generator_ColumnPropNameInRow="IMPORTE" msprop:Generator_ColumnPropNameInTable="IMPORTEColumn" msprop:Generator_UserColumnName="IMPORTE" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -86,6 +86,42 @@ Partial Public Class LiquidacionFinal_TotalesFinales
     Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
+    '''Control seccion_PagosCobrosReclamos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents seccion_PagosCobrosReclamos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Control LABEL1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LABEL1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control LABEL_fecha_parametro2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LABEL_fecha_parametro2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control GridView4.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents GridView4 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
     '''Control btn_continuar.
     '''</summary>
     '''<remarks>

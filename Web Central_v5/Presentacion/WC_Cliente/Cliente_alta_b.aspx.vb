@@ -496,9 +496,9 @@ Public Class Cliente_alta_b
         Txt_cliente_nomb.Attributes.Add("onfocus", "seleccionarTexto(this);")
     End Sub
 
-    Private Sub Txt_comision_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_comision.Init
-        Txt_comision.Attributes.Add("onfocus", "seleccionarTexto(this);")
-    End Sub
+  Private Sub Txt_comision_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_comision.Init
+    Txt_comision.Attributes.Add("onfocus", "seleccionarTexto(this);")
+  End Sub
 
   Private Sub Txt_comision1_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_comision1.Init
     Txt_comision1.Attributes.Add("onfocus", "seleccionarTexto(this);")
