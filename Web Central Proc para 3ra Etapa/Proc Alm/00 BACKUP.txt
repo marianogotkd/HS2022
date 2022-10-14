@@ -1,0 +1,20 @@
+USE [WebCentral]
+GO
+/****** Object:  StoredProcedure [dbo].[BACKUP]    Script Date: 10/12/2022 01:31:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[BACKUP]
+@CONDICION as varchar(1), ---NOTA: EL PARAMETRO CONDICION ES A O T para indicar si es anterior o posterior a la liquidacion final
+@FECHA date
+as
+--declare @FECHA Datetime = GetDate()
+Declare @Ruta varchar(20)= 'C:\BKPWC\WC_'
+Declare @Nombre varchar (100)
+
+set @Nombre=@Ruta+CONVERT(varchar,@FECHA,112)+@CONDICION+'.bak'
+
+
+BACKUP DATABASE WebCentral
+TO  DISK = @Nombre

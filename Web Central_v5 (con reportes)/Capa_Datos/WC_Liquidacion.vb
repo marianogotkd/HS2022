@@ -470,7 +470,7 @@ Public Class WC_Liquidacion
 
 #End Region
 
-#Region "BACKUP"
+#Region "BACKUP y RESTORE"
     Public Function BKP() As DataSet
         Try
             dbconn.Open()
@@ -489,6 +489,68 @@ Public Class WC_Liquidacion
         dbconn.Close()
         Return ds
     End Function
+
+    Public Function BACKUP(ByVal CONDICION As String, ByVal FECHA As Date) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("BACKUP", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CONDICION", CONDICION))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@FECHA", FECHA))
+
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Grupo".
+        DA.Fill(ds, "XCargas")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
+    Public Function BACKUP_aux(ByVal CONDICION As String) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("BACKUP_aux", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CONDICION", CONDICION))
+
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Grupo".
+        DA.Fill(ds, "XCargas")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
+    'restore_backup
+    Public Function restore_backup(ByVal bdName As String, ByVal PathTarget As String, ByVal devicePhyname As String) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("restore_backup", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@bdName", bdName)) 'NOMBRE DE NUEVA BD
+        comando.Parameters.Add(New OleDb.OleDbParameter("@PathTarget", PathTarget)) 'RUTA DESTINO DONDE SE GUARDARAN LOS ARCHIVOS .MDF Y .LDF
+        comando.Parameters.Add(New OleDb.OleDbParameter("@devicePhyname", devicePhyname)) 'RUTA ORIGEN DONDE SE ENCUENTRA EL ARCHIVO .BAK
+
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Grupo".
+        DA.Fill(ds, "BD_NUEVA")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+
 
 #End Region
 

@@ -136,7 +136,13 @@ Public Class LiquidacionFinal
     DALiquidacion.XCargas_load()
 
     'IMPORTANTE: SE GENERA UN BACKUP DE LA BASE DE DATOS ANTES DE LA LIQUIDACION.
-    DALiquidacion.BKP()
+    'NOTA: SE COMENTA DALiquidacion.BKP ya que este proc alm solo guarda un bkp con fecha y hora
+    'DALiquidacion.BKP()
+
+    '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    'nota: se usara un backup de la bd previa a la liquidacion solo se almacenara la fecha y una letra al final...en este caso "A" para indicar que es una copia ANTERIOR a la liquidacion final
+    DALiquidacion.BACKUP("A", CDate(HF_fecha.Value))
+    '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
     Dim DS_liqparcial As New DS_liqparcial

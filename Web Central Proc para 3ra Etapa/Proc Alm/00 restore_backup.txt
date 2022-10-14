@@ -1,0 +1,46 @@
+USE [WebCentral]
+GO
+/****** Object:  StoredProcedure [dbo].[restore_backup]    Script Date: 10/07/2022 17:00:30 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[restore_backup]
+(@dbName VARCHAR(80), --INDICA NOMBRE DE NUEVA BD 
+ @PathTarget VARCHAR(250), -- ruta destino donde se guardarán los archivos .mdf y .ldf
+ @devicePhyname VARCHAR(250)) -- ruta de origen donde se encuentra ubicado el archivo .bak
+AS
+  BEGIN
+      DECLARE @path_mdf VARCHAR(250)
+      DECLARE @path_log VARCHAR(250)
+
+      SET @Path_mdf = @PathTarget + @dbName + '.mdf'
+      SET @path_log = @PathTarget + @dbName + '_log.ldf'
+ 
+      RESTORE DATABASE @dbName
+      FROM DISK=@devicePhyname 
+      WITH 
+         MOVE 'WebCentral' TO @Path_mdf,
+         MOVE 'WebCentral_log' TO @path_log
+
+      --PRINT 'Database restored!!!'
+END
+
+
+////////////////////ejemplo//////////////////
+RESTORE DATABASE WC_Copy  
+   FROM DISK = 'C:\BKPWC\WC_20221007A.bak'  
+   WITH RECOVERY,  
+   MOVE 'WebCentral' TO 'C:\BKPWC\WC_Copy_Data.mdf',   ----move 'nombre logico en bkp' to 'ruta de destino y nombre nuevo.mdf'
+   MOVE 'WebCentral_log' TO 'C:\BKPWC\WC_Copy_Log.ldf';  ---move 'nombre logico en bkp esta va con log' to 'ruta de destino y nombre nuevo con log.ldf'
+GO  
+
+o bien esto
+
+DECLARE @dbName VARCHAR(80)
+DECLARE @PathTarget VARCHAR(250)
+DECLARE @devicePhyname VARCHAR(250)
+SET @dbName = 'WebCentral_copy'
+SET @PathTarget = 'C:\BKPWC\'
+SET @devicePhyname = 'C:\BKPWC\WC_20221007A.bak'
+EXEC restore_backup @dbName, @PathTarget, @devicePhyname

@@ -1,0 +1,35 @@
+USE [WebCentral]
+GO
+
+/****** Object:  Table [dbo].[Parametro]    Script Date: 10/13/2022 15:18:39 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Parametro](
+	[Fecha] [date] NULL,
+	[Dia] [tinyint] NULL,
+	[Recorrido] [varchar](80) NULL,
+	[Parametro_id] [int] IDENTITY(1,1) NOT NULL,
+	[Estado] [varchar](50) NULL,
+	[Terminales] [bit] NULL,
+ CONSTRAINT [PK_Parametro] PRIMARY KEY CLUSTERED 
+(
+	[Parametro_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+---NOTA: SE AGREGO EL CAMPO TERMINALES BIT 0/1....1 POR DEFECTO...TRUE, ES DECIR LAS TERMINALES PUEDEN INGRESAR DATOS
+

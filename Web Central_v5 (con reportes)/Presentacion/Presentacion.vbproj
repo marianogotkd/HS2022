@@ -3228,6 +3228,7 @@
     <Content Include="WC_Pagos Cobros Reclamos\PagosCobrosReclamos.aspx" />
     <Content Include="WC_Pagos Cobros Reclamos\PagosCobrosReclamos_resumen.aspx" />
     <Content Include="WC_Pagos Cobros Reclamos\Reclamo.aspx" />
+    <Content Include="WC_ReliquidacionXError\ReliquidacionXError.aspx" />
     <Content Include="WC_Reportes\Form_rptprueba.aspx" />
     <Content Include="WC_TicketsClientes\TicketsClientes.aspx" />
     <Content Include="WC_TicketsClientes\TicketsClientesPorOrden.aspx" />
@@ -3786,6 +3787,13 @@
     </Compile>
     <Compile Include="WC_Pagos Cobros Reclamos\Reclamo.aspx.vb">
       <DependentUpon>Reclamo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WC_ReliquidacionXError\ReliquidacionXError.aspx.designer.vb">
+      <DependentUpon>ReliquidacionXError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC_ReliquidacionXError\ReliquidacionXError.aspx.vb">
+      <DependentUpon>ReliquidacionXError.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="WC_Reportes\Form_rptprueba.aspx.designer.vb">

@@ -1,0 +1,141 @@
+Alter Procedure Reliquidacion_ObtenerDeBkp
+as
+---INSERTO REGISTRO EN TABLA PARAMETRO
+
+INSERT INTO WebCentral.dbo.Parametro (Fecha, Dia, Recorrido, Estado, Terminales)
+SELECT Fecha, Dia, Recorrido, Estado, Terminales FROM WebCentral_copy.dbo.Parametro WHERE WebCentral_copy.dbo.Parametro.Estado = 'Activo'
+
+-- ACTUALIZO REGISTROS EN TABLA RECORRIDOS
+merge WebCentral.dbo.Recorridos as R1
+using WebCentral_copy.dbo.Recorridos as R2
+on R1.Idrecorrido = R2.Idrecorrido
+when matched then
+update
+	set Referencia = r2.Referencia, 
+	Codigo = R2.Codigo, 
+	Dia_id = R2.Dia_id, 
+	Habilitada = R2.Habilitada;
+
+-- INSERTAR REGISTROS NUEVOS EN TABLA PUNTOS
+DECLARE @FECHA date
+SELECT @FECHA = fecha FROM WebCentral_copy.dbo.Parametro where Estado = 'Activo'
+
+INSERT INTO WebCentral.dbo.Puntos (Idrecorrido, Fecha, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15, P16, P17, P18, P19, P20, Estado)
+SELECT Idrecorrido, Fecha, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15, P16, P17, P18, P19, P20, Estado FROM WebCentral_copy.dbo.Puntos WHERE Fecha=@FECHA 
+
+
+--INSERTAR REGISTROS NUEVOS EN TABLA GRUPO.
+
+SET IDENTITY_INSERT WebCentral.dbo.Grupos ON
+merge WebCentral.dbo.Grupos as G1
+using WebCentral_copy.dbo.Grupos as G2
+on G1.Grupo_id = G2.Grupo_id
+when not matched by target then
+insert (Grupo_id, Nombre, Tipo, Porcentaje, Clienteporcentaje, Codigocobro, Fecha, Saldo, Saldoanterior, Gastos, Codigo, Importe)
+		values (G2.Grupo_id, G2.Nombre, G2.Tipo, G2.Porcentaje, G2.Clienteporcentaje, G2.Codigocobro, G2.Fecha, G2.Saldo, G2.Saldoanterior, G2.Gastos, G2.Codigo, G2.Importe);
+		
+		SET IDENTITY_INSERT WebCentral.dbo.Grupos OFF
+
+
+--INSERTAR REGISTROS NUEVOS EN TABLA CLIENTE
+SET IDENTITY_INSERT WebCentral.dbo.Clientes ON
+merge WebCentral.dbo.Clientes as C1
+using WebCentral_copy.dbo.Clientes as C2
+on C1.Cliente = C2.Cliente
+when not matched by target then
+insert (Cliente, Nombre, Grupo_id, Comision, Regalo, Comision1, Regalo1, Proceso, Sincalculo, Factor, Imprime, Recorrido, Orden, Variable, Leyenda, Variable1, Leyenda1, Leyenda2, Cantidadpc, Saldo, Saldoanterior, Codigo, SaldoRegalo, UltFechaLiq)
+		values (C2.Cliente, C2.Nombre, C2.Grupo_id, C2.Comision, C2.Regalo, C2.Comision1, C2.Regalo1, C2.Proceso, C2.Sincalculo, C2.Factor, C2.Imprime, C2.Recorrido, C2.Orden, C2.Variable, C2.Leyenda, C2.Variable1, C2.Leyenda1, C2.Leyenda2, C2.Cantidadpc, C2.Saldo, C2.Saldoanterior, C2.Codigo, C2.SaldoRegalo, C2.UltFechaLiq);
+		
+		SET IDENTITY_INSERT WebCentral.dbo.Clientes OFF
+
+--INSERTAR REGISTROS EN GASTOS TIPO
+SET IDENTITY_INSERT WebCentral.dbo.GastosTipo ON
+merge WebCentral.dbo.GastosTipo as GAST1
+using WebCentral_copy.dbo.GastosTipo as GAST2
+on GAST1.Gastotipo_id = GAST2.Gastotipo_id
+when not matched by target then
+insert (Gastotipo_id, Motivo)
+		values (GAST2.Gastotipo_id, GAST2.Motivo);
+		
+		SET IDENTITY_INSERT WebCentral.dbo.GastosTipo OFF
+
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+--INSERTAR REGISTROS EN GASTOS
+SET IDENTITY_INSERT WebCentral.dbo.Gastos ON
+merge WebCentral.dbo.Gastos as GA1
+using WebCentral_copy.dbo.Gastos as GA2
+on GA1.Idgasto = GA2.Idgasto
+when not matched by target then
+insert (Idgasto, Fecha, Grupo_id, Gastotipo_id, Importe, Eliminado)
+		values (GA2.Idgasto, GA2.Fecha, GA2.Grupo_id, GA2.Gastotipo_id, GA2.Importe, GA2.Eliminado);
+		
+		SET IDENTITY_INSERT WebCentral.dbo.Gastos OFF
+
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+
+--INSERTAR REGISTROS EN ANTICIPADOS (MODULO DE PAGOS/COBROS/RECLAMOS)
+DECLARE @FECHA_a date
+SELECT @FECHA_a = fecha FROM WebCentral_copy.dbo.Parametro where Estado = 'Activo'
+
+INSERT INTO WebCentral.dbo.Anticipados (Fecha, Cliente, AnticipadosTipo_id, Importe, Sincalculo, Origen, Descripcion, FechaOrigen, Eliminado)
+SELECT Fecha, Cliente, AnticipadosTipo_id, Importe, Sincalculo, Origen, Descripcion, FechaOrigen, Eliminado FROM WebCentral_copy.dbo.Anticipados WHERE WebCentral_copy.dbo.Anticipados.Fecha = @FECHA_a 
+
+
+--SET IDENTITY_INSERT WebCentral.dbo.Anticipados ON
+--merge WebCentral.dbo.Anticipados as Ant1
+--using WebCentral_copy.dbo.Anticipados as Ant2
+--on Ant1.Anticipados_id = Ant2.Anticipados_id
+--when not matched by target then
+--insert (Anticipados_id, Fecha, Cliente, AnticipadosTipo_id, Importe, Sincalculo, Origen, Descripcion, FechaOrigen, Eliminado)
+--		values (Ant2.Anticipados_id, Ant2.Fecha, Ant2.Cliente, Ant2.AnticipadosTipo_id, Ant2.Importe, Ant2.Sincalculo, Ant2.Origen, Ant2.Descripcion, Ant2.FechaOrigen, Ant2.Eliminado);
+		
+--		SET IDENTITY_INSERT WebCentral.dbo.Anticipados OFF
+
+
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+
+
+--INSERTO REGISTROS EN XCARGAS 1 A N---BORRANTO EL CONTENIDO PREVIAMENTE.
+DECLARE @Tmp_tablas TABLE(
+   Id int identity(1,1) not null primary key
+  ,nombre varchar(50) not null
+)
+INSERT INTO @Tmp_tablas(nombre)
+SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME like '%XCargas_'
+
+DECLARE @nRegistros Int 
+SET @nRegistros=(SELECT COUNT(*) FROM @Tmp_tablas)
+DECLARE @nWhile Int 
+SET @nWhile=1
+
+WHILE(@nRegistros>0 AND @nWhile<=@nRegistros)
+BEGIN
+
+DECLARE @NombreTabla VARCHAR(50)
+SET @NombreTabla=(SELECT nombre FROM @Tmp_tablas WHERE Id=@nWhile)
+EXEC('DELETE FROM WebCentral.dbo.'+@NombreTabla)
+SET @nWhile=@nWhile+1
+END
+
+
+SET @nWhile=1
+WHILE(@nRegistros>0 AND @nWhile<=@nRegistros)
+BEGIN
+--DECLARE @NombreTabla VARCHAR(50)
+SET @NombreTabla=(SELECT nombre FROM @Tmp_tablas WHERE Id=@nWhile)
+--EXEC('SET IDENTITY INSERT WebCentral.dbo.'+@NombreTabla+' ON')
+EXEC('merge WebCentral.dbo.'+@NombreTabla+' as XC_a
+using WebCentral_copy.dbo.'+@NombreTabla+' as XC_b
+on XC_a.IDcarga = XC_b.IDcarga
+when not matched by target then
+insert (Recorrido, Cliente, Pid, Importe, Suc, Pid2, Suc2, R, SinComputo, TotalImporte, Fecha, Hora, Verificado, Terminal, Item)
+		values (XC_b.Recorrido, XC_b.Cliente, XC_b.Pid, XC_b.Importe, XC_b.Suc, XC_b.Pid2, XC_b.Suc2, XC_b.R, XC_b.SinComputo, XC_b.TotalImporte, XC_b.Fecha, XC_b.Hora, XC_b.Verificado, XC_b.Terminal, XC_b.Item);')
+	
+--EXEC('SET IDENTITY INSERT WebCentral.dbo.'+@NombreTabla+' off')
+SET @nWhile=@nWhile+1
+END
+
+go
