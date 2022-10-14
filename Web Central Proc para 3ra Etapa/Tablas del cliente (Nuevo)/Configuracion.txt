@@ -1,0 +1,27 @@
+USE [WebCentral]
+GO
+
+/****** Object:  Table [dbo].[Configuracion]    Script Date: 10/14/2022 16:24:06 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Configuracion](
+	[SaldosACero] [char](1) NULL,
+	[TipoImpresora] [char](1) NULL,
+	[TipoTicket] [char](1) NULL,
+	[ImprimePuntos] [char](1) NULL,
+	[TipoMD] [char](1) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

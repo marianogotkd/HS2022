@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_eventos" targetNamespace="http://tempuri.org/ds_eventos.xsd" xmlns:mstns="http://tempuri.org/ds_eventos.xsd" xmlns="http://tempuri.org/ds_eventos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_eventos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_eventos" msprop:Generator_UserDSName="ds_eventos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Turnos" msprop:Generator_TableClassName="TurnosDataTable" msprop:Generator_TableVarName="tableTurnos" msprop:Generator_RowChangedName="TurnosRowChanged" msprop:Generator_TablePropName="Turnos" msprop:Generator_RowDeletingName="TurnosRowDeleting" msprop:Generator_RowChangingName="TurnosRowChanging" msprop:Generator_RowEvHandlerName="TurnosRowChangeEventHandler" msprop:Generator_RowDeletedName="TurnosRowDeleted" msprop:Generator_RowClassName="TurnosRow" msprop:Generator_UserTableName="Turnos" msprop:Generator_RowEvArgName="TurnosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Turno" msprop:Generator_ColumnVarNameInTable="columnturno" msprop:Generator_ColumnPropNameInRow="turno" msprop:Generator_ColumnPropNameInTable="turnoColumn" msprop:Generator_UserColumnName="Turno" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Torneo" msprop:Generator_TableClassName="TorneoDataTable" msprop:Generator_TableVarName="tableTorneo" msprop:Generator_TablePropName="Torneo" msprop:Generator_RowDeletingName="TorneoRowDeleting" msprop:Generator_RowChangingName="TorneoRowChanging" msprop:Generator_RowEvHandlerName="TorneoRowChangeEventHandler" msprop:Generator_RowDeletedName="TorneoRowDeleted" msprop:Generator_UserTableName="Torneo" msprop:Generator_RowChangedName="TorneoRowChanged" msprop:Generator_RowEvArgName="TorneoRowChangeEvent" msprop:Generator_RowClassName="TorneoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="evento_id" msprop:Generator_ColumnVarNameInTable="columnevento_id" msprop:Generator_ColumnPropNameInRow="evento_id" msprop:Generator_ColumnPropNameInTable="evento_idColumn" msprop:Generator_UserColumnName="evento_id" type="xs:int" minOccurs="0" />
+              <xs:element name="evento_descripcion" msprop:Generator_ColumnVarNameInTable="columnevento_descripcion" msprop:Generator_ColumnPropNameInRow="evento_descripcion" msprop:Generator_ColumnPropNameInTable="evento_descripcionColumn" msprop:Generator_UserColumnName="evento_descripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="evento_fecha" msprop:Generator_ColumnVarNameInTable="columnevento_fecha" msprop:Generator_ColumnPropNameInRow="evento_fecha" msprop:Generator_ColumnPropNameInTable="evento_fechaColumn" msprop:Generator_UserColumnName="evento_fecha" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,17 @@
+USE [WebCentral]
+GO
+ ---Object  StoredProcedure [dbo].[Parametro_Iniciar_dia]    Script Date 10132022 170439 
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure [dbo].[Parametro_Iniciar_dia]
+
+@Fecha date,
+@Dia tinyint,
+@Recorrido varchar(80)
+
+as
+
+insert Parametro (Fecha, Dia, Recorrido, Estado, Terminales) values (@Fecha, @Dia, @Recorrido, 'Activo', '1')
+

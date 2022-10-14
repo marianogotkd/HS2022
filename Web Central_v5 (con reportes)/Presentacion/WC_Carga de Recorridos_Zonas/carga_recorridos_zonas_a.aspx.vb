@@ -481,7 +481,7 @@ Public Class carga_recorridos_zonas_a
                             LK_4I.ForeColor = Drawing.Color.ForestGreen
                         End If
                     End If
-                Case 39
+        Case 39
           If Habilitada = 1 Then
             HF_4J_codigo.Value = codigo
             Div_4J.Visible = True

@@ -6,6 +6,7 @@ Public Class LiquidacionFinal_Creditos
   Dim DACliente As New Capa_Datos.WB_clientes
   Dim DAParametro As New Capa_Datos.WC_parametro
   Dim DALiquidacion As New Capa_Datos.WC_Liquidacion
+  Dim DAReliquidacion As New Capa_Datos.WC_Reliquidacion
 #End Region
 
 #Region "METODOS"
@@ -141,14 +142,40 @@ Public Class LiquidacionFinal_Creditos
 
       DAParametro.Parametro_finalizar_dia(HF_fecha.Value)
 
+
+
+
       '-------------------------------------------------------------------------------
       'NOTA: ELIMINO LOS REGISTRO EN XCARGAS 1 A N.
       DALiquidacion.XCargas_delete()
       'fecha:11-08-2022
       '-------------------------------------------------------------------------------
 
+      '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      'nota: se usara un backup de la bd previa a la liquidacion solo se almacenara la fecha y una letra al final...en este caso "T" para indicar que es una copia POSTERIOR a la liquidacion final
+      DALiquidacion.BACKUP("T", CDate(HF_fecha.Value))
+      '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-      btn_continuar.Focus()
+
+      '----SECCION PARA RELIQUIDACION----------------------------------------------------
+      '1) verifico si el ultimo registro de la tabla Parametro tiene el campo Terminales en False (0), si es asi tengo que pasar a la bd Web Central los registros de la tabla Copy.
+      Dim ds_parametro As DataSet = DAParametro.Parametro_obtener_UltimoDiaLiq()
+      If ds_parametro.Tables(0).Rows.Count <> 0 Then
+        If ds_parametro.Tables(0).Rows(0).Item("Terminales") = False Then
+
+          'a) al ultimo registro voy a poner en 1(true) el campo terminales
+          DAReliquidacion.Reliquidacion_TerminalesEstado(1)
+
+
+          'entonces voy a pasar los registros nuevos de la BD copy a Web Central.
+          'b) voy a consultar en la bd copia cual es el regist
+
+          DAReliquidacion.Reliquidacion_ObtenerDeBkp()
+
+        End If
+      End If
+
+        btn_continuar.Focus()
 
     End If
   End Sub

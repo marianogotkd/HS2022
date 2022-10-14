@@ -1,0 +1,14 @@
+create Procedure Reliquidacion_TerminalesEstado
+--se modifica el estado de la terminal
+@Terminales bit
+as
+
+declare @parametro_id int
+
+select top 1 @parametro_id = Parametro.Parametro_id from Parametro ORDER BY Parametro_id DESC
+
+select @parametro_id AS 'PARAMETRO_ID'
+
+update Parametro set Terminales = @Terminales WHERE Parametro.Parametro_id = @parametro_id 
+
+go

@@ -1,0 +1,7 @@
+CREATE PROCEDURE [dbo].[Parametro_obtener_UltimoDiaLiq]
+
+---SOLO RECUPERA 1 REGISTRO, EL QUE TENGA LA FECHA MAS RECIENTE.
+as
+select TOP 1 * from Parametro where Parametro.Estado='Inactivo' order by Parametro.Fecha desc
+
+go

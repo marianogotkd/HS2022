@@ -1,0 +1,20 @@
+
+USE [WebCentral]
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[BACKUP_aux]
+@CONDICION as varchar(1) ---NOTA: EL PARAMETRO CONDICION ES "D" para indicar que se trata de una copia del dia de trabajo
+as
+--declare @FECHA Datetime = GetDate()
+Declare @Ruta varchar(20)= 'C:\BKPWC\WC_'
+Declare @Nombre varchar (100)
+
+
+set @Nombre=@Ruta+@CONDICION+'.bak'
+
+BACKUP DATABASE WebCentral
+TO  DISK = @Nombre

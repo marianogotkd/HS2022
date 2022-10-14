@@ -1,0 +1,162 @@
+c:\users\hamernotei7\documents\visual studio 2010\Projects\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+c:\users\hamernotei7\documents\visual studio 2010\Projects\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+c:\users\hamernotei7\documents\visual studio 2010\Projects\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+c:\users\hamernotei7\documents\visual studio 2010\Projects\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+c:\users\hamernotei7\documents\visual studio 2010\Projects\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+c:\users\hamernotei7\documents\visual studio 2010\Projects\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+c:\users\hamernotei7\documents\visual studio 2010\Projects\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+c:\users\hamernotei7\documents\visual studio 2010\Projects\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Hamersoft Nuevos Proyectos\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Hamersoft Nuevos Proyectos\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Hamersoft Nuevos Proyectos\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Hamersoft Nuevos Proyectos\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Hamersoft Nuevos Proyectos\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Hamersoft Nuevos Proyectos\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Hamersoft Nuevos Proyectos\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Hamersoft Nuevos Proyectos\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Documents and Settings\Pablo\Mis documentos\FITFA CHOCO\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Documents and Settings\Pablo\Mis documentos\FITFA CHOCO\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Documents and Settings\Pablo\Mis documentos\FITFA CHOCO\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Documents and Settings\Pablo\Mis documentos\FITFA CHOCO\fitfa\Capa_de_datos\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Pablo\Mis documentos\FITFA CHOCO\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Documents and Settings\Pablo\Mis documentos\FITFA CHOCO\fitfa\Capa_de_datos\obj\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Pablo\Mis documentos\FITFA CHOCO\fitfa\Capa_de_datos\obj\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Pablo\Mis documentos\FITFA CHOCO\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Documents and Settings\Pablo\Mis documentos\FITFA CHOCO\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Documents and Settings\Pablo\Mis documentos\FITFA CHOCO\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Desktop\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Desktop\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Desktop\fitfa\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Desktop\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Users\HamerNoteI7\Desktop\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Users\HamerNoteI7\Desktop\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Desktop\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Desktop\fitfa\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Desktop\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Desktop\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Desktop\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Desktop\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Users\HamerNoteI7\Desktop\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Users\HamerNoteI7\Desktop\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Desktop\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Desktop\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Users\choco\Documents\HAMERSOFT\FITFA CHOCO\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Users\choco\Documents\HAMERSOFT\FITFA CHOCO\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Users\choco\Documents\HAMERSOFT\FITFA CHOCO\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Users\choco\Documents\HAMERSOFT\FITFA CHOCO\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Users\choco\Documents\HAMERSOFT\FITFA CHOCO\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Users\choco\Documents\HAMERSOFT\FITFA CHOCO\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Users\choco\Documents\HAMERSOFT\FITFA CHOCO\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Users\choco\Documents\HAMERSOFT\FITFA CHOCO\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\HamerSoft_Repo\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Repositorio HS2021\HS2021\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Repositorio HS2021\HS2021\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Repositorio HS2021\HS2021\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Repositorio HS2021\HS2021\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Repositorio HS2021\HS2021\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Repositorio HS2021\HS2021\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Repositorio HS2021\HS2021\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Repositorio HS2021\HS2021\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\bkp choco\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\bkp choco\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\bkp choco\fitfaMGO\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\bkp choco\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\bkp choco\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\bkp choco\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\bkp choco\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\bkp choco\fitfaMGO\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Repositorio HS2021\HS2021\fitfaMGO_v2\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Repositorio HS2021\HS2021\fitfaMGO_v2\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Repositorio HS2021\HS2021\fitfaMGO_v2\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Repositorio HS2021\HS2021\fitfaMGO_v2\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Repositorio HS2021\HS2021\fitfaMGO_v2\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Repositorio HS2021\HS2021\fitfaMGO_v2\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Repositorio HS2021\HS2021\fitfaMGO_v2\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Repositorio HS2021\HS2021\fitfaMGO_v2\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v3\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v3\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v3\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v3\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v3\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v3\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v3\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v3\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Repositorio HS2021\HS2021\fitfaMGO_v3\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Repositorio HS2021\HS2021\fitfaMGO_v3\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Repositorio HS2021\HS2021\fitfaMGO_v3\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Repositorio HS2021\HS2021\fitfaMGO_v3\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Repositorio HS2021\HS2021\fitfaMGO_v3\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Repositorio HS2021\HS2021\fitfaMGO_v3\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Repositorio HS2021\HS2021\fitfaMGO_v3\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Repositorio HS2021\HS2021\fitfaMGO_v3\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\HS2021\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Repositorio HS2021\HS2021\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Repositorio HS2021\HS2021\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Repositorio HS2021\HS2021\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Repositorio HS2021\HS2021\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Repositorio HS2021\HS2021\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Repositorio HS2021\HS2021\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Repositorio HS2021\HS2021\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Repositorio HS2021\HS2021\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+\\Desktop-ipj62b9\leo compartir\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+\\Desktop-ipj62b9\leo compartir\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+\\Desktop-ipj62b9\leo compartir\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+\\Desktop-ipj62b9\leo compartir\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+\\Desktop-ipj62b9\leo compartir\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+\\Desktop-ipj62b9\leo compartir\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+\\Desktop-ipj62b9\leo compartir\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+\\Desktop-ipj62b9\leo compartir\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_09hrs\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\LEO COMPARTIR\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Desktop\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Desktop\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.pdb
+C:\Users\HamerNoteI7\Desktop\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\bin\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Desktop\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.Resources.resources
+C:\Users\HamerNoteI7\Desktop\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.vbproj.GenerateResource.Cache
+C:\Users\HamerNoteI7\Desktop\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.dll
+C:\Users\HamerNoteI7\Desktop\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.xml
+C:\Users\HamerNoteI7\Desktop\fitfaMGO_v4_2022-05-06_11hrs(registro inv cambiado)\fitfaMGO_v4\Capa_de_datos\obj\Debug\Capa_de_datos.pdb

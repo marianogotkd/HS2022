@@ -34,6 +34,8 @@ Public Class Inicio
         Response.Redirect("~/WC_CobroPrestamosXRegalos/Cobro_PrestamosxRegalos.aspx")
       Case "10"
         Response.Redirect("~/WC_LiquidacionGrupos/LiquidacionGrupos.aspx")
+      Case "99"
+        Response.Redirect("~/WC_ReliquidacionXError/ReliquidacionXError.aspx")
       Case "A"
         Response.Redirect("~/WC_Grupos/Grupos_abm.aspx")
       Case "B"

@@ -99,6 +99,9 @@
               <div class="form-group">
               10 - LIQUIDACION DE GRUPOS.
               </div>
+              <div class="form-group">
+              99 - RELIQUIDACION X ERROR.
+              </div>
               
             </div>
             <div class="col-md-6"> <%--class="col-4"--%>

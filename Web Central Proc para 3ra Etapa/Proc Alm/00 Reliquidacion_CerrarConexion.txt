@@ -1,0 +1,4 @@
+create procedure Reliquidacion_CerrarConexion
+as
+alter database WebCentral set offline with rollback immediate
+go

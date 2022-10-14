@@ -124,6 +124,26 @@ Public Class WC_parametro
     End Function
 
 
+#Region "reliquidacion"
+    Public Function Parametro_obtener_UltimoDiaLiq() As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Parametro_obtener_UltimoDiaLiq", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        'comando.Parameters.Add(New OleDb.OleDbParameter("@Fecha", Fecha))
+
+        Dim ds As New DataSet()
+        Dim DA As New OleDbDataAdapter(comando)
+        ''Fill= Método que Agrega filas al objeto DataSet y crea un objeto DataTable denominado "Tabla", en nuestro caso "Grupos".
+        DA.Fill(ds, "Parametro")
+        ''Cierro la conexión
+        dbconn.Close()
+        Return ds
+    End Function
+#End Region
+
 
 
 

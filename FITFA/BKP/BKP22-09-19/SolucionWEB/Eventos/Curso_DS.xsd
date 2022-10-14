@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Curso_DS" targetNamespace="http://tempuri.org/Curso_DS.xsd" xmlns:mstns="http://tempuri.org/Curso_DS.xsd" xmlns="http://tempuri.org/Curso_DS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Curso_DS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Curso_DS" msprop:Generator_UserDSName="Curso_DS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Curso_recuperar_inscriptos" msprop:Generator_TableClassName="Curso_recuperar_inscriptosDataTable" msprop:Generator_TableVarName="tableCurso_recuperar_inscriptos" msprop:Generator_TablePropName="Curso_recuperar_inscriptos" msprop:Generator_RowDeletingName="Curso_recuperar_inscriptosRowDeleting" msprop:Generator_RowChangingName="Curso_recuperar_inscriptosRowChanging" msprop:Generator_RowEvHandlerName="Curso_recuperar_inscriptosRowChangeEventHandler" msprop:Generator_RowDeletedName="Curso_recuperar_inscriptosRowDeleted" msprop:Generator_UserTableName="Curso_recuperar_inscriptos" msprop:Generator_RowChangedName="Curso_recuperar_inscriptosRowChanged" msprop:Generator_RowEvArgName="Curso_recuperar_inscriptosRowChangeEvent" msprop:Generator_RowClassName="Curso_recuperar_inscriptosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="evento_id" msprop:Generator_ColumnVarNameInTable="columnevento_id" msprop:Generator_ColumnPropNameInRow="evento_id" msprop:Generator_ColumnPropNameInTable="evento_idColumn" msprop:Generator_UserColumnName="evento_id" type="xs:int" minOccurs="0" />
+              <xs:element name="inscripcion_id" msprop:Generator_ColumnVarNameInTable="columninscripcion_id" msprop:Generator_ColumnPropNameInRow="inscripcion_id" msprop:Generator_ColumnPropNameInTable="inscripcion_idColumn" msprop:Generator_UserColumnName="inscripcion_id" type="xs:int" minOccurs="0" />
+              <xs:element name="usuario_id" msprop:Generator_ColumnVarNameInTable="columnusuario_id" msprop:Generator_ColumnPropNameInRow="usuario_id" msprop:Generator_ColumnPropNameInTable="usuario_idColumn" msprop:Generator_UserColumnName="usuario_id" type="xs:int" minOccurs="0" />
+              <xs:element name="evento_descripcion" msprop:Generator_ColumnVarNameInTable="columnevento_descripcion" msprop:Generator_ColumnPropNameInRow="evento_descripcion" msprop:Generator_ColumnPropNameInTable="evento_descripcionColumn" msprop:Generator_UserColumnName="evento_descripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="evento_costo" msprop:Generator_ColumnVarNameInTable="columnevento_costo" msprop:Generator_ColumnPropNameInRow="evento_costo" msprop:Generator_ColumnPropNameInTable="evento_costoColumn" msprop:Generator_UserColumnName="evento_costo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Alumno" msprop:Generator_ColumnVarNameInTable="columnAlumno" msprop:Generator_ColumnPropNameInRow="Alumno" msprop:Generator_ColumnPropNameInTable="AlumnoColumn" msprop:Generator_UserColumnName="Alumno" type="xs:string" minOccurs="0" />
+              <xs:element name="graduacion_desc" msprop:Generator_ColumnVarNameInTable="columngraduacion_desc" msprop:Generator_ColumnPropNameInRow="graduacion_desc" msprop:Generator_ColumnPropNameInTable="graduacion_descColumn" msprop:Generator_UserColumnName="graduacion_desc" type="xs:string" minOccurs="0" />
+              <xs:element name="usuario_doc" msprop:Generator_ColumnVarNameInTable="columnusuario_doc" msprop:Generator_ColumnPropNameInRow="usuario_doc" msprop:Generator_ColumnPropNameInTable="usuario_docColumn" msprop:Generator_UserColumnName="usuario_doc" type="xs:int" minOccurs="0" />
+              <xs:element name="instructor" msprop:Generator_ColumnVarNameInTable="columninstructor" msprop:Generator_ColumnPropNameInRow="instructor" msprop:Generator_ColumnPropNameInTable="instructorColumn" msprop:Generator_UserColumnName="instructor" type="xs:string" minOccurs="0" />
+              <xs:element name="Nro." msprop:Generator_ColumnVarNameInTable="_columnNro_" msprop:Generator_ColumnPropNameInRow="_Nro_" msprop:Generator_ColumnPropNameInTable="_Nro_Column" msprop:Generator_UserColumnName="Nro." type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
